@@ -1,0 +1,92 @@
+/*
+FILE DESCRIPTION :
+
+This file contains sample data for medications under trial study. 
+The content of this data is inserted within the brackets "{}", 
+which is where Json begins. 
+The data structure is as follows: 
+reference number for the medication: 
+	medication name 
+	Liste of studies associated with the medication 
+		study number
+			researcher overseeing the study 
+			Results list  
+				ID for result 1 
+					participant ID 
+					Date of test start 
+					Date of test end
+					List of symptoms/side effects in strings, with a table format 
+				ID for result 2  
+					participant ID
+					Date of test start 
+					Date of test end
+					List of symptoms/side effects in strings, with a table format
+END OF FILE DESCRIPTION. 
+*/
+
+{
+	"1": {
+		"medicationName": "Dydracetalax",
+		"studies": {
+			"5": {
+				"researcher": "5",
+				"resultList": {
+					"19": {
+						"participant": "1",
+						"symptoms": ["anxiety", "dry mouth", "nausea", "dizziness"],
+						"startDate": "15/06/2017",
+						"endDate": "14/06/2018"
+
+					},
+					"23": {
+						"participant": "3",
+						"symptoms": ["arrhthmias", "shortness of breath", "nausea"],
+						"startDate": "30/07/2017",
+						"endDate": "29/07/2018"
+					}
+				}
+			},
+			"8": {
+				"researcher": "2",
+				"resultList": {
+					"19": {
+						"participant": "6",
+						"symptoms": ["insomnia", "dry mouth"],
+						"startDate": "07/09/2018",
+						"endDate": "06/09/2019"
+
+					},
+					"23": {
+						"participant": "7",
+						"symptoms": ["anxiety", "nausea", "dry mouth"],
+						"startDate": "18/09/2018",
+						"endDate": "17/09/2019"
+					}
+			},
+			
+		}
+	}, 
+	"2": {
+		"medicationName": "Mettre un nom de médicament ici",
+		"studies": {
+			"5": {
+				"researcher": "5",
+				"resultList": {
+					"19": {
+						"participant": "4",
+						"symptoms": ["low blood pressure", "blurred vision", "stomach pain"],
+						"startDate": "21/03/2018",
+						"endDate": "20/03/2019"
+
+					},
+					"23": {
+						"participant": "8",
+						"symptoms": ["blurred vision", "rash", "low blood pressure"],
+						"startDate": "02/03/2018",
+						"endDate": "01/03/2019"
+					},
+				}
+			},
+		}
+	},
+	
