@@ -5,37 +5,45 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+// suppression private qui n'avait pas d'intérêt ici
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
+		reader.close();
+		
+		// suppression de i qui est inutile
 		int headCount = 0;	// counts headaches
+		int rashCount = 0; // oubli variable counts rush
+		int pupilCount = 0; // oubli variable counts pupils
+		
+		
 		while (line != null) {
-			i++;	// increment i
+			// suppression i++ incrementation non necessaire
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
 				headCount++;
 				System.out.println("number of headaches: " + headCount);
 			}
 			else if (line.equals("rush")) {
-				rashCount++;
+				rashCount ++;
+				System.out.println("number of rush" + rashCount); // oubli
 			}
 			else if (line.contains("pupils")) {
-				pupilCount++;
+				pupilCount ++;
+				System.out.println("number of pupilCount" + pupilCount); // oubli
 			}
+			
+			line = reader.readLine();	// get another symptome
+			
 
-			line = reader.readLine();	// get another symptom
 		}
+
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
+		writer.write("headache: " + headCount + "\n"); // erreur headaches au lieu de head
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
