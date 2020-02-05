@@ -12,23 +12,23 @@ import java.util.List;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+	private String filename;
 	
 	/**
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @param filename a full or partial path to file with symptom strings in it, one per line
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
+	public ReadSymptomDataFromFile (String filename) {
+		this.filename = filename;
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public ArrayList<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
-		if (filepath != null) {
+		if (filename != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader (new FileReader(filename));
 				String line = reader.readLine();
 				
 				while (line != null) {
