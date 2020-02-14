@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 
 public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
@@ -28,11 +31,18 @@ public class AnalyticsCounter {
 			}
 	
 			Enumeration<String> symptomsKeys = symptoms.keys();
+			List<String> sortsymptomsKeys = new ArrayList<String>();
 			
 			while(symptomsKeys.hasMoreElements()) {
 		    	String key = symptomsKeys.nextElement();
-		    	writer.write(key + " : " + symptoms.get(key) + "\n");
+		    	sortsymptomsKeys.add(key);
 		    }
+			
+			Collections.sort(sortsymptomsKeys);
+			
+			for (String symptomKey : sortsymptomsKeys) {
+				writer.write(symptomKey.substring(0, 1).toUpperCase() + symptomKey.substring(1) + " : " + symptoms.get(symptomKey) + "\n");
+			}
 		} catch (IOException e) {
 			  e.printStackTrace();
 		}
