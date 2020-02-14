@@ -18,6 +18,8 @@ public class AnalyticsCounter {
 			Map<String, Integer> symptoms = new TreeMap<String, Integer>();
 			
 			while (line != null) {
+				line = line.toLowerCase();
+				line = line.trim();
 				if (symptoms.containsKey(line)) {
 					symptoms.put(line, symptoms.get(line) + 1);
 				} else {
