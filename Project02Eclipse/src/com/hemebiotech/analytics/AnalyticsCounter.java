@@ -4,11 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
@@ -16,10 +13,9 @@ public class AnalyticsCounter {
 				BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
 				FileWriter writer = new FileWriter("result.out")
 			) {
-			
 	
 			String line = reader.readLine();
-			Hashtable<String, Integer> symptoms = new Hashtable<String, Integer>();
+			Map<String, Integer> symptoms = new TreeMap<String, Integer>();
 			
 			while (line != null) {
 				if (symptoms.containsKey(line)) {
@@ -29,20 +25,12 @@ public class AnalyticsCounter {
 				}
 				line = reader.readLine();
 			}
-	
-			Enumeration<String> symptomsKeys = symptoms.keys();
-			List<String> sortsymptomsKeys = new ArrayList<String>();
 			
-			while(symptomsKeys.hasMoreElements()) {
-		    	String key = symptomsKeys.nextElement();
-		    	sortsymptomsKeys.add(key);
-		    }
+			Map<String, Integer> treeMap = new TreeMap<String, Integer>(symptoms);
+			for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+	            writer.write(entry.getKey() + " : " + entry.getValue() + "\n");
+	        }
 			
-			Collections.sort(sortsymptomsKeys);
-			
-			for (String symptomKey : sortsymptomsKeys) {
-				writer.write(symptomKey.substring(0, 1).toUpperCase() + symptomKey.substring(1) + " : " + symptoms.get(symptomKey) + "\n");
-			}
 		} catch (IOException e) {
 			  e.printStackTrace();
 		}
