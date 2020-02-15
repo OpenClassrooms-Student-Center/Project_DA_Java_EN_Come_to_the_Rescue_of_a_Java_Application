@@ -6,7 +6,7 @@ import java.util.Map;
  * Anything that write in output file a list of symptoms with there count 
  * @author MrgnCpn
  *
- */
+ */ 
 public interface ISymptomWriter {
 	
 	/**

@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * Simple brute force implementation
  * @author MrgnCpn
- */
+ */ 
 public class ReadSymptomsDataFromFile implements ISymptomReader {
 	private String filePath;
 	

@@ -7,7 +7,7 @@ import java.util.Map;
  * The important part is, the return value from the operation, which is a list of strings,
  * that may contain many duplications
  * @author MrgnCpn
- */
+ */ 
 public interface ISymptomReader {	
 	/**
 	 * Read symptoms from file and return a empty list if no data is available

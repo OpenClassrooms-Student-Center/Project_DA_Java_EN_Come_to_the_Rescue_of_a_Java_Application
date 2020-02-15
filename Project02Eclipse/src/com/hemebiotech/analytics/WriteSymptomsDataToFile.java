@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Simple brute force implementation
  * @author MrgnCpn
- */
+ */ 
 public class WriteSymptomsDataToFile implements ISymptomWriter {
 	private String filePath;
 	
