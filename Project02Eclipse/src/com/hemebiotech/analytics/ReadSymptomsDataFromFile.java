@@ -12,9 +12,18 @@ import java.util.List;
 import java.util.TreeMap;
 import java.util.Map;
 
+
+/**
+ * Simple brute force implementation
+ * @author MrgnCpn
+ */
 public class ReadSymptomsDataFromFile implements ISymptomReader {
 	private String filePath;
 	
+	/**
+	 * 
+	 * @param pfilePath a full or partial path to file with symptom strings in it, one per line
+	 */
 	public ReadSymptomsDataFromFile(String pfilePath) {
 		this.filePath = pfilePath.trim();
 	}
