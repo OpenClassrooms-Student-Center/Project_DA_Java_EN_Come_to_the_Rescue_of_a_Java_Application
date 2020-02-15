@@ -7,6 +7,10 @@ public class AnalyticsCounter {
 		ReadSymptomsDataFromFile symptomsFileReader = new ReadSymptomsDataFromFile("Project02Eclipse/symptoms.txt");
 		WriteSymptomsDataToFile symptomsFileWriter = new WriteSymptomsDataToFile("result.out");
 		
-		symptomsFileWriter.writeSymptoms(symptomsFileReader.GetSymptoms());
+		symptomsFileWriter.writeSymptoms(
+				symptomsFileReader.sortSymptomsByValue(
+						symptomsFileReader.GetSymptoms()
+				),
+		true, true);
 	}
 }
