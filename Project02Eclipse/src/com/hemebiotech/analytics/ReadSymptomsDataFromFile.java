@@ -28,7 +28,7 @@ public class ReadSymptomsDataFromFile implements ISymptomReader {
 		this.filePath = pfilePath.trim();
 	}
 	
-	public Map<String, Integer> GetSymptoms() {
+	public Map<String, Integer> getSymptoms() {
 		Map<String, Integer> symptoms = new HashMap<String, Integer>();
 		
 		if (this.filePath != null || this.filePath != "") {
@@ -54,11 +54,17 @@ public class ReadSymptomsDataFromFile implements ISymptomReader {
 		return symptoms;
 	}
 	
+	/**
+	 * @see com.hemebiotech.analytics.ISymptomReader #sortSymptomsByKey(Map)
+	 */
 	public Map<String, Integer> sortSymptomsByKey(Map<String, Integer> symptomsList) {
 		Map<String, Integer> sortedSymptomsByKey = new TreeMap<String, Integer>(symptomsList);
 		return sortedSymptomsByKey;
 	}
 	
+	/**
+	 * @see com.hemebiotech.analytics.ISymptomReader #sortSymptomsByValue(Map)
+	 */
 	public Map<String, Integer> sortSymptomsByValue(Map<String, Integer> symptomsList) {
         List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(symptomsList.entrySet());
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {

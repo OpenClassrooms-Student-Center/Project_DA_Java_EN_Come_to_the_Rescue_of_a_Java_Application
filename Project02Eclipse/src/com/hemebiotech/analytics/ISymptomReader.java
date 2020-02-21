@@ -13,7 +13,7 @@ public interface ISymptomReader {
 	 * Read symptoms from file and return a empty list if no data is available
 	 * @return HashMap with symptoms name in keys and count of then in value (Map<"SymptomsName", Count>)
 	 */
-	Map<String, Integer> GetSymptoms();
+	Map<String, Integer> getSymptoms();
 	
 	/**
 	 * Order by keys a Map

@@ -17,8 +17,8 @@ public class AnalyticsCounter {
 		WriteSymptomsDataToFile symptomsFileWriter = new WriteSymptomsDataToFile("Project02Eclipse/result.out");
 		
 		symptomsFileWriter.writeSymptoms(
-				symptomsFileReader.sortSymptomsByKey(
-						symptomsFileReader.GetSymptoms()
+				symptomsFileReader.sortSymptomsByValue(
+						symptomsFileReader.getSymptoms()
 				),
 		true, true);
 	}

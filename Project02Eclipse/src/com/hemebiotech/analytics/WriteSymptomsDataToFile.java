@@ -45,6 +45,9 @@ public class WriteSymptomsDataToFile implements ISymptomWriter {
 		return (count < listSize - 1) ? "\n" : "";
 	}
 	
+	/**
+	 * @see com.hemebiotech.analytics.ISymptomWriter #writeSymptoms(Map, boolean, boolean)
+	 */
 	public void writeSymptoms(Map<String, Integer> symptomsList, boolean firstLetterIsCapital, boolean alignStatement){
 		if (this.filePath != null || this.filePath != "") {
 			try(FileWriter writer = new FileWriter(this.filePath)) {
