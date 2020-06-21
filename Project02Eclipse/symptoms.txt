@@ -85,6 +85,7 @@ fever
 dizziness
 arrhythmias
 rash
+blablacar
 rash
 fever
 dry mouth
