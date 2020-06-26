@@ -78,7 +78,6 @@ fever
 constricted pupils
 cough
 stiff neck
-blablacar
 inflamation
 blurred vision
 fever
@@ -100,4 +99,3 @@ anxiety
 anxiety
 cough
 blurred vision
-blablacar
