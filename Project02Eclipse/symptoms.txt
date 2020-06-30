@@ -24,6 +24,7 @@ arrhythmias
 stomach pain
 anxiety
 dizziness
+trotro
 water retention
 fever
 low blood pressure
@@ -87,6 +88,7 @@ rash
 rash
 fever
 dry mouth
+blablacar
 fever
 high blood pressure
 stiff neck
