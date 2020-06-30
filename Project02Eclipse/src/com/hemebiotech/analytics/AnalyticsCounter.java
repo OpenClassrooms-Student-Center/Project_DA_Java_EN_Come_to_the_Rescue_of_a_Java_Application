@@ -45,16 +45,18 @@
 
 package com.hemebiotech.analytics;
 
-// Notre code doit être optimal (dynamique) de sorte qu'en modifiant la BDD (augmentation du nb de sympt),
-// qu'on n'ait pas à modifier le code
 
 public class AnalyticsCounter {
 
 	public static String filename = "symptoms.txt";// Déclaration du fichier texte à lire
 
+	/**
+	 * @param args
+	 * @throws Exception
+	 */
 	public static void main(String args[]) throws Exception// Une exception est levée grâce à l'instruct "throw"
 	{
-SymptomesService symptomesService = new SymptomesService ();
-symptomesService.zozo();
+     SymptomesService symptomesService = new SymptomesService ();
+     symptomesService.compterSymptomes(filename);
 	}
 }

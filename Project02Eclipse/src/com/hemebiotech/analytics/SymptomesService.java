@@ -10,14 +10,17 @@ import java.util.function.Function;// Package contenant l'interface "Function" d
 import java.util.stream.Collectors;// Package contenant la classe "Collectors" de gestion des grp d'objets/collections
 
 public class SymptomesService {
-	public void zozo(){
+	
+	/**
+	 * @param filename
+	 */
+	public void compterSymptomes(String filename){
 		
-		// Dans le bloc try-catch, le mot clé "try" contient tout ce qui peut générer
-		// des erreurs d'exception
+		// Dans le bloc try-catch, le mot clé "try" contient tout ce qui peut générer des erreurs d'exception
 	try {
 		
 		// Lecture de toutes les lignes du fichier symptômes
-		List<String> lines = Files.readAllLines(Paths.get("symptoms.txt"));
+		List<String> lines = Files.readAllLines(Paths.get(filename));
 
 		// déclarat d'1 var de type Map (carte) qui compte les lignes (courantes)
 		Map<String, Long> compteurs = lines.stream()
