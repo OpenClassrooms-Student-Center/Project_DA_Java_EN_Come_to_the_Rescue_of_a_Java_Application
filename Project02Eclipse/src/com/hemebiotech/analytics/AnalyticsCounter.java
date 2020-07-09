@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class AnalyticsCounter {
 
@@ -25,6 +26,9 @@ public class AnalyticsCounter {
 
 		ArrayElementCount arrayElementCount = new ArrayElementCount();
 		elementCountMap = arrayElementCount.arrayElementCount(listOfLines);
+
+		HashMapSorting m = new HashMapSorting();
+
 
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
