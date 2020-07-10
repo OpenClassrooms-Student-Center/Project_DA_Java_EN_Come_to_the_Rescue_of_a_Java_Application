@@ -1,11 +1,8 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class AnalyticsCounter {
 
@@ -13,17 +10,12 @@ public class AnalyticsCounter {
 	private static HashMap<String, Integer> content;
 
 	public static void main(String[] args) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		ArrayList<String> listOfLines = new ArrayList<>();
 
-		String line = reader.readLine();
-		while (line != null)
-		{
-			listOfLines.add(line);
-			line = reader.readLine();
-		}
-		reader.close();
+		String filePath = "symptoms.txt";
+		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(filePath);
+
+		ArrayList<String> listOfLines = new ArrayList<>();
+		listOfLines = readSymptomDataFromFile.GetSymptoms();
 
 		ArrayElementCount arrayElementCount = new ArrayElementCount();
 		elementCountMap = arrayElementCount.arrayElementCount(listOfLines);
