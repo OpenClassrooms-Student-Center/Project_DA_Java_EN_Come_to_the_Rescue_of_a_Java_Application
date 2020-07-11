@@ -1,14 +1,14 @@
 package com.hemebiotech.analytics;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 
-public class ArrayElementCount {
+public class MapOccurenceCount {
 
-    public HashMap<String, Integer> arrayElementCount(ArrayList<String> inputArray)
+    public TreeMap<String, Integer> countMapOccurence(ArrayList<String> inputArray)
     {
         //Creating a HashMap object with elements of inputArray as keys and their count as values
-        HashMap<String, Integer> elementCountMap = new HashMap<String, Integer>();
+        TreeMap<String, Integer> elementCountMap = new TreeMap<>();
 
         //checking every element of the inputArray
         for (String i : inputArray)

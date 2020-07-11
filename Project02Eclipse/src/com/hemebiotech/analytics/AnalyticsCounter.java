@@ -2,12 +2,12 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
-	private static HashMap<String, Integer> elementCountMap;
-	private static HashMap<String, Integer> content;
+	private static TreeMap<String, Integer> elementCountMap;
+	private static TreeMap<String, Integer> content;
 
 	public static void main(String[] args) throws Exception {
 
@@ -17,17 +17,21 @@ public class AnalyticsCounter {
 		ArrayList<String> listOfLines = new ArrayList<>();
 		listOfLines = readSymptomDataFromFile.GetSymptoms();
 
-		ArrayElementCount arrayElementCount = new ArrayElementCount();
-		elementCountMap = arrayElementCount.arrayElementCount(listOfLines);
+		MapOccurenceCount mapOccurenceCount = new MapOccurenceCount();
+		elementCountMap = mapOccurenceCount.countMapOccurence(listOfLines);
 
-		HashMapSorting m = new HashMapSorting();
-		HashMapSorting hashMapSorting = new HashMapSorting();
+		MapSorting m = new MapSorting();
+		MapSorting mapSorting = new MapSorting();
 
-		content = hashMapSorting.formatted(elementCountMap);
+		content = mapSorting.formatted(elementCountMap);
 
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write(String.valueOf(content));
-		writer.close();
+//		// next generate output
+//		FileWriter writer = new FileWriter ("result.out");
+//		writer.write(String.valueOf(content));
+//		writer.close();
+
+		String filename = "result.out";
+		WriteSymptomOccurenceInFile writeSymptomOccurenceInFile = new WriteSymptomOccurenceInFile(filename);
+		writeSymptomOccurenceInFile.SetSymptoms(content);
 	}
 }
