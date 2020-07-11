@@ -1,37 +1,25 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.TreeMap;
+import com.hemebiotech.helpers.interfaceHelpers.ISymptomWriter;
+
+import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
 
-	private static TreeMap<String, Integer> elementCountMap;
-	private static TreeMap<String, Integer> content;
+	private static Map<String, Integer> elementCountMap;
 
 	public static void main(String[] args) throws Exception {
 
 		String filePath = "symptoms.txt";
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(filePath);
-
-		ArrayList<String> listOfLines = new ArrayList<>();
-		listOfLines = readSymptomDataFromFile.GetSymptoms();
+		List<String> listOfLines = readSymptomDataFromFile.GetSymptoms();
 
 		MapOccurenceCount mapOccurenceCount = new MapOccurenceCount();
 		elementCountMap = mapOccurenceCount.countMapOccurence(listOfLines);
 
-		MapSorting m = new MapSorting();
-		MapSorting mapSorting = new MapSorting();
-
-		content = mapSorting.formatted(elementCountMap);
-
-//		// next generate output
-//		FileWriter writer = new FileWriter ("result.out");
-//		writer.write(String.valueOf(content));
-//		writer.close();
-
 		String filename = "result.out";
-		WriteSymptomOccurenceInFile writeSymptomOccurenceInFile = new WriteSymptomOccurenceInFile(filename);
-		writeSymptomOccurenceInFile.SetSymptoms(content);
+		ISymptomWriter writeSymptomOccurenceInFile = new WriteSymptomOccurenceInFile(filename);
+		writeSymptomOccurenceInFile.writeSymptoms(elementCountMap);
 	}
 }

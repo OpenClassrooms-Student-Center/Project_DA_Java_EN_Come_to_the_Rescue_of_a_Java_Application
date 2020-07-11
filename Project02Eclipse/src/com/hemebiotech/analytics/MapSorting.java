@@ -4,8 +4,8 @@ import java.util.*;
 
 public class MapSorting {
 
-    public TreeMap<String, Integer> formatted(TreeMap<String, Integer> data) {
-        TreeMap<String, Integer> response = new TreeMap<>();
+    public Map<String, Integer> formatted(Map<String, Integer> data) {
+        Map<String, Integer> response = new TreeMap<>();
         Set s = data.entrySet();
         Iterator it = s.iterator();
         while ( it.hasNext() ) {

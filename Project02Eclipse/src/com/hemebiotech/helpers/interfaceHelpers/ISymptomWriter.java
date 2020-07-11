@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package com.hemebiotech.helpers.interfaceHelpers;
 
 import java.util.Map;
 

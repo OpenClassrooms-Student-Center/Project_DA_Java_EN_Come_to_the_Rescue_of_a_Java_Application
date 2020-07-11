@@ -1,14 +1,18 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
+import com.hemebiotech.helpers.interfaceHelpers.IMapOccurenceCount;
+
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
-public class MapOccurenceCount {
+public class MapOccurenceCount implements IMapOccurenceCount {
 
-    public TreeMap<String, Integer> countMapOccurence(ArrayList<String> inputArray)
+    @Override
+    public Map<String, Integer> countMapOccurence(List<String> inputArray)
     {
-        //Creating a HashMap object with elements of inputArray as keys and their count as values
-        TreeMap<String, Integer> elementCountMap = new TreeMap<>();
+        //Creating a TreeMap object with elements of inputArray as keys and their count as values
+        Map<String, Integer> elementCountMap = new TreeMap<>();
 
         //checking every element of the inputArray
         for (String i : inputArray)
