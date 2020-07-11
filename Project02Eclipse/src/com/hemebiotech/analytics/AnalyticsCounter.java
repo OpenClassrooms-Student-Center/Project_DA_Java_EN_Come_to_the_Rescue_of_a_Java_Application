@@ -8,18 +8,23 @@ import java.util.Map;
 public class AnalyticsCounter {
 
 	private static Map<String, Integer> elementCountMap;
+	private String filePath;
+	private String filename;
 
-	public static void main(String[] args) throws Exception {
+	public AnalyticsCounter(String filePath, String filename) {
+		this.filePath = filePath;
+		this.filename = filename;
+	}
 
-		String filePath = "symptoms.txt";
-		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(filePath);
+	public void readAndSaveOccurenceSymptoms() {
+
+		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(this.filePath);
 		List<String> listOfLines = readSymptomDataFromFile.GetSymptoms();
 
 		MapOccurenceCount mapOccurenceCount = new MapOccurenceCount();
 		elementCountMap = mapOccurenceCount.countMapOccurence(listOfLines);
 
-		String filename = "result.out";
-		ISymptomWriter writeSymptomOccurenceInFile = new WriteSymptomOccurenceInFile(filename);
+		ISymptomWriter writeSymptomOccurenceInFile = new WriteSymptomOccurenceInFile(this.filename);
 		writeSymptomOccurenceInFile.writeSymptoms(elementCountMap);
 	}
 }
