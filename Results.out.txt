@@ -1,0 +1,28 @@
+LIST OF SYMPTOMS IN NATURAL ORDER
+--------------------------------------------------------------
+NoO = Number Of Occurrences || PoO = Percentage of Occurrences
+--------------------------------------------------------------
+ANXIETY => NoO = 5|| PoO = 4,95%
+ARRHYTHMIAS => NoO = 3|| PoO = 2,97%
+BLINDNESS => NoO = 1|| PoO = 0,99%
+BLURRED VISION => NoO = 5|| PoO = 4,95%
+CONSTRICTED PUPILS => NoO = 3|| PoO = 2,97%
+COUGH => NoO = 6|| PoO = 5,94%
+DIALATED PUPILS => NoO = 4|| PoO = 3,96%
+DIZZINESS => NoO = 5|| PoO = 4,95%
+DRY MOUTH => NoO = 8|| PoO = 7,92%
+FEVER => NoO = 7|| PoO = 6,93%
+HEADACHE => NoO = 3|| PoO = 2,97%
+HIGH BLOOD PRESSURE => NoO = 10|| PoO = 9,9%
+HIGH CO2 LEVEL => NoO = 1|| PoO = 0,99%
+INFLAMATION => NoO = 7|| PoO = 6,93%
+INSOMNIA => NoO = 4|| PoO = 3,96%
+LOW BLOOD PRESSURE => NoO = 4|| PoO = 3,96%
+NAUSEA => NoO = 5|| PoO = 4,95%
+RAPID HEART RATE => NoO = 1|| PoO = 0,99%
+RASH => NoO = 4|| PoO = 3,96%
+SHORTNESS OF BREATH => NoO = 3|| PoO = 2,97%
+STIFF NECK => NoO = 4|| PoO = 3,96%
+STOMACH PAIN => NoO = 3|| PoO = 2,97%
+TREMOR => NoO = 4|| PoO = 3,96%
+WATER RETENTION => NoO = 1|| PoO = 0,99%

@@ -1,43 +1,54 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
+/**
+ * Analyzes tendencies of occurrences of symptoms listed in a file.
+ * 
+ * @author Yassine PAYET
+ *
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	/**
+	 * File containing the reported symptoms.
+	 */
+	static String docFile = new String("symptest.txt");
+	/**
+	 * List of symptoms
+	 */
+	static List<String> symptoms = new ArrayList<String>();
+	/**
+	 * Map of symptoms
+	 */
+	static Map<String, Integer> sympMap = new TreeMap<>();
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	/**
+	 * This is the main method which processes a file, analyzes it and writes the
+	 * results in a new file.
+	 * 
+	 * 
+	 * @see ReadSymptomFromFile
+	 * @see MapSymptomCount
+	 * @see WriteResultFromMap
+	 * @param args - The command line parameters.
+	 * @throws IOException
+	 */
+
+	public static void main(String[] args) throws IOException, NullPointerException, ConcurrentModificationException {
+
+		ReadSymptomFromFile docPath = new ReadSymptomFromFile(docFile); // get absolute path of a file
+
+		symptoms = docPath.GetSymptom(); // read each lines of a file and return a list
+
+		sympMap = MapSymptomCount.mapSymptom(symptoms); // count all occurrences
+
+		WriteResultFromMap.writeResult(sympMap, symptoms); // writes in a file a map of symptoms in natural order
 	}
+
 }
