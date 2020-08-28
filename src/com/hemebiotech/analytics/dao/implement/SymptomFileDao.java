@@ -9,13 +9,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implements DAO for symptom file datasource
+ */
 public class SymptomFileDao implements Dao<Symptom> {
 
     private String filepath;
 
     /**
-     *
-     @param filepath a full or partial path to file with symptom strings in it, one per line
+     * @param filepath a full or partial path to file with symptom strings in it, one per line
      */
     public SymptomFileDao(String filepath) {
         this.filepath = filepath;

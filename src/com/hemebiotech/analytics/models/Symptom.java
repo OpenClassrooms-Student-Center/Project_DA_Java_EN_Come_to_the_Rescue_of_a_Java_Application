@@ -1,5 +1,8 @@
 package com.hemebiotech.analytics.models;
 
+/**
+ * Represents one symptom with its name
+ */
 public class Symptom {
 
     private String name;
