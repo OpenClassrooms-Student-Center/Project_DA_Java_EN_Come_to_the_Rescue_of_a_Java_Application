@@ -25,7 +25,7 @@ public class SymptomFileDao implements Dao<Symptom> {
 
     @Override
     public List<Symptom> getAll() {
-        ArrayList<Symptom> result = new ArrayList<>();
+        ArrayList<Symptom> symptomList = new ArrayList<>();
 
         if (filepath != null) {
             try {
@@ -33,7 +33,7 @@ public class SymptomFileDao implements Dao<Symptom> {
                 String line = reader.readLine();
 
                 while (line != null) {
-                    result.add(new Symptom(line));
+                    symptomList.add(new Symptom(line));
                     line = reader.readLine();
                 }
                 reader.close();
@@ -42,6 +42,6 @@ public class SymptomFileDao implements Dao<Symptom> {
             }
         }
 
-        return result;
+        return symptomList;
     }
 }
