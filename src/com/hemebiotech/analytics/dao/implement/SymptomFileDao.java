@@ -25,23 +25,19 @@ public class SymptomFileDao implements Dao<Symptom> {
 
     @Override
     public List<Symptom> getAll() {
-        ArrayList<Symptom> symptomList = new ArrayList<>();
+        List<Symptom> symptomList = new ArrayList<>();
 
         if (filepath != null) {
-            try {
-                BufferedReader reader = new BufferedReader (new FileReader(filepath));
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
                 String line = reader.readLine();
-
                 while (line != null) {
                     symptomList.add(new Symptom(line));
                     line = reader.readLine();
                 }
-                reader.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
         return symptomList;
     }
 }
