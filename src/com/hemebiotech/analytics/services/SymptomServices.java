@@ -41,10 +41,10 @@ public class SymptomServices {
      * generates symptomDao result.out with symptom name and frequency
      * if existing, replace the old by the new
      */
-    public void getResult() {
+    public void writeResultTo(String filepath) {
         Map <String, Integer> map = countFrequency();
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("result.out"))){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(filepath))){
             for (String i : map.keySet()) {
                 bw.write(i + "," + map.get(i));
                 bw.newLine();
