@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Represents one symptom with its name
  */
-public class Symptom {
+public class Symptom implements Comparable<Symptom>{
 
     private String name;
 
@@ -32,5 +32,15 @@ public class Symptom {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Symptom o) {
+        return name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString(){
+        return name;
     }
 }

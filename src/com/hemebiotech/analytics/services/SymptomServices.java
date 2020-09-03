@@ -27,10 +27,10 @@ public class SymptomServices {
      * @return a TreeMap with Symptom name as key and frequency as value.
      * No duplicate allowed. In alphabetical order (by key / symptom name).
      */
-    public Map<String, Integer> countFrequency() {
+    public Map<Symptom, Integer> countFrequency() {
 
         return symptomDao.getAll().stream().collect(Collectors.toMap(
-                Symptom::getName,
+                symptom -> symptom,
                 symptom -> 1,
                 Integer::sum,
                 TreeMap::new
@@ -42,10 +42,10 @@ public class SymptomServices {
      * if existing, replace the old by the new
      */
     public void writeResultTo(String filepath) {
-        Map <String, Integer> map = countFrequency();
+        Map <Symptom, Integer> map = countFrequency();
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filepath))){
-            for (String i : map.keySet()) {
+            for (Symptom i : map.keySet()) {
                 bw.write(i + "," + map.get(i));
                 bw.newLine();
             }
