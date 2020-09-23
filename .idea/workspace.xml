@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="987a2460-5141-4816-8a8b-c1b42f6f2f2b" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Testv1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1fg1B8FNOQDv4nQMBWUzZrfaVmr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Steven\home\Steven\Travail\Projet\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application" />
+      <recent name="D:\Steven\home\Steven\Travail\Projet\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\Project02Eclipse" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.OutputSymptoms">
+    <configuration name="AnalyticsCounter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hemebiotech.analytics.AnalyticsCounter" />
+      <module name="Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hemebiotech.analytics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OutputSymptoms" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hemebiotech.analytics.OutputSymptoms" />
+      <module name="Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hemebiotech.analytics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OutputSymptoms" />
+        <item itemvalue="Application.AnalyticsCounter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="987a2460-5141-4816-8a8b-c1b42f6f2f2b" name="Default Changelist" comment="" />
+      <created>1596624783811</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596624783811</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="753" y="315" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597244690368">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="753" y="315" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1597244690368" />
+    <state x="574" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1599668747404">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="574" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1599668747404" />
+    <state x="516" y="152" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1600862762248">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="516" y="152" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600862762248" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1600862753419">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600862753419" />
+    <state width="1493" height="345" key="GridCell.Tab.0.bottom" timestamp="1600877199787">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="345" key="GridCell.Tab.0.bottom/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600877199787" />
+    <state width="1493" height="131" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1597245588820" />
+    <state width="1493" height="345" key="GridCell.Tab.0.center" timestamp="1600877199787">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="345" key="GridCell.Tab.0.center/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600877199787" />
+    <state width="1493" height="131" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1597245588820" />
+    <state width="1493" height="345" key="GridCell.Tab.0.left" timestamp="1600877199787">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="345" key="GridCell.Tab.0.left/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600877199787" />
+    <state width="1493" height="131" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1597245588819" />
+    <state width="1493" height="345" key="GridCell.Tab.0.right" timestamp="1600877199787">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="345" key="GridCell.Tab.0.right/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1600877199787" />
+    <state width="1493" height="131" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1597245588820" />
+    <state width="793" height="277" key="GridCell.Tab.1.bottom" timestamp="1597222786511">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="793" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1597222786511" />
+    <state width="793" height="277" key="GridCell.Tab.1.center" timestamp="1597222786511">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="793" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1597222786511" />
+    <state width="793" height="277" key="GridCell.Tab.1.left" timestamp="1597222786510">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="793" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1597222786510" />
+    <state width="793" height="277" key="GridCell.Tab.1.right" timestamp="1597222786511">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="793" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1597222786511" />
+    <state x="249" y="7" key="SettingsEditor" timestamp="1596637067503">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="249" y="7" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1596637067503" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1599668218455">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1599668218455" />
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1598621935733">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864/1920.0.1920.1080@0.0.1536.864" timestamp="1598621935733" />
+  </component>
+</project>
