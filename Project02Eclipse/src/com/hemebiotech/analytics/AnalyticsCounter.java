@@ -1,43 +1,52 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+public class AnalyticsCounter implements Analytics{
 	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
+	/** use a TreeMap to have the keys ordered by their lexicographic value. 
+	 * This variable contain a dictionary of symptoms(key) associated to the amount of occurrence(value) found
+	 * in the List analyzed.
+	 */
+	private Map<String, Integer> countedSymptoms = new TreeMap<>();
+	
+	/**
+	 * countSymptoms iterate over the List used in parameter: if the key doesn't exist in 
+	 * countedSymptoms, create it and set the value associated to 0, if the symptom already
+	 * exist in countedSymptoms, increase the value associated to it by 1.
+	 * 
+	 * @param symptomsList is a list containing all the symptoms we are going to iterate over
+	 */
+	private void countSymptoms(List<String> symptomsList) {
+		for (String symptom: symptomsList) {
+			this.countedSymptoms.putIfAbsent(symptom, 0);
+			this.countedSymptoms.put(symptom, countedSymptoms.get(symptom) + 1);
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
 	}
+
+	/**
+	 * Take a List and iterate over it to remove spaces and set all letters in lower case.
+	 * It's purpose is to make sure we don't get different words to address the same symptom.
+	 */
+	private void cleanDatas(List<String> symptomsList) {
+		symptomsList.replaceAll( string -> string.toLowerCase().replaceAll(" ", ""));
+	}
+	
+	/**
+	 * Analyze use the methods defined in AnalyticsCounter to analyze the data.
+	 */
+	public void analyze(List<String> symptomsList) {
+		this.cleanDatas(symptomsList);
+		this.countSymptoms(symptomsList);
+	}
+	
+	/**
+	 * This method return the dictionary of symptoms
+	 */
+	public Map<String, Integer> getAnalyzedSymptoms() {
+		return this.countedSymptoms;
+	}
+
 }
