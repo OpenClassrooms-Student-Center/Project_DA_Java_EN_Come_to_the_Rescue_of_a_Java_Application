@@ -13,7 +13,7 @@ public class WriteMapSymtomDataInFile implements ISymptomWriter {
 	 * @param symptoms is a Map object containing the name of a symptom as a key and it's occurrences as a value. 
 	 */
 	public void createFile(Map<String, Integer> symptoms) {
-        try (FileWriter writer = new FileWriter("Project02Eclipse\\test.out"); BufferedWriter bw = new BufferedWriter(writer)) {
+        try (FileWriter writer = new FileWriter("Project02Eclipse\\results.out"); BufferedWriter bw = new BufferedWriter(writer)) {
         	for (Map.Entry<String, Integer> entry: symptoms.entrySet()) {
         		bw.write(entry.getKey() + " : " + entry.getValue());
         		bw.newLine();
