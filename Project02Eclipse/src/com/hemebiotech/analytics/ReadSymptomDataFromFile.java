@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Simple brute force implementation
@@ -13,35 +14,31 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
+	private List<String> symptomsList = new ArrayList<String>();
 	
 	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @param filepath a full or partial path to a file containing strings of symptoms.
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
+	public void setFilePath (String filepath) {
 		this.filepath = filepath;
 	}
 	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
+	/**
+	 * 
+	 * @return symptomsList a list of the symptoms inside the file defined by filepath
+	 */
+	public List<String> getSymptoms() {
 		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
+			try(BufferedReader br = new BufferedReader(new FileReader(this.filepath))) {
 				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
+				// returns a stream and convert it into a list
+				this.symptomsList = br.lines().collect(Collectors.toList());
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return result;
+		return this.symptomsList;
 	}
 
 }
