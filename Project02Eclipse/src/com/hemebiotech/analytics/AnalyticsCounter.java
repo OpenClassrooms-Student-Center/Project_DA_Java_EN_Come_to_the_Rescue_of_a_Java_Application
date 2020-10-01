@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
+import com.hemebiotech.analytics.PrintResult.PrintResultFile;
+
 import java.util.List;
 import java.util.Map;
 
@@ -17,12 +18,9 @@ public class AnalyticsCounter {
         SymptomsOccurrences symptomsOccurrences = new SymptomsOccurrences();
         Map<String, Integer> symptomsOccurrencesMap = symptomsOccurrences.getSymptomsOccurrences(symptoms) ;
 
-        FileWriter writer = new FileWriter("result.out");
-        for (Map.Entry<String, Integer> entry : symptomsOccurrencesMap.entrySet()) {
-            writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
-
-        }
-        writer.close();
+        PrintResultFile printResultFile = new PrintResultFile();
+        printResultFile.WriteToFile(symptomsOccurrencesMap);
+        printResultFile.CloseFile();
 
     }
 
