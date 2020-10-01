@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.PrintResult;
+package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
