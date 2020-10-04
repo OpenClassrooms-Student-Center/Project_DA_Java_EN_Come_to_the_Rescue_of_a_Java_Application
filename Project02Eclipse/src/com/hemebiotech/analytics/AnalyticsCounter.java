@@ -9,6 +9,7 @@ public class AnalyticsCounter {
 
     /**
      * @param args [0] contains the path to the symptoms.txt file
+     *
      */
     public static void main(String[] args) {
 
