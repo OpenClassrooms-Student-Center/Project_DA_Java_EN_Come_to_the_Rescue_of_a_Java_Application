@@ -22,6 +22,7 @@ public class SymptomsOccurrences {
      */
 
     public Map<String, Integer> getSymptomsOccurrences(List<String> symptoms) {
+
         for (String symptom : symptoms) {
             if (symptomsOccurrencesMap.containsKey(symptom)) {
                 symptomsOccurrencesMap.put(symptom, symptomsOccurrencesMap.get(symptom) + 1); // the old value is replaced by the specified value

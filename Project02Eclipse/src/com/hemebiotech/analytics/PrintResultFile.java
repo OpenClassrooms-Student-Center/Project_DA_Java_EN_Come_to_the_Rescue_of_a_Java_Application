@@ -3,15 +3,12 @@ package com.hemebiotech.analytics;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
-
 /**
- * write the list of symptoms and
- * their number of occurrences
- * in the result.out
+ *
+ * write the list of symptoms and their number of occurrences in the result.out
  */
 public class PrintResultFile {
     private FileWriter fileWriter;
-
 
     /**
      * @throws IOException exception handling
@@ -20,7 +17,6 @@ public class PrintResultFile {
     public PrintResultFile() throws IOException {
         fileWriter = new FileWriter("result.out");
     }
-
     /**
      * @param symptomsOccurrencesMap  key = symptom, value = number of occurrences
      * 
@@ -30,7 +26,6 @@ public class PrintResultFile {
             fileWriter.write(entry.getKey() + ": " + entry.getValue() + "\n");
         }
     }
-
     /**
      * Closes the stream, flushing it first.
      */
