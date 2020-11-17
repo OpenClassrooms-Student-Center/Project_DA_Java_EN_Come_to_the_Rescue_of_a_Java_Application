@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 import java.util.Hashtable;
 import java.util.List;
 
-public class SymptomsSort {
+public class SymptomsSort implements ISymptomSort {
     /**
      *
      */
@@ -12,9 +12,8 @@ public class SymptomsSort {
     /**
      *
      * @param list
-     * @return
      */
-    public Hashtable<String, Integer> CleanSymptomsList(List<String> list){
+    public Hashtable<String, Integer>  CleanSymptomsList(List<String> list){
         Hashtable<String, Integer> listClean = new Hashtable<>();
 
         for(String symptoms : list) {
