@@ -17,5 +17,6 @@ public class AnalyticsCounter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 }

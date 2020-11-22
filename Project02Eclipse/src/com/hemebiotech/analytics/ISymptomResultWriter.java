@@ -1,4 +1,5 @@
 package com.hemebiotech.analytics;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -11,5 +12,5 @@ public interface ISymptomResultWriter {
      * The hastable list must have for key the name of symptom and for value the number of recurrences
      * @param listSymptomsClean
      */
-    void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean);
+    void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean) throws IOException;
 }

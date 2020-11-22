@@ -5,14 +5,19 @@ import java.io.IOException;
 import java.util.*;
 
 public class WriteSymptomDataResult implements ISymptomResultWriter{
-    private final FileWriter writer;
+    private FileWriter writer;
 
     /**
      * Constructor for class WriteSymptomDataResult
      * @param filepath
      */
     public WriteSymptomDataResult(String filepath){
-        this.writer = new FileWriter(filepath);
+        try {
+            this.writer = new FileWriter(filepath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -20,7 +25,7 @@ public class WriteSymptomDataResult implements ISymptomResultWriter{
      * The hastable list must have for key the name of symptom and for value the number of recurrences
      * @param listSymptomsClean
      */
-    public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) {
+    public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) throws IOException {
         Set<String> keys = listSymptomsClean.keySet();
         Iterator<String> iterator = keys.iterator();
         String str;

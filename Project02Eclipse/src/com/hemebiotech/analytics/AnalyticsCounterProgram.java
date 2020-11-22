@@ -21,7 +21,7 @@ public class AnalyticsCounterProgram {
     /**
      * Function who recover, sort and write a list of symptoms with the attached count
      */
-    public void start()  {
+    public void start() throws IOException {
         ArrayList<String> listSymptoms;
         Hashtable<String, Integer> listSymptomsClean;
         listSymptoms = this.reader.GetSymptoms();
