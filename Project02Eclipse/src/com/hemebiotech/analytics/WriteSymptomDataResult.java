@@ -8,19 +8,19 @@ public class WriteSymptomDataResult implements ISymptomResultWriter{
     private final FileWriter writer;
 
     /**
-     *
-     * @throws IOException
+     * Constructor for class WriteSymptomDataResult
+     * @param filepath
      */
-    public WriteSymptomDataResult(String filepath) throws IOException {
+    public WriteSymptomDataResult(String filepath){
         this.writer = new FileWriter(filepath);
     }
 
     /**
-     *
+     * Function who create a file and write to it all the name of symptoms and their number of recurrences from the datasource
+     * The hastable list must have for key the name of symptom and for value the number of recurrences
      * @param listSymptomsClean
-     * @throws IOException
      */
-    public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) throws IOException {
+    public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) {
         Set<String> keys = listSymptomsClean.keySet();
         Iterator<String> iterator = keys.iterator();
         String str;
@@ -31,6 +31,4 @@ public class WriteSymptomDataResult implements ISymptomResultWriter{
         }
         writer.close();
     }
-
-
 }

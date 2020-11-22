@@ -1,0 +1,141 @@
+Index: Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hemebiotech.analytics;\r\n\r\nimport java.io.BufferedReader;\r\nimport java.io.FileReader;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\n\r\npublic class AnalyticsCounter {\r\n\t/**\r\n\t *\r\n\t * @param args\r\n\t * @throws IOException\r\n\t */\r\n\tpublic static void main(String args[]) throws IOException {\r\n\t\tAnalyticsCounterProgram program = new AnalyticsCounterProgram();\r\n\t\tprogram.start();\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java	(revision eaff318401d77e1e61a360a3bb17a4d401cffc29)
++++ Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java	(date 1605865838785)
+@@ -1,18 +1,18 @@
+ package com.hemebiotech.analytics;
+ 
+-import java.io.BufferedReader;
+-import java.io.FileReader;
+-import java.io.FileWriter;
+ import java.io.IOException;
+ 
+ public class AnalyticsCounter {
+ 	/**
+ 	 *
+ 	 * @param args
+-	 * @throws IOException
+ 	 */
+-	public static void main(String args[]) throws IOException {
+-		AnalyticsCounterProgram program = new AnalyticsCounterProgram();
+-		program.start();
++	public static void main(String[] args) {
++		try{
++			AnalyticsCounterProgram program = new AnalyticsCounterProgram();
++			program.start();
++		} catch (IOException e) {
++			e.printStackTrace();
++		}
+ 	}
+ }
+Index: Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounterProgram.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hemebiotech.analytics;\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.Hashtable;\n\npublic class AnalyticsCounterProgram {\n    ISymptomReader reader;\n    ISymptomResultWriter writer;\n    ISymptomSort sorter;\n\n    /**\n     *\n     * @throws IOException\n     */\n    public AnalyticsCounterProgram() throws IOException {\n        this.reader = new ReadSymptomDataFromFile(\"/home/johanna/Bureau/workspace_OCR/P2/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt\");;\n        this.writer = new WriteSymptomDataResult(\"result.out\");\n        this.sorter = new SymptomsSort();\n    }\n\n    /**\n     *\n     * @throws IOException\n     */\n    public void start() throws IOException {\n        ArrayList<String> listSymptoms;\n        Hashtable<String, Integer> listSymptomsClean;\n        listSymptoms = this.reader.GetSymptoms();\n        listSymptomsClean = this.sorter.CleanSymptomsList(listSymptoms);\n        this.writer.WriteSymptoms(listSymptomsClean);\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounterProgram.java	(revision eaff318401d77e1e61a360a3bb17a4d401cffc29)
++++ Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounterProgram.java	(date 1605869496945)
+@@ -9,8 +9,8 @@
+     ISymptomSort sorter;
+ 
+     /**
+-     *
+-     * @throws IOException
++     * this is the constructor of the class : AnalyticsCounterProgram
++     * @see AnalyticsCounterProgram
+      */
+     public AnalyticsCounterProgram() throws IOException {
+         this.reader = new ReadSymptomDataFromFile("/home/johanna/Bureau/workspace_OCR/P2/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt");;
+@@ -20,7 +20,6 @@
+ 
+     /**
+      *
+-     * @throws IOException
+      */
+     public void start() throws IOException {
+         ArrayList<String> listSymptoms;
+Index: Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hemebiotech.analytics;\r\n\r\nimport java.io.BufferedReader;\r\nimport java.io.FileReader;\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n/**\r\n * Simple brute force implementation\r\n *\r\n */\r\npublic class ReadSymptomDataFromFile implements ISymptomReader {\r\n\r\n\tprivate final String filepath;\r\n\t\r\n\t/**\r\n\t * \r\n\t * @param filepath a full or partial path to file with symptom strings in it, one per line\r\n\t */\r\n\tpublic ReadSymptomDataFromFile (String filepath) {\r\n\t\tthis.filepath = filepath;\r\n\t}\r\n\t\r\n\t@Override\r\n\tpublic ArrayList<String> GetSymptoms() {\r\n\t\tArrayList<String> result = new ArrayList<String>();\r\n\t\t\r\n\t\tif (filepath != null) {\r\n\t\t\ttry {\r\n\t\t\t\tBufferedReader reader = new BufferedReader (new FileReader(filepath));\r\n\t\t\t\tString line = reader.readLine();\r\n\t\t\t\t\r\n\t\t\t\twhile (line != null) {\r\n\t\t\t\t\tresult.add(line);\r\n\t\t\t\t\tline = reader.readLine();\r\n\t\t\t\t}\r\n\t\t\t\treader.close();\r\n\t\t\t} catch (IOException e) {\r\n\t\t\t\te.printStackTrace();\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\treturn result;\r\n\t}\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java	(revision eaff318401d77e1e61a360a3bb17a4d401cffc29)
++++ Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java	(date 1605866113078)
+@@ -40,8 +40,6 @@
+ 				e.printStackTrace();
+ 			}
+ 		}
+-		
+ 		return result;
+ 	}
+-
+ }
+Index: Project02Eclipse/src/com/hemebiotech/analytics/SymptomsSort.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hemebiotech.analytics;\n\nimport java.util.Hashtable;\nimport java.util.List;\n\npublic class SymptomsSort implements ISymptomSort {\n    /**\n     *\n     */\n    public SymptomsSort() {}\n\n    /**\n     *\n     * @param list\n     */\n    public Hashtable<String, Integer>  CleanSymptomsList(List<String> list){\n        Hashtable<String, Integer> listClean = new Hashtable<>();\n\n        for(String symptoms : list) {\n            if (listClean.isEmpty()) {\n                listClean.put(symptoms, 1);\n            } else if (listClean.containsKey(symptoms)) {\n                int old = listClean.get(symptoms);\n                listClean.put(symptoms,old+ 1);\n            } else {\n                listClean.put(symptoms, 1);\n            }\n        }\n        return listClean;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Project02Eclipse/src/com/hemebiotech/analytics/SymptomsSort.java	(revision eaff318401d77e1e61a360a3bb17a4d401cffc29)
++++ Project02Eclipse/src/com/hemebiotech/analytics/SymptomsSort.java	(date 1605863212762)
+@@ -10,7 +10,7 @@
+     public SymptomsSort() {}
+ 
+     /**
+-     *
++     * this
+      * @param list
+      */
+     public Hashtable<String, Integer>  CleanSymptomsList(List<String> list){
+Index: Project02Eclipse/src/com/hemebiotech/analytics/WriteSymptomDataResult.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.hemebiotech.analytics;\n\nimport java.io.FileWriter;\nimport java.io.IOException;\nimport java.util.*;\n\npublic class WriteSymptomDataResult implements ISymptomResultWriter{\n    private final FileWriter writer;\n\n    /**\n     *\n     * @throws IOException\n     */\n    public WriteSymptomDataResult(String filepath) throws IOException {\n        this.writer = new FileWriter(filepath);\n    }\n\n    /**\n     *\n     * @param listSymptomsClean\n     * @throws IOException\n     */\n    public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) throws IOException {\n        Set<String> keys = listSymptomsClean.keySet();\n        Iterator<String> iterator = keys.iterator();\n        String str;\n\n        while (iterator.hasNext()) {\n           str = iterator.next();\n           writer.write(str+\" : \"+listSymptomsClean.get(str) + \"\\n\" );\n        }\n        writer.close();\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Project02Eclipse/src/com/hemebiotech/analytics/WriteSymptomDataResult.java	(revision eaff318401d77e1e61a360a3bb17a4d401cffc29)
++++ Project02Eclipse/src/com/hemebiotech/analytics/WriteSymptomDataResult.java	(date 1605865887001)
+@@ -8,7 +8,7 @@
+     private final FileWriter writer;
+ 
+     /**
+-     *
++     * this is the constructor of the class WriteSymptomDataResult
+      * @throws IOException
+      */
+     public WriteSymptomDataResult(String filepath) throws IOException {
+@@ -16,21 +16,19 @@
+     }
+ 
+     /**
++     * This function write all symptoms with their number of occurences
+      *
+-     * @param listSymptomsClean
++     * @param listSymptomsClean an hashtable : this key is the name of the symptom, this value is the count of occurences for the symptom
+      * @throws IOException
+      */
+     public void WriteSymptoms(Hashtable<String, Integer> listSymptomsClean ) throws IOException {
+         Set<String> keys = listSymptomsClean.keySet();
+         Iterator<String> iterator = keys.iterator();
+         String str;
+-
+         while (iterator.hasNext()) {
+            str = iterator.next();
+            writer.write(str+" : "+listSymptomsClean.get(str) + "\n" );
+         }
+         writer.close();
+     }
+-
+-
+ }

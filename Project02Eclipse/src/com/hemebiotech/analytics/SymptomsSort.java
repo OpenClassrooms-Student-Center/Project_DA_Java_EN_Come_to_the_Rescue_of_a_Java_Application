@@ -4,13 +4,9 @@ import java.util.Hashtable;
 import java.util.List;
 
 public class SymptomsSort implements ISymptomSort {
-    /**
-     *
-     */
-    public SymptomsSort() {}
 
     /**
-     *
+     * Function who count the number of recurrences of symptoms and sort them by key : name of symptoms and by value : number of recurrences.
      * @param list
      */
     public Hashtable<String, Integer>  CleanSymptomsList(List<String> list){
