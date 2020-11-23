@@ -13,7 +13,7 @@ public class AnalyticsCounterProgram {
      * Instantiate the reader, writer and the sorter to enable the program to operate
      */
     public AnalyticsCounterProgram() {
-        this.reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");;
+        this.reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
         this.writer = new WriteSymptomDataResult("result.out");
         this.sorter = new SymptomsSort();
     }
