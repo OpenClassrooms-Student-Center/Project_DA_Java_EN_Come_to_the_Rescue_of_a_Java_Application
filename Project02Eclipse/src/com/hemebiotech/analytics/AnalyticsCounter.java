@@ -11,6 +11,7 @@ public class AnalyticsCounter {
 	// Commentaire
 	// un nouveau commentaire
 	// encore un autre commentaire
+	// Un 4e commentaire
 
 	public static void main(String args[]) throws Exception {
 		// first get input
