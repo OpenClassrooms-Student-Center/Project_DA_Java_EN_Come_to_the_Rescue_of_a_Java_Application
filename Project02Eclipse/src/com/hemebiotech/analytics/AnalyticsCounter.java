@@ -9,6 +9,7 @@ public class AnalyticsCounter {
 	private static int rashCount = 0; // initialize to 0
 	private static int pupilCount = 0; // initialize to 0
 	// Commentaire
+	// un nouveau commentaire
 
 	public static void main(String args[]) throws Exception {
 		// first get input
