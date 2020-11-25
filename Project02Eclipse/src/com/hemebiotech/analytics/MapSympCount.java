@@ -16,7 +16,7 @@ public class MapSympCount {
 	/**
 	 * counts the occurrences of the different symptoms in the list
 	 * 
-	 * @param symptoms
+	 * @param symptoms list of symptoms
 	 * @return a map of the symptoms in alphabetical order as well as their
 	 *         occurrences
 	 */

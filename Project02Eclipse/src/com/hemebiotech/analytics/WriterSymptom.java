@@ -20,8 +20,9 @@ public class WriterSymptom implements ISymptomWriter {
 	 * writes the results of the occurrences of each symptom in alphabetical order
 	 * to a file
 	 * 
-	 * @param mapSym
-	 * @param symptoms
+	 * @param mapSym   map of the symptoms in alphabetical order as well as their
+	 *                 occurrences
+	 * @param symptoms list of symptoms
 	 * 
 	 */
 	public void writeResult(Map<String, Integer> mapSym, List<String> symptoms) {

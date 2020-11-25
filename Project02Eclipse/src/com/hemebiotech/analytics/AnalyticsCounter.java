@@ -15,6 +15,25 @@ import java.util.TreeMap;// Package containing the TreeMap class (sorted alphabe
 
 public class AnalyticsCounter {
 
+	/*
+	 * main method which processes a file parses it and writes it in alphabetical
+	 * order to a new file
+	 * 
+	 * @see ISymptomReader
+	 * 
+	 * @see ReadSymptomFromFile
+	 * 
+	 * @see MapSympCount
+	 * 
+	 * @see ISymptomWriter
+	 * 
+	 * @see WriterSymptom
+	 * 
+	 * @param args - The command line parameters.
+	 * 
+	 * @throws Exception
+	 */
+
 	public static void main(String args[]) throws Exception { // first get input
 
 		// folder containing symptoms
@@ -26,33 +45,14 @@ public class AnalyticsCounter {
 		// symptom map
 		Map<String, Integer> mapSym = new TreeMap<String, Integer>();
 
-		/*
-		 * main method which processes a file parses it and writes it in alphabetical
-		 * order to a new file
-		 * 
-		 * @see ISymptomReader
-		 * 
-		 * @see ReadSymptomFromFile
-		 * 
-		 * @see MapSympCount
-		 * 
-		 * @see ISymptomWriter
-		 * 
-		 * @see WriterSymptom
-		 * 
-		 * @param args - The command line parameters.
-		 * 
-		 * @throws Exception
-		 */
-
 		ReadSymptomDataFromFile sympFile = new ReadSymptomDataFromFile(docFile);
 		symptoms = sympFile.getSymptoms();// read each line of the file and return a list
 
 		MapSympCount mapSymptoms = new MapSympCount();
 		mapSym = mapSymptoms.mapSym(symptoms);// count all occurrences of symptoms
 
-		ISymptomWriter WriterSymptom = new WriterSymptom();
-		WriterSymptom.writeResult(mapSym, symptoms);// write a symptom map in alphabetical order to a file
+		ISymptomWriter writerSymptom = new WriterSymptom();
+		writerSymptom.writeResult(mapSym, symptoms);// write a symptom map in alphabetical order to a file
 
 	}
 }
