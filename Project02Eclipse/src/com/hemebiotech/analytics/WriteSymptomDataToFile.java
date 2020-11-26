@@ -9,41 +9,60 @@ import java.util.Map;
 import static java.util.stream.Collectors.toMap;
 
 
+
+/**
+ * @author fouziahajji
+ * La classe WriteSymptomDataToFile permet de récupérer une Map et d'écrire ses résultats par ordre alphabétique
+ * dans le fichier de sortie.
+ */
+
 public class WriteSymptomDataToFile implements ISymptomWriter{
 	
 	
-		private String filepath;
+		private String fileOutPut;
 		private Map<String, Integer> symptoms;
 
 	    /**
-	     * @param filepath a full or partial path to file to write in
-	     * @param symptoms a map with a symptom as key and the count of appearance as value
+	     * @param fileOutPut fichier de sortie
+	     * @param symptoms une map avec les symptoms par leur cle de valeur et le nombre d'occurences par valeur
 	     */
 	    public WriteSymptomDataToFile(String filepath, Map<String, Integer> ListOccurences) {
-	        this.filepath = filepath;
+	        this.fileOutPut = filepath;
 	        this.symptoms = ListOccurences;
 	        
+	       
 	        
 	    }
-
+    	/*
+			 * Utilise une map pour trier et retourne une LinkedHashMap par ordre.
+			 *
+			 * Utilise l'interface Entry pour récupérer les données de la map.
+			 * 
+			 * Chaque occurence est écrite avec leurs valeurs respectives.
+			 * 
+			 * Capture l'exception possible.
+			 * 
+			 * Ferme le fichier une fois l'opération terminée ou si l'erreur est rencontrée.
+			 * 
+			 */
 	    @Override
 	    public void writeSymptoms() {
 	    	
 	    	
 
 	        if (symptoms != null) {
-	            //Use Stream to sort the symptoms then return a LinkedHashMap to keep it sorted
+	            //Stream pour afficher les symptoms triés et retourne une LinkedHashMap par ordre
 	            Map<String, Integer>  sortedSymptoms= symptoms.entrySet().stream()
 	                    .sorted(Map.Entry.comparingByKey())
 	                    .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
 	                            (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 	     
 	            
-
-	         if (filepath != null) {
-	                //Iterate through the LinkedHashMap to write the symptoms in the file
+	
+	         if (fileOutPut != null) {
+	                // Parcoure LinkedHashMap pour écrire les symptômes dans le fichier
 	                try {
-	                    BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
+	                    BufferedWriter writer = new BufferedWriter(new FileWriter(fileOutPut));
 	                    for (Map.Entry<String, Integer> symptom : sortedSymptoms.entrySet()) {
 	                        writer.write(symptom.getKey() + " = " + symptom.getValue() + "\n");
 	                    }

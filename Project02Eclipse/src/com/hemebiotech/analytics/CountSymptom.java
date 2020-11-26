@@ -8,17 +8,26 @@ import java.util.Map;
 
 
 
+/**
+ * La classe CountSymptom permet de récupérer une ArrayList et de l'intégrer dans une
+ * HashMap, afin de recenser les occurences par ordre alphabétique.
+ * @author fouziahajji
+ */
 public class CountSymptom {
-
+	/** 
+	 * Main class pour commencer le programme
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
-		// Read the file with the util class & return List of String
+		// Lis le fichier avec la class BufferedReader et return une ArrayList de String
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("symptoms.txt");
 		ArrayList<String> result = reader.GetSymptoms();
 
-		//Count the symptoms and put them in a Map : values:symptoms/keys:number of appearance
+		//Compte les symptoms et les met dans une Map : valeur:symptoms/cle:nombre d'occurences
 		Map<String, Integer> ListOccurences = CountSymptom.countSymptoms(result);
 
-		//Write the sorted symptoms in the output file
+		//Ecrit la liste des symptomes triées sur un fichier
 		WriteSymptomDataToFile writer = new WriteSymptomDataToFile("result.out", ListOccurences);
 		writer.writeSymptoms();
 		
@@ -28,12 +37,17 @@ public class CountSymptom {
 
 
 
+	/**
+	 * @param result
+	 * @return ListOccurences
+	 * @throws IOException
+	 */
 	public static Map<String, Integer> countSymptoms(List<String> result) throws IOException {
 		  
 		 
 		
 		//Cette table de hashage contiendra les occurences des symptoms
-		Map<String, Integer> ListOccurences = new HashMap<String, Integer>();
+		HashMap<String, Integer> ListOccurences = new HashMap<String, Integer>();
 	  
 	  
 	    
@@ -53,7 +67,7 @@ public class CountSymptom {
 	    
 		} 
 	 
-				//On affiche le résultat, c'est à dire les occurences des symptoms.
+				//On affiche le résultat, c'est à dire les occurences des symptoms classés par ordre alphabétique.
 
 	      		ListOccurences.entrySet().stream() 
 	      		.sorted(Map.Entry.<String, Integer>comparingByKey() ) 
