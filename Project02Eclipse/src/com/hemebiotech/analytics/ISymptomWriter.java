@@ -13,4 +13,5 @@ public interface ISymptomWriter {
 	
 
 	void writeSymptoms();
+	
 }

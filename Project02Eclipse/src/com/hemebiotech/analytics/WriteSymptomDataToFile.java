@@ -3,10 +3,9 @@ package com.hemebiotech.analytics;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static java.util.stream.Collectors.toMap;
+
 
 
 
@@ -34,11 +33,9 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	        
 	    }
     	/*
-			 * Utilise une map pour trier et retourne une LinkedHashMap par ordre.
-			 *
 			 * Utilise l'interface Entry pour récupérer les données de la map.
 			 * 
-			 * Chaque occurence est écrite avec leurs valeurs respectives.
+			 * Chaque occurrence est écrite avec leurs valeurs respectives.
 			 * 
 			 * Capture l'exception possible.
 			 * 
@@ -49,21 +46,12 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	    public void writeSymptoms() {
 	    	
 	    	
-
-	        if (symptoms != null) {
-	            //Stream pour afficher les symptoms triés et retourne une LinkedHashMap par ordre
-	            Map<String, Integer>  sortedSymptoms= symptoms.entrySet().stream()
-	                    .sorted(Map.Entry.comparingByKey())
-	                    .collect(toMap(Map.Entry::getKey, Map.Entry::getValue,
-	                            (oldValue, newValue) -> oldValue, LinkedHashMap::new));
-	     
-	            
 	
-	         if (fileOutPut != null) {
-	                // Parcoure LinkedHashMap pour écrire les symptômes dans le fichier
+	         if ((fileOutPut != null) && (symptoms != null)) {
+	                // Parcoure la Map pour écrire les symptômes dans le fichier
 	                try {
 	                    BufferedWriter writer = new BufferedWriter(new FileWriter(fileOutPut));
-	                    for (Map.Entry<String, Integer> symptom : sortedSymptoms.entrySet()) {
+	                    for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
 	                        writer.write(symptom.getKey() + " = " + symptom.getValue() + "\n");
 	                    }
 	                    writer.close();
@@ -74,7 +62,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	                }
 	            }
 	        }
-	    }
+	    
 
 
 }
