@@ -43,7 +43,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 			 * 
 			 */
 	    @Override
-	    public void writeSymptoms() {
+	    public void writeSymptoms(Map<String, Integer> MapList) throws IOException {
 	    	
 	    	
 	
@@ -58,7 +58,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	                } catch (IOException e) {
 	                    e.printStackTrace();
 	                    
-	                     
+	                    
 	                }
 	            }
 	        }

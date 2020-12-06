@@ -1,34 +1,38 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeMap;
 
 
 
 /**
  * La classe CountSymptom permet de récupérer une ArrayList et de l'intégrer dans une
- * HashMap, afin de recenser les occurrences par ordre alphabétique.
+ * TreeMap, afin de recenser les occurrences par ordre alphabétique.
  * @author fouziahajji
  */
 public class CountSymptom extends AnalyseCounter{
 	
 
 
+	public CountSymptom() {
+		
+	}
 
 	/**
 	 * @param result
 	 * @return ListOccurences
 	 * @throws IOException
 	 */
-	public static TreeMap<String, Integer> countSymptoms(List<String> result) throws IOException {
+	public Map<String, Integer> countSymptoms(ArrayList<String> result) {
 		  
 		 
 		
-		//Cette table de hashage contiendra les occurences des symptoms
+		//Utilisation de treemap pour trier la map par ordre alphabétique
 		TreeMap<String, Integer> ListOccurences = new TreeMap<String, Integer>();
 	  
-	  
+	 
 	    
 		//On itère sur le tableau des symptoms.
 		for (int i = 0; i < result.size(); i++) {
@@ -48,16 +52,18 @@ public class CountSymptom extends AnalyseCounter{
 	 
 				//On affiche le résultat, c'est à dire les occurences des symptoms classés par ordre alphabétique.
 
-      		ListOccurences.entrySet()
-//	      		.sorted(Map.Entry.<String, Integer>comparingByKey() ) 
-      		.forEach(System.out::println);
+      			ListOccurences.entrySet().forEach(System.out::println);
+      		
 		      
 	      
 	      
-	      		return ListOccurences;
+      			return ListOccurences;
 	  
 		  
-	    }
+	  }
+	
+	
 	  
+	
 
 }
