@@ -6,12 +6,10 @@ import java.util.Map;
 /**
 * Classe mère pour analyser les symptoms
  */
-
-
-public class AnalyseCounter {
+public class Analyse {
 	
 	   /**
-     * Compte les symptomes depuis l'ArrayList et les ajoute à une map
+     * Analyse les symptomes depuis l'ArrayList et les ajoute à une map
      *
      * @param result
      *
@@ -19,11 +17,22 @@ public class AnalyseCounter {
      *
      * @author fouziahajji
      */
-	public Map<String, Integer> countSymptoms(ArrayList<String> result) {
+	public Map<String, Integer> analyseSymptoms(ArrayList<String> list) {
 		return null;
 		
 		
 	}
+	   /**
+  * Analyse les medicaments depuis l'ArrayList et les ajoute à une map
+  *
+  * @author fouziahajji
+  */
+	public Map<String, Integer> analyseMedicamentw() {
+		return null;
+		
+		
+	}
+
 
 	
 }

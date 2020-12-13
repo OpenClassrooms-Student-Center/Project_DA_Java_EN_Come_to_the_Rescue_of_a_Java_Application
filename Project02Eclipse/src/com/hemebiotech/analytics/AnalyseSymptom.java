@@ -1,5 +1,9 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -7,37 +11,71 @@ import java.util.TreeMap;
 
 
 
+
+
 /**
- * La classe CountSymptom permet de récupérer une ArrayList et de l'intégrer dans une
- * TreeMap, afin de recenser les occurrences par ordre alphabétique.
+ * La classe AnalyseSymptom permet de lire une Arraylist de symptoms, de compter ces symptoms de les recenser par ordre alphabétique 
+ * et d'ecrire le resultat dans un fichier.
  * @author fouziahajji
  */
-public class CountSymptom extends AnalyseCounter{
+public class AnalyseSymptom extends Analyse implements ISymptomReader, ISymptomWriter{
 	
+	private String filepath;
+	private String fileOutPut;
+	private Map<String, Integer> symptoms;
+	
+	
+    /**Constructors
+     *
+    */
+	public AnalyseSymptom(String filepath, String fileOutPut, Map<String, Integer> ListOccurences) {
+		this.filepath = filepath;
+        this.fileOutPut = filepath;
+        this.symptoms = ListOccurences;
+        
+	}
 
-
-	public CountSymptom() {
+	/**La méthode getSymptoms recupere la liste des symptoms depuis un fichier source et les integre dans une ArrayList
+	 * @return tabSymptom
+	 */
+	public ArrayList<String> getSymptoms() {
+		ArrayList<String> tabSymptom = new ArrayList<String>();
+		
+		if (filepath != null) {
+			try {
+				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				String line = reader.readLine();
+				
+				while (line != null) {
+					tabSymptom.add(line);
+					line = reader.readLine();
+				}
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return tabSymptom;
+		
 		
 	}
 
-	/**
-	 * @param result
+	/**La methode countSymptoms recupere une liste de symptoms et les integre dans une TreeMap afin de les recenser par ordre alphabétique
+	 * ensuite compte le nombre d'occurences pour chaque symptoms
+	 * @param ArrayList list
 	 * @return ListOccurences
-	 * @throws IOException
 	 */
-	public Map<String, Integer> countSymptoms(ArrayList<String> result) {
+	public TreeMap<String, Integer> countSymptoms(ArrayList<String> list) {
 		  
-		 
+		
 		
 		//Utilisation de treemap pour trier la map par ordre alphabétique
 		TreeMap<String, Integer> ListOccurences = new TreeMap<String, Integer>();
 	  
 	 
-	    
 		//On itère sur le tableau des symptoms.
-		for (int i = 0; i < result.size(); i++) {
-	        //On récupère le symptom
-			String symptom = result.get(i);
+		for (String symptom: list) {
 				//On regarde si le symptom est déjà présent dans la table d'occurence.
 				if (ListOccurences.containsKey(symptom)) {
 					//Le symptom est présent dans la table d'occurence, on incrémente l'occurence de 1.
@@ -49,21 +87,42 @@ public class CountSymptom extends AnalyseCounter{
 	    
 				
 		} 
-	 
-				//On affiche le résultat, c'est à dire les occurences des symptoms classés par ordre alphabétique.
-
-      			ListOccurences.entrySet().forEach(System.out::println);
-      		
-		      
+			//On affiche le résultat, c'est à dire les occurences des symptoms classés par ordre alphabétique.
+      		ListOccurences.entrySet().forEach(System.out::println);
 	      
-	      
-      			return ListOccurences;
+      		return ListOccurences;
 	  
 		  
 	  }
-	
-	
+	/**La methode writeSymptoms ecrit le resultat dans une fichier en parcourant la Map symptoms
+	 * @throws IOException
+	 */
+    public void writeSymptoms() throws IOException {
+    	
+    	
+    	
+        if ((fileOutPut != null) && (symptoms != null)) {
+               // Parcoure la Map pour écrire les symptômes dans le fichier
+               try {
+                   BufferedWriter writer = new BufferedWriter(new FileWriter(fileOutPut));
+                   for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
+                       writer.write(symptom.getKey() + " = " + symptom.getValue() + "\n");
+                   }
+                   writer.close();
+               } catch (IOException e) {
+                   e.printStackTrace();
+                   
+                   
+               }
+           }
+        System.out.println("le resultat se trouve dans le fichier: " + fileOutPut);
+    	
+       }
+    
+
+    
 	  
 	
 
 }
+
