@@ -17,23 +17,11 @@ public class Analyse {
      *
      * @author fouziahajji
      */
-	public Map<String, Integer> analyseSymptoms(ArrayList<String> list) {
+	public Map<String, Integer> countSymptom(ArrayList<String> list) {
 		return null;
 		
 		
 	}
-	   /**
-  * Analyse les medicaments depuis l'ArrayList et les ajoute à une map
-  *
-  * @author fouziahajji
-  */
-	public Map<String, Integer> analyseMedicamentw() {
-		return null;
-		
-		
-	}
-
-
 	
 }
 

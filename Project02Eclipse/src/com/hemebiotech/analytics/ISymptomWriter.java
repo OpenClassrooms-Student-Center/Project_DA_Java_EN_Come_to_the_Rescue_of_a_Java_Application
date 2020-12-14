@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
+import java.util.Map;
 
 
 
@@ -21,6 +22,6 @@ public interface ISymptomWriter {
      * @author fouziahajji
      */
 
-	void writeSymptoms() throws IOException;
+	void writeSymptoms(Map<String, Integer> map) throws IOException;
 	
 }

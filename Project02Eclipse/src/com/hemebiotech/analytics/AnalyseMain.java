@@ -27,21 +27,15 @@ public class AnalyseMain {
 		
 	
 		// Lis le fichier avec la class BufferedReader et les met dans un ArrayList de String
-		AnalyseSymptom reader = new AnalyseSymptom(READFILE, null, null);
-		ArrayList<String> symptoms = reader.getSymptoms();
+		AnalyseSymptom analyse = new AnalyseSymptom(READFILE, WRITEFILE);
+		ArrayList<String> symptoms = analyse.getSymptoms();
 
 		// L'ArrayList est envoyé dans la méthode countSymptoms afin de compter les symptoms
 		// et les met dans une Map : valeur:symptoms/cle:nombre d'occurrences 
-		AnalyseSymptom counter = new AnalyseSymptom(null, null, null);
-		Map<String, Integer> list = counter.countSymptoms(symptoms);
+		Map<String, Integer> map = analyse.countSymptoms(symptoms);
 
 		// La Map est envoyée à la méthode writeSymptoms pour écrire le résultat.
-		AnalyseSymptom  writer = new AnalyseSymptom(WRITEFILE, null, list);
-		writer.writeSymptoms();
-		
-		
-		
-		
+		analyse.writeSymptoms(map);
 
 	}
 
