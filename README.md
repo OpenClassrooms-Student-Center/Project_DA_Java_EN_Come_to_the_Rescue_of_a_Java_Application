@@ -10,7 +10,7 @@ Ce programme permet de lire un fichier composé de plusieurs symptômes (symptom
 ### Pré-requis
 
 - GitHub et Git
-- IDE
+- IDE ECLIPSE
 - Java 8
 
 
