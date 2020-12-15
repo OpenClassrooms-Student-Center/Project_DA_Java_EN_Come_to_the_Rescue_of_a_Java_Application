@@ -1,3 +1,4 @@
+
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
@@ -21,18 +22,14 @@ import java.util.TreeMap;
 public class AnalyseSymptom extends Analyse implements ISymptomReader, ISymptomWriter{
 	
 	private String filepath;
-	private String fileOutPut;
-	private Map<String, Integer> symptoms;
-	
+	private String fileOutPut;	
 	
     /**Constructors
      *
     */
-	public AnalyseSymptom(String filepath, String fileOutPut, Map<String, Integer> ListOccurences) {
+	public AnalyseSymptom(String filepath, String fileOutPut) {
 		this.filepath = filepath;
-        this.fileOutPut = filepath;
-        this.symptoms = ListOccurences;
-        
+        this.fileOutPut = fileOutPut;        
 	}
 
 	/**La méthode getSymptoms recupere la liste des symptoms depuis un fichier source et les integre dans une ArrayList
@@ -55,7 +52,6 @@ public class AnalyseSymptom extends Analyse implements ISymptomReader, ISymptomW
 				e.printStackTrace();
 			}
 		}
-		
 		return tabSymptom;
 		
 		
@@ -97,15 +93,15 @@ public class AnalyseSymptom extends Analyse implements ISymptomReader, ISymptomW
 	/**La methode writeSymptoms ecrit le resultat dans une fichier en parcourant la Map symptoms
 	 * @throws IOException
 	 */
-    public void writeSymptoms() throws IOException {
+    public void writeSymptoms(Map<String,Integer> map) throws IOException {
     	
     	
     	
-        if ((fileOutPut != null) && (symptoms != null)) {
+        if ((fileOutPut != null) && (map != null)) {
                // Parcoure la Map pour écrire les symptômes dans le fichier
                try {
                    BufferedWriter writer = new BufferedWriter(new FileWriter(fileOutPut));
-                   for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
+                   for (Map.Entry<String, Integer> symptom : map.entrySet()) {
                        writer.write(symptom.getKey() + " = " + symptom.getValue() + "\n");
                    }
                    writer.close();
@@ -125,4 +121,12 @@ public class AnalyseSymptom extends Analyse implements ISymptomReader, ISymptomW
 	
 
 }
+
+    
+
+    
+	  
+	
+
+
 
