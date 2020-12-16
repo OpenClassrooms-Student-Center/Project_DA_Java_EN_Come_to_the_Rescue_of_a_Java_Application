@@ -4,10 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class CountSymptoms {
 
-    static void CountLines(String filename, Map<String, Integer> symptoms) throws FileNotFoundException {
+    Map<String, Integer> getSymptoms(String filename) throws FileNotFoundException {
+
+        Map<String, Integer> symptoms = new TreeMap<>();
         Scanner file = new Scanner(new File(filename));
 
         while (file.hasNext()) {
@@ -22,5 +25,6 @@ public class CountSymptoms {
             symptoms.put(line, count);
         }
         file.close();
+        return symptoms;
     }
 }
