@@ -2,13 +2,14 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 
+
 /**
- * Anything that will read symptom data from a source
- * The important part is, the return value from the operation, which is a list of strings,
- * that may contain many duplications
- * 
- * The implementation does not need to order the list
- * 
+ * ISymptomReader interface defines the unique method GetSymptoms()
+ * this interface is implmented in class ReadSymptomDataFromFile
+ *
+ * @author  Sébastien Vigé
+ * @version 2.0
+ * @since   2020-12-18
  */
 public interface ISymptomReader {
 	/**

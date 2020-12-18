@@ -7,9 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * ReadSymptomDataFromFile Class revision as part of OCR Project 4 initiative
  *
+ *  This class expects a filepath string input as part of the constructor
+ *  The GetSymptoms() method implementation is the one from Master
+ *
+ *  GetSymptoms read an input file line by line and returns a String List with the content of the file
+ *
+ * @author  OCR
+ * @version 1.0
+ * @since   2018-12-18
  */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
