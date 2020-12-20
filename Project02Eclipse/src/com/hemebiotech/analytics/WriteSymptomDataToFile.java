@@ -14,44 +14,31 @@ import java.util.Map;
  * La classe WriteSymptomDataToFile permet de récupérer une Map et d'écrire ses résultats par ordre alphabétique
  * dans le fichier de sortie.
  */
-
 public class WriteSymptomDataToFile implements ISymptomWriter{
 	
-	
 		private String fileOutPut;
-		private Map<String, Integer> symptoms;
+	
+	    /**Constructors
+	    *
+	    */
+		public WriteSymptomDataToFile (String fileOutPut) {
+			this.fileOutPut = fileOutPut;
+			
+		}
 
-	    /**
-	     * @param fileOutPut fichier de sortie
-	     * @param symptoms une map avec les symptoms par leur cle de valeur et le nombre d'occurences par valeur
+	     /**La methode writeSymptoms ecrit le resultat dans une fichier en parcourant la Map symptoms
+	     *@param map
+	     *@throws IOException
 	     */
-	    public WriteSymptomDataToFile(String filepath, Map<String, Integer> ListOccurences) {
-	        this.fileOutPut = filepath;
-	        this.symptoms = ListOccurences;
-	        
-	       
-	        
-	    }
-    	/*
-			 * Utilise l'interface Entry pour récupérer les données de la map.
-			 * 
-			 * Chaque occurrence est écrite avec leurs valeurs respectives.
-			 * 
-			 * Capture l'exception possible.
-			 * 
-			 * Ferme le fichier une fois l'opération terminée ou si l'erreur est rencontrée.
-			 * 
-			 */
-	    @Override
-	    public void writeSymptoms(Map<String, Integer> MapList) throws IOException {
+	    public void writeSymptoms(Map<String, Integer> map) throws IOException {
 	    	
 	    	
 	
-	         if ((fileOutPut != null) && (symptoms != null)) {
+	         if ((fileOutPut != null) && (map != null)) {
 	                // Parcoure la Map pour écrire les symptômes dans le fichier
 	                try {
 	                    BufferedWriter writer = new BufferedWriter(new FileWriter(fileOutPut));
-	                    for (Map.Entry<String, Integer> symptom : symptoms.entrySet()) {
+	                    for (Map.Entry<String, Integer> symptom : map.entrySet()) {
 	                        writer.write(symptom.getKey() + " = " + symptom.getValue() + "\n");
 	                    }
 	                    writer.close();
@@ -62,7 +49,11 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 	                }
 	            }
 	        }
+		
 	    
 
 
 }
+
+
+

@@ -11,19 +11,20 @@ import java.util.ArrayList;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+	public String filepath;
 	
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
+    /**Constructors
+    *
+    */
 	public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
+		
 	}
-	
-	@Override
-	public ArrayList<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+	/**La méthode getSymptoms recupere la liste des symptoms depuis un fichier source et les integre dans une ArrayList
+	 * @return tabSymptom
+	 */
+	public ArrayList<String> getSymptoms() {
+		ArrayList<String> tabSymptom = new ArrayList<String>();
 		
 		if (filepath != null) {
 			try {
@@ -31,7 +32,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				String line = reader.readLine();
 				
 				while (line != null) {
-					result.add(line);
+					tabSymptom.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -40,7 +41,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 		}
 		
-		return result;
+		return tabSymptom;
 	}
 
 }
+
