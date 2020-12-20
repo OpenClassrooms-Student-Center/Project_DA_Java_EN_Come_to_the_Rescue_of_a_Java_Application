@@ -18,10 +18,7 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-<<<<<<< HEAD
+
 	ArrayList<String> getSymptoms () throws IOException;
 }
-=======
-	List<String> getSymptoms ();
-}
->>>>>>> 4555bc06e8910c00005375f64aee5859e77f7918
+
