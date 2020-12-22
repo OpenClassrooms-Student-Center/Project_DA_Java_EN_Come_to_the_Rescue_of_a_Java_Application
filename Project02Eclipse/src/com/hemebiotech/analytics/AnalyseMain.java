@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class AnalyseMain {
 
-	
+	//Creations de deux constantes qui stockent le fichier entree et le fichier de sortie
 	public final static String READFILE = "symptoms.txt";
 	public final static String WRITEFILE = "result.out";
 	
@@ -23,22 +23,19 @@ public class AnalyseMain {
 	 */
 	public static void main(String[] args) throws IOException {
 		
+		// Instanciation des 3 objets de la classe AnalyseSymptoms 
+		AnalyseSymptoms analyticCounter = new AnalyseSymptoms(new ReadSymptomDataFromFile(READFILE), 
+		new WriteSymptomDataToFile(WRITEFILE));
+		
+		// creation d'une list qui va recevoir les symptoms sur le fichier symptoms.txt
+		List<String> listResult = analyticCounter.getSymptoms();
+		// creation d'une map qui va recevoir les symptoms comptés et triés
+		Map<String, Integer> mapResult = analyticCounter.countSymptoms(listResult);
+
+		// La map mapResult de symptoms comptés et triés est renvoyée à la méthode pour l'ecrire sur le fichier result.out
+		analyticCounter.writeSymptoms(mapResult);
 		
 	
-		// Lis le fichier avec la class BufferedReader et les met dans un ArrayList de String
-
-		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(READFILE);
-		ArrayList<String> symptoms = reader.getSymptoms();
-
-		//Compte les symptoms et les met dans une Map : valeur:symptoms/cle:nombre d'occurrences
-		AnalyseSymptoms counter = new AnalyseSymptoms();
-		Map<String, Integer> map = counter.countSymptoms(symptoms);
-
-		//Ecrit la liste des symptomes triées sur un fichier
-		WriteSymptomDataToFile writer = new WriteSymptomDataToFile(WRITEFILE);
-		writer.writeSymptoms(map);
-		
-		
 		
 
 	}

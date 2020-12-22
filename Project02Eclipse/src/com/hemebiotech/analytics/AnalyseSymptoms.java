@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -11,16 +13,28 @@ import java.util.TreeMap;
  * TreeMap, afin de recenser les occurrences par ordre alphabétique.
  * @author fouziahajji
  */
-public class AnalyseSymptoms{
+public class AnalyseSymptoms implements ISymptomCounter{
 	
+	//variable de classe
+	private ISymptomReader iSymptomReader;
+	private ISymptomWriter iSymptomWriter;
+	
+	
+	//Constructeur de l'objet AnalyseSymptoms (analyticCounter)
+	public AnalyseSymptoms(ISymptomReader iSymptomReader, ISymptomWriter iSymptomWriter) {
+		this.iSymptomReader = iSymptomReader;
+		this.iSymptomWriter = iSymptomWriter;
+		
+		
+	}
 
 	/**
-	 * @param list
+	 * @param listResult
 	 * @return ListOccurences
 	 */
-	public Map<String, Integer> countSymptoms(ArrayList<String> list) {
+	public Map<String, Integer> countSymptoms(List<String> list)  {
 		  
-		 
+		
 		
 		//Utilisation de treemap pour trier la map par ordre alphabétique
 		TreeMap<String, Integer> ListOccurences = new TreeMap<String, Integer>();
@@ -52,9 +66,46 @@ public class AnalyseSymptoms{
 	  
 		  
 	  }
+
+
+
+	/** methode pour récuperer les symptoms
+	 * @return listResult
+	 */
+	public List<String> getSymptoms() {
+		List<String> listResult = new ArrayList<>();
+		try {
+			listResult = this.iSymptomReader.getSymptoms();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return listResult;
+	}
 	
 	
-	  
+	/** methode pour ecrire les symptoms
+	 * @param mapResult    
+	 */
+	public void writeSymptoms(Map<String,Integer> mapResult) {
+		try {
+			this.iSymptomWriter.writeSymptoms(mapResult);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	
+}
+
+
+
+
+
+
+
+
+
 	
 
-}
+
