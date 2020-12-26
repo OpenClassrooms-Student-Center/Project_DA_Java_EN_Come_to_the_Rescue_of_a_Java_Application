@@ -1,10 +1,9 @@
+
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 
 
@@ -15,83 +14,46 @@ import java.util.TreeMap;
  */
 public class AnalyseSymptoms implements ISymptomCounter{
 	
-	//variable de classe
-	private ISymptomReader iSymptomReader;
-	private ISymptomWriter iSymptomWriter;
+	//variable d'instance
+	private ISymptomReader symptomReader;
+	private ISymptomWriter symptomWriter;
+	private ISymptomCounter symptomCounter;
 	
 	
 	//Constructeur de l'objet AnalyseSymptoms (analyticCounter)
-	public AnalyseSymptoms(ISymptomReader iSymptomReader, ISymptomWriter iSymptomWriter) {
-		this.iSymptomReader = iSymptomReader;
-		this.iSymptomWriter = iSymptomWriter;
+	public AnalyseSymptoms(ISymptomReader iSymptomReader, ISymptomWriter iSymptomWriter, ISymptomCounter iSymptomCounter) {
+		this.symptomReader = iSymptomReader;
+		this.symptomWriter = iSymptomWriter;
+		this.symptomCounter = iSymptomCounter;
 		
 		
 	}
 
-	/**
-	 * @param listResult
-	 * @return ListOccurences
+	/** methode qui fait appel à l'instance ISymptomCounter pour compter et trier les symptoms
+	 * @param list
+	 * @return map de string integer avec les symptomds et leur nombre
 	 */
 	public Map<String, Integer> countSymptoms(List<String> list)  {
-		  
-		
-		
-		//Utilisation de treemap pour trier la map par ordre alphabétique
-		TreeMap<String, Integer> ListOccurences = new TreeMap<String, Integer>();
-	  
-	 
-	    
-		//On itère sur le tableau des symptoms.
-		for (String symptom: list) {
-				//On regarde si le symptom est déjà présent dans la table d'occurence.
-				if (ListOccurences.containsKey(symptom)) {
-					//Le symptom est présent dans la table d'occurence, on incrémente l'occurence de 1.
-					ListOccurences.put(symptom, ListOccurences.get(symptom) + 1);
-				} else {
-					//Le symptom n'est pas présent dans la table d'occurence, on insère la note dans la table et on met l'occurence à 1.   
-					ListOccurences.put(symptom, 1);
-				}
-	    
-				
-		} 
-	 
-				//On affiche le résultat, c'est à dire les occurences des symptoms classés par ordre alphabétique.
-
-      			ListOccurences.entrySet().forEach(System.out::println);
-      		
-		      
-	      
-	      
-      			return ListOccurences;
-	  
+      	return symptomCounter.countSymptoms(list); 
 		  
 	  }
 
-
-
 	/** methode pour récuperer les symptoms
 	 * @return listResult
+	 * @throws IOException 
 	 */
-	public List<String> getSymptoms() {
-		List<String> listResult = new ArrayList<>();
-		try {
-			listResult = this.iSymptomReader.getSymptoms();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return listResult;
+	public List<String> getSymptoms() throws IOException {
+		return symptomReader.getSymptoms();
 	}
 	
 	
 	/** methode pour ecrire les symptoms
 	 * @param mapResult    
+	 * @throws IOException 
 	 */
-	public void writeSymptoms(Map<String,Integer> mapResult) {
-		try {
-			this.iSymptomWriter.writeSymptoms(mapResult);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void writeSymptoms(Map<String,Integer> mapResult) throws IOException {
+			symptomWriter.writeSymptoms(mapResult);
+
 	}
 
 

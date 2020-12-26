@@ -20,9 +20,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 		
 	}
+	public ReadSymptomDataFromFile() {
+		// TODO Auto-generated constructor stub
+	}
 	/**La méthode getSymptoms recupere la liste des symptoms depuis un fichier source et les integre dans une ArrayList
 	 * @return tabSymptom
 	 */
+	@Override
 	public ArrayList<String> getSymptoms() {
 		ArrayList<String> tabSymptom = new ArrayList<String>();
 		
