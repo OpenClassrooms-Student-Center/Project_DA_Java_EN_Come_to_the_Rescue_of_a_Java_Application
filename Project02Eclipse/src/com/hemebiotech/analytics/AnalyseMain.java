@@ -28,7 +28,7 @@ public class AnalyseMain {
 		AnalyseSymptoms analyticCounter = new AnalyseSymptoms(new ReadSymptomDataFromFile(READFILE), 
 		new WriteSymptomDataToFile(WRITEFILE), new CountSymptomFromList());
 		
-<<<<<<< HEAD
+
 		// creation d'une list qui va recevoir les symptoms sur le fichier symptoms.txt
 		List<String> listResult = analyticCounter.getSymptoms();
 		
@@ -40,21 +40,7 @@ public class AnalyseMain {
 		analyticCounter.writeSymptoms(mapResult);
 	
 	
-		
-=======
 	
-		// Lis le fichier avec la class BufferedReader et les met dans un ArrayList de String
-		AnalyseSymptom analyse = new AnalyseSymptom(READFILE, WRITEFILE);
-		ArrayList<String> symptoms = analyse.getSymptoms();
-
-		// L'ArrayList est envoyé dans la méthode countSymptoms afin de compter les symptoms
-		// et les met dans une Map : valeur:symptoms/cle:nombre d'occurrences 
-		Map<String, Integer> map = analyse.countSymptoms(symptoms);
-
-		// La Map est envoyée à la méthode writeSymptoms pour écrire le résultat.
-		analyse.writeSymptoms(map);
->>>>>>> 8126feb3ce7f7d5829488901393bbcea18c9eb6a
-
 	}
 
 
