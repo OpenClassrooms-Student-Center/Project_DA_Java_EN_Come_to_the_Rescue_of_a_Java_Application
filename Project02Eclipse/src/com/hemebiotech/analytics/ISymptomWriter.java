@@ -19,8 +19,14 @@ public interface ISymptomWriter {
      * @author fouziahajji
      */
 
+<<<<<<< HEAD
 	void writeSymptoms(Map<String, Integer> list) throws IOException;
 
  
 
+=======
+	void writeSymptoms(Map<String, Integer> map) throws IOException;
+	
+>>>>>>> 8126feb3ce7f7d5829488901393bbcea18c9eb6a
 }
+
