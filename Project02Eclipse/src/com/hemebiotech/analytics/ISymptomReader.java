@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.util.List;
+import java.io.BufferedReader;
 
 /**
  * Anything that will read symptom data from a source
