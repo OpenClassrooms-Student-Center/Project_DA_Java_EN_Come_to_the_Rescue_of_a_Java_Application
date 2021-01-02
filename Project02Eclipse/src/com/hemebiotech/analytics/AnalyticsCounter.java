@@ -11,7 +11,7 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse\\symptoms.txt"));
 		String line = reader.readLine();
 
 		int i = 0;	// set i to 0
