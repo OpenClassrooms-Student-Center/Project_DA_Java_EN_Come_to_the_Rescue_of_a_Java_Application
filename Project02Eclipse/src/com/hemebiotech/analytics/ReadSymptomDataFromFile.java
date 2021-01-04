@@ -23,7 +23,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
 	 *         are possible/probable
 	 *         
-	 * @param filepath
+	 * @param filepath link of symptom file to analyze
 	 */
 	@Override
 	public ArrayList<String> getSymptomsWithDuplicate(String filepath) {
@@ -63,7 +63,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 *         <b> format: { key (symptom): value (occurrence) } </b>. Duplicates
 	 *         are not possible/probable
 	 *         
-	 * @param listSymptomWithDuplicat
+	 * @param listSymptomWithDuplicat list of symptoms with duplicates
 	 */
 	@Override	
 public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {

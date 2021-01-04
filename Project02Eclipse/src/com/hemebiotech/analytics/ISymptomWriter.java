@@ -20,9 +20,8 @@ public interface ISymptomWriter {
 	 * 
 	 * duplications are not possible.
 	 * 
-	 * @param 
-	 * symptomsRate: Map of symptoms with symptoms as keys and occurrence as values
-	 * fileToWrite: output file name
+	 * @param symptomsRate Map of symptoms with symptoms as keys and occurrence as values
+	 * @param fileToWrite output file name
 	 * 
 	 */
 public void writerSymptomsToFile(Map<String, Integer> symptomsRate, String fileToWrite);

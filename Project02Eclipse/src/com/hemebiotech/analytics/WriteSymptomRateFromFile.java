@@ -16,9 +16,8 @@ public class WriteSymptomRateFromFile implements ISymptomWriter {
 	 * 
 	 * Méthode générant un dictionnaire - HashMap clé(maux) et valeur(occurrence)
 	 * 
-	 * @param 
-	 * symptomsRate: Map of symptoms with symptoms as keys and occurrence as values
-	 * fileToWrite: output file name
+	 * @param symptomsRate: Map of symptoms with symptoms as keys and occurrence as values
+	 * @param fileToWrite: output file name
 	 * @author aurelien.ndjamba
 	 * @version 1.0
 	 * 
