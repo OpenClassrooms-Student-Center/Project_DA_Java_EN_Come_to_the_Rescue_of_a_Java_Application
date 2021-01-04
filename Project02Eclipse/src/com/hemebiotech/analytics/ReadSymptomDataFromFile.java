@@ -1,47 +1,96 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
- * Simple brute force implementation
+ * Class representing to read data from a file on disk.
+ * 
+ * @author aurelen.ndjamba @version 1.0
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filepath;
 	
 	/**
+	 * If no data is available, return an empty List
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
+	 *         are possible/probable
+	 *         
+	 * @param filepath
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-	
 	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
+	public ArrayList<String> getSymptomsWithDuplicate(String filepath) {
+
+		ArrayList<String> listSymptomWithDuplicat = new ArrayList<String>();
+
 		if (filepath != null) {
+			
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
-				
+
 				while (line != null) {
-					result.add(line);
+					listSymptomWithDuplicat.add(line.toLowerCase()); // Convertion en minuscule puis ajout des maux dans la liste.
 					line = reader.readLine();
 				}
 				reader.close();
-			} catch (IOException e) {
+			} 
+			catch (FileNotFoundException e) {
+				System.out.println("the named file does not exist");
+			} 
+			catch (IOException e) {
 				e.printStackTrace();
+			} 
+			finally {
+//				reader.close();  -> Renvoi un message d'erreur dans le bloc finally
 			}
 		}
-		
-		return result;
+
+		return listSymptomWithDuplicat;
 	}
 
+	/**
+	 * If no data is available, return an empty Map
+	 * 
+	 * @return a dictionary of all the symptoms obtained from a data source in the
+	 *         <b> format: { key (symptom): value (occurrence) } </b>. Duplicates
+	 *         are not possible/probable
+	 *         
+	 * @param listSymptomWithDuplicat
+	 */
+	@Override
+	public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {
+
+		
+		int sumSymptomWithDucplicat = listSymptomWithDuplicat.size(); 
+		Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
+
+		int i = 0;
+
+		while (sumSymptomWithDucplicat != 0) { // Evite les fichiers de symptoms sans maux (vide)
+
+			if (SymptomsRate.containsKey(listSymptomWithDuplicat.get(i))) { // Gère l'occurence maux dans la boucle
+
+				int occurenceMoment = SymptomsRate.get(listSymptomWithDuplicat.get(i));
+				SymptomsRate.put(listSymptomWithDuplicat.get(i), occurenceMoment + 1);
+
+			} else {
+
+				SymptomsRate.put(listSymptomWithDuplicat.get(i), 1);
+			}
+
+			listSymptomWithDuplicat.remove(i); // Retrait maux(i) dans result
+			sumSymptomWithDucplicat = listSymptomWithDuplicat.size(); // Nouveau compte des éléments dans result
+
+		}
+
+		return SymptomsRate;
+	}
 }
