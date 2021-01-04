@@ -29,6 +29,7 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();
 		}
+		reader.close();
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
