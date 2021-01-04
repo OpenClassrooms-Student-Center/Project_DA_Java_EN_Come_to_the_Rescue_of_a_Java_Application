@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
@@ -11,34 +12,13 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		// initialize to 0
 
 	public static void main(String[] args)  {
-		// first get input
-		try {
-			BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
-			String line = reader.readLine();
+		ReadSymptomDataFromFile readSymptomData = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
+		TreeMap<String,Integer> symptoms = readSymptomData.getSymptoms();/*Read the data in the specified file and put it in a TreeMap,
+																		in the alphabetical order, counting the occurrences of each symptom.*/
 
-			while (line != null) {
-				System.out.println("symptom from file: " + line);
-				if (line.equals("headache")) {
-					headacheCount++;
-					System.out.println("number of headaches: " + headacheCount);
-				}
-				else if (line.equals("rash")) {
-					rashCount++;
-				}
-				else if (line.contains("pupils")) {
-					pupilCount++;
-				}
-
-				line = reader.readLine();	// get another symptom
-			}
-			reader.close();
-		}
-		catch (IOException e) {
-			System.out.println("The specified file cannot be read. Please verify its existence and its location.");
-		}
-
+		System.out.println(symptoms);
 		// next generate output
-		try {
+	/*	try {
 			FileWriter writer = new FileWriter ("result.out");
 			writer.write("headache: " + headacheCount + "\n");
 			writer.write("rash: " + rashCount + "\n");
@@ -47,6 +27,6 @@ public class AnalyticsCounter {
 		}
 		catch (IOException e) {
 			System.out.println("Impossible to create the file result.out or to write inside.");
-		}
+		}*/
 	}
 }
