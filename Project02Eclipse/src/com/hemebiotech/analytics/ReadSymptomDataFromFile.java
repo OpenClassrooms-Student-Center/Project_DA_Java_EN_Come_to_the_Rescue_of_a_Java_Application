@@ -65,35 +65,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 *         
 	 * @param listSymptomWithDuplicat
 	 */
-	@Override
-//	public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {
-//
-//		
-//		int sumSymptomWithDuplicat = listSymptomWithDuplicat.size(); 
-//		Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
-//
-//		int i = 0;
-//
-//		while (sumSymptomWithDuplicat != 0) { // Evite les fichiers de symptoms sans maux (vide)
-//
-//			if (SymptomsRate.containsKey(listSymptomWithDuplicat.get(i))) { // Gère l'occurence maux dans la boucle
-//
-//				int occurenceMoment = SymptomsRate.get(listSymptomWithDuplicat.get(i));
-//				SymptomsRate.put(listSymptomWithDuplicat.get(i), occurenceMoment + 1);
-//
-//			} else {
-//
-//				SymptomsRate.put(listSymptomWithDuplicat.get(i), 1);
-//			}
-//
-//			listSymptomWithDuplicat.remove(i); // Retrait maux(i) dans result
-//			sumSymptomWithDuplicat = listSymptomWithDuplicat.size(); // Nouveau compte des éléments dans result
-//
-//		}
-//
-//		return SymptomsRate;
-//	}
-	
+	@Override	
 public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {
 
 		Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
