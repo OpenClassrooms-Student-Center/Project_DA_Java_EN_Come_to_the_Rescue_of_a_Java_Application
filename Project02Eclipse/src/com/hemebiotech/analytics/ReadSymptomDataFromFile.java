@@ -69,12 +69,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDuplicat) {
 
 		
-		int sumSymptomWithDucplicat = listSymptomWithDuplicat.size(); 
+		int sumSymptomWithDuplicat = listSymptomWithDuplicat.size(); 
 		Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
 
 		int i = 0;
 
-		while (sumSymptomWithDucplicat != 0) { // Evite les fichiers de symptoms sans maux (vide)
+		while (sumSymptomWithDuplicat != 0) { // Evite les fichiers de symptoms sans maux (vide)
 
 			if (SymptomsRate.containsKey(listSymptomWithDuplicat.get(i))) { // Gère l'occurence maux dans la boucle
 
@@ -87,7 +87,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 
 			listSymptomWithDuplicat.remove(i); // Retrait maux(i) dans result
-			sumSymptomWithDucplicat = listSymptomWithDuplicat.size(); // Nouveau compte des éléments dans result
+			sumSymptomWithDuplicat = listSymptomWithDuplicat.size(); // Nouveau compte des éléments dans result
 
 		}
 
