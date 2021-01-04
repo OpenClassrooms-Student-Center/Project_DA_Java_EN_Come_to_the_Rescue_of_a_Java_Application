@@ -23,6 +23,6 @@ public interface ISymptomWriter {
 	 * @param SymptomsRate
 	 * 
 	 */
-public void writerSymptomsToFile(Map<String, Integer> SymptomsRate);
+public void writerSymptomsToFile(Map<String, Integer> symptomsRate, String fileToWrite);
 
 }
