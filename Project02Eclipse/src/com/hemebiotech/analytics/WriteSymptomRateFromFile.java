@@ -22,14 +22,14 @@ public class WriteSymptomRateFromFile implements ISymptomWriter {
 	 * 
 	 */
 	@Override
-	public void writerSymptomsToFile(Map<String, Integer> SymptomsRate) {
+	public void writerSymptomsToFile(Map<String, Integer> symptomsRate, String fileToWrite) {
 
 		try {
 
-			FileWriter writer = new FileWriter("result.out");
+			FileWriter writer = new FileWriter(fileToWrite);
 			
 			// Obtenir l'ensemble des clés_valeurs sous forme de set
-			Set<Map.Entry<String,Integer>> set = SymptomsRate.entrySet();
+			Set<Map.Entry<String,Integer>> set = symptomsRate.entrySet();
 			
 			// Obtenir l'iterator pour parcourir le set
 	        Iterator<Map.Entry<String,Integer>> it = set.iterator();
