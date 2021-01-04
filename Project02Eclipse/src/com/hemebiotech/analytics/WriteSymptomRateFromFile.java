@@ -51,7 +51,7 @@ public class WriteSymptomRateFromFile implements ISymptomWriter {
 			e.printStackTrace();
 		} 
 		finally {
-//			writer.close();
+//			writer.close(); -> entraine une erreur dans le bloc finally
 		}
 	}
 	
