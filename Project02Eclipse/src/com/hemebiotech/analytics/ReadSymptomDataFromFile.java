@@ -71,7 +71,7 @@ public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDup
 		Map<String, Integer> SymptomsRate = new TreeMap<String, Integer>(); 
 
 		for (String n : listSymptomWithDuplicat) {
-			if (SymptomsRate.containsKey(n)) { // Gère l'occurence maux dans la boucle
+			if (SymptomsRate.containsKey(n)) { 
 
 				int occurenceMoment = SymptomsRate.get(n);
 				SymptomsRate.put(n, occurenceMoment + 1);
@@ -84,6 +84,5 @@ public Map<String, Integer> getSymptomsRate(ArrayList<String> listSymptomWithDup
 		
 		return SymptomsRate;
 
-	//
 }
 }

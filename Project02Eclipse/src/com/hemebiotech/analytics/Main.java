@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.util.ArrayList;
 import java.util.Map;
-//import java.util.TreeMap;
 
 /**
  * Class representing count of the occurrence of the words 
