@@ -20,7 +20,7 @@ public class Main {
 		Map<String, Integer> symptomsRate = symptomDataFromFile.getSymptomsRate(listSymptomWithDuplicat);
 		
 		WriteSymptomRateFromFile dataFromFile = new WriteSymptomRateFromFile();
-		dataFromFile.writerSymptomsToFile(symptomsRate);
+		dataFromFile.writerSymptomsToFile(symptomsRate,"result.out");
 
 	}
 
