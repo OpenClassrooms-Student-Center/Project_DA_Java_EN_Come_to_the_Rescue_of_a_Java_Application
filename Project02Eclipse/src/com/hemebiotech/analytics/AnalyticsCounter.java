@@ -31,6 +31,7 @@ public class AnalyticsCounter {
 			line = reader.readLine(); // get another symptom
 		}
 		reader.close();
+		
 		// next generate output
 		FileWriter writer = new FileWriter("result.out");
 		writer.write("headache: " + headacheCount + "\n");
@@ -38,4 +39,4 @@ public class AnalyticsCounter {
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
 	}
-}
+}""
