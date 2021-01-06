@@ -11,28 +11,33 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/src/com/hemebiotech/analytics/symptoms.txt"));
-		String line = reader.readLine();
+		try {
+			BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/src/com/hemebiotech/analytics/symptoms.txt"));
+			String line = reader.readLine();
 
-		while (line != null) {
-			if (line.equals("headache")) {
-				headacheCount++;
-			}
-			else if (line.equals("rash")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+			while (line != null) {
+				if (line.equals("headache")) {
+					headacheCount++;
+				}
+				else if (line.equals("rash")) {
+					rashCount++;
+				}
+				else if (line.contains("pupils")) {
+					pupilCount++;
+				}
 
-			line = reader.readLine();	// get another symptom
+				line = reader.readLine();	// get another symptom
+			}
+			reader.close();
+			// next generate output
+			FileWriter writer = new FileWriter ("result.out");
+			writer.write("headache: " + headacheCount + "\n");
+			writer.write("rash: " + rashCount + "\n");
+			writer.write("dialated pupils: " + pupilCount + "\n");
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		reader.close();
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
 	}
 }
