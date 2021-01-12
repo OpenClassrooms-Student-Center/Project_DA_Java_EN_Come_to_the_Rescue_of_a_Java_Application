@@ -21,14 +21,6 @@ public class AnalyticsCounter {
                     symptoms.put(readLine, 1);
                 }
             }
-        /*class AddSymptomsToContenair {
-            BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-            ArrayList<String> symptoms = reader.lines().collect(Collectors.toCollection(ArrayList::new));
-            System.out.println(symptoms);
-        }*/
-
-
-    //}
 
 
         System.out.println(symptoms.toString());
