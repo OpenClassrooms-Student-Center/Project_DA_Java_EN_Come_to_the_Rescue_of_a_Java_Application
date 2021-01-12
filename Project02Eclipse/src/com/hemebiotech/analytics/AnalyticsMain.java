@@ -3,13 +3,18 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/*
+ * This is the main method 
+ * The program will read a list of symptoms from a file and count these
+ * symptoms, then print the result of the count by sorting it into another file.
+ */
 public class AnalyticsMain {
 
 	public static void main(String args[]) throws Exception {
 		
 		ReadSymptomsFromFile readSymptoms = new ReadSymptomsFromFile();
 		
-		List<String> nameOfSymptoms = readSymptoms.GetSymptoms();
+		List<String> nameOfSymptoms = readSymptoms.getSymptoms();
 		
 		CountSymptoms countSymptoms = new CountSymptoms();
 		
@@ -17,9 +22,7 @@ public class AnalyticsMain {
 		
 		WriteSymptomsInFile writeSymptoms = new WriteSymptomsInFile();
 		
-		//System.out.println(writeSymptoms);
-		
-		writeSymptoms.WriteSymptomsInAFile(counterSymptomsABC);
+		writeSymptoms.writeSymptomsInAFile(counterSymptomsABC);
 
 	}
 }
