@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Creates the file output from the information stocked in the treeMap
+ */
 public class SymptomOutput {
     private TreeMap<String, Integer> map = new TreeMap<String, Integer>();
 
@@ -11,6 +14,11 @@ public class SymptomOutput {
         this.map = map;
     }
 
+    /**
+     * 
+     * @throws IOException
+     * @return a result.out file containing all the symptoms and the number of occurrences in alphabetical order.
+     */
     public void getFileOutput() throws IOException{
         
         try {
