@@ -1,68 +1,49 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Arrays;
+import java.io.*;
+import java.util.*;
 import java.lang.String;
+import java.util.stream.Collectors;
 
 
 public class AnalyticsCounter {
-    private static int headacheCount = 0;
-    private static int rashCount = 0;
-    private static int dialatedpupilCount = 0;
-    public static int i = 0;
+
 
     public static void main(String args[]) throws Exception {
         // first get input
         BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-        String line = reader.readLine();
 
-        while (line != null) {
-        	System.out.println("symptom from file: " + line);
-        	if (line.equals("headache")) {
-        		headacheCount++;
-        	}
-        	else if (line.equals("rash")) {
-        		rashCount++;
-        	}
-        	else if (line.contains("dialated pupils")) {
-        		dialatedpupilCount++;
-        	}
-        	line = reader.readLine();
-        }
-        int y = 100;
-        String arraysymptoms[] = new String[y];
-        String result;
+        ArrayList<String> symptomslist = new ArrayList<>();
+        reader.lines().forEach(readLine -> {
+            symptomslist.add(readLine);
+        });
+        Set<String> setsymptoms = new HashSet<>(symptomslist); // HashSet to delete double.
+        ArrayList<String> symptomslist2 = new ArrayList<>(setsymptoms); // List with not double to compare to count.
+        String[][] Symptoms = new String[symptomslist2.size()][2];
 
-        while (line != null) {
-            arraysymptoms[i] = line;
-            result = arraysymptoms[i];
-            System.out.println("symptom from file: " + line);
-            System.out.println("Symptom add to array: " + result);
-            i++;
-            line = reader.readLine();
-        }
-
-        // si symptoms es = alors ++ dans 2e array
-        i = 0;
-        int resultint;
-        int numbersymptoms[]= new int[y];
-        int a = i;
-        for (int x=0; x<=y; x++ ){
-            if (arraysymptoms[i] == arraysymptoms[a]){
-                numbersymptoms[i]=numbersymptoms[i] + 1;
-                resultint = numbersymptoms[i];
-                System.out.println(resultint);
-                a++;
+        for (int i = 0; i < symptomslist2.size(); i++) {
+            Collections.sort(symptomslist2);
+            String result1 = symptomslist2.get(i);
+            int count = 0;
+            for (int a = 0; a < symptomslist.size(); a++) {
+                String result2 = symptomslist.get(a);
+                if (result1.equals(result2)) {
+                    count++;
+                }
             }
+            String str1 = Integer.toString(count);
+            Symptoms[i][0] = result1;
+            Symptoms[i][1] = str1;
         }
 
         // next generate output
         FileWriter writer = new FileWriter("result.out");
-        writer.write("headache: " + headacheCount + "\n");
-        writer.write("rash: " + rashCount + "\n");
-        writer.write("dialated pupils: " + dialatedpupilCount + "\n");
+        for (int i = 0; i< Symptoms.length ; i++){
+            String result = Symptoms[i][0];
+            if (result != null ){
+                writer.write("Symptoms : " + Symptoms[i][0] + " occurrences numbers " + Symptoms[i][1] + "." + "\n");
+            }
+        }
         writer.close();
     }
 }
