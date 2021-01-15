@@ -5,12 +5,14 @@ import java.util.*;
 import java.lang.String;
 import java.util.stream.Collectors;
 
-
 public class AnalyticsCounter {
 
 
     public static void main(String args[]) throws Exception {
-        // first get input
+        SymptomsReader.reader();
+        DataSymptoms.datasymptoms();
+        SymptomsWriter.writer();
+        /*// first get input
         BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
 
         ArrayList<String> symptomslist = new ArrayList<>();
@@ -35,7 +37,6 @@ public class AnalyticsCounter {
             Symptoms[i][0] = result1;
             Symptoms[i][1] = strcount;
         }
-        
 
         // next generate output
         FileWriter writer = new FileWriter("result.out");
@@ -45,6 +46,6 @@ public class AnalyticsCounter {
                 writer.write("Symptoms : " + Symptoms[i][0] + " occurrences numbers " + Symptoms[i][1] + "." + "\n");
             }
         }
-        writer.close();
+        writer.close();*/
     }
 }
