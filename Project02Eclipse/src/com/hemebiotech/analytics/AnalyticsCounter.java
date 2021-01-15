@@ -31,10 +31,11 @@ public class AnalyticsCounter {
                     count++;
                 }
             }
-            String str1 = Integer.toString(count);
+            String strcount = Integer.toString(count);
             Symptoms[i][0] = result1;
-            Symptoms[i][1] = str1;
+            Symptoms[i][1] = strcount;
         }
+        
 
         // next generate output
         FileWriter writer = new FileWriter("result.out");
