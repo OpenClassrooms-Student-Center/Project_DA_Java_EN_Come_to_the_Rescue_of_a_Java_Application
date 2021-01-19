@@ -6,33 +6,59 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AnalyticsCounter {
+/**
+ * Simple brute force implementation
+ *
+ */
+public class AnalyticsCounter implements ISymptomReader {
+	// proprieties
+	private String filepath; // attributs
 
-	public static void main(String[] args) throws IOException {
+	public AnalyticsCounter(String filePath) { // constructeur de la class SymptomReader
+		this.setFilepath(filePath);
+	}
 
-		try {
+	// getter
+	public String getFilepath() {
+		return filepath;
+	}
 
-			// read file symptoms
-			BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
-			String line = reader.readLine();
+	// setter
+	public void setFilepath(String filePath) {
+		this.filepath = filePath;
+	}
 
-			Map<String, Integer> symptomOccurrence = new HashMap<>();
+	@Override
+	public Map<String, Integer> getSymptomsOccurences() { // getter
 
-			while (line != null) {
-				line = reader.readLine();
-				if (symptomOccurrence.containsKey(line)) {
-					symptomOccurrence.put(line, symptomOccurrence.get(line) + 1);
-				} else {
-					symptomOccurrence.put(line, 1);
+		Map<String, Integer> symptomReader = new HashMap<>(); // initialisation d'une nouvelle Map
+
+		if (this.filepath != null) {
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader(this.filepath));
+				String line = reader.readLine();
+
+				while (line != null) {
+
+					if (symptomReader.containsKey(line)) {
+						symptomReader.put(line, symptomReader.get(line) + 1);
+					} else {
+						symptomReader.put(line, 1);
+					}
+					line = reader.readLine();
 				}
+				reader.close();
+
+			} catch (IOException e) {
+				System.out.println(e.getMessage());
+				;
 			}
-			reader.close();
-
-			System.out.println(symptomOccurrence.toString());
-
-		} catch (IOException e) {
-			e.printStackTrace();
-
 		}
+		return symptomReader;
+	}
+
+	@Override
+	public void setMapToFile(Map<String, Integer> symptomOccurence, String resultFilePath) {
+
 	}
 }
