@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-/*************************************
+/**
  * <b> AnalyticsCounterit is a class which parses a file and counts and lists
  * the results in a new file </b>
  * 
@@ -32,24 +32,10 @@ import java.util.TreeMap;
  */
 public class AnalyticsCounter implements ISymptomReader {
 
-	/***********************************
-	 * Private Source file. No editable file.
-	 * 
-	 * @see filepath#filePath(String)
-	 * @see filepath#getFilepath()
-	 * 
-	 */
 	private String filepath;
-
-	/************************************
-	 * Private Output file. No editable file.
-	 * 
-	 * @see resultsfilepath#getResultsfilepath(String)
-	 * @see resultsfilepath#setResultsfilepath()
-	 */
 	private String resultsfilepath;
 
-	/***********************************
+	/**
 	 * Constructor AnalyticsCounter.
 	 * 
 	 * @param filePath        Source file
@@ -64,7 +50,7 @@ public class AnalyticsCounter implements ISymptomReader {
 		this.setResultsfilepath(resultsFilepath);
 	}
 
-	/************************************
+	/**
 	 * Constructor Getter filepath
 	 * 
 	 * @return content filepath
@@ -75,7 +61,7 @@ public class AnalyticsCounter implements ISymptomReader {
 		return filepath;
 	}
 
-	/*************************************
+	/**
 	 * Constructor Setter filepath
 	 * 
 	 * @param filePath Update file symptoms
@@ -87,7 +73,7 @@ public class AnalyticsCounter implements ISymptomReader {
 		this.filepath = filePath;
 	}
 
-	/**************************************
+	/**
 	 * Constructor Getter resultsfilepath
 	 * 
 	 * @return content resultsfilepathepath
@@ -97,18 +83,18 @@ public class AnalyticsCounter implements ISymptomReader {
 		return resultsfilepath;
 	}
 
-	/**************************************
+	/**
 	 * Constructor Setter resultsfilepath
 	 * 
 	 * @param resultsfilepath Update file order symptoms
 	 * @see resultsFilePath
 	 * 
 	 */
-	public void setResultsfilepath(String resultsFilePath) {
-		this.resultsfilepath = resultsFilePath;
+	public void setResultsfilepath(String resultsFilepath) {
+		this.resultsfilepath = resultsFilepath;
 	}
 
-	/**************************************
+	/**
 	 * Public methods Return the list of symptoms and display number of occurrences
 	 * 
 	 * @return the list of symptoms and display number of occurrences
@@ -128,6 +114,7 @@ public class AnalyticsCounter implements ISymptomReader {
 						symptomReader.put(line, symptomReader.get(line) + 1);
 					} else {
 						symptomReader.put(line, 1);
+
 					}
 
 					line = reader.readLine();
@@ -139,15 +126,12 @@ public class AnalyticsCounter implements ISymptomReader {
 		return symptomReader;
 	}
 
-	/**********************************
+	/**
 	 * Public methods
 	 * 
-	 * Return the list of symptoms sorted in alphabetical order
+	 * Write resultsFilePath in output file
 	 * 
-	 * @return the list of symptoms sorted in alphabetical order and write output
-	 *         file
 	 * @see AnalyticsCounter#setMapToFile(TreeMap, String)
-	 * 
 	 */
 	@Override
 	public void setMapToFile(TreeMap<String, Integer> symptomOccurence, String resultsFilePath) {
@@ -158,7 +142,8 @@ public class AnalyticsCounter implements ISymptomReader {
 				file.createNewFile();
 			}
 			for (Map.Entry<String, Integer> mapentry : symptomOccurence.entrySet()) {
-				result.write(mapentry.getKey() + " " + mapentry.getValue() + "\n");
+				result.write(mapentry.getKey() + " " + mapentry.getValue());
+				result.newLine();
 			}
 			result.flush();
 		} catch (IOException e) {

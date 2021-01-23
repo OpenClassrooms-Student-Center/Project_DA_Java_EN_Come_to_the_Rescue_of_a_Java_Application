@@ -28,28 +28,11 @@ public class Launcher {
 		 */
 		String resultsFilePath = "results.out";
 
-		/**
-		 * Instantiation new AnalyticsCounter Object
-		 */
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(filePath, resultsFilePath);
-
-		/**
-		 * 
-		 */
 
 		TreeMap<String, Integer> symptomsOccurences = analyticsCounter.getSymptomsOccurences();
 
-		/**
-		 * Instantiation symptomsOccurences methods
-		 * 
-		 * @return List of symptoms with occurrences
-		 */
-
 		analyticsCounter.setMapToFile(symptomsOccurences, resultsFilePath);
-		/**
-		 * Instantiation symptomsOccurences methods
-		 * 
-		 * @return Output file results.out with list of symptoms and occurrences
-		 */
+
 	}
 }
