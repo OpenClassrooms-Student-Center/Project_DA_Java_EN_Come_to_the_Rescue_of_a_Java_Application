@@ -8,5 +8,5 @@ It is a program which counts the number of occurrences of different symptoms in 
 
 Run the program (using Java 8+)
 
-#*Notes*
+*Notes*
 This is a school project or OpenClassRooms.
