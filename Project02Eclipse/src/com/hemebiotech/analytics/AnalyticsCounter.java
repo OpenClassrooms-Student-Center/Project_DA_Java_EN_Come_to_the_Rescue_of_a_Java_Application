@@ -1,43 +1,49 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.*;
+import java.lang.String;
+import java.util.stream.Collectors;
+
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+    public static void main(String args[]) throws Exception {
+        // first get input
+        BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+
+        ArrayList<String> symptomslist = new ArrayList<>();
+        reader.lines().forEach(readLine -> {
+            symptomslist.add(readLine);
+        });
+        Set<String> setsymptoms = new HashSet<>(symptomslist); // HashSet to delete double.
+        ArrayList<String> symptomslist2 = new ArrayList<>(setsymptoms); // List with not double to compare to count.
+        String[][] Symptoms = new String[symptomslist2.size()][2];
+
+        for (int i = 0; i < symptomslist2.size(); i++) {
+            Collections.sort(symptomslist2);
+            String result1 = symptomslist2.get(i);
+            int count = 0;
+            for (int a = 0; a < symptomslist.size(); a++) {
+                String result2 = symptomslist.get(a);
+                if (result1.equals(result2)) {
+                    count++;
+                }
+            }
+            String str1 = Integer.toString(count);
+            Symptoms[i][0] = result1;
+            Symptoms[i][1] = str1;
+        }
+
+        // next generate output
+        FileWriter writer = new FileWriter("result.out");
+        for (int i = 0; i< Symptoms.length ; i++){
+            String result = Symptoms[i][0];
+            if (result != null ){
+                writer.write("Symptoms : " + Symptoms[i][0] + " occurrences numbers " + Symptoms[i][1] + "." + "\n");
+            }
+        }
+        writer.close();
+    }
 }
