@@ -6,7 +6,7 @@ import java.util.Map;
  * Interface counting the symptoms
  */
 
-public interface ISymptomMapping {
+public interface ISymptomAnalysis {
 
     /**
      * Method counting the symptoms
