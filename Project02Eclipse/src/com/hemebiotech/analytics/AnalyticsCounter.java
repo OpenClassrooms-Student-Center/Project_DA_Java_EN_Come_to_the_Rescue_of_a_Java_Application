@@ -47,14 +47,14 @@ public class AnalyticsCounter {
 		// writermap.close();
 		while (0 != treemapsymptom.size()) {
 			// while (null != treemapsymptom.f()) {NoSuchElementException
-			// System.out.println(
-			// "symptom : " + treemapsymptom.firstKey() + " " +
-			// treemapsymptom.get(treemapsymptom.firstKey()));
+			System.out.println(
+					"symptom : " + treemapsymptom.firstKey() + " " + treemapsymptom.get(treemapsymptom.firstKey()));
 			writer.write("symptom : " + treemapsymptom.firstKey() + " " + treemapsymptom.get(treemapsymptom.firstKey())
 					+ "\n");
 			treemapsymptom.remove(treemapsymptom.firstKey());
 
 		}
+		writer.flush();
 		writer.close();
 	}
 }
