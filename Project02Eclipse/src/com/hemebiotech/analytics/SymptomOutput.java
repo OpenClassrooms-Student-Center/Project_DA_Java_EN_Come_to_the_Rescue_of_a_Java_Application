@@ -3,7 +3,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
-
 /**
  * Creates the file output from the information stocked in the treeMap
  */
