@@ -22,7 +22,6 @@ public class SymptomMapping {
         this.symptoms = symptoms;
 
     }
-
     /**
      *
      * @return a mapping of all the symptoms in alphabetical order with the number of occurrences.

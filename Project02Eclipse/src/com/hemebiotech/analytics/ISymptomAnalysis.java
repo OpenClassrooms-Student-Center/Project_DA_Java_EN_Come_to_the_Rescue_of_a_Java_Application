@@ -2,6 +2,7 @@ package com.hemebiotech.analytics;
 
 import java.util.Map;
 
+
 /**
  * Interface counting the symptoms
  */
