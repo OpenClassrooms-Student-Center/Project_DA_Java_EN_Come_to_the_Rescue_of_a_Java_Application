@@ -1,8 +1,10 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
@@ -11,29 +13,29 @@ public class AnalyticsCounter {
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+		File symptomsFile = new File ("Project02Eclipse/symptoms.txt");	
+		BufferedReader reader = new BufferedReader (new FileReader(symptomsFile.getCanonicalPath()));
 		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
+		int i = 0;
+
 		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
+			i++;
+
 			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+				headacheCount++;
 			}
-			else if (line.equals("rush")) {
+			else if (line.equals("rash")) {
 				rashCount++;
 			}
 			else if (line.contains("pupils")) {
 				pupilCount++;
 			}
-
 			line = reader.readLine();	// get another symptom
 		}
 		
-		// next generate output
+		// next generate outpu
+		File file = new File ("result.out");
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
