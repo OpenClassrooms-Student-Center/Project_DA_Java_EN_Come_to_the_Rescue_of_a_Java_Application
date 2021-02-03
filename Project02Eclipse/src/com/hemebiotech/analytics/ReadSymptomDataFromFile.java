@@ -27,9 +27,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	@Override
-	// public List<String> GetSymptoms() {
 	public TreeMap<String, Integer> GetSymptoms() {
-		// ArrayList<String> result = new ArrayList<String>();
 		TreeMap<String, Integer> resultat = new TreeMap<String, Integer>();
 
 		if (filepath != null) {
@@ -38,7 +36,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				String line = reader.readLine();
 
 				while (line != null) {
-					// result.add(line);
 
 					Integer valeur = resultat.get(line);
 
@@ -59,7 +56,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 		}
 
-		// return result;
 		return resultat;
 	}
 
