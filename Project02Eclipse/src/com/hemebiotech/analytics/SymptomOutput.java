@@ -8,18 +8,15 @@ import java.util.TreeMap;
  */
 public class SymptomOutput {
     private TreeMap<String, Integer> map = new TreeMap<String, Integer>();
-
     public SymptomOutput(TreeMap<String, Integer> map){
         this.map = map;
     }
-
     /**
      * 
      * @throws IOException
      * @return a result.out file containing all the symptoms and the number of occurrences in alphabetical order.
      */
     public void getFileOutput() throws IOException{
-        
         try {
             FileWriter writer = new FileWriter ("result.out");
             for(Map.Entry<String,Integer> entry : map.entrySet()){
@@ -32,7 +29,5 @@ public class SymptomOutput {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
 }
