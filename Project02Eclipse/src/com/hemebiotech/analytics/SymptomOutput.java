@@ -8,8 +8,8 @@ import java.util.TreeMap;
  */
 public class SymptomOutput implements ISymptomFile{
     private TreeMap<String, Integer> map = new TreeMap<String, Integer>();
-    public SymptomOutput(TreeMap<String, Integer> map){
-        this.map = map;
+    public SymptomOutput(Map<String, Integer> map){
+        this.map = (TreeMap<String, Integer>)map;
     }
     /**
      * 
