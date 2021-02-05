@@ -5,7 +5,7 @@ import java.util.TreeMap;
  * 
  * Organizes the symptoms alphabetically and counts the number of occurrences in the file.
  */
-public class SymptomMapping {
+public class SymptomMapping implements ISymptomAnalysis{
     private ArrayList<String> symptoms = new ArrayList<String>();
     private TreeMap<String, Integer> orderedSymptoms = new TreeMap<String, Integer>();
     /**
@@ -19,6 +19,7 @@ public class SymptomMapping {
      *
      * @return a mapping of all the symptoms in alphabetical order with the number of occurrences.
      */
+    @Override
     public TreeMap<String, Integer> analyzeSymptoms(){
         //TreeMap used because it automatically arranges the keys alphabetically.
         
