@@ -6,7 +6,7 @@ import java.util.TreeMap;
 /**
  * Creates the file output from the information stocked in the treeMap
  */
-public class SymptomOutput {
+public class SymptomOutput implements ISymptomFile{
     private TreeMap<String, Integer> map = new TreeMap<String, Integer>();
     public SymptomOutput(TreeMap<String, Integer> map){
         this.map = map;
@@ -16,6 +16,7 @@ public class SymptomOutput {
      * @throws IOException
      * @return a result.out file containing all the symptoms and the number of occurrences in alphabetical order.
      */
+    @Override
     public void getFileOutput() throws IOException{
         try {
             FileWriter writer = new FileWriter ("result.out");
