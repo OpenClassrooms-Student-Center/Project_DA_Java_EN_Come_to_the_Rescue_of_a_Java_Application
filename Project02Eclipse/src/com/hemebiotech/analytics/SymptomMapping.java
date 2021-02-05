@@ -22,7 +22,6 @@ public class SymptomMapping {
     public TreeMap<String, Integer> analyzeSymptoms(){
         //TreeMap used because it automatically arranges the keys alphabetically.
         //going through the full list
-        for
         for (int counter=0; counter<symptoms.size(); counter++){
             String readSymptom = symptoms.get(counter);
             //if the symptom that is being read is already present in the file, the number of occurrences gets incremented.
