@@ -1,18 +1,20 @@
 package com.hemebiotech.analytics;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 /**  
  * 
  * Organizes the symptoms alphabetically and counts the number of occurrences in the file.
  */
 public class SymptomMapping implements ISymptomAnalysis{
-    private ArrayList<String> symptoms = new ArrayList<String>();
+    private List<String> symptoms = new ArrayList<String>();
     private TreeMap<String, Integer> orderedSymptoms = new TreeMap<String, Integer>();
     /**
      * 
      * @param symptoms an unordered list of all the symptoms appearing in the raw file.
      */
-    public SymptomMapping(ArrayList<String> symptoms){
+    public SymptomMapping(List<String> symptoms){
         this.symptoms = symptoms;
     }
     /**
