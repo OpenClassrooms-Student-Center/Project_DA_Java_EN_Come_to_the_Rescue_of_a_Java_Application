@@ -19,7 +19,7 @@ public class WriteData implements ISymptomWriter {
 
 
 		try {
-		FileWriter writer = new FileWriter ("C://Users/33671/Desktop/result.txt");
+		FileWriter writer = new FileWriter ("result.out");;
 		BufferedWriter bw = new BufferedWriter (writer);
 		//commence la sequence de la boucle pour une map
 		for(Entry<String, Integer> entry : mSympt.entrySet()) {
