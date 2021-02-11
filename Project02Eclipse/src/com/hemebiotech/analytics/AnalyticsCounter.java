@@ -12,10 +12,21 @@ public class AnalyticsCounter {
 	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
+		
+		
 		// first get input
 		File symptomsFile = new File ("Project02Eclipse/symptoms.txt");	
 		BufferedReader reader = new BufferedReader (new FileReader(symptomsFile.getCanonicalPath()));
+		
+		
+		// import de la classe ReadSymptomDataFromFile + instanciation dans reader1.
+		//
+		//
+		 
+		
 		String line = reader.readLine();
+		ReadSymptomDataFromFile reader1 = new ReadSymptomDataFromFile();
+		
 
 		int i = 0;
 
