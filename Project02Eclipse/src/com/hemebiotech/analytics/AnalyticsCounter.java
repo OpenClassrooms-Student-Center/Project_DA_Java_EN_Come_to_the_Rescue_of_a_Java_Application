@@ -3,15 +3,29 @@ package com.hemebiotech.analytics;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class AnalyticsCounter {
-	private static int symptomCount = 0;	// initialize to 0
+		
+	public static void CountFrequency(ArrayList<String> list) {
+		
+		// hashmap to store the frequency of element 
+        Map<String, Integer> hm = new HashMap<String, Integer>(); 
+  
+        for (String i : list) { 
+            Integer j = hm.get(i); 
+            hm.put(i, (j == null) ? 1 : j + 1); 
+        } 
+        
+        // displaying the occurrence of elements in the arraylist 
+        for (Map.Entry<String, Integer> val : hm.entrySet()) { 
+            System.out.println("Symptom --> "+ val.getKey() +" "+"-->  x"+ val.getValue()); 
+        }
+	}
 
 	public static void main(String args[]) throws Exception {
-
-
-
 
 		// get file from path
 		String symptomsFile = new File ("Project02Eclipse/symptoms.txt").getCanonicalPath();	
@@ -21,39 +35,16 @@ public class AnalyticsCounter {
 
 		// create variable "result" with function result in a array list
 		ArrayList<String> result = (ArrayList<String>) reader.GetSymptoms();
-
-		System.out.println(result);
 		
-		for (int i = 0; i < result.size(); i++) {
-			
-			
-		}
-
-
-
-//
-//		while (result.get(i) != null) {
-//			i++;
-//
-//			System.out.println(result.get(i));
-//			else if (line.equals("rash")) {
-//				rashCount++;
-//			}
-//			else if (line.contains("pupils")) {
-//				pupilCount++;
-//			}
-//			line = reader.readLine();	// get another symptom
-//		}
-
+		//use function CounFrequency
+		CountFrequency(result);
 
 		// generate output file
 		File resultTxt = new File("result.out");
 		// write in file result.out
 		FileWriter writer = new FileWriter(resultTxt);
-		writer.write("headache: " + symptomCount + "\n");
+		writer.write();
 		writer.close();
-
-
 	}
 
 }
