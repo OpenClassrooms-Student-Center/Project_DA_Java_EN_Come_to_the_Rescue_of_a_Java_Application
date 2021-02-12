@@ -1,60 +1,25 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
-import java.util.TreeMap;
 
-/**
+/** @
  *
  * @author E.Jurquet
  * 
- * Main Class of the Program AnalyticsCounter.  well as a treemap method.
+ * Main Class of the Program AnalyticsCounter. as well as a TreeMap method.
  * @version 1.1
  *
  */
-public class AnalyticsCounter {
+public class AnalyticsCounter  {
 	/**
-	 * Instanciate 2 methods (@see)
-	 * Instanciate 2 Maps : "results" and "ordre"
-	 *@see  SymptomCount
-	 *@see  WriteData
-	 *@throws an error who can occure during the execution of write the results of the Map on a file txt.
+	Instantiate methods from other classes.
 	 */
-	public void analysis () {
+	public void analyseTheData ()  {
 
-		SymptomsCount analyticscompute = new SymptomsCount();
-		WriteData wd =  new  WriteData ();
-
-		Map<String,Integer> results = analyticscompute.sCount();
-		System.out.println(results);
-
-		Map<String,Integer> ordre = treemap(results);
-
-		String resultats = null;
-		try {
-			resultats = wd.writedata(ordre);
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-		System.out.println(resultats);
-
-		System.out.println(ordre);
+		SymptomsCount symptomscount2 = new SymptomsCount();
+		symptomscount2.listAndCountSymptoms();
 	}
-	/**
-	 * @return  a new TreeMap who classify by  alphabetical order the results of the method "analysis"
-	 */
-	public Map<String,Integer> treemap (Map<String, Integer>mSympt) {
 
-		Map<String,Integer> sorties = new TreeMap<>(mSympt);
-
-		sorties.putAll(mSympt);
-
-		return sorties;
-	}
 	/**
 	 * Program Start
 	 * @param args
@@ -68,15 +33,15 @@ public class AnalyticsCounter {
 		AnalyticsCounter analytics = new AnalyticsCounter () ;
 
 
-		analytics.analysis();
+		analytics.analyseTheData();
 	}
 }
 
-	/**
-	 * private static int headacheCount = 0;	// initialize to 0
+/**
+ * private static int headacheCount = 0;	// initialize to 0
 	private static int rashCount = 0;		// initialize to 0
 	private static int pupilCount = 0;		// initialize to 0
-	
+
 	public static void main(String args[]) throws Exception {
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
@@ -100,7 +65,7 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();	// get another symptom
 		}
-		
+
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
