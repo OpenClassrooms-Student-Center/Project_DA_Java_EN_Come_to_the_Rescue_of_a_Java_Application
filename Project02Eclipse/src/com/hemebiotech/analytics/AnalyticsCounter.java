@@ -1,56 +1,59 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
+	private static int symptomCount = 0;	// initialize to 0
+
 	public static void main(String args[]) throws Exception {
-		
-		
-		// first get input
-		File symptomsFile = new File ("Project02Eclipse/symptoms.txt");	
-		BufferedReader reader = new BufferedReader (new FileReader(symptomsFile.getCanonicalPath()));
-		
-		
-		// import de la classe ReadSymptomDataFromFile + instanciation dans reader1.
-		//
-		//
-		 
-		
-		String line = reader.readLine();
-		ReadSymptomDataFromFile reader1 = new ReadSymptomDataFromFile();
-		
 
-		int i = 0;
 
-		while (line != null) {
-			i++;
 
-			if (line.equals("headache")) {
-				headacheCount++;
-			}
-			else if (line.equals("rash")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-			line = reader.readLine();	// get another symptom
+
+		// get file from path
+		String symptomsFile = new File ("Project02Eclipse/symptoms.txt").getCanonicalPath();	
+
+		// create ReadSymptomDataFromFile and add path file in parameter
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(symptomsFile);
+
+		// create variable "result" with function result in a array list
+		ArrayList<String> result = (ArrayList<String>) reader.GetSymptoms();
+
+		System.out.println(result);
+		
+		for (int i = 0; i < result.size(); i++) {
+			
+			
 		}
-		
-		// next generate outpu
-		File file = new File ("result.out");
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+
+
+
+//
+//		while (result.get(i) != null) {
+//			i++;
+//
+//			System.out.println(result.get(i));
+//			else if (line.equals("rash")) {
+//				rashCount++;
+//			}
+//			else if (line.contains("pupils")) {
+//				pupilCount++;
+//			}
+//			line = reader.readLine();	// get another symptom
+//		}
+
+
+		// generate output file
+		File resultTxt = new File("result.out");
+		// write in file result.out
+		FileWriter writer = new FileWriter(resultTxt);
+		writer.write("headache: " + symptomCount + "\n");
 		writer.close();
+
+
 	}
+
 }
