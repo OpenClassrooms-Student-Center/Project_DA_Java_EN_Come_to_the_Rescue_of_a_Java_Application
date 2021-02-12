@@ -11,8 +11,9 @@ public class WriteData implements ISymptomWriter {
 	 * create a Text file and edit it with the results of the Map mSympt.
 	 * @param Map<String,Integer>mSympt a Map created in SymptomsCount class
 	 * @return serialize Map entries in a text file.
+	 * @throws IOException
 	 */
-	public Map<String,Integer> writeDataOnFile (Map<String,Integer> mSympt)   {
+	public Map<String,Integer> writeDataOnFile (Map<String,Integer> mSympt) throws IOException   {
 
 		try {
 			FileWriter writer = new FileWriter ("/Users/catherinejurquet/git/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application2/Project02Eclipse/src/com/hemebiotech/analytics/results.out");
