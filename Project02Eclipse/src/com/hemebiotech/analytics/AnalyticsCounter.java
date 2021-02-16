@@ -1,60 +1,94 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounter {
-	private static Object mapkey;
-	private static Integer mapvalue;
+/**
+ * 
+ * @version 1.0
+ * 
+ */
+public class AnalyticsCounter implements IAnalyticsCounter {
+	private String filepath;
+	private String resultat;
 
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-		TreeMap treemapsymptom = new TreeMap<String, Integer>();
-		mapkey = line;
-		mapvalue = 0;
-		int i = 0; // set i to 0
+	public AnalyticsCounter(String filepath, String resultat) {
+		this.setFilepath(filepath);
+		this.setResultat(resultat);
 
-		while (line != null) {
-			i++; // increment i
+	}
 
-			if (treemapsymptom.containsKey(line)) {
+	private TreeMap<String, Integer> treemapsymptom = new TreeMap<String, Integer>();
 
-				Integer mavaleur = (Integer) treemapsymptom.get(line);
+	@Override
+	public void readSymptoms() {
+		/**
+		 * 
+		 * @param filepath a full or partial path to file with symptom strings in it,
+		 *                 one per line
+		 */
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(getFilepath());
+		List<String> symptomlu = reader.GetSymptoms();
+
+		for (String symptom : symptomlu) {
+
+			if (treemapsymptom.containsKey(symptom)) {
+
+				Integer mavaleur = treemapsymptom.get(symptom);
 				Integer neovaleur = Integer.valueOf(mavaleur.intValue() + 1);
-				treemapsymptom.replace(line, neovaleur);
-				mapvalue = neovaleur;
+				treemapsymptom.replace(symptom, neovaleur);
+
 			} else {
-				treemapsymptom.put(line, Integer.valueOf(1));
-				mapvalue = Integer.valueOf(1);
+				treemapsymptom.put(symptom, Integer.valueOf(1));
 			}
-
-			line = reader.readLine(); // get another symptom
-			mapkey = line;
-
 		}
-		if (line == null) {
+	}
 
-			reader.close();
+	@Override
+	public void saveSymptoms() throws IOException {
+
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter(resultat);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		// next generate output
-		// Afficher le contenu du MAP
-
-		FileWriter writer = new FileWriter("result.out");
-		// writermap.close();
-		while (0 != treemapsymptom.size()) {
-			// while (null != treemapsymptom.f()) {NoSuchElementException
-			System.out.println(
-					"symptom : " + treemapsymptom.firstKey() + " " + treemapsymptom.get(treemapsymptom.firstKey()));
-			writer.write("symptom : " + treemapsymptom.firstKey() + " " + treemapsymptom.get(treemapsymptom.firstKey())
-					+ "\n");
-			treemapsymptom.remove(treemapsymptom.firstKey());
-
+		for (Map.Entry<String, Integer> entry : treemapsymptom.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+			try {
+				writer.write("symptom : " + entry.getKey() + " " + entry.getValue() + "\n");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		writer.flush();
 		writer.close();
 	}
-}
+
+	public TreeMap<String, Integer> getTreemapsymptom() {
+		return treemapsymptom;
+	}
+
+	public void setTreemapsymptom(TreeMap<String, Integer> treemapsymptom) {
+		this.treemapsymptom = treemapsymptom;
+	}
+
+	public String getResultat() {
+		return resultat;
+	}
+
+	public void setResultat(String resultat) {
+		this.resultat = resultat;
+	}
+
+	public String getFilepath() {
+		return filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+};
