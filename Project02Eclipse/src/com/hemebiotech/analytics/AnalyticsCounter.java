@@ -18,7 +18,6 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	public AnalyticsCounter(String filepath, String resultat) {
 		this.setFilepath(filepath);
 		this.setResultat(resultat);
-
 	}
 
 	private TreeMap<String, Integer> treemapsymptom = new TreeMap<String, Integer>();
