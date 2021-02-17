@@ -1,47 +1,43 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Simple brute force implementation
- *
- */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+//@author Amyn Fekkoul
 
-	private String filepath;
-	
-	/**
+public class ReadSymptomDataFromFile {
+
+	/*
+	 * Reads the file and put informations in a list
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @throws exception Signals that an I/O exception of some sort has occurred.
+	 * 
+	 * @param doc: File that will be read
+	 * 
+	 * @param list: Arraylist that contains each line of the file
+	 * 
+	 * @return a list with all symptoms
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+
+	public static void read(File doc, List<String> list) {
+
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(doc));
+			String line = null;
+
+			while ((line = reader.readLine()) != null) {
+				list.add(line);
+
 			}
+			reader.close();
+
+		} catch (IOException noFile) {
+			System.err.println("Unable to read the file.");
 		}
-		
-		return result;
+		System.out.println(list);
 	}
 
 }
