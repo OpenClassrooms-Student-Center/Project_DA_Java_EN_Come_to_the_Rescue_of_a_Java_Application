@@ -26,26 +26,21 @@ public class SymptomsCount {
 
 		Map<String,Integer> mSympt = new TreeMap<>();
 
-		try {
-			for (int n = 0; n<lSymptoms.size(); n++) {
-				String symptome = lSymptoms.get(n).trim().toLowerCase();
 
-				if (mSympt.containsKey(symptome)) {
-					int nbOccurence = mSympt.get(symptome);
-					nbOccurence ++;
-					mSympt.put(symptome, nbOccurence);
-				}
-				
-				else {
-					mSympt.put(symptome,1);
-				}
+		for (int n = 0; n<lSymptoms.size(); n++) {
+			String symptome = lSymptoms.get(n).trim().toLowerCase();
+
+			if (mSympt.containsKey(symptome)) {
+				int nbOccurence = mSympt.get(symptome);
+				nbOccurence ++;
+				mSympt.put(symptome, nbOccurence);
 			}
-			System.out.println(mSympt.toString());
 
-		}catch (Exception symptome) {
-			System.out.println("This error could be caused by listAndCountSymptoms method."); 
-		} 
-
+			else {
+				mSympt.put(symptome,1);
+			}
+		}
+		System.out.println(mSympt.toString());
 		return mSympt;
 	}
 }

@@ -7,8 +7,9 @@ public interface ISymptomWriter {
 	/**
 	 * 
 	 * Method signature that will write the results of the SymptomsCount Class on a text file.
+	 * @param The TreeMap "mSympt" 
 	 */	
-	public Map<String,Integer> writeDataOnFile (Map<String,Integer>mSympt) throws IOException;
+	public Map<String,Integer> writeSymptomDataToFile (Map<String,Integer>mSympt) ;
 
 }
 

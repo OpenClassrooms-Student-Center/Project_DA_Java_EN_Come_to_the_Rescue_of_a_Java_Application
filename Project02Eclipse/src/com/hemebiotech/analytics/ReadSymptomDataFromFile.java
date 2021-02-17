@@ -20,14 +20,18 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public ReadSymptomDataFromFile (String filepath)  {
 		this.filepath = filepath;
 	}
-
+	/**
+	 * @see com.hemebiotech.analytics.ISymptomReader#getSymptoms()
+	 */
 	@Override
 	public List<String> getSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
+
+			BufferedReader reader = null;
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 
 				while (line != null) {
@@ -37,10 +41,16 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				reader.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}finally {
+				try {
+					reader.close();
+				} catch (IOException e ) {
+				}
 			}
-		}
 
+		}
 		return result;
+
 	}
 
 }
