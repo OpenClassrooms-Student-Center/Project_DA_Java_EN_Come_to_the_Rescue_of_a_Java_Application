@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-
 /**  
  * 
  * Organizes the symptoms alphabetically and counts the number of occurrences in the file.
