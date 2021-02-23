@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.HashMap;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
@@ -14,32 +15,26 @@ public class AnalyticsCounter {
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
+		HashMap<String, Integer> symptoms = new HashMap<>();
 		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
 		while (line != null) {
 			i++;	// increment i
 			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headacheCount++;
-				System.out.println("number of headaches: " + headacheCount);
-			}
-			else if (line.equals("rash")) {
-				rashCount++;
-				System.out.println("number of rash: " + rashCount);
-			}
-			else if (line.contains("dialated pupils")) {
-				pupilCount++;
-				System.out.println("number of dialated pupils: " + pupilCount);
+
+			if (symptoms.containsKey(line)) {
+				symptoms.put(line, symptoms.get(line)+1);
+			} else {
+				symptoms.put(line, 1);
 			}
 
 			line = reader.readLine();	// get another symptom
 		}
-		
+
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+		for (String s: symptoms.keySet()) {
+			writer.write(s + " : " + symptoms.get(s) + "\n");
+		}
 		writer.close();
 	}
 }
