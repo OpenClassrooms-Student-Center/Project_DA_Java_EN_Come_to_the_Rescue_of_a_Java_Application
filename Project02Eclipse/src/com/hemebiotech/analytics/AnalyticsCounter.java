@@ -1,15 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import com.sun.java_cup.internal.runtime.Scanner;
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
-
 
 public class AnalyticsCounter {
 
