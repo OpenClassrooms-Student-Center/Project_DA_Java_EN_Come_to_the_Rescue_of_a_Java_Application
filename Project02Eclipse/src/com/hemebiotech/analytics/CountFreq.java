@@ -9,7 +9,7 @@ public class CountFreq {
 	
 	public List<String> CountFrequency(List<String> list){
 		
-		ArrayList<String> resultCount = new ArrayList<String>(); 
+		List<String> resultCount = new ArrayList<String>(); 
         Map<String, Integer> hashMapFrequency = new HashMap<String, Integer>(); 
         
         for (String i : list) { 
@@ -24,7 +24,7 @@ public class CountFreq {
         }  
 
         for (Map.Entry<String, Integer> value : hashMapFrequency.entrySet()) { 
-        	resultCount.add("Symptom : "+ value.getKey() + "x " +  value.getValue());
+        	resultCount.add(value.getKey() + " x " +  value.getValue() + "\n");
         }
         return resultCount;
 	}

@@ -21,6 +21,8 @@ public class AnalyticsCounter {
 		CountFreq counter = new CountFreq();
 		List<String> symptomCount;
 		symptomCount = counter.CountFrequency(symptomList);
-		WriteResult writer = new WriteResult(symptomCount);
+		AlphabeticalOrder inOrderAlphabetic = new AlphabeticalOrder();
+		List<String> listInOrder = inOrderAlphabetic.AlphabeticalOrder(symptomCount);
+		WriteInFile writer = new WriteInFile(listInOrder);
 	}
 }
