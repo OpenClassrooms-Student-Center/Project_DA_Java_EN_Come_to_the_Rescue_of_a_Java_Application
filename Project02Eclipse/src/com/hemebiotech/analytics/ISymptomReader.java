@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * Anything that will read symptom data from a source
@@ -16,5 +18,5 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	List<String> GetSymptoms ();
+	BufferedReader GetSymptoms ();
 }
