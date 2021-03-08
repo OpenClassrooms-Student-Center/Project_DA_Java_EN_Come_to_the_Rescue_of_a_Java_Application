@@ -7,7 +7,6 @@ public interface ICountSymptom {
     /**
      *
      * @return an TreeMap of result with how many occur by line.
-     * @throws IOException throw an error
      */
-    TreeMap<String, Integer> count() throws IOException;
+    TreeMap<String, Integer> count();
 }

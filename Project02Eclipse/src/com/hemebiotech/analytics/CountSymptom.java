@@ -15,18 +15,23 @@ public class CountSymptom implements ICountSymptom {
         this.result = result;
     }
     @Override
-    public TreeMap<String, Integer> count() throws IOException {
-        String line = this.file.readLine();
+    public TreeMap<String, Integer> count() {
+        try {
+            String line = this.file.readLine();
 
-        while(line != null) {
-            if (result.get(line) == null) {
-                result.put(line, 1);
-            } else {
-                result.put(line, result.get(line) +1);
+            while(line != null) {
+                if (result.get(line) == null) {
+                    result.put(line, 1);
+                } else {
+                    result.put(line, result.get(line) +1);
+                }
+                line = file.readLine();
             }
-            line = file.readLine();
+            file.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        file.close();
         return result;
     }
 }

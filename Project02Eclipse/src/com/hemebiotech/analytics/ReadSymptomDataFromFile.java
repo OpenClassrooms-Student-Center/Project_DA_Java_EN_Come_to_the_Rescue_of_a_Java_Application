@@ -30,8 +30,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public BufferedReader GetSymptoms() {
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				this.file = reader;
+				this.file = new BufferedReader (new FileReader(filepath));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
