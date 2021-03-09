@@ -14,4 +14,16 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Project02Eclipse/src/com/hemebiotech/analytics/IResultWriter.java</name>
+			<type>1</type>
+			<location>D:/Documents/OpenClassrooms/P2-Chambe-Jean-Noel/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/src/com/hemebiotech/analytics/IResultWriter.java</location>
+		</link>
+		<link>
+			<name>Project02Eclipse/src/com/hemebiotech/analytics/WriteResultDataInFile.java</name>
+			<type>1</type>
+			<location>D:/Documents/OpenClassrooms/P2-Chambe-Jean-Noel/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/src/com/hemebiotech/analytics/WriteResultDataInFile.java</location>
+		</link>
+	</linkedResources>
 </projectDescription>
