@@ -1,23 +1,23 @@
-Symptom = anxiety x 5
-Symptom = arrhythmias x 3
-Symptom = blindness x 1
-Symptom = blurred vision x 5
-Symptom = constricted pupils x 3
-Symptom = cough x 6
-Symptom = dialated pupils x 4
-Symptom = dizziness x 5
-Symptom = dry mouth x 8
-Symptom = fever x 7
-Symptom = headache x 3
-Symptom = high blood pressure x 10
-Symptom = inflamation x 7
-Symptom = insomnia x 4
-Symptom = low blood pressure x 4
-Symptom = nausea x 5
-Symptom = rapid heart rate x 1
-Symptom = rash x 4
-Symptom = shortness of breath x 3
-Symptom = stiff neck x 4
-Symptom = stomach pain x 3
-Symptom = tremor x 4
-Symptom = water retention x 1
+Symptom -> anxiety x 5
+Symptom -> arrhythmias x 3
+Symptom -> blindness x 1
+Symptom -> blurred vision x 5
+Symptom -> constricted pupils x 3
+Symptom -> cough x 6
+Symptom -> dialated pupils x 4
+Symptom -> dizziness x 5
+Symptom -> dry mouth x 8
+Symptom -> fever x 7
+Symptom -> headache x 3
+Symptom -> high blood pressure x 10
+Symptom -> inflamation x 7
+Symptom -> insomnia x 4
+Symptom -> low blood pressure x 4
+Symptom -> nausea x 5
+Symptom -> rapid heart rate x 1
+Symptom -> rash x 4
+Symptom -> shortness of breath x 3
+Symptom -> stiff neck x 4
+Symptom -> stomach pain x 3
+Symptom -> tremor x 4
+Symptom -> water retention x 1

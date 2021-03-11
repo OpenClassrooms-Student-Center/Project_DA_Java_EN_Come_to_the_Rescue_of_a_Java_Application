@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AlphabeticalOrder {
+public class ChangeOrder {
 
-	public List<String> AlphabeticalOrder(List<String> symptomList) {
-		
+	public List<String> InAlphabeticalOrder(List<String> symptomList) {
 		List<String> inOrderResult = new ArrayList<String>(); 
 		Collections.sort(symptomList);
 
