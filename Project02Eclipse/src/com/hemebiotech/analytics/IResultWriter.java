@@ -14,4 +14,5 @@ public interface IResultWriter {
 	 * 
 	 */
 	void SetResults();
+
 }

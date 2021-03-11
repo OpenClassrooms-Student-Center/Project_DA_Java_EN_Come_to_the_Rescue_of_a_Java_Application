@@ -2,7 +2,8 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Simple brute force implementation
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public class WriteResultDataInFile implements IResultWriter {
 
-	private List<String> listOfResults;
+	private ArrayList<String> listOfResults;
 	private String filepath;
 
 	/**
@@ -21,7 +22,7 @@ public class WriteResultDataInFile implements IResultWriter {
 	 * @param listOfResults to write into Result.out file, one per line
 	 *
 	 */
-	public WriteResultDataInFile(String filepath, List<String> listOfResults) {
+	public WriteResultDataInFile(String filepath, ArrayList<String> listOfResults) {
 
 		this.listOfResults = listOfResults;
 		this.filepath = filepath;
@@ -32,9 +33,13 @@ public class WriteResultDataInFile implements IResultWriter {
 
 		if (filepath != null) {
 			try {
+
+				Collections.sort(listOfResults);
+
 				FileWriter writer = new FileWriter(filepath);
+
 				int index = 0;
-				while (listOfResults.get(index) != null) {
+				while (index < listOfResults.size()) {
 					writer.write(listOfResults.get(index) + "\n");
 					index += 1;
 				}
@@ -44,4 +49,5 @@ public class WriteResultDataInFile implements IResultWriter {
 			}
 		}
 	}
+
 }
