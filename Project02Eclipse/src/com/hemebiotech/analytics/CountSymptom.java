@@ -1,5 +1,4 @@
 package com.hemebiotech.analytics;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.TreeMap;
@@ -17,7 +16,7 @@ public class CountSymptom implements ICountSymptom {
     }
 
     /**
-     * @implNote
+     * @implNote We count how many occur here, and we return the result var
      * */
     @Override
     public TreeMap<String, Integer> count() {

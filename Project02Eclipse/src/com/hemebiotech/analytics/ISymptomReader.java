@@ -1,22 +1,16 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.util.List;
-import java.util.TreeMap;
 
 /**
- * Anything that will read symptom data from a source
- * The important part is, the return value from the operation, which is a list of strings,
- * that may contain many duplications
- * 
- * The implementation does not need to order the list
- * 
+ * Anything that will get symptom data from a source
+ * The important part is, the return value from the operation, which is a BufferedFile
  */
 public interface ISymptomReader {
 	/**
-	 * If no data is available, return an empty List
+	 * If no data is available, return an empty BufferedFile
 	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
+	 * @return a BufferedFile with of all Symptoms obtained from a data source
 	 */
 	BufferedReader GetSymptoms ();
 }

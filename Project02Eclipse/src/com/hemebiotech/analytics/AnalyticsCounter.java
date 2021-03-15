@@ -10,13 +10,17 @@ public class AnalyticsCounter {
 	
 	public static void main(String[] args) {
 		try {
+			//We read symptoms
 			ReadSymptomDataFromFile readSymptoms = new ReadSymptomDataFromFile(pathFile, symptomsFile);
 			symptomsFile  = readSymptoms.GetSymptoms();
+			//We count and increment
 			CountSymptom countSymptom = new CountSymptom(symptomsFile, result);
 			countSymptom.count();
+			//And we export it !
 			WriteSymptom writeSymptom = new WriteSymptom(result);
 			writeSymptom.write();
-			System.out.println(result);
+
+			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
