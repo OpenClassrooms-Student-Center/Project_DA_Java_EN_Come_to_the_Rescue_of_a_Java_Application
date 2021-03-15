@@ -3,9 +3,6 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
 
 /**
  * Simple brute force implementation
@@ -13,7 +10,7 @@ import java.util.TreeMap;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+	private final String filepath;
 	private BufferedReader file;
 
 	/**

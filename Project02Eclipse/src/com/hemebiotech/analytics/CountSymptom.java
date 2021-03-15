@@ -9,11 +9,16 @@ public class CountSymptom implements ICountSymptom {
     TreeMap<String, Integer> result;
     /**
      * @param file The file which contain data we'll check
+     * @param result the TreeMap we will return which contains the count of symptoms
      */
     public CountSymptom(BufferedReader file, TreeMap<String, Integer> result) {
         this.file = file;
         this.result = result;
     }
+
+    /**
+     * @implNote
+     * */
     @Override
     public TreeMap<String, Integer> count() {
         try {
