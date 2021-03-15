@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	static BufferedReader symptomsFile;
-	final static String pathFile = "C:\\Users\\collo\\IdeaProjects\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
+	final static String pathFile = "Project02Eclipse\\symptoms.txt";
 	static TreeMap<String, Integer> result = new TreeMap<>();
 
 	public static void main(String[] args) {
