@@ -2,6 +2,10 @@ package com.hemebiotech.analytics;
 import java.util.TreeMap;
 import java.io.IOException;
 import java.io.FileWriter;
+/**
+ * Simple system to export result
+ *
+ */
 public class WriteSymptom implements IWriteSymptom {
     private final TreeMap<String, Integer> result;
 

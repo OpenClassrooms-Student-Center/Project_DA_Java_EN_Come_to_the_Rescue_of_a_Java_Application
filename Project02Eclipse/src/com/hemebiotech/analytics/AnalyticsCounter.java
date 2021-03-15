@@ -19,8 +19,6 @@ public class AnalyticsCounter {
 			//And we export it !
 			WriteSymptom writeSymptom = new WriteSymptom(result);
 			writeSymptom.write();
-
-			System.out.println();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

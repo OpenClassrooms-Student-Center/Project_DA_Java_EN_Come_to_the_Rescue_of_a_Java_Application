@@ -2,7 +2,10 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.TreeMap;
-
+/**
+ * Simple system to count occur of symptomsFile
+ *
+ */
 public class CountSymptom implements ICountSymptom {
     BufferedReader file;
     TreeMap<String, Integer> result;

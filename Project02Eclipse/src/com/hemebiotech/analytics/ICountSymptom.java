@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 import java.util.TreeMap;
-
+/** Everything concern count of symptom, we return a TreeMap of result */
 public interface ICountSymptom {
     /**
      *
