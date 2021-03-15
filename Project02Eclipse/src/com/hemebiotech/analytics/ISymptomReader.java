@@ -12,5 +12,5 @@ public interface ISymptomReader {
 	 * 
 	 * @return a BufferedFile with of all Symptoms obtained from a data source
 	 */
-	BufferedReader GetSymptoms ();
+	BufferedReader GetAllSymptoms ();
 }

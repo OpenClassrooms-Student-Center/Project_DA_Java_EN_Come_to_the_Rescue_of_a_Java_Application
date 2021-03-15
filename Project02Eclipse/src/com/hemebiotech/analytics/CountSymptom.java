@@ -20,9 +20,10 @@ public class CountSymptom implements ICountSymptom {
 
     /**
      * @implNote We count how many occur here, and we return the result var
+     * @return an TreeMap of result with how many occur by line.
      * */
     @Override
-    public TreeMap<String, Integer> count() {
+    public TreeMap<String, Integer> countAllSymptoms() {
         try {
             String line = this.file.readLine();
 

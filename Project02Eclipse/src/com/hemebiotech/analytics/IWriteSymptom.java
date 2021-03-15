@@ -7,6 +7,7 @@ package com.hemebiotech.analytics;
 public interface IWriteSymptom {
     /**
      * Export result into a file named result.out
+     * return void
      */
-    void write ();
+    void writeSymptomsInFile ();
 }

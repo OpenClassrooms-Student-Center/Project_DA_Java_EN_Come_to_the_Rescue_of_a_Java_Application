@@ -22,9 +22,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 		this.file = file;
 	}
-	
+
+	/**
+	 * @return a BufferedFile with of all Symptoms obtained from a data source and
+	 * if no data is available, return an empty BufferedFile
+	 */
 	@Override
-	public BufferedReader GetSymptoms() {
+	public BufferedReader GetAllSymptoms() {
 		if (filepath != null) {
 			try {
 				this.file = new BufferedReader (new FileReader(filepath));

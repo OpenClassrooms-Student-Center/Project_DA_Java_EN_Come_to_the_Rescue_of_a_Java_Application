@@ -8,24 +8,28 @@ import java.io.FileWriter;
  */
 public class WriteSymptom implements IWriteSymptom {
     private final TreeMap<String, Integer> result;
-
+    /**
+     * @param result : We take it to take it size and use for with it to write symptoms
+     * */
     public WriteSymptom(TreeMap<String, Integer> result) {
         this.result = result;
     }
-
     /**
-     * adding results into a file and write it.
+     * @implNote  adding results into a file and write it.
+     * return void
      */
-    public void write() {
+    public void writeSymptomsInFile() {
         try {
             FileWriter writer = new FileWriter("result.out");
-            writer.write(String.valueOf(this.result));
+            for (int i =0; i < this.result.size(); i++) {
+                //we change treeMap in array to get value from an index
+                writer.write(this.result.keySet().toArray()[i] +" : " + this.result.get(this.result.keySet().toArray()[i]) + "\n");
+            }
             writer.close();
             System.out.println("Results exported !");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
 }
