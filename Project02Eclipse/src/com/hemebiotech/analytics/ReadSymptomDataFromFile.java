@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 public class ReadSymptomDataFromFile {
 	private String filepath;
@@ -14,8 +15,8 @@ public class ReadSymptomDataFromFile {
 		this.filepath = filepath;
 	}
 
-	public HashMap<String,int[]> getSymptoms() {
-		HashMap<String,int[]> result = new HashMap<>();
+	public TreeMap<String,int[]> getSymptoms() {
+		TreeMap<String,int[]> result = new TreeMap<>();
 		try {
 			FileReader filereader = new FileReader(filepath);
 			BufferedReader br = new BufferedReader(filereader);
