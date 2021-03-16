@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ReadSymptomDataFromFile {
 	private String filepath;
@@ -13,8 +14,8 @@ public class ReadSymptomDataFromFile {
 		this.filepath = filepath;
 	}
 
-	public ArrayList<String> getSymptoms() {
-		ArrayList<String> result = new ArrayList<>();
+	public HashMap<String,int[]> getSymptoms() {
+		HashMap<String,int[]> result = new HashMap<>();
 		try {
 			FileReader filereader = new FileReader(filepath);
 			BufferedReader br = new BufferedReader(filereader);
@@ -22,7 +23,14 @@ public class ReadSymptomDataFromFile {
 			String line;
 
 			while ((line = br.readLine()) != null) {
-				result.add(line);
+				int [] nombre = result.get(line);
+				if(nombre == null){
+					nombre = new int[]{0};
+					result.put(line,nombre);}
+					else {
+						nombre[0] ++;
+						result.put(line,nombre);
+				}
 			}
 			br.close();
 
