@@ -5,14 +5,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.TreeMap;
 
 public class WriteSymptomIntoFile {
     private String filepath;
-    private List<String> list;
+    private TreeMap<String, int[]> map;
 
-    public WriteSymptomIntoFile(String filepath, List<String> list) {
+    public WriteSymptomIntoFile(String filepath, TreeMap<String, int[]> map) {
         this.filepath = filepath;
-        this.list = list;
+        this.map = map;
     }
 
     public void writeSymptoms() {
@@ -30,8 +31,9 @@ public class WriteSymptomIntoFile {
                 FileWriter filewriter = new FileWriter(filepath);
                 BufferedWriter bw = new BufferedWriter(filewriter);
 
-                for (String symptom : list) {
-                    bw.write(symptom);
+                for (String key:map.keySet()){
+                    int[]nombre = map.get(key);
+                    bw.write(key +"="+nombre[0]);
                     bw.newLine();
                 }
 

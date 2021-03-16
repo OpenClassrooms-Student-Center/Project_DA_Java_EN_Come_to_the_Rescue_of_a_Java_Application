@@ -22,8 +22,8 @@ public class AnalyticsCounter {
 		}
 
 //Writedataonfile class allow to create a file called results.out and write the final list on it
-//		WriteSymptomIntoFile writesortie = new WriteSymptomIntoFile(destinationpath, finalist);
-//		writesortie.writeSymptoms();
+WriteSymptomIntoFile writesortie = new WriteSymptomIntoFile(destinationpath, listsymptoms);
+writesortie.writeSymptoms();
 	}
 }
 
