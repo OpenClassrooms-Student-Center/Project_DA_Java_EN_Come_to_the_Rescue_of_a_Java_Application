@@ -1,43 +1,30 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.Collections;
+import java.util.List;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	public static void main(String[] args) {
+// The localization of source and destination text documents
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		String destinationpath = "results.out.txt";
+		String sourcepath = "symptoms.txt";
+//New class which allow to read the source document and generate a list with all symptoms in a row
+//The method getSymptoms return the exhaustive list of symptoms as a list of strings
+		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(sourcepath);
+		List<String> listsymptoms = read.getSymptoms();
+
+//Collections.sort allow to sort in ascending order
+		Collections.sort(listsymptoms);
+
+//CounterSymptom class allows to  return a list with "name of symptom" = "frequence" thanks to its getCount method
+		CounterSymptom countofsymptoms = new CounterSymptom(listsymptoms);
+		List<String> finalist = countofsymptoms.getCount();
+
+//Writedataonfile class allow to create a file called results.out and write the final list on it
+		WriteSymptomIntoFile writesortie = new WriteSymptomIntoFile(destinationpath, finalist);
+		writesortie.writeSymptoms();
 	}
 }
+
