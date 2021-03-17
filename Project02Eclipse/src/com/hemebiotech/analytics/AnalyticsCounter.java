@@ -9,7 +9,7 @@ import java.util.TreeMap;
  *  <ul>
  *  <li>ReadSymptomDataFromFile</li>
  *  <li>WriteSymptomIntoFile</li>
- *</ul>
+ * </ul>
  *
  * @see ReadSymptomDataFromFile
  * @see WriteSymptomIntoFile
