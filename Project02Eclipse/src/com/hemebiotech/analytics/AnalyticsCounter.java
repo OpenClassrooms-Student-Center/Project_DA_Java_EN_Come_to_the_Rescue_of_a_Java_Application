@@ -1,29 +1,55 @@
 package com.hemebiotech.analytics;
 import java.util.TreeMap;
 
+/**
+ * <p><b>Analytics Counter allows to:</b> read a file symptom.txt, count symptoms, sort them,
+ * recopy symptom = occurency in a results.out file.
+ *</p>
+ * <b>AnalyticsCounter will call two classes :</b>
+ *  <ul>
+ *  <li>ReadSymptomDataFromFile</li>
+ *  <li>WriteSymptomIntoFile</li>
+ *</ul>
+ *
+ * @see ReadSymptomDataFromFile
+ * @see WriteSymptomIntoFile
+ *
+ * @author Robin Couturier
+ * @version 2.0
+ */
 public class AnalyticsCounter {
 
 	public static void main(String[] args) {
-// The localization of source and destination text documents
 
 		String destinationpath = "results.out.txt";
+/**
+ * The source path. if it's not inside the root directory it can be modified
+ */
 		String sourcepath = "symptoms.txt";
-//New class which allow to read the source document and generate a TreeMap in Which :
-// the key is the symptom
-// the value is the frequency
-// it's naturally sorted
-//The method getSymptoms return the treemap
+
+/**
+ * creation of a new instance of ReadSymptomDataFromFile's class called read
+ * @see ReadSymptomDataFromFile
+  */
 		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(sourcepath);
+/**
+ * creation of a TreeMap listsymptoms which is the return of the method getSymptoms
+ * @see ReadSymptomDataFromFile#getSymptoms()
+ *
+  */
 		TreeMap<String,int[]> listsymptoms = read.getSymptoms();
 
-		for (String key:listsymptoms.keySet()){
-			int [] nombre = listsymptoms.get(key);
-			System.out.println(key +"="+nombre[0]);
-		}
-
-//Writedataonfile class allow to create a file called results.out and write the final list on it
-WriteSymptomIntoFile writesortie = new WriteSymptomIntoFile(destinationpath, listsymptoms);
-writesortie.writeSymptoms();
+/**
+ * creation of a new instance of WriteSymptomIntoFile's class called write
+ * @see WriteSymptomIntoFile
+ */
+		WriteSymptomIntoFile write = new WriteSymptomIntoFile(destinationpath, listsymptoms);
+/**
+ * Use of the method writeSymptoms() in order to copy into results.out's file
+ * @see WriteSymptomIntoFile#writeSymptoms()
+ *
+ */
+		write.writeSymptoms();
 	}
 }
 
