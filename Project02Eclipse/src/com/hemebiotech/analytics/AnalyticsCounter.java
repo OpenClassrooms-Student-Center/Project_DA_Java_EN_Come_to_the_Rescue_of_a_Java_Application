@@ -3,7 +3,7 @@ import java.util.TreeMap;
 
 /**
  * <p><b>Analytics Counter allows to:</b> read a file symptom.txt, count symptoms, sort them,
- * recopy symptom = occurency in a result.out file.
+ * write (symptom = occurency) in a file "destinationpath".out.
  *</p>
  * <b>AnalyticsCounter will call two classes :</b>
  *  <ul>

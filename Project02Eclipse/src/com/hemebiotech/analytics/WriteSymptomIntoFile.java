@@ -7,19 +7,19 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 /**
- * <b>WriteSymptomIntoFile allows :</b> create a new file results.out, write into the file symptoms = occurency.
+ * <b>WriteSymptomIntoFile allows :</b> create and write into the "destinationpath" file (symptoms = occurency)
  *
  */
 public class WriteSymptomIntoFile {
     /**
-     * Path of source.out
+     * Path of result.out
      * @see WriteSymptomIntoFile#writeSymptoms()
      * @see WriteSymptomIntoFile#WriteSymptomIntoFile(String, TreeMap)
      */
     private String filepath;
 
     /**
-     * TreeMap which is the return of getSymptoms() and will be the argument of writeSymptoms()
+     * TreeMap which is the return of getSymptoms()
      * @see ReadSymptomDataFromFile#getSymptoms()
      * @see WriteSymptomIntoFile#writeSymptoms()
      * @see WriteSymptomIntoFile#WriteSymptomIntoFile(String, TreeMap)
@@ -31,27 +31,15 @@ public class WriteSymptomIntoFile {
      * @param filepath
      * Path of source.out
      * @param map
-     * TreeMap written into source.out
+     * TreeMap which is the return of getSymptoms() method
      */
     public WriteSymptomIntoFile(String filepath, TreeMap<String, Integer> map) {
         this.filepath = filepath;
         this.map = map;
     }
     /**
-     * writeSymptoms() method that write keys and values of the TreeMap of the constructor into file which has filepath as a path
+     * writeSymptoms() method that write (keys = values) of the contructor TreeMap into "destinationpath" file
      *
-     * <ul>
-     *     <li>create a file source.out.</li>
-     *     <li>Write each key with its value into the file thanks to a bufferedWriter.</li>
-     *
-     * </ul>
-     *
-     * Catch two Exceptions.
-     *  <ul>
-     *        <li>the file can't be created</li>
-     *        <li>the file was created but it can't be found</li>
-     *
-     *   </ul>
      */
     public void writeSymptoms() {
         File file = new File(filepath);

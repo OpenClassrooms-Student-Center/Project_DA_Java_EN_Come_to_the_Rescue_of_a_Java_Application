@@ -37,19 +37,6 @@ public class ReadSymptomDataFromFile {
 	/**
 	 * getSymptoms() method that read, count and sort.
 	 *
-	 * <ul>
-	 *     <li>Read symptoms thanks to a bufferedReader.</li>
-	 *     <li>Write each symptom as a key in a TreeMap.</li>
-	 *     <li>Increase the value of the key if the symptom is seen multiple times.</li>
-	 *     <li>The TreeMap will automatically sort keys.</li>
-	 * </ul>
-	 *
-	 * Catch two Exceptions.
-	 *       <ul>
-	 *           <li>the file can't be found</li>
-	 *           <li>the file can't be read </li>
-	 *
-	 *       </ul>
 	 * @return A Treemap (K,V) such as (keys = symptoms, values = occurency) with keys sorted
 	 */
 	public TreeMap<String,Integer> getSymptoms() {
