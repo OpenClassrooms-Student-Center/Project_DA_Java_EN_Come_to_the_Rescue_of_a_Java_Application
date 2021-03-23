@@ -24,21 +24,21 @@ public class WriteSymptomIntoFile {
      * @see WriteSymptomIntoFile#writeSymptoms()
      * @see WriteSymptomIntoFile#WriteSymptomIntoFile(String, TreeMap)
      */
-    private TreeMap<String, int[]> map;
+    private TreeMap<String, Integer> map;
 
     /**
      * Constructor WriteSymptomIntoFile.
-      * @param filepath
+     * @param filepath
      * Path of source.out
      * @param map
      * TreeMap written into source.out
      */
-    public WriteSymptomIntoFile(String filepath, TreeMap<String, int[]> map) {
+    public WriteSymptomIntoFile(String filepath, TreeMap<String, Integer> map) {
         this.filepath = filepath;
         this.map = map;
     }
     /**
-     * writeSymptoms() method that write keys and values of the TreeMap into source.out file.
+     * writeSymptoms() method that write keys and values of the TreeMap of the constructor into file which has filepath as a path
      *
      * <ul>
      *     <li>create a file source.out.</li>
@@ -56,31 +56,23 @@ public class WriteSymptomIntoFile {
     public void writeSymptoms() {
         File file = new File(filepath);
 
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                System.err.println("we can't create the file");
-            }
-        } else {
+        try {
+            FileWriter filewriter = new FileWriter(filepath);
+            BufferedWriter bw = new BufferedWriter(filewriter);
 
-            try {
-                FileWriter filewriter = new FileWriter(filepath);
-                BufferedWriter bw = new BufferedWriter(filewriter);
-
-                for (String key:map.keySet()){
-                    int[]nombre = map.get(key);
-                    bw.write(key +"="+nombre[0]);
-                    bw.newLine();
-                }
-
-                bw.close();
-
-            } catch (IOException e) {
-                System.err.println("The file can't be found");
+            for (String key:map.keySet()){
+                Integer nombre = map.get(key);
+                bw.write(key +"="+nombre);
+                bw.newLine();
             }
 
+            bw.close();
+
+        } catch (IOException e) {
+            System.err.println("The file can't be found");
         }
+
+
     }
 
 }

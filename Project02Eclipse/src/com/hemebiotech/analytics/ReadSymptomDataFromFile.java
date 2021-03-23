@@ -19,13 +19,13 @@ public class ReadSymptomDataFromFile {
 	 * Path of symptom.txt
 	 * @see ReadSymptomDataFromFile#getSymptoms()
 	 * @see ReadSymptomDataFromFile#ReadSymptomDataFromFile(String)
- 	 */
+	 */
 	private String filepath;
 
 	/**
 	 * Constructor ReadSymptomFromDataFile
 	 *
- 	 * @param filepath
+	 * @param filepath
 	 * Path of symptom.txt
 	 *
 	 */
@@ -52,8 +52,8 @@ public class ReadSymptomDataFromFile {
 	 *       </ul>
 	 * @return A Treemap (K,V) such as (keys = symptoms, values = occurency) with keys sorted
 	 */
-	public TreeMap<String,int[]> getSymptoms() {
-		TreeMap<String,int[]> result = new TreeMap<>();
+	public TreeMap<String,Integer> getSymptoms() {
+		TreeMap<String,Integer> result = new TreeMap<>();
 		try {
 			FileReader filereader = new FileReader(filepath);
 			BufferedReader br = new BufferedReader(filereader);
@@ -61,13 +61,14 @@ public class ReadSymptomDataFromFile {
 			String line;
 
 			while ((line = br.readLine()) != null) {
-				int [] nombre = result.get(line);
-				if(nombre == null){
-					nombre = new int[]{0};
+				Integer nombre;
+				if(!result.containsKey(line)){
+					nombre =1;
 					result.put(line,nombre);}
-					else {
-						nombre[0] ++;
-						result.put(line,nombre);
+				else {
+					nombre = result.get(line);
+					nombre ++;
+					result.put(line,nombre);
 				}
 			}
 			br.close();
