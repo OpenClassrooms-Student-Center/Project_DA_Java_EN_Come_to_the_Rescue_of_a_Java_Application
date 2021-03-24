@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class WriteResultInFile implements ResultWriter{
-	
+
 	@Override
 	public void WriteResult(List<String> result) throws IOException {
 		FileWriter myWriter = new FileWriter("result.out");
