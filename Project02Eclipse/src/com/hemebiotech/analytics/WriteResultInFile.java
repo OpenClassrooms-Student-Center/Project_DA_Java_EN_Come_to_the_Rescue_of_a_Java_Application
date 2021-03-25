@@ -12,7 +12,7 @@ public class WriteResultInFile implements ResultWriter{
 		
 		for (int i = 0; i < result.size(); i++) {
 			String symptomLine = result.get(i);
-			myWriter.write("Symptom -> " + symptomLine);
+			myWriter.write("Symptom : " + symptomLine);
 		}
 		myWriter.close();
 	}
