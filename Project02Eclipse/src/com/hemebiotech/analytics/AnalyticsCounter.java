@@ -7,49 +7,46 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 	
-	private ISymptomReader reader;
 	private CountFreq countFreq;
 	private Caster caster;
 	private ChangeOrder changeOrder;
 	private ResultWriter resultWriter;
 	
+//	- Main: Le déroulé de l'orchestration est bon, mais ce n'est pas 
+//	la responsabilité du main ! Le main doit configurer et lancer le processus,
+//	mais pas faire lui-même l'orchestration. Regarde du côté des mécanismes 
+//	d'injection de dépendances (à la main, pas avec un framework) 
+//	pour voir comment "configurer" une classe.
 	
-	public AnalyticsCounter(ISymptomReader reader) {
-		this.reader = reader;	
+	
+//	- Modifier la classe AnalyticsCounter pour qu'elle s'occupe de l'orchestration 
+//	via une méthode appelée par le main (qui lui s'occupe de la configuration)
+
+	public AnalyticsCounter() {
+		this.countFreq = new CountFreq();
+		this.caster = new CastAction();
+		this.changeOrder = new ChangeOrder();
+		this.resultWriter = new WriteResultInFile();
 	}
 	
-	public void doProcess() throws IOException {
-		List<String> symptoms = reader.GetSymptoms();
-		Map<String,Integer> symptomsCount = countFreq.CountFrequency(symptoms);
-		symptoms = caster.CastToList(symptomsCount);
-		symptoms = changeOrder.InAlphabeticalOrder(symptoms);
-		resultWriter.WriteResult(symptoms);
-	
+	public void doProcess(ISymptomReader reader) throws IOException {
+		List<String> symptomsList = reader.GetSymptoms();
+		Map<String,Integer> symptomsCount = countFreq.CountFrequency(symptomsList);
+		symptomsList = caster.CastToList(symptomsCount);
+		symptomsList = changeOrder.InAlphabeticalOrder(symptomsList);
+		
+		System.out.println(symptomsList);
+		
+		this.resultWriter.WriteResult(symptomsList);
+	}
 
 	public static void main(String args[]) throws Exception {
 		
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 		String filepath = new File("Project02Eclipse/symptoms.txt").getCanonicalPath();
 		ISymptomReader reader = new ReadSymptomDataFromFile(filepath);
-		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader);
-		analyticsCounter.doProcess();
+		analyticsCounter.doProcess(reader);
 				
-				
-//		ISymptomReader reader = new ReadSymptomDataFromFile(symptomsFile);
-//		List<String> symptomList = reader.GetSymptoms();
-//		
-//		CountFreq counter = new CountFreq();
-//		Map<String, Integer> symptomCount = counter.CountFrequency(symptomList);
-//		
-//		Caster changeToList = new CastAction();
-//		List<String> symptomList = changeToList.CastToList(symptomCount);
-//		
-//		ChangeOrder OrderAlphabetic = new ChangeOrder();
-//		symptomList = OrderAlphabetic.InAlphabeticalOrder(symptomList);
-//		
-//		ResultWriter writer = new WriteResultInFile();
-//		writer.WriteResult(symptomList);
-//		
-	
 	}
 
 }
