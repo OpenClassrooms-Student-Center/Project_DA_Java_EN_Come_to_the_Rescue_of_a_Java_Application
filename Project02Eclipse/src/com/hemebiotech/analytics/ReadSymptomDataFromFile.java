@@ -1,46 +1,71 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeMap;
 
 /**
- * Simple brute force implementation
- *
+ * <b>ReadSymptomDataFromFile allows to :</b>
+ * <ul>
+ *     <li> read the file symptom.txt</li>
+ *     <li> count the frequency of each symptom</li>
+ *     <li> sort symptoms</li>
+ * </ul>
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filepath;
-	
+public class ReadSymptomDataFromFile {
 	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * Path of symptom.txt
+	 * @see ReadSymptomDataFromFile#getSymptoms()
+	 * @see ReadSymptomDataFromFile#ReadSymptomDataFromFile(String)
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
+	private String filepath;
+
+	/**
+	 * Constructor ReadSymptomFromDataFile
+	 *
+	 * @param filepath
+	 * Path of symptom.txt
+	 *
+	 */
+
+	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
+
+	/**
+	 * getSymptoms() method that read, count and sort.
+	 *
+	 * @return A Treemap (K,V) such as (keys = symptoms, values = occurency) with keys sorted
+	 */
+	public TreeMap<String,Integer> getSymptoms() {
+		TreeMap<String,Integer> result = new TreeMap<>();
+		try {
+			FileReader filereader = new FileReader(filepath);
+			BufferedReader br = new BufferedReader(filereader);
+
+			String line;
+
+			while ((line = br.readLine()) != null) {
+				Integer nombre;
+				if(!result.containsKey(line)){
+					nombre =1;
+					result.put(line,nombre);}
+				else {
+					nombre = result.get(line);
+					nombre ++;
+					result.put(line,nombre);
 				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
+			br.close();
+
+		} catch (FileNotFoundException e) {
+			System.err.println("impossible to find the file");
+		} catch (IOException e) {
+			System.err.println("impossible to read the file");
 		}
-		
+
 		return result;
 	}
 

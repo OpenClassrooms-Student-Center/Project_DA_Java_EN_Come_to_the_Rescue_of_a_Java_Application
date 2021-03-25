@@ -1,43 +1,36 @@
 package com.hemebiotech.analytics;
+import java.util.TreeMap;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
+/**
+ * <p><b>Analytics Counter allows to:</b> read a file symptom.txt, count symptoms, sort them,
+ * write (symptom = occurency) in a file "destinationpath".out.
+ *</p>
+ * <b>AnalyticsCounter will call two classes :</b>
+ *  <ul>
+ *  <li>ReadSymptomDataFromFile</li>
+ *  <li>WriteSymptomIntoFile</li>
+ * </ul>
+ *
+ * @see ReadSymptomDataFromFile
+ * @see WriteSymptomIntoFile
+ *
+ * @author Robin Couturier
+ * @version 1.0
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	public static void main(String[] args) {
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		String destinationpath = "result.out";
+		String sourcepath = "symptoms.txt";
+
+		ReadSymptomDataFromFile read = new ReadSymptomDataFromFile(sourcepath);
+
+		TreeMap<String,Integer> listsymptoms = read.getSymptoms();
+
+		WriteSymptomIntoFile write = new WriteSymptomIntoFile(destinationpath, listsymptoms);
+
+		write.writeSymptoms();
 	}
 }
+
