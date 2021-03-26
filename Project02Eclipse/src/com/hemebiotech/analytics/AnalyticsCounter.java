@@ -7,46 +7,29 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 	
-	private CountFreq countFreq;
-	private Caster caster;
-	private ChangeOrder changeOrder;
-	private ResultWriter resultWriter;
+	private CountFrequency countFreq;
+	private IResultWriter writer;
+	private ISymptomReader reader;
 	
-//	- Main: Le déroulé de l'orchestration est bon, mais ce n'est pas 
-//	la responsabilité du main ! Le main doit configurer et lancer le processus,
-//	mais pas faire lui-même l'orchestration. Regarde du côté des mécanismes 
-//	d'injection de dépendances (à la main, pas avec un framework) 
-//	pour voir comment "configurer" une classe.
-	
-	
-//	- Modifier la classe AnalyticsCounter pour qu'elle s'occupe de l'orchestration 
-//	via une méthode appelée par le main (qui lui s'occupe de la configuration)
-
-	public AnalyticsCounter() {
-		this.countFreq = new CountFreq();
-		this.caster = new CastAction();
-		this.changeOrder = new ChangeOrder();
-		this.resultWriter = new WriteResultInFile();
+	public AnalyticsCounter(ISymptomReader reader, IResultWriter writer) {
+		this.countFreq = new CountFrequency();
+		this.writer = writer;
+		this.reader = reader;
 	}
 	
-	public void doProcess(ISymptomReader reader) throws IOException {
-		List<String> symptomsList = reader.GetSymptoms();
+	public void analyseProcess() throws IOException {
+		List<String> symptomsList = this.reader.GetSymptoms();
 		Map<String,Integer> symptomsCount = countFreq.CountFrequency(symptomsList);
-		symptomsList = caster.CastToList(symptomsCount);
-		symptomsList = changeOrder.InAlphabeticalOrder(symptomsList);
-		
-		System.out.println(symptomsList);
-		
-		this.resultWriter.WriteResult(symptomsList);
+		this.writer.WriteResult(symptomsCount);
 	}
 
 	public static void main(String args[]) throws Exception {
-		
-		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
+	
 		String filepath = new File("Project02Eclipse/symptoms.txt").getCanonicalPath();
+		String pathOutput = "../Project02Eclipse/";		
 		ISymptomReader reader = new ReadSymptomDataFromFile(filepath);
-		analyticsCounter.doProcess(reader);
-				
+		IResultWriter writer = new WriteResultInFile(pathOutput);
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
+		analyticsCounter.analyseProcess();		
 	}
-
 }

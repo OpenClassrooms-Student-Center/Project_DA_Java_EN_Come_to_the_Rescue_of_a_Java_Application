@@ -1,13 +1,13 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
-public class CountFreq {
+public class CountFrequency {
 	
 	public Map<String, Integer> CountFrequency(List<String> list){
-        Map<String, Integer> hashMapFrequency = new HashMap<String, Integer>(); 
+        Map<String, Integer> hashMapFrequency = new TreeMap<String, Integer>(); 
         
         for (String i : list) {  	
             Integer occurency = hashMapFrequency.get(i);

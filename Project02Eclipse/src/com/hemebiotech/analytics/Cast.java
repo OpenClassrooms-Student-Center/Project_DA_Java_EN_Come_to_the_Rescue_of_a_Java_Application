@@ -4,14 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CastAction implements Caster{
+public class Cast implements ICaster{
 	
-	Map<String, Integer> symptomCount;
-	
-	public void setSymptomCount(Map<String, Integer> symptomCount) {
-		this.symptomCount = symptomCount;
-	}
-
 	@Override
 	public List<String> CastToList(Map<String, Integer> symptomCount) {
 		List<String> symptomList = new ArrayList<String>();
