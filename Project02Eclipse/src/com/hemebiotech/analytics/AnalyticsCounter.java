@@ -17,7 +17,7 @@ public class AnalyticsCounter {
 		this.reader = reader;
 	}
 	
-	public void analyseProcess() throws IOException {
+	public void analyticsProcess() throws IOException {
 		List<String> symptomsList = this.reader.GetSymptoms();
 		Map<String,Integer> symptomsCount = countFreq.CountFrequency(symptomsList);
 		this.writer.WriteResult(symptomsCount);
@@ -26,10 +26,10 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 	
 		String filepath = new File("Project02Eclipse/symptoms.txt").getCanonicalPath();
-		String pathOutput = "../Project02Eclipse/";		
+		String pathOutput = "Project02Eclipse/";		
 		ISymptomReader reader = new ReadSymptomDataFromFile(filepath);
 		IResultWriter writer = new WriteResultInFile(pathOutput);
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
-		analyticsCounter.analyseProcess();		
+		analyticsCounter.analyticsProcess();		
 	}
 }
