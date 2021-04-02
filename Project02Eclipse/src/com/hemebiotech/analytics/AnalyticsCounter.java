@@ -26,17 +26,21 @@ public class AnalyticsCounter {
      * @throws Exception
      */
 	public static void main(String args[]) throws Exception {
-
-		countingOccunrenceOfSyptoms() ;
-		sortingSyptomsAlphabetically();
-		readingSyptomsFromIsymtomReader();
+         AnalyticsCounter counting = new AnalyticsCounter();
+		counting.countingOccunrenceOfSyptoms() ;
+		
+		 AnalyticsCounter sorting = new AnalyticsCounter();
+		sorting.sortingSyptomsAlphabetically();
+		
+		 AnalyticsCounter reading = new AnalyticsCounter();
+		reading.readingSyptomsFromIsymtomReader();
 	}
 
 	/**
 	 * 
 	 * @return  list of files from the class ReadSymptomDataFromFile
 	 */
-	public static List<String> readingSyptomsFromIsymtomReader() {
+	public  List<String> readingSyptomsFromIsymtomReader() {
 		ReadSymptomDataFromFile filePathSymptoms = new ReadSymptomDataFromFile("symptoms.txt");
 		List<String> listOfSymptoms = filePathSymptoms.GetSymptoms();
 		return listOfSymptoms;
@@ -48,7 +52,7 @@ public class AnalyticsCounter {
 	 * then count the occurrence of each symptoms
 	 * after that each symptoms is written to a .txt file.   
 	 */
-	public static void countingOccunrenceOfSyptoms() {
+	public  void countingOccunrenceOfSyptoms() {
 
 
 		try {
@@ -86,7 +90,7 @@ public class AnalyticsCounter {
 	 * and finally the arranged alphabetically string is written to the created file.
 	 * an out put of result.txt
 	 */
-	public static void sortingSyptomsAlphabetically() {
+	public void sortingSyptomsAlphabetically() {
 		try {
 			BufferedReader reader = new BufferedReader (new FileReader(fileSorting.getCanonicalPath()));
 			String line = reader.readLine();
