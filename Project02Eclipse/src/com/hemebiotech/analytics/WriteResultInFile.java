@@ -16,10 +16,9 @@ public class WriteResultInFile implements IResultWriter{
 	@Override
 	public void WriteResult(Map<String, Integer> result) throws IOException {
 		
-		ICaster castToList = new Cast();
-		List<String> castResult = castToList.CastToList(result);
-		
-		FileWriter myWriter = new FileWriter(pathOutput + "result.out");
+		AddToList addToList = new AddToList();
+		List<String> castResult = addToList.addInList(result);
+		FileWriter myWriter = new FileWriter(pathOutput);
 		
 		for (int i = 0; i < castResult.size(); i++) {
 			String symptomLine = castResult.get(i);

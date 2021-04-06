@@ -26,7 +26,7 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 	
 		String filepath = new File("Project02Eclipse/symptoms.txt").getCanonicalPath();
-		String pathOutput = "Project02Eclipse/";		
+		String pathOutput = "Project02Eclipse/result.out";		
 		ISymptomReader reader = new ReadSymptomDataFromFile(filepath);
 		IResultWriter writer = new WriteResultInFile(pathOutput);
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
