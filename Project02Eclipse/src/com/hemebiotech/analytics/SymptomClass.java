@@ -4,16 +4,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class SymptomClass {
-	public String SymptomName;
+	public String SymptomName = "";
 	public int SymptomCount = 0;
 	
-	public SymptomClass(String SymptomName, int SymptomCount) {	}
+	public SymptomClass(String SymptomName, int SymptomCount) {
+		this.SymptomName = SymptomName;
+		this.SymptomCount = SymptomCount;
+		
+	}
 	
-	public static String getSymptoms (SymptomClass symptom) {
+	public static String getSymptoms (SymptomClass sy) {
 		String name = 
 			"The symptom name is: " +
-			symptom.SymptomName+"\n"+
-			"There is/are actually : " +symptom.SymptomCount+
+			sy.SymptomName+"\n"+
+			"There is/are actually : " +sy.SymptomCount+
 			" symptom(s).\n";
 		return name;		
 	}
