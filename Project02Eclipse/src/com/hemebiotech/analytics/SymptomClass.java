@@ -13,18 +13,28 @@ public class SymptomClass {
 		
 	}
 	
-	public static String getSymptoms (SymptomClass sy) {
+	/**-------------------------------------------------*
+	 * Getter de la classe SymptomClass					*											        *
+	 * @param symptom de type SymptomClass				*
+	 * @return SymptomName & SymptomCount				*
+	 *-------------------------------------------------*/
+	
+	public static String getSymptoms (SymptomClass symptom) {
 		String name = 
 			"The symptom name is: " +
-			sy.SymptomName+"\n"+
-			"There is/are actually : " +sy.SymptomCount+
+			symptom.SymptomName+"\n"+
+			"There is/are actually : " +symptom.SymptomCount+
 			" symptom(s).\n";
 		return name;		
 	}
 	
-	public static String setSymptoms (SymptomClass symptom) {
-		String symptomStringified = symptom.toString();
-		return symptomStringified;
+	/**-------------------------------------------------*
+	 * Setter de la classe SymptomClass					*
+	 * @param symptom de type String					*
+	 *-------------------------------------------------*/
+	
+	public void setSymptoms (String symptom) {
+		this.SymptomName = symptom;
 	}
 	
 	public void write(SymptomClass symptom) throws IOException{
