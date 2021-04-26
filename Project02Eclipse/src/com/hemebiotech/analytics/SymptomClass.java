@@ -22,9 +22,9 @@ public class SymptomClass {
 		return name;		
 	}
 	
-	public void setSymptoms (String symptom, int count) {
-		symptom = this.SymptomName;
-		count = this.SymptomCount;
+	public static String setSymptoms (SymptomClass symptom) {
+		String symptomStringified = symptom.toString();
+		return symptomStringified;
 	}
 	
 	public void write(SymptomClass symptom) throws IOException{
