@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class AnalyticsCounter {
 	
@@ -8,11 +10,17 @@ public class AnalyticsCounter {
 //	private static int pupilCount = 0;		// initialize to 0
 		
 	public static void main(String args[]) throws Exception {
-		SymptomClass test = new SymptomClass("headache", 1);
-		SymptomClass.setSymptoms(test,"test", 0);
-		test.getSymptoms();
-//		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-//		String line = reader.readLine();
+		
+		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+		String line = reader.readLine();
+		String NewSymptomName = 
+				line.trim()
+				.substring(0, 1)
+				.toUpperCase()+
+				line.substring(1);
+		System.out.println(NewSymptomName);
+		
+		
 //		LinkedList <String> logSymptomes = new LinkedList<String>();
 //		boolean iterator = true;
 //				
