@@ -19,22 +19,26 @@ public class SymptomClass {
 	 * @return SymptomName & SymptomCount				*
 	 *-------------------------------------------------*/
 	
-	public static String getSymptoms (SymptomClass symptom) {
+	public String getSymptoms() {
 		String name = 
 			"The symptom name is: " +
-			symptom.SymptomName+"\n"+
-			"There is/are actually : " +symptom.SymptomCount+
+			this.SymptomName+"\n"+
+			"There is/are actually : " +this.SymptomCount+
 			" symptom(s).\n";
-		return name;		
+		System.out.println(name);	
+		return name;
+			
 	}
 	
 	/**-------------------------------------------------*
 	 * Setter de la classe SymptomClass					*
-	 * @param symptom de type String					*
+	 * @param objet de type SymptomClass				*
+	 * @param New SymptomName & New SymptomCount		*
 	 *-------------------------------------------------*/
 	
-	public void setSymptoms (String symptom) {
-		this.SymptomName = symptom;
+	public static void setSymptoms (SymptomClass objet, String symptom, int count) {
+		objet.SymptomName = symptom;
+		objet.SymptomCount = count;
 	}
 	
 	public void write(SymptomClass symptom) throws IOException{

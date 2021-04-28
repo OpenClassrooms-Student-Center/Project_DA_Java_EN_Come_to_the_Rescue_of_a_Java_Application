@@ -1,27 +1,31 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
 
 public class AnalyticsCounter {
 	
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+//	private static int headacheCount = 0;	// initialize to 0
+//	private static int rashCount = 0;		// initialize to 0
+//	private static int pupilCount = 0;		// initialize to 0
 		
 	public static void main(String args[]) throws Exception {
-		
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-		ArrayList<String> logSymptomes = new ArrayList<String>();
-				
-		while (line != null) {
-			line = reader.readLine();
-			logSymptomes.add(line);		
-			System.out.println(logSymptomes);
-		}
+		SymptomClass test = new SymptomClass("headache", 1);
+		SymptomClass.setSymptoms(test,"test", 0);
+		test.getSymptoms();
+//		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+//		String line = reader.readLine();
+//		LinkedList <String> logSymptomes = new LinkedList<String>();
+//		boolean iterator = true;
+//				
+//		while (iterator) {
+//			line = reader.readLine();
+//			logSymptomes.add(line);
+//			Collections.sort(logSymptomes);
+//			System.out.println(logSymptomes);
+//			if (line.equals("")) {
+//				iterator = false;
+//			}
+//		}
+//		
 		
 		
 		/**while (line != null) {
@@ -39,13 +43,13 @@ public class AnalyticsCounter {
 
 			
 		
-		reader.close();
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+//		reader.close();
+//		
+//		// next generate output
+//		FileWriter writer = new FileWriter ("result.out");
+//		writer.write("headache: " + headacheCount + "\n");
+//		writer.write("rash: " + rashCount + "\n");
+//		writer.write("dialated pupils: " + pupilCount + "\n");
+//		writer.close();
 	}
 }
