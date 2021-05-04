@@ -47,8 +47,7 @@ public class AnalyticsCounter {
 
 		Map<String, Integer> words = new HashMap<String, Integer>();
 
-		// Calling the function countEachWord
-		//countEachWord("symptoms.txt", words);
+		// Calling the function countEachWord	
           AnalyticsCounter counter = new AnalyticsCounter();
           counter.countEachWord("symptoms.txt", words);
 		// Create a TreeMap
