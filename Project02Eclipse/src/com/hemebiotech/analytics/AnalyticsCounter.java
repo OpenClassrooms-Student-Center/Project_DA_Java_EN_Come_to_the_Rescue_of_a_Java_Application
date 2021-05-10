@@ -1,43 +1,85 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+
 	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+	// create function to count words
+	public void countEachWord(String fileName, Map<String, Integer> words) throws FileNotFoundException {
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
+		// Create file input and Scanner
 		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		Scanner file = new Scanner(new File(fileName));
+
+		// Read through file and find words
+		while (file.hasNext()) {
+			String word = file.next();
+			Integer count = words.get(word);
+
+			// Determine if the word is in the Map
+			if (count != null)
+				count++;
+
+			else
+				count = 1;
+
+			// putting values in the Map
+			words.put(word, count);
+		}
+
+		// Close
+		file.close();
+
 	}
+
+	public static void main(String args[]) throws FileNotFoundException {
+
+		Map<String, Integer> words = new HashMap<String, Integer>();
+
+		// Calling the function countEachWord	
+          AnalyticsCounter counter = new AnalyticsCounter();
+          counter.countEachWord("symptoms.txt", words);
+		// Create a TreeMap
+		Map<String, Integer> sortedWords = new TreeMap<>(words);
+
+		// sorting the map
+		sortedWords.entrySet().forEach(System.out::println);
+		
+		
+		
+
+		// Write in the java File
+		
+        //Determine the path
+		Path path = Paths.get("text.txt");
+		String texte = "Hellow Openclassrooms.\n I am very happy.\n";
+		
+		
+		try {
+			Files.write(path, texte.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE,
+					StandardOpenOption.APPEND);
+
+		} catch (IOException e) {
+			System.out.println("File does not exist");
+			// e.printStackTrace();
+		}
+
+		// Read Files
+		   ReadFile reader = new ReadFile();
+		reader.readFile("symptoms.txt");
+
+		
+	}
+
 }
