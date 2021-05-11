@@ -19,6 +19,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
+		
+		// TODO Cette classe est mal nommée. on dirait le nom d'une méthode plutôt que celui d'une classe
+		
 		this.filepath = filepath;
 	}
 	

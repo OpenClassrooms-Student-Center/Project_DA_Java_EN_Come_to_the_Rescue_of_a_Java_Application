@@ -5,12 +5,22 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class AnalyticsCounter {
+	
+	
+	// TODO Enlever ces proprietes 
 	private static int headacheCount = 0;	// initialize to 0
 	private static int rashCount = 0;		// initialize to 0
 	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
+		
+		
+		// TODO recevoir en arguments le nom de fichier d'entree et le nom de fichier de sortie
+		// ==> Param existant ? param : default
+		
+		
+		// TODO utiliser le reader deja développer plutôt que de le réécrire
+		// TODO ecrire une classe spécifique sachnat compter les symptomes
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
@@ -33,6 +43,8 @@ public class AnalyticsCounter {
 			line = reader.readLine();	// get another symptom
 		}
 		
+		
+		//Ecrire une classe specifique pour écrire le resultat du compte
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
