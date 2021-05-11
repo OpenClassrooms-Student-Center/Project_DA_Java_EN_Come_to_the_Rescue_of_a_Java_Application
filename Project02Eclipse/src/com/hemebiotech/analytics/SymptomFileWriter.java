@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 public class SymptomFileWriter implements ISymptomWriter {
 
@@ -17,7 +18,7 @@ public class SymptomFileWriter implements ISymptomWriter {
 	}
 	
 	@Override
-	public void export(HashMap<String, Integer> symptoms) {
+	public void export(TreeMap<String, Integer> symptoms) {
 		
 		// TODO Auto-generated method stub
 		
@@ -29,7 +30,7 @@ public class SymptomFileWriter implements ISymptomWriter {
 			
 			while( iterator.hasNext() ){
 				Entry<String, Integer> entry = iterator.next();
-				writer.write( entry.getKey() + ": " + entry.getValue().toString() );
+				writer.write( entry.getKey() + ": " + entry.getValue().toString() + "\n" );
 			}
 			
 			writer.close();

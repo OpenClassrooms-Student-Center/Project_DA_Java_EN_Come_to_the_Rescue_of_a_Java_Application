@@ -1,8 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	
@@ -14,41 +13,17 @@ public class AnalyticsCounter {
 		String fileIn = args.length > 0 ? args[0] : SymptomFileReader.DEFAULT_FILENAME_IN;
 		String fileOut = args.length > 1 ? args[1] : SymptomFileWriter.DEFAULT_FILENAME_OUT;
 		
-		// ==> Param existant ? param : default
-		
 		SymptomFileReader symptomReader = new SymptomFileReader(fileIn);
 		SymptomFileWriter symptomWriter = new SymptomFileWriter(fileOut);
 		SymptomAnalyser symptomAnalyser = new SymptomAnalyser();
 		
 		
+		//Read all the symptoms
+		List<String> symptoms = symptomReader.GetSymptoms();
 		
-		// TODO utiliser le reader deja développer plutôt que de le réécrire
-		// TODO ecrire une classe spécifique sachnat compter les symptomes
-		BufferedReader reader = new BufferedReader (new FileReader(fileIn));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
+		TreeMap<String, Integer> statistics = symptomAnalyser.count(symptoms);
 		
-		
-		//Ecrire une classe specifique pour écrire le resultat du compte
-		// next generate output
+		symptomWriter.export(statistics);
 		
 	}
 }

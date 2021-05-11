@@ -2,13 +2,16 @@ package com.hemebiotech.analytics;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class SymptomAnalyser implements ISymptomAnalyser {
 
 	@Override
-	public HashMap<String, Integer> count(List<String> symptoms) {
+	public TreeMap<String, Integer> count(List<String> symptoms) {
 		
-		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		TreeMap<String, Integer> result = new TreeMap<String, Integer>();
+		
+		
 		
 		for (String symptom : symptoms) {
 			
