@@ -19,10 +19,13 @@ public class AnalyticsCounter {
 		
 		// TODO recevoir en arguments le nom de fichier d'entree et le nom de fichier de sortie
 		String fileIn = args.length > 0 ? args[0] : SymptomFileReader.DEFAULT_FILENAME_IN;
+		String fileOut = args.length > 1 ? args[1] : SymptomFileWriter.DEFAULT_FILENAME_OUT;
 		
 		// ==> Param existant ? param : default
 		
 		SymptomFileReader symptomReader = new SymptomFileReader(fileIn);
+		SymptomFileWriter symptomWriter = new SymptomFileWriter(fileOut);
+		
 		
 		
 		// TODO utiliser le reader deja développer plutôt que de le réécrire
