@@ -27,6 +27,8 @@ public class SymptomAnalyser implements ISymptomAnalyser {
 			
 		}
 		
+		System.out.println("Number of distinct symptoms: " + result.size());
+		
 		return result;
 	}
 

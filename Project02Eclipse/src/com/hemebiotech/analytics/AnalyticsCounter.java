@@ -8,8 +8,6 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
 		
-		
-		// TODO recevoir en arguments le nom de fichier d'entree et le nom de fichier de sortie
 		String fileIn = args.length > 0 ? args[0] : SymptomFileReader.DEFAULT_FILENAME_IN;
 		String fileOut = args.length > 1 ? args[1] : SymptomFileWriter.DEFAULT_FILENAME_OUT;
 		
@@ -21,8 +19,10 @@ public class AnalyticsCounter {
 		//Read all the symptoms
 		List<String> symptoms = symptomReader.GetSymptoms();
 		
+		//Count occurences for each symptom and have the result in an alphabetical order ( TreeMap )
 		TreeMap<String, Integer> statistics = symptomAnalyser.count(symptoms);
 		
+		//Write out the results
 		symptomWriter.export(statistics);
 		
 	}

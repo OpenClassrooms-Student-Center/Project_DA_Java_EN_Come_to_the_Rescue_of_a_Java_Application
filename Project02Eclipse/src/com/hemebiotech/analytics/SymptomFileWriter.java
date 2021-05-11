@@ -13,6 +13,11 @@ public class SymptomFileWriter implements ISymptomWriter {
 	
 	private String filepath;
 	
+	
+	/**
+	 * 
+	 * @param filepath a full or partial path to file where results are going to be written
+	 */
 	public SymptomFileWriter( String filepath ) {
 		this.filepath = filepath;
 	}
@@ -24,6 +29,7 @@ public class SymptomFileWriter implements ISymptomWriter {
 		
 		try {
 		
+			System.out.println("Trying to write symptoms statistics to this file: " + this.filepath);
 			FileWriter writer = new FileWriter (this.filepath);
 			
 			Iterator<Entry<String, Integer>> iterator =   symptoms.entrySet().iterator();
@@ -36,6 +42,7 @@ public class SymptomFileWriter implements ISymptomWriter {
 			writer.close();
 		
 		}catch( IOException e ) {
+			System.out.println( "An error occured while trying to write out the results. See below" );
 			e.printStackTrace();
 		}
 		

@@ -24,12 +24,17 @@ public class SymptomFileReader implements ISymptomReader {
 		this.filepath = filepath;
 	}
 	
+	
 	@Override
 	public List<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {
+			
 			try {
+				
+				System.out.println("Trying to read symptoms from this file: " + this.filepath);
+				
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
@@ -39,9 +44,12 @@ public class SymptomFileReader implements ISymptomReader {
 				}
 				reader.close();
 			} catch (IOException e) {
+				System.out.println("An error occured while trying to read symptoms file. See below");
 				e.printStackTrace();
 			}
 		}
+		
+		System.out.println("The number of symptoms (may be duplicate) found is : " + result.size() );
 		
 		return result;
 	}
