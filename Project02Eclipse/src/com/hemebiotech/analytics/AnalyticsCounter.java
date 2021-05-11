@@ -18,6 +18,8 @@ public class AnalyticsCounter {
 		// TODO recevoir en arguments le nom de fichier d'entree et le nom de fichier de sortie
 		// ==> Param existant ? param : default
 		
+		SymptomFileReader symptomReader = new SymptomFileReader("symptoms.txt");
+		
 		
 		// TODO utiliser le reader deja développer plutôt que de le réécrire
 		// TODO ecrire une classe spécifique sachnat compter les symptomes
