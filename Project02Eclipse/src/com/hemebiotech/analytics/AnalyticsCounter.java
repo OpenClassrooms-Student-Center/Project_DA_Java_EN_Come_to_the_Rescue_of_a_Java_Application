@@ -6,14 +6,7 @@ import java.io.FileWriter;
 
 public class AnalyticsCounter {
 	
-	
-	
-	
-	// TODO Enlever ces proprietes 
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
+
 	public static void main(String args[]) throws Exception {
 		
 		
