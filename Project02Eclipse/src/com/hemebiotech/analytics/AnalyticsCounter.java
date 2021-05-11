@@ -25,6 +25,7 @@ public class AnalyticsCounter {
 		
 		SymptomFileReader symptomReader = new SymptomFileReader(fileIn);
 		SymptomFileWriter symptomWriter = new SymptomFileWriter(fileOut);
+		SymptomAnalyser symptomAnalyser = new SymptomAnalyser();
 		
 		
 		
@@ -55,10 +56,6 @@ public class AnalyticsCounter {
 		
 		//Ecrire une classe specifique pour écrire le resultat du compte
 		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		
 	}
 }
