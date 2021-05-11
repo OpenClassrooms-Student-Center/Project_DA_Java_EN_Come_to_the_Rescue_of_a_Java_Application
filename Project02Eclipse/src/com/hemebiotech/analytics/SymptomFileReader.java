@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class SymptomFileReader implements ISymptomReader {
 
+	public static String DEFAULT_FILENAME_IN = "symptoms.txt";
 	private String filepath;
 	
 	/**

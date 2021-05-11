@@ -7,6 +7,8 @@ import java.io.FileWriter;
 public class AnalyticsCounter {
 	
 	
+	
+	
 	// TODO Enlever ces proprietes 
 	private static int headacheCount = 0;	// initialize to 0
 	private static int rashCount = 0;		// initialize to 0
@@ -16,14 +18,16 @@ public class AnalyticsCounter {
 		
 		
 		// TODO recevoir en arguments le nom de fichier d'entree et le nom de fichier de sortie
+		String fileIn = args.length > 0 ? args[0] : SymptomFileReader.DEFAULT_FILENAME_IN;
+		
 		// ==> Param existant ? param : default
 		
-		SymptomFileReader symptomReader = new SymptomFileReader("symptoms.txt");
+		SymptomFileReader symptomReader = new SymptomFileReader(fileIn);
 		
 		
 		// TODO utiliser le reader deja développer plutôt que de le réécrire
 		// TODO ecrire une classe spécifique sachnat compter les symptomes
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+		BufferedReader reader = new BufferedReader (new FileReader(fileIn));
 		String line = reader.readLine();
 
 		int i = 0;	// set i to 0
