@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  * @author Caroline
- * @version 1.0 copy data from a file (: 1 string per line) without any
+ * @version 1.0 copy data from a file (:1 string per line) without any
  *          treatment (unordered, duplications,...)
  */
 public class ReadSymptomDataFromFile {
