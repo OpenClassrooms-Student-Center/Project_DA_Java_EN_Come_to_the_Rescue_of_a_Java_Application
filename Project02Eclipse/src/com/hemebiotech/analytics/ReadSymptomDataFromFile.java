@@ -4,44 +4,50 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Simple brute force implementation
- *
+ * @author Caroline
+ * @version 1.0 copy data from a file (:1 string per line) without any
+ *          treatment (unordered, duplications,...)
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filepath;
-	
+public class ReadSymptomDataFromFile {
 	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
+	 * @param filepath : filepath of a list of symptoms
+	 **/
+	private String filepath;
+
+	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
+
+	/**
+	 * read data from a file (: 1 string per line) an add them one by one to a
+	 * ArrayList
+	 * 
+	 * @return ArrayList<String>
+	 */
+	public ArrayList<String> getSymptoms() {
+		ArrayList<String> symptomList = new ArrayList<String>();
+
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
+				BufferedReader reader = new BufferedReader(new FileReader(filepath));
+				String symptom = reader.readLine();
+
+				while (symptom != null) {
+					symptomList.add(symptom);
+					symptom = reader.readLine();
 				}
 				reader.close();
-			} catch (IOException e) {
+			}
+			/**
+			 * *@throws IOException
+			 */
+			catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return result;
-	}
 
+		return symptomList;
+	}
 }
