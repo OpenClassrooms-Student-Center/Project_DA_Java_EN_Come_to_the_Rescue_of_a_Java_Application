@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @version 1.0 copy data from a file (:1 string per line) without any
  *          treatment (unordered, duplications,...)
  */
-public class ReadSymptomDataFromFile {
+public class ReadSymptomDataFromFile implements ISymptomReader{
 	/**
 	 * @param filepath : filepath of a list of symptoms
 	 **/
