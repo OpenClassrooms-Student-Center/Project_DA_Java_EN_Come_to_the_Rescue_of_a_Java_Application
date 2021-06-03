@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package com.hemebiotech.analytics.analyser;
 
 import java.util.HashMap;
 import java.util.List;
