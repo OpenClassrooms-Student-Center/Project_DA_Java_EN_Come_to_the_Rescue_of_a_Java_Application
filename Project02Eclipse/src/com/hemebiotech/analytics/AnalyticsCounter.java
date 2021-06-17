@@ -3,41 +3,49 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
+	private static int count = 0;
+
 	public static void main(String args[]) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+		/**
+		 * List of Symptoms
+		 */
+		List<String> symptomsList = reader.GetSymptoms();
+		Set<String> symptoms = new HashSet<String>(symptomsList);
+		List<String> symptomsUniq = new ArrayList<String>(symptoms);
+		System.out.println(symptomsList);
 
-			line = reader.readLine();	// get another symptom
+		Collections.sort(symptomsUniq);
+		System.out.println(symptomsUniq);
+		FileWriter writer = new FileWriter("Project02Eclipse/result.out");
+		try {
+			for (int i = 0; i < symptomsUniq.size(); i++) {
+				int occurrence = 0;
+				for (int k = 0; k < symptomsList.size(); k++) {
+
+					if (symptomsUniq.get(i).equals(symptomsList.get(k))) {
+						occurrence++;
+					}
+				}
+				System.out.println(symptomsUniq.get(i) + " : " + occurrence);
+				writer.write(symptomsUniq.get(i) + " : " + occurrence +"\n");
+
+			}
+			writer.close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
 	}
+
 }
