@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Occurrences counting,sorting,and saving into file part
@@ -25,9 +24,8 @@ public class AnalyticsCounter {
         AnalyticsCounter analyticsCounter = new AnalyticsCounter();
         ISymptomReader reader = new ReadSymptomDataFromFile(filePathReader);
         List<String> symptoms = reader.getSymptoms();
-        Map<String, Integer> mapOccurrences = analyticsCounter.countOccurrences(symptoms);
-        Map<String, Integer> sortedMapOccurrences = analyticsCounter.sorting(mapOccurrences);
-        analyticsCounter.saving(sortedMapOccurrences);
+        Map<String, Integer> mapOccurrences = analyticsCounter.counting(symptoms);
+        analyticsCounter.saving(mapOccurrences);
     }
 
     /**
@@ -36,31 +34,15 @@ public class AnalyticsCounter {
      * @param symptoms All symptoms that we can read from file
      * @return Return symptoms with their numbers of occurrences
      */
-    private Map<String, Integer> countOccurrences(List<String> symptoms) {
+    private Map<String, Integer> counting(List<String> symptoms) {
         System.out.println("**************************************** Start counting from List ***********************************************");
-        Map<String, Integer> mapOccurrences = new HashMap<>();
+        Map<String, Integer> mapOccurrences = new TreeMap<>();
         for (String symptom : symptoms) {
             mapOccurrences.put(symptom, mapOccurrences.getOrDefault(symptom, 0) + 1);
         }
         System.out.println("**************************************** End counting from List ***********************************************");
         return mapOccurrences;
 
-    }
-
-    /**
-     * Method that aims to sort the symptoms in alphabetical order from A to Z
-     *
-     * @param mapOccurrences All symptoms and their number of occurrences
-     * @return Symptoms sorted by alphabetical order from A to Z with their number of occurrences
-     */
-    private Map<String, Integer> sorting(Map<String, Integer> mapOccurrences) {
-        System.out.println("**************************************** Start sorting from Map ***********************************************");
-        Map<String, Integer> sortedMapOccurrences = mapOccurrences.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
-        System.out.println("**************************************** End sorting from Map ***********************************************");
-        return sortedMapOccurrences;
     }
 
     /**
