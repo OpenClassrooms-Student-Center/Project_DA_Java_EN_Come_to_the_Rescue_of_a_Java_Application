@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -31,15 +32,16 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @param symptomsList a list of symptoms imported from symptoms.txt
 	 * 
 	 */
-	public Set<String> SetSymptoms(List<String> symptomsList) {
+	public Set<String> SetSymptoms(List<String> symptomsList , int [] occurence) {
 		Set<String> listOfSymptoms = new HashSet<String>(symptomsList);
 		ArrayList<String> symptoms = new ArrayList<String>(listOfSymptoms);
+		Collections.sort(symptoms);
 		if (filepath != null) {
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
 				
-				for(String symptom : symptoms) {
-					writer.write(symptom);
+				for(int i=0; i<symptoms.size();i++) {
+					writer.write(symptoms.get(i) +" : " +occurence[i]);
 					writer.newLine();
 				}
 				writer.close();
