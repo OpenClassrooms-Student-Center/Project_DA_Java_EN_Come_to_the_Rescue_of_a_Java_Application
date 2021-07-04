@@ -1,7 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 /**
  * Anything that will write symptom in a text file The important part is, the
@@ -15,6 +14,6 @@ public interface ISymptomWriter {
 	 * 
 	 * @return UnOrdered List of Symptoms imported from file symptoms.txt
 	 */
-	Set<String> SetSymptoms(List<String> symptomsList, int [] occurence);
+	public void SetSymptoms(Map<String, Integer> symOccurrences);
 
 }

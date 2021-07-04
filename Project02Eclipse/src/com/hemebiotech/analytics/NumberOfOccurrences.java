@@ -1,40 +1,31 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class NumberOfOccurrences implements IOccurrencesNumber {
-	int count;
-//	List<String> symptom = new ArrayList<String>();
-//	List<String> listOfSymptoms = new ArrayList<String>();
 
-//	public NumberOfOccurrences() {
-//		// TODO Auto-generated constructor stub
-//	}
+	/**
+	 * 
+	 * @param symptomsList a list of symptoms string, that may contain many duplications
+	 * @return Map of symptoms string as keys and occurrences number as values
+	 * 
+	 */
+	public Map<String, Integer> getNumberOccurrences(List<String> symptomsList) {
 
-	@Override
-	public int[] getNumberOccurrences(Set<String> symptoms, List<String> symptomsList) {
-		int [] occurrences = new int[symptoms.size()];
-		List<String> symptom = new ArrayList<String>(symptoms);
-		try {
-			for (int i = 0; i < symptoms.size(); i++) {
-				count = 0;
-				for (int j = 0; j < symptomsList.size(); j++) {
-					if (symptomsList.get(j).equals(symptom.get(i))) {
-						count++;
-					}
+		Map<String, Integer> sympOccurrences = new HashMap<String, Integer>();
+		for (int i = 0; i < symptomsList.size(); i++) {
 
-				}
-				occurrences [i] = count;
-				System.out.println(symptom.get(i) +" : " +count);
+			if (sympOccurrences.containsKey(symptomsList.get(i))) {
+				sympOccurrences.replace(symptomsList.get(i), sympOccurrences.get(symptomsList.get(i)) + 1);
+
+			} else {
+				sympOccurrences.put(symptomsList.get(i), 1);
 			}
-		} catch (IndexOutOfBoundsException e) {
-			System.err.println(e);
+
 		}
-		
-		
-		return occurrences;
+		return sympOccurrences;
 	}
 
 }

@@ -3,11 +3,9 @@ package com.hemebiotech.analytics;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * 
@@ -20,10 +18,11 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	/**
 	 * 
-	 * @param filepath a full or partial path to the file of which strings of symptoms will be written in, one per line
+	 * @param filepath a full or partial path to the file of which strings of
+	 *                 symptoms will be written in, one per line
 	 * 
 	 */
-	public WriteSymptomDataToFile (String filepath) {
+	public WriteSymptomDataToFile(String filepath) {
 		this.filepath = filepath;
 	}
 
@@ -32,26 +31,30 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @param symptomsList a list of symptoms imported from symptoms.txt
 	 * 
 	 */
-	public Set<String> SetSymptoms(List<String> symptomsList , int [] occurence) {
-		Set<String> listOfSymptoms = new HashSet<String>(symptomsList);
-		ArrayList<String> symptoms = new ArrayList<String>(listOfSymptoms);
-		Collections.sort(symptoms);
+	public void SetSymptoms(Map<String, Integer> symOccurrences) {
+
+		TreeMap<String, Integer> sortedSympOccurrences = new TreeMap<String, Integer>(symOccurrences);
+
 		if (filepath != null) {
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
 				
-				for(int i=0; i<symptoms.size();i++) {
-					writer.write(symptoms.get(i) +" : " +occurence[i]);
+				sortedSympOccurrences.putAll(symOccurrences);
+				
+				Set<String> symptoms = sortedSympOccurrences.keySet();
+				
+				for(String symptom:symptoms) {
+					System.out.println(symptom+" : "+sortedSympOccurrences.get(symptom)); 
+					writer.write(symptom+" : "+sortedSympOccurrences.get(symptom));
 					writer.newLine();
 				}
+
 				writer.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println("Problème lors d'ecriture dans le fichier !");
 			}
 		}
 
-		return listOfSymptoms;
 	}
-
 
 }
