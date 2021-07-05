@@ -8,7 +8,8 @@ public class NumberOfOccurrences implements IOccurrencesNumber {
 
 	/**
 	 * 
-	 * @param symptomsList a list of symptoms string, that may contain many duplications
+	 * @param symptomsList a list of symptoms string, that may contain many
+	 *                     duplications
 	 * @return Map of symptoms string as keys and occurrences number as values
 	 * 
 	 */

@@ -38,14 +38,14 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		if (filepath != null) {
 			try {
 				BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
-				
+
 				sortedSympOccurrences.putAll(symOccurrences);
-				
+
 				Set<String> symptoms = sortedSympOccurrences.keySet();
-				
-				for(String symptom:symptoms) {
-					System.out.println(symptom+" : "+sortedSympOccurrences.get(symptom)); 
-					writer.write(symptom+" : "+sortedSympOccurrences.get(symptom));
+
+				for (String symptom : symptoms) {
+					System.out.println(symptom + " : " + sortedSympOccurrences.get(symptom));
+					writer.write(symptom + " : " + sortedSympOccurrences.get(symptom));
 					writer.newLine();
 				}
 
