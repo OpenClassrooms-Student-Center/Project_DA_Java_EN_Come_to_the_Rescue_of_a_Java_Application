@@ -29,15 +29,17 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	/**
 	 * 
 	 * @param symptomsList a list of symptoms imported from symptoms.txt
+	 * @throws IOException 
 	 * 
 	 */
-	public void setSymptoms(Map<String, Integer> symOccurrences) {
+	public void setSymptoms(Map<String, Integer> symOccurrences) throws IOException {
 
 		TreeMap<String, Integer> sortedSympOccurrences = new TreeMap<String, Integer>(symOccurrences);
 
 		if (filepath != null) {
+			BufferedWriter writer = null;
 			try {
-				BufferedWriter writer = new BufferedWriter(new FileWriter(filepath));
+				 writer = new BufferedWriter(new FileWriter(filepath));
 
 				sortedSympOccurrences.putAll(symOccurrences);
 
@@ -52,6 +54,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 				writer.close();
 			} catch (IOException e) {
 				System.out.println("Problème lors d'ecriture dans le fichier !");
+			}finally {
+				writer.close();
 			}
 		}
 
