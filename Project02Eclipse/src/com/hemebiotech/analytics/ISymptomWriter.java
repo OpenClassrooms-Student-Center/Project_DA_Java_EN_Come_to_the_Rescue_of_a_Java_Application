@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -13,7 +14,8 @@ public interface ISymptomWriter {
 	 * If no data is available, return an empty List
 	 * 
 	 * @return UnOrdered List of Symptoms imported from file symptoms.txt
+	 * @throws IOException 
 	 */
-	public void SetSymptoms(Map<String, Integer> symOccurrences);
+	public void setSymptoms(Map<String, Integer> symOccurrences) throws IOException;
 
 }

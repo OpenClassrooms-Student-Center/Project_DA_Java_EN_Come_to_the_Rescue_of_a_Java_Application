@@ -31,7 +31,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @param symptomsList a list of symptoms imported from symptoms.txt
 	 * 
 	 */
-	public void SetSymptoms(Map<String, Integer> symOccurrences) {
+	public void setSymptoms(Map<String, Integer> symOccurrences) {
 
 		TreeMap<String, Integer> sortedSympOccurrences = new TreeMap<String, Integer>(symOccurrences);
 

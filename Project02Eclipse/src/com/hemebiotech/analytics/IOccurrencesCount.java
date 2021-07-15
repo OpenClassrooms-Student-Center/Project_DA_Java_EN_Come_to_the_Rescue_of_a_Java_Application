@@ -10,7 +10,7 @@ import java.util.Map;
  *
  * 
  */
-public interface IOccurrencesNumber {
+public interface IOccurrencesCount {
 	/**
 	 * 
 	 * @param symptomsList a list of symptoms imported from symptoms.txt file
