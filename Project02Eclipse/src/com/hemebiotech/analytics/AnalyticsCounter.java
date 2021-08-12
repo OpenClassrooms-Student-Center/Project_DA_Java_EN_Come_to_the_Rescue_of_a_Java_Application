@@ -20,13 +20,13 @@ public class AnalyticsCounter {
 			i++;	// increment i
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
-				headCount++;
+				headacheCount++;
 				System.out.println("number of headaches: " + headCount);
 			}
 			else if (line.equals("rash")) {
 				rashCount++;
 			}
-			else if (line.contains("dialated pupils")) {
+			else if (line.equals("dialated pupils")) {
 				pupilCount++;
 			}
 
@@ -35,7 +35,7 @@ public class AnalyticsCounter {
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headCount + "\n");
+		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
