@@ -17,7 +17,15 @@ public interface ISymptomReader {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
 	 *         are possible/probable
 	 */
-	List<String> GetSymptoms();
+	List<String> getSymptoms();
 
-	List<String> GetUniqueSymptomNames(List<String> list);
+	/**
+	 * This mnethod filters the duplicates and returns in a list all the symptoms
+	 * read from the source. if there is no data, returns an empty list.
+	 * 
+	 * @param list A list of all symptoms read from the files, possibly containing
+	 *             duplicates
+	 * @return a list of all the symptoms from the list with no duplicates
+	 */
+	List<String> getUniqueSymptomNames(List<String> list);
 }

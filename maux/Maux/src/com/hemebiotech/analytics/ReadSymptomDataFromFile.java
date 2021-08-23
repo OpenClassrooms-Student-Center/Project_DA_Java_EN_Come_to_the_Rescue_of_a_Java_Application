@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -28,7 +27,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<>();
 
 		if (filepath != null) {
@@ -40,31 +39,23 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.err.println(
+						"File not found. Please check the filenames and try again. Filepath given : " + filepath);
 			}
 		}
 
 		return result;
 	}
 
-	/**
-	 * This method takes a list of symptoms and remove any duplicates.
-	 */
 	@Override
-	public List<String> GetUniqueSymptomNames(List<String> symptoms) {
+	public List<String> getUniqueSymptomNames(List<String> symptoms) {
+		// Converting a List to a Set will remove all duplicates. We then use
+		// Collections to sort the list alphabetically
 		Set<String> set = new HashSet<>(symptoms);
 		List<String> uniqueSymptoms = new ArrayList<>();
 		uniqueSymptoms.addAll(set);
 		Collections.sort(uniqueSymptoms);
 		return uniqueSymptoms;
-	}
-
-	public String getFilepath() {
-		return filepath;
-	}
-
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
 	}
 
 }
