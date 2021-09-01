@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 
 
@@ -23,35 +24,25 @@ public class AnalyticsCounter {
 	public static void main(String args[]) throws Exception {
 
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 		
-		 ArrayList <String> list_symptoms = new ArrayList<String>();
-		while (line != null) {
-			
-			System.out.println("symptom from file: " + line);
-			list_symptoms.add(line);
-
-			line = reader.readLine();	// get another symptom
-			
-		}
+		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
 		
-		reader.close();
+		List<String> list_symptoms = reader.GetSymptoms();
+		ISymptomCounter counter = new SymptomsCounter();
+		HashMap<String, Integer> occurence_symptoms = counter.GetSymptomsOccurence(list_symptoms);
 		
-		HashMap<String, Integer> symptoms_map = new HashMap<>();
-		for(int j=0; j<list_symptoms.size(); j++) {
-		symptoms_map.put(list_symptoms.get(j), 1);	
-			
-		}
+		
 		
 		
 		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
+		ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
+		writer.writeSymptom(occurence_symptoms); // writeSymptom
+		/*FileWriter writer = new FileWriter ("result.out");
 		for (Entry<String, Integer> entry : symptoms_map.entrySet()) {
 			writer.write(entry.getKey()+":" + entry.getValue() + "\n");	
 		}
 		
 		
-		writer.close();
+		writer.close();*/
 	}
 }
