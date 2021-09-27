@@ -26,10 +26,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 
 	@Override
-	/*
-	 * Changed GetSymptoms with a camelCase script for getSymptoms because it is not
-	 * a class.
-	 */
+
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 
