@@ -50,11 +50,4 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 		return result;
 	}
-
-	@Override
-	public int sum(int a, int b) {
-		int c = a + b;
-		return c;
-	}
-
 }
