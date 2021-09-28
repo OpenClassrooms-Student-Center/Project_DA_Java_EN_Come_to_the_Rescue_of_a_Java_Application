@@ -12,16 +12,14 @@ import java.util.TreeMap;
  *
  */
 
-public class FileWriterData {
+public class FileWriterData implements IFileWriterData {
 
-	public void writeSymptomsData() throws IOException {
+	public void writeSymptomsData(TreeMap<String, Integer> symptomsCompte) throws IOException {
 		try {
 
 			FileWriter mywriter = new FileWriter("results.out");
 
-			ExtracSymptomData consoleOutput = new ExtracSymptomData();
-			TreeMap<String, Integer> symptoms = consoleOutput.extracSymptomsData();
-			for (Map.Entry<String, Integer> entry : symptoms.entrySet())
+			for (Map.Entry<String, Integer> entry : symptomsCompte.entrySet())
 				mywriter.write("- " + entry.getKey() + ": " + entry.getValue() + "\n");
 			mywriter.close();
 			/**
