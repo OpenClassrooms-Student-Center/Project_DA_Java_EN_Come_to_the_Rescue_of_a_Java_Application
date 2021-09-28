@@ -8,9 +8,6 @@ import java.util.List;
 
 /**
  * Simple brute force implementation
- * 
- * Contains the getSymptoms method to count occurrences and send the result to
- * ISymptomReader
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
