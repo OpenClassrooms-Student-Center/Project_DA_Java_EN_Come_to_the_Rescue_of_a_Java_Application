@@ -1,10 +1,10 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface ISymptomCounter {
 
-	HashMap<String, Integer> GetSymptomsOccurence (List<String> list_symptoms);
-	
+	Map<String, Integer> GetSymptomsOccurence(List<String> list_symptoms);
+
 }

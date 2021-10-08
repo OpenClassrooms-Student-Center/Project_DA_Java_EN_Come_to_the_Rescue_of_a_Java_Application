@@ -2,9 +2,8 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
-
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
@@ -16,34 +15,25 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	}
 
 	@Override
-	public void writeSymptom(HashMap<String, Integer> symptoms_map) throws IOException {
+	public void writeSymptom(Map<String, Integer> symptoms_map) throws IOException {
 		// TODO Auto-generated method stub
-		 
+
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter (filepath);
+			writer = new FileWriter(filepath);
 			for (Entry<String, Integer> entry : symptoms_map.entrySet()) {
-				writer.write(entry.getKey()+":" + entry.getValue() + "\n");	
+				writer.write(entry.getKey() + ":" + entry.getValue() + "\n");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		
-			
-		
+
 		} finally {
-			
-		
+
 			writer.close();
-			
+
 		}
-		
-		
-		
-		
-		
-		
-		
+
 	}
 
 }

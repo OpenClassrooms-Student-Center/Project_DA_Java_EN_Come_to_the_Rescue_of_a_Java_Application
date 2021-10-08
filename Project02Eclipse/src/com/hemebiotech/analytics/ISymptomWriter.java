@@ -1,10 +1,10 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Map;
 
 public interface ISymptomWriter {
 
-	void writeSymptom(HashMap<String, Integer> symptoms_map) throws IOException;
+	void writeSymptom(Map<String, Integer> sorted_symptoms) throws IOException;
 
 }
