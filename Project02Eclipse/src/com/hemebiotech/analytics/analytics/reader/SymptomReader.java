@@ -1,7 +1,5 @@
 package com.hemebiotech.analytics.analytics.reader;
 
-import com.hemebiotech.analytics.analytics.reader.ISymptomReader;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -4,10 +4,6 @@ import com.hemebiotech.analytics.analytics.counter.SymptomCounter;
 import com.hemebiotech.analytics.analytics.reader.SymptomReader;
 import com.hemebiotech.analytics.analytics.writer.SymptomWriter;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
 public class Analytics {
 
     private final SymptomReader reader;
