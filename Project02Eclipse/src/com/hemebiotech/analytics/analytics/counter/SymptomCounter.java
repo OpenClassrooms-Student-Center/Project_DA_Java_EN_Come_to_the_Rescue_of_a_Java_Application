@@ -31,7 +31,7 @@ public class SymptomCounter implements ISymptomCounter{
 
     /**
      *
-     * @param symptoms is raw list with all symptoms
+     * @param symptoms is raw list with all symptoms.
      */
     public void setSymptoms(List<String> symptoms) {
         this.symptoms = symptoms;

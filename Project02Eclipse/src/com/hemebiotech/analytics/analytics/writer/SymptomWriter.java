@@ -10,7 +10,7 @@ public class SymptomWriter implements ISymptomWriter{
 
     /**
      *
-     * @param fileName a full or partial path to file with symptom strings in it, one per line
+     * @param fileName a full or partial path to file with symptom strings in it, one per line.
      */
     public SymptomWriter(String fileName) {
         this.fileName = fileName;
