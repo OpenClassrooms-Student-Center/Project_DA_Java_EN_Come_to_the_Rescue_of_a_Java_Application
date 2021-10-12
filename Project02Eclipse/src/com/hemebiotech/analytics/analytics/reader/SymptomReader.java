@@ -46,4 +46,7 @@ public class SymptomReader implements ISymptomReader {
 		}
 	}
 
+	public List<String> getSymptoms() {
+		return this.symptoms;
+	}
 }
