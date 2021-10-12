@@ -14,7 +14,8 @@ import java.util.List;
  */
 public class SymptomReader implements ISymptomReader {
 
-	private final String filepath;
+	private final String filepath; // File to read.
+	private final List<String> symptoms; // Raw list of symptoms
 	
 	/**
 	 * 
@@ -22,28 +23,27 @@ public class SymptomReader implements ISymptomReader {
 	 */
 	public SymptomReader(String filepath) {
 		this.filepath = filepath;
+		this.symptoms = new ArrayList<>();
 	}
 	
 	@Override
-	public List<String> getSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
+	public void read() {
 		if (filepath != null) {
+			this.symptoms.clear(); //Clear symptoms before.
+
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
+				BufferedReader reader = new BufferedReader(new FileReader(filepath)); // Create BufferedReader.
+				String line = reader.readLine(); // Set first line to read.
+
 				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
+					this.symptoms.add(line); // Add current line int List.
+					line = reader.readLine(); // Set next line.
 				}
-				reader.close();
+				reader.close(); // Close the reader.
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		return result;
 	}
 
 }
