@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface ISymptomCounter {
 
-	Map<String, Integer> GetSymptomsOccurence(List<String> list_symptoms);
+	Map<String, Integer> getSymptomsOccurence(List<String> list_symptoms);
 
 }
