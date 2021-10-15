@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface ISymptomWriter {
 
-	void writeSymptom(Map<String, Integer> sorted_symptoms) throws IOException;
+	void writeSymptom(Map<String, Integer> sortedSymptoms) throws IOException;
 
 }

@@ -7,28 +7,24 @@ import java.util.TreeMap;
 public class SymptomsCounter implements ISymptomCounter {
 
 	@Override
-	public Map<String, Integer> GetSymptomsOccurence(List<String> list_symptoms) {
-		Map<String, Integer> symptoms_map = new TreeMap<String, Integer>();
-		for (int j = 0; j < list_symptoms.size(); j++) {
-			// je récupère le symptome
-			String symptom = list_symptoms.get(j);
-			// je fais une boucle dans la hashmap
-			// je vérifie si le symptome est déjà présent
-			Boolean present = symptoms_map.containsKey(symptom);
+	public Map<String, Integer> getSymptomsOccurence(List<String> listSymptoms) {
+		Map<String, Integer> symptomsMap = new TreeMap<String, Integer>();
+		for (int j = 0; j < listSymptoms.size(); j++) {
 
-			// si présent, j'incrémente son occurence de +1
-			// si pas présent je l'ajoute à la hashmap et j'initialise son occurence à 1
-			if (present == false) {
-				symptoms_map.put(symptom, 1);
+			String symptom = listSymptoms.get(j);
+			Boolean present = symptomsMap.containsKey(symptom);
+
+			if (!present) {
+				symptomsMap.put(symptom, 1);
 			} else {
-				int occurence = symptoms_map.get(symptom);
+				int occurence = symptomsMap.get(symptom);
 				occurence++;
-				symptoms_map.put(symptom, occurence);
+				symptomsMap.put(symptom, occurence);
 			}
 
 		}
 
-		return symptoms_map;
+		return symptomsMap;
 	}
 
 }

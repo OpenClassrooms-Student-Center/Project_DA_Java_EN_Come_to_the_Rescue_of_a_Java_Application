@@ -20,8 +20,6 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
 
-		// Symptoms list file reading
-
 		AnalyticsCounter instance = new AnalyticsCounter();
 		instance.countSymptoms();
 
@@ -31,17 +29,13 @@ public class AnalyticsCounter {
 		System.out.println("Lecture du fichier en cours...");
 		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
 
-		List<String> list_symptoms = reader.GetSymptoms();
+		List<String> list_symptoms = reader.getSymptoms();
 		System.out.println("Lecture du fichier OK");
-
-		// Symptoms counting
 
 		System.out.println("Comptage des symptomes en cours...");
 		ISymptomCounter counter = new SymptomsCounter();
-		Map<String, Integer> occurence_symptoms = counter.GetSymptomsOccurence(list_symptoms);
+		Map<String, Integer> occurence_symptoms = counter.getSymptomsOccurence(list_symptoms);
 		System.out.println("Comptage des symptomes OK");
-
-		// generating symptoms list counted and sorted
 
 		System.out.println("Ecriture des résultats dans le fixhier de sortie en cours...");
 		ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
