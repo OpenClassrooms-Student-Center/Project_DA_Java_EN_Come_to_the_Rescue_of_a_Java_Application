@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Main class to execute the whole program
+ */
+
 public class Main {
 
 	final static String inputFilePath = "/Users/remax/OneDrive/Documents/openclassrooms/developpeur-java/projet2/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt";
@@ -20,7 +24,11 @@ public class Main {
 		Map<String, Integer> unsortedSymptoms = analyzingSymptomsFromList.GetSymptomsOccurrences();
 		TreeMap<String, Integer> sortedSymptoms = analyzingSymptomsFromList
 				.SortSymptomsAlphabetically(unsortedSymptoms);
-		System.out.println(sortedSymptoms);
+
+		// creating an instance of CreateAndWriteResultToFile
+		CreateAndWriteResultToFile resultFile = new CreateAndWriteResultToFile();
+		// creating and writing the results in "result.txt"
+		resultFile.WriteToFile(sortedSymptoms);
 	}
 
 }
