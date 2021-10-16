@@ -8,7 +8,7 @@ import java.util.TreeMap;
  * and their number of occurrences
  */
 
-public interface ISymptomAnalyser {
+public interface ISymptomAnalyzer {
 	/**
 	 * @return an unsorted dictionary constructed as follow : disease=occurrence
 	 */
