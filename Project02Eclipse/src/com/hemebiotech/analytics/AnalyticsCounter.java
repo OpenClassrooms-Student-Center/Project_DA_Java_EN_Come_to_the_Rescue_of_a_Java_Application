@@ -11,6 +11,7 @@ public class AnalyticsCounter {
 		
 		CountAndOrderSymptoms counter = new CountAndOrderSymptoms();
 		counter.processData(listFromFile);
+		
 	}
 
 
