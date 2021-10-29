@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -39,11 +40,33 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 			       
 			       System.out.print(compteurs);
 			       
+			       FileWriter writer = null;
+				try {
+					writer = new FileWriter ("result.out");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+					try {
+						writer.write(compteurs + "\n");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					try {
+						writer.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			       
 			       
 			      
 		        }
 		 
-		}
+		
        
 		// une méthode qui permet de récupérer chaque symptom avec son nombre d'occurence
 		
