@@ -24,9 +24,9 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 	 *
 	 */
 
-	public WriteSymptomsInFile(String filename) {
+	public WriteSymptomsInFile(String fileName) {
 
-		this.fileName = filename;
+		this.fileName = fileName;
 
 	}
 
@@ -43,7 +43,6 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 	 */
 	@Override
 	public void writeSymptomsData(Map<String, Integer> symptomMap) {
-		// TODO Auto-generated method stub
 
 		try {
 
@@ -54,9 +53,7 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 				if (!symptom.getKey().isEmpty()) {
 
 					writer.println("+ " + symptom.getKey() + " = " + symptom.getValue());
-
 				}
-
 			}
 			writer.close();
 			System.out.println("Done!!");
