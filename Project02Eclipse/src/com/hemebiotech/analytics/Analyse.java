@@ -22,7 +22,13 @@ public class Analyse {
 	private ISymptomsDataProcessing process;
 	private ISymptomWriter writer;
 
-	// Constructor
+	/**
+	 * Constructs a new, empty Analyse object,
+	 * 
+	 * @param readerFromMain  reading interface
+	 * @param processFromMain processing interface
+	 * @param writerFromMain  writing interface
+	 */
 	public Analyse(ISymptomReader readerFromMain, ISymptomsDataProcessing processFromMain,
 			ISymptomWriter writerFromMain) {
 		this.reader = readerFromMain;
@@ -48,7 +54,6 @@ public class Analyse {
 	 */
 	public Map<String, Integer> symtomsCounter(List<String> symptomList) {
 		return this.process.symptomsCounter(symptomList);
-
 	}
 
 	/**
@@ -61,7 +66,6 @@ public class Analyse {
 	 * @return Sorted Map with symptom in the key field and its frequency in the
 	 *         value field.
 	 */
-
 	public Map<String, Integer> sortedSymptoms(Map<String, Integer> symptomsMap, Comparator<String> comparator) {
 		return this.process.sortedSymptoms(symptomsMap, comparator);
 	}
@@ -74,7 +78,6 @@ public class Analyse {
 	 */
 
 	public void writeDataSymptoms(Map<String, Integer> symptomsMap) {
-
 		this.writer.writeSymptomsData(symptomsMap);
 	}
 }
