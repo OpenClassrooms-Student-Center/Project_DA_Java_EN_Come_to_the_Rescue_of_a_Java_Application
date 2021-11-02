@@ -44,20 +44,20 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 				try {
 					writer = new FileWriter ("result.out");
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 					try {
 						writer.write(compteurs + "\n");
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
 					
 					try {
 						writer.close();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 				}
