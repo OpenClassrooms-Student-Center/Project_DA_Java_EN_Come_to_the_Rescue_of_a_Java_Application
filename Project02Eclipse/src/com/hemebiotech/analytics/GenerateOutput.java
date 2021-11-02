@@ -2,12 +2,12 @@ package com.hemebiotech.analytics;
 
 import java.util.Map;
 
-public class GenerateOutput implements ISymptomWriter {
+public class GenerateOutput  {
 
 
 	public void writeSymptoms(Map<String, Integer> mapCountedandOrdered) {
 		
-		System.out.println();
+		
 		
 		
 	}

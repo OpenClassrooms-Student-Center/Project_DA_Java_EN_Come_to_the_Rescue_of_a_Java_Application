@@ -6,7 +6,8 @@ import java.util.Map;
 public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
-		
+		//Analyse analyse = new Analyse(new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt"));
+				
 		//1) lire une source de données
 		ReadSymptomDataFromFile readerOk = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		List<String> listFromFile = readerOk.getSymptoms();
