@@ -7,7 +7,7 @@ public class GenerateOutput implements ISymptomWriter {
 
 	public void writeSymptoms(Map<String, Integer> mapCountedandOrdered) {
 		
-		
+		System.out.println();
 		
 		
 	}
