@@ -26,7 +26,7 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 
 	public Map<String, Integer> writeSymptoms(Map<String, Integer> symptomsMap, Comparator<String> comparator) {
 		return symptomsMap;
-		// TODO Auto-generated method stub
+		
 		
 	}
 
