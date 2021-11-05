@@ -9,15 +9,15 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) {
 
-		// 1) lire une source de données
+		// 1) Lire une source de données-Read a data source
 		ReadSymptomDataFromFile readingSymptomsFromFile = new ReadSymptomDataFromFile(inPutFile);
 		List<String> symptomList = readingSymptomsFromFile.getSymptoms();
 
-		// 2) Traiter une liste de données
+		// 2) Traiter une liste de données-Process a list of data
 		CountAndOrderSymptoms counter = new CountAndOrderSymptoms();
 		Map<String, Integer> mapCounted = counter.processData(symptomList);
 
-		// 3) Envoyer resultat
+		// 3) Envoyer résultat- Send result
 		GenerateOutput writer = new GenerateOutput();
 		writer.writeSymptoms(mapCounted);
 

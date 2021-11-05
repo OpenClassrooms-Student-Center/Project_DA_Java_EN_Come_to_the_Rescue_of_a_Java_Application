@@ -18,13 +18,9 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 				// sinon on ajoute l'association en initialisant le compteur à 1
 				compteurs.put(line, 1);
 			}
-			
+
 		}
 		return compteurs;
 	}
 
-	
-		
-		
-	}
-
+}
