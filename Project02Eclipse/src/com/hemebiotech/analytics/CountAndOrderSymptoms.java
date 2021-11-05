@@ -1,6 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -24,10 +23,8 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 		return compteurs;
 	}
 
-	public Map<String, Integer> writeSymptoms(Map<String, Integer> symptomsMap, Comparator<String> comparator) {
-		return symptomsMap;
+	
 		
 		
 	}
 
-}
