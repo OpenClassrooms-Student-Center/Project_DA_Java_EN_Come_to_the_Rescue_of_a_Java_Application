@@ -12,10 +12,14 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 		for (String line : listNotCounted) {
 
 			if (compteurs.containsKey(line)) {
-				// si la ligne contient déjà la ligne, on incrémente le compteur qui est associé
+				/**
+				 *  si la ligne contient déjà la ligne, on incrémente le compteur qui est associé
+				 */
 				compteurs.put(line, compteurs.get(line) + 1);
 			} else {
-				// sinon on ajoute l'association en initialisant le compteur à 1
+				/**
+				 *  sinon on ajoute l'association en initialisant le compteur à 1
+				 */
 				compteurs.put(line, 1);
 			}
 
