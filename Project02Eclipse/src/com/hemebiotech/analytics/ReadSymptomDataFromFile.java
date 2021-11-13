@@ -20,15 +20,17 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
-
+/**
+ * Lire les symptoms dans une liste
+ */
 		if (filepath != null) {
 			try {
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
-				String line = reader.readLine();
+				String symptom = reader.readLine();
 
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
+				while (symptom != null) {
+					result.add(symptom);
+					symptom = reader.readLine();
 				}
 				reader.close();
 			} catch (IOException e) {

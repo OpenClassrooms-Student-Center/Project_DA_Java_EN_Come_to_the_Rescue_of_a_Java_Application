@@ -3,6 +3,8 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+
+
 public class AnalyticsCounter {
 	/**
 	 * Lire un fichier à partir d'une source/Read a file from a source.
@@ -37,7 +39,7 @@ public class AnalyticsCounter {
 		 writer.writeSymptoms(mapCounted);
 
 		/**
-		 *  Deuxième façon de faire
+		 *  Deuxième façon de faire 
 		 */
 //		Analyse analyse = new Analyse(new ReadSymptomDataFromFile(inPutFile), new CountAndOrderSymptoms(),
 //				new GenerateOutput(outPutFile));

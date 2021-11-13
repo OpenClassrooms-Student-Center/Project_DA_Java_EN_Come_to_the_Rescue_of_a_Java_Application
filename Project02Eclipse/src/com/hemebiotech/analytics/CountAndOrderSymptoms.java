@@ -15,7 +15,7 @@ public class CountAndOrderSymptoms implements ISymptomCounter {
 
 			if (compteurs.containsKey(symptom)) {
 				/**
-				 * si la ligne contient déjà la ligne, on incrémente le compteur qui est associé /symptom as key, count as value
+				 * si la ligne contient déjà le symptom, on incrémente le compteur qui est associé /symptom as key, count as value
 				 */
 				compteurs.put(symptom, compteurs.get(symptom) + 1);
 			} else {
