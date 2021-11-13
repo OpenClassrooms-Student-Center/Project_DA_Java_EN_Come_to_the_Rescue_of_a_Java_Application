@@ -7,7 +7,7 @@ import java.util.List;
  * return value from the operation, which is a list of strings, that may contain
  * many duplications
  * 
- * The implementation does not need to order the list
+ * L'implémentation n'a pas besoin de trier la liste / The implementation does not need to order the list
  * 
  */
 public interface ISymptomReader {

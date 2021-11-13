@@ -6,7 +6,9 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 public class GenerateOutput implements ISymptomWriter {
-//	static final String outPutFile = "result.out";
+/**
+ * fichier assigné
+ */
 	private String outPutFile;
 
 	public GenerateOutput(String outputfile) {

@@ -7,20 +7,22 @@ import java.util.TreeMap;
 public class CountAndOrderSymptoms implements ISymptomCounter {
 
 	public Map<String, Integer> processData(List<String> listNotCounted) {
-
+		/**
+		 * Creation TreeMap
+		 */
 		TreeMap<String, Integer> compteurs = new TreeMap<>();
-		for (String line : listNotCounted) {
+		for (String symptom : listNotCounted) {
 
-			if (compteurs.containsKey(line)) {
+			if (compteurs.containsKey(symptom)) {
 				/**
-				 *  si la ligne contient déjà la ligne, on incrémente le compteur qui est associé
+				 * si la ligne contient déjà la ligne, on incrémente le compteur qui est associé /symptom as key, count as value
 				 */
-				compteurs.put(line, compteurs.get(line) + 1);
+				compteurs.put(symptom, compteurs.get(symptom) + 1);
 			} else {
 				/**
-				 *  sinon on ajoute l'association en initialisant le compteur à 1
+				 * sinon on ajoute l'association en initialisant le compteur à 1
 				 */
-				compteurs.put(line, 1);
+				compteurs.put(symptom, 1);
 			}
 
 		}

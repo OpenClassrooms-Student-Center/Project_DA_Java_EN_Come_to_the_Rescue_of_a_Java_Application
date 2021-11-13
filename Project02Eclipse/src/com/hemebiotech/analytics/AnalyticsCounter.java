@@ -19,22 +19,31 @@ public class AnalyticsCounter {
 		 * 1) Lire une source de données-Read a data source
 		 * 
 		 */
-		ReadSymptomDataFromFile readingSymptomsFromFile = new ReadSymptomDataFromFile(inPutFile);
-		List<String> symptomList = readingSymptomsFromFile.getSymptoms();
+		 ReadSymptomDataFromFile readingSymptomsFromFile = new
+		 ReadSymptomDataFromFile(inPutFile);
+		 List<String> symptomList = readingSymptomsFromFile.getSymptoms();
 
 		/**
 		 * 2) Traiter une liste de données-Process a list of data
 		 * 
 		 */
-		CountAndOrderSymptoms counter = new CountAndOrderSymptoms();
-		Map<String, Integer> mapCounted = counter.processData(symptomList);
+		 CountAndOrderSymptoms counter = new CountAndOrderSymptoms();
+		 Map<String, Integer> mapCounted = counter.processData(symptomList);
 
 		/**
 		 * 3) Envoyer résultat- Send result
 		 */
-		GenerateOutput writer = new GenerateOutput(outPutFile);
-		writer.writeSymptoms(mapCounted);
+		 GenerateOutput writer = new GenerateOutput(outPutFile);
+		 writer.writeSymptoms(mapCounted);
 
+		/**
+		 *  Deuxième façon de faire
+		 */
+//		Analyse analyse = new Analyse(new ReadSymptomDataFromFile(inPutFile), new CountAndOrderSymptoms(),
+//				new GenerateOutput(outPutFile));
+//		List<String> listNotCounted = analyse.getSymptom();
+//		Map<String, Integer> mapSortedAndCounted = analyse.symtomsCounter(listNotCounted);
+//		analyse.writeDataSymptoms(mapSortedAndCounted);
 	}
 
 }

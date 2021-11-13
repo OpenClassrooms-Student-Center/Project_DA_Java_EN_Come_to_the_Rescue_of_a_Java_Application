@@ -6,10 +6,15 @@ import java.util.Map;
 public class Analyse {
 
 	private ISymptomReader iSymptomReader;
-	private CountAndOrderSymptoms countAndOrderSymptoms;
+	private ISymptomCounter countAndOrderSymptoms;
 	private ISymptomWriter iSymptomWriter;
-
-	public Analyse(ISymptomReader iSymptomReaderFromMain, CountAndOrderSymptoms countAndOrderSymptomsFromMain,
+/**
+ * 
+ * @param iSymptomReaderFromMain
+ * @param countAndOrderSymptomsFromMain
+ * @param iSymptomWriterFromMain
+ */
+	public Analyse(ISymptomReader iSymptomReaderFromMain, ISymptomCounter countAndOrderSymptomsFromMain,
 			ISymptomWriter iSymptomWriterFromMain) {
 		this.iSymptomReader = iSymptomReaderFromMain;
 		this.countAndOrderSymptoms = countAndOrderSymptomsFromMain;
