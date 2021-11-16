@@ -20,6 +20,9 @@ low blood pressure
 dry mouth
 tremor
 dry mouth
+water retention
+tremor
+rash
 arrhythmias
 stomach pain
 anxiety
@@ -77,6 +80,7 @@ arrhythmias
 fever
 constricted pupils
 cough
+rash
 stiff neck
 inflamation
 blurred vision
@@ -87,6 +91,7 @@ rash
 rash
 fever
 dry mouth
+water retention
 fever
 high blood pressure
 stiff neck
@@ -98,3 +103,4 @@ anxiety
 anxiety
 cough
 blurred vision
+stomach pain
