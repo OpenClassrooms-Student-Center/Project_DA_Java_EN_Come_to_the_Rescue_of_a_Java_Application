@@ -3,8 +3,6 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
-
-
 public class AnalyticsCounter {
 	/**
 	 * Lire un fichier à partir d'une source/Read a file from a source.
@@ -18,34 +16,23 @@ public class AnalyticsCounter {
 	public static void main(String args[]) {
 
 		/**
-		 * 1) Lire une source de données-Read a data source
 		 * 
+		 * @analyse Creation d'une instance de classe qui implémente les interfaces
 		 */
-		 ReadSymptomDataFromFile readingSymptomsFromFile = new
-		 ReadSymptomDataFromFile(inPutFile);
-		 List<String> symptomList = readingSymptomsFromFile.getSymptoms();
-
+		Analyse analyse = new Analyse(new ReadSymptomDataFromFile(inPutFile), new CountAndOrderSymptoms(),
+				new GenerateOutput(outPutFile));
 		/**
-		 * 2) Traiter une liste de données-Process a list of data
-		 * 
+		 * lecture à partir de inPutFile 
 		 */
-		 CountAndOrderSymptoms counter = new CountAndOrderSymptoms();
-		 Map<String, Integer> mapCounted = counter.processData(symptomList);
-
+		List<String> listNotCounted = analyse.getSymptom();
 		/**
-		 * 3) Envoyer résultat- Send result
+		 * compter le nombre d'occurrences et trier les symptômes par ordre alphabétique
 		 */
-		 GenerateOutput writer = new GenerateOutput(outPutFile);
-		 writer.writeSymptoms(mapCounted);
-
+		Map<String, Integer> mapSortedAndCounted = analyse.symtomsCounter(listNotCounted);
 		/**
-		 *  Deuxième façon de faire 
+		 * écrire dans outPutFile
 		 */
-//		Analyse analyse = new Analyse(new ReadSymptomDataFromFile(inPutFile), new CountAndOrderSymptoms(),
-//				new GenerateOutput(outPutFile));
-//		List<String> listNotCounted = analyse.getSymptom();
-//		Map<String, Integer> mapSortedAndCounted = analyse.symtomsCounter(listNotCounted);
-//		analyse.writeDataSymptoms(mapSortedAndCounted);
+		analyse.writeDataSymptoms(mapSortedAndCounted);
+
 	}
-
 }
