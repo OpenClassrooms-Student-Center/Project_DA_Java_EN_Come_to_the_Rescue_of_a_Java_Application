@@ -9,7 +9,7 @@ public class AnalyticsCounter {
 
 	public static void main(String args[]) throws Exception {
 
-		Analyse analyse = new Analyse(new ReadSymptomDataFromFile(inPutFile), new SymptomsDataProcessing(),
+		Analysis analyse = new Analysis(new ReadSymptomDataFromFile(inPutFile), new SymptomsDataProcessing(),
 				new WriteSymptomsInFile(outPutFile));
 		// read from symptoms.txt
 		List<String> result = analyse.getSymptom();

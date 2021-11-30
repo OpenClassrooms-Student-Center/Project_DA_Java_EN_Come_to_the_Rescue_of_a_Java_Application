@@ -16,7 +16,7 @@ import java.util.Map;
  * @see ISymptomsDataProcessing
  * @see ISymptomWriter
  */
-public class Analyse {
+public class Analysis {
 
 	private ISymptomReader reader;
 	private ISymptomsDataProcessing process;
@@ -29,7 +29,7 @@ public class Analyse {
 	 * @param processFromMain processing interface
 	 * @param writerFromMain  writing interface
 	 */
-	public Analyse(ISymptomReader readerFromMain, ISymptomsDataProcessing processFromMain,
+	public Analysis(ISymptomReader readerFromMain, ISymptomsDataProcessing processFromMain,
 			ISymptomWriter writerFromMain) {
 		this.reader = readerFromMain;
 		this.writer = writerFromMain;

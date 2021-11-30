@@ -18,7 +18,7 @@ public class SymptomComparator implements Comparator<String> {
 	}
 
 	/**
-	 * compare the value field to put it in order grow.
+	 * compare the value field to put it in ascending order.
 	 */
 	@Override
 	public int compare(String a, String b) {
