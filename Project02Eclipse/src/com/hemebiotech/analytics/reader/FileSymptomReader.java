@@ -1,7 +1,5 @@
 package com.hemebiotech.analytics.reader;
 
-import com.hemebiotech.analytics.reader.ISymptomReader;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -24,6 +22,7 @@ public class FileSymptomReader implements ISymptomReader {
         try {
             symptoms = Files.readAllLines(Paths.get(this.filepath));
         } catch (IOException e) {
+            System.out.println(e);
             System.out.println("An error occurred when reading file " + this.filepath);
             System.exit(1);
         }
