@@ -11,6 +11,7 @@ public class AnalyticsCounter {
 
 	public AnalyticsCounter(ArrayList<String> rawlist) {
 		Collections.sort(rawlist);
+		rawlist.add("Temporary");
 		ArrayList<Symptoms> symptomList = new ArrayList<Symptoms>();
 
 		for (int i = 1; i < rawlist.size(); i++) {
@@ -20,7 +21,8 @@ public class AnalyticsCounter {
 				symptomList.add(symptom);
 			}
 		}
-
+		rawlist.remove(rawlist.size()-1);
+		System.out.println(rawlist);
 		this.symptomList = symptomList;
 	}
 
