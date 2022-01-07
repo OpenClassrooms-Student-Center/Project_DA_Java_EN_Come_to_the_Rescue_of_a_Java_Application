@@ -36,8 +36,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 				reader.close();
+				System.out.println("Lecture de " + filepath + "\033[32m réussie" +  "\u001B[0m");
 			} catch (IOException e) {
 				e.printStackTrace();
+				System.out.println("\u001B[31mErreur" +"\u001B[0m"+ " Impossible de lire le fichier");
+				
 			}
 		}
 		

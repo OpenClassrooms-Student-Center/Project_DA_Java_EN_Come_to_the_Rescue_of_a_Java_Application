@@ -18,10 +18,8 @@ public class Main_Executer {
         //Step2: Traitement de la liste: renvoie une Liste triée d'objets Symptoms
         AnalyticsCounter Analyzer = new AnalyticsCounter(rawlist);
 
-
         // Step3 Ecriture sur un fichier result.out
         Analyzer.ResultGenerator();
-
 
     }
 
