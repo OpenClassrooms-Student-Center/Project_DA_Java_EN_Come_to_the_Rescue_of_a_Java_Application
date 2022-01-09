@@ -8,24 +8,11 @@ import java.util.Map;
  * 
  * @author Fouad
  * 
- * @param reader            Attribut de la Classe AnalyticsCounter de type
- *                          ISymptomReader
+ * @param reader  Attribut de la Classe AnalyticsCounter de type ISymptomReader
  * 
- * @param writer            Attribut de la Classe AnalyticsCounter de type
- *                          ISymptomWriter
+ * @param writer  Attribut de la Classe AnalyticsCounter de type ISymptomWriter
  * 
- * @param counter           Attribut de la Classe AnalyticsCounter de type
- *                          ISymptomCounter
- * 
- * @param listSymptoms      Liste utilisé pour stocker les symptomes récupérés
- *                          par la méthode getSymtoms
- * 
- * @param occurenceSymptoms Map utilisé pour récupérer les symptomes avec leurs
- *                          occurences respectives
- * 
- * @return occurenceSymptoms Une liste de symptomes triées avec leurs occurences
- *         respectives
- * 
+ * @param counter Attribut de la Classe AnalyticsCounter de type ISymptomCounter
  * 
  */
 public class AnalyticsCounter {
@@ -36,9 +23,17 @@ public class AnalyticsCounter {
 
 	/**
 	 * 
-	 * @param providedReader
-	 * @param providedWriter
-	 * @param providedCounter
+	 * @param providedReader  Paramètre du constructeur de la Classe
+	 *                        AnalyticsCounter pour initialiser l' attribut reader
+	 *                        de la Classe
+	 * 
+	 * @param providedWriter  Paramètre du constructeur de la Classe
+	 *                        AnalyticsCounter pour initialiser l' attribut writer
+	 *                        de la Classe
+	 * 
+	 * @param providedCounter Paramètre du constructeur de la Classe
+	 *                        AnalyticsCounter pour initialiser l' attribut counter
+	 *                        de la Classe
 	 */
 	public AnalyticsCounter(ISymptomReader providedReader, ISymptomWriter providedWriter,
 			ISymptomCounter providedCounter) {
@@ -50,6 +45,8 @@ public class AnalyticsCounter {
 	/**
 	 * 
 	 * @return listSymptoms retourne une liste de symptomes brutes
+	 * 
+	 * 
 	 */
 	public List<String> getSymptoms() {
 		System.out.println("Lecture du fichier en cours...");
@@ -61,8 +58,10 @@ public class AnalyticsCounter {
 
 	/**
 	 * 
-	 * @param symptoms
-	 * @return occurenceSymptoms
+	 * @param symptoms Liste de symptomes brute
+	 * 
+	 * @return occurenceSymptoms Liste de symptomes triés avec leur occurences
+	 *         respectives
 	 */
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 
@@ -77,7 +76,8 @@ public class AnalyticsCounter {
 
 	/**
 	 * 
-	 * @param occurenceSymptoms
+	 * @param occurenceSymptoms Liste de symptomes triés avec leur occurences
+	 *                          respectives
 	 */
 	public void writeSymptoms(Map<String, Integer> occurenceSymptoms) {
 
