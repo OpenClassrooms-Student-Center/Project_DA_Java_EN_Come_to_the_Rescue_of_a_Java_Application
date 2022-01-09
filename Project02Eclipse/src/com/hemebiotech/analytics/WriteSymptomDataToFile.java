@@ -11,8 +11,7 @@ import java.util.Map.Entry;
  * 
  * @author Fouad
  * 
- * @param filepath Attribut de la Classe WriteSymptomDataToFile de type String
- * 
+ * @param filepath Attribut de la classe WriteSymptomDataToFile de type String
  *
  */
 public class WriteSymptomDataToFile implements ISymptomWriter {
@@ -21,10 +20,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	/**
 	 * 
-	 * @param filename Paramètre du constructeur de la Classe WriteSymptomDataToFile
-	 *                 contenant le chemin d'accès partiel ou complet vers le
-	 *                 fichier sur lequel seront écrits les symptomes pour
-	 *                 initialiser l'attribut de la Classe
+	 * @param filename Paramètre du constructeur de la Classe pour l'attribut
+	 *                 filepath
 	 * 
 	 */
 
@@ -33,21 +30,15 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		this.filepath = filename;
 	}
 
-	/**
-	 * 
-	 * 
-	 * 
-	 * @param filepath    Chemin d'accès vers le fichier dans lequel seront écrits
-	 *                    les symptomes
-	 *
-	 * @param symptomsMap Tableau contenant les symptomes avec leurs occurences
-	 *                    respectives
-	 * 
-	 * @throw IOException Exception levée si les données du tableau ne peuvent pas
-	 *        être écrite dans le ficier de destination
-	 */
-
 	@Override
+
+	/**
+	 * @param symptomsMap Liste utilisée pour l'écriture des symptomes triés et
+	 *                    comptés vers un fichier de sortie
+	 * 
+	 * @throw IOException Exception levée si la liste des ymptomes n'a pu être écrit
+	 *        dans le ficher de sortie
+	 */
 	public void writeSymptom(Map<String, Integer> symptomsMap) {
 
 		FileWriter writer = null;

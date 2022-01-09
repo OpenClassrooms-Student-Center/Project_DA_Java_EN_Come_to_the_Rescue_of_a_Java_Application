@@ -9,7 +9,6 @@ import java.util.Map;
  * pour récupérer une iste de symptomes triés et comptabilisés
  * 
  * @author Fouad
- * @param args
  * 
  */
 
@@ -17,19 +16,24 @@ public class Main {
 
 	/**
 	 * 
-	 * @param args
+	 * @param args Contient les arguments de ligne de commande fournis sous la forme
+	 *             d'un tableau de String d'objets
 	 * 
-	 * @throws Exception
+	 * @throws Exception Utilisé pour lever des exception qui ne peuvent être
+	 *                   ignorées
 	 * 
 	 * @param reader             Variable de type ISymptomReader utilisé pour la
-	 *                           lecture du fichier de symptomes
+	 *                           lecture du fichier de symptomes et la création
+	 *                           d'une instance AnalyticsCounter
 	 * 
 	 * @param counter            Variable de type ISymtomCouner utilisé pour le
-	 *                           comptage des symptomes
+	 *                           comptage des symptomes et la création d'une
+	 *                           instance AnalyticsCounter
 	 * 
 	 * @param writer             Variable de type ISymptomWriter utilisé pour
 	 *                           l'écriture de la liste des symptomes triés avec
-	 *                           leurs occurences respectives
+	 *                           leurs occurences respectives et la création d'une
+	 *                           instance AnalyticsCounter
 	 * 
 	 * @param instance           Variable utilisée pour création d'un objet
 	 *                           AnalyticsCounter
@@ -38,7 +42,8 @@ public class Main {
 	 *                           dans une liste de type String
 	 * 
 	 * @param occurencesSymptoms Variable utilisée pour contenir la liste des
-	 *                           symptomes avec leurs occurences respectives
+	 *                           symptomes avec leurs occurences respectives et leur
+	 *                           écriture dansun fichier de sortir
 	 * 
 	 */
 

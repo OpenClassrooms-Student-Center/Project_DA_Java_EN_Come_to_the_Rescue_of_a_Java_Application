@@ -10,6 +10,9 @@ import java.util.TreeMap;
  * 
  * @author Fouad
  * 
+ * @return un tableau contenant la liste des symptomes avec leurs occurences
+ *         respectives
+ * 
  */
 public class SymptomsCounter implements ISymptomCounter {
 	/**

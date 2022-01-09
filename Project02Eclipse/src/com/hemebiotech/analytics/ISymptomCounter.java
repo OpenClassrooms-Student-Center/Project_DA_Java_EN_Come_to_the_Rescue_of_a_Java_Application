@@ -5,7 +5,8 @@ import java.util.Map;
 
 /**
  * Interface ISymptomCounter définit un contrat de service pour le comptage des
- * symptomes
+ * symptomes, la valeur retournée contiendra une liste de symptomes avec leurs
+ * occurences respectives
  * 
  * @author Fouad
  * 
@@ -15,7 +16,7 @@ public interface ISymptomCounter {
 	 * Méthode permettant de compter le nombre d'occurence d'un symptome dans la Map
 	 * retournée
 	 * 
-	 * @param list_symptoms Liste contenant la liste des symptomes lu dans le
+	 * @param list_symptoms List contenant la liste des symptomes brutes lu dans le
 	 *                      fichier
 	 * 
 	 * @return Une Map contenant les symptomes avec leurs occurences respectives

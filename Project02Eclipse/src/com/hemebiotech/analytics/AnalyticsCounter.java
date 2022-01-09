@@ -1,46 +1,90 @@
 package com.hemebiotech.analytics;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Classe permettant de compter le nombre de symptomes dans un fichier texte
+ * Classe permettant de compter le nombre de symptomes dans un fichier texte,
+ * trier et compter les symptomes pour les écrire dans un fichier de sortie
  * 
  * @author Fouad
+ * 
+ * @param reader  Attribut de la classe AnalyticsCounter de type ISymptomReader
+ * @param writer  Attribut de la classe AnalyticsCounter de type ISymptomWriter
+ * @param counter Attribut de la classe AnalyticsCounter de type ISymptomCounter
+ * 
  * 
  */
 public class AnalyticsCounter {
 
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
+	private ISymptomCounter counter;
+
 	/**
 	 * 
-	 * @param args
-	 * @throws Exception
+	 * @param providedReader  paramètre du constructeur de la Classe pour l'attribut
+	 *                        reader
+	 * @param providedWriter  paramètre du constructeur de la Classe pour l'attribut
+	 *                        writer
+	 * @param providedCounter paramètre du constructeur de la Classe pour l'attribut
+	 *                        couter
+	 * 
+	 * 
 	 */
+	public AnalyticsCounter(ISymptomReader providedReader, ISymptomWriter providedWriter,
+			ISymptomCounter providedCounter) {
+		this.reader = providedReader;
+		this.writer = providedWriter;
+		this.counter = providedCounter;
+	}
 
-	public static void main(String args[]) throws Exception {
+	/**
+	 * 
+	 * @param listSymptoms Liste utilisé pour stocker les symptomes récupérés par la
+	 *                     méthode getSymtoms
+	 * 
+	 * @return listSymptoms Retourne une liste de symptomes brutes
+	 */
+	public List<String> getSymptoms() {
+		System.out.println("Lecture du fichier en cours...");
 
-		AnalyticsCounter instance = new AnalyticsCounter();
-		instance.countSymptoms();
+		List<String> listSymptoms = this.reader.getSymptoms();
+		System.out.println("Lecture du fichier OK");
+		return listSymptoms;
+	}
+
+	/**
+	 * 
+	 * @param symptoms Liste de symptomes brutes
+	 * 
+	 * @return occurenceSymptoms Liste de symptomes triées avec leurs occurences
+	 *         respectives
+	 * 
+	 */
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+
+		System.out.println("Comptage des symptomes en cours...");
+
+		Map<String, Integer> occurenceSymptoms = this.counter.getSymptomsOccurence(symptoms);
+		System.out.println("Comptage des symptomes OK");
+
+		return occurenceSymptoms;
 
 	}
 
-	public void countSymptoms() throws IOException {
-		System.out.println("Lecture du fichier en cours...");
-		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
+	/**
+	 * 
+	 * @param occurenceSymptoms Map utilisé pour l'écriture des symptomes avec leurs
+	 *                          occurences respectives
+	 */
+	public void writeSymptoms(Map<String, Integer> occurenceSymptoms) {
 
-		List<String> list_symptoms = reader.getSymptoms();
-		System.out.println("Lecture du fichier OK");
+		System.out.println("Ecriture des résultats dans le fichier de sortie en cours...");
 
-		System.out.println("Comptage des symptomes en cours...");
-		ISymptomCounter counter = new SymptomsCounter();
-		Map<String, Integer> occurence_symptoms = counter.getSymptomsOccurence(list_symptoms);
-		System.out.println("Comptage des symptomes OK");
+		this.writer.writeSymptom(occurenceSymptoms);
+		System.out.println("Ecriture des résultats dans le fichier de sortie en cours OK");
 
-		System.out.println("Ecriture des résultats dans le fixhier de sortie en cours...");
-		ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
-		writer.writeSymptom(occurence_symptoms);
-		System.out.println("Ecriture des résultats dans le fixhier de sortie en cours OK");
 	}
 
 }

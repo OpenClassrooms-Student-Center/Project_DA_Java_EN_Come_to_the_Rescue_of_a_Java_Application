@@ -12,8 +12,7 @@ import java.util.List;
  * 
  * @author Fouad
  * 
- * @param filepath Attribut de la Classe ReadSymptomDataFromFile de type String
- *
+ * @param filepath Attribut de la classe ReadSymptomDataFromFile de type String
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
@@ -22,10 +21,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	/**
 	 * 
-	 * @param filepath Paramètre du constructeur de la Classe
-	 *                 ReadSymptomDataFromFile contenant le chemin d'accès partiel
-	 *                 ou complet vers le fichier contenant les symptomes pour
-	 *                 initialiser l'attribut de la Classe
+	 * @param filepath Paramètre du constructeur de la Classe pour l'attribut
+	 *                 filepath
+	 *
 	 * 
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
@@ -36,16 +34,13 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	/**
 	 * 
-	 * @param filepath Chemin d'accès partiel ou complet vers le fichier sur lequel
-	 *                 seront lus les symptomes
-	 * 
-	 * @param result   Taleau dans lequel seront stockés les symptomes lu dans le
-	 *                 fichier
+	 * @param filepath Chemin d'accès vers le fichier dans lequel seront lu les
+	 *                 symptomes
 	 * 
 	 * @param line     Variable stockant la chaine de caractères lu pour chaque
 	 *                 ligne du fichier
 	 * 
-	 * @return result Un tableau contenant la istes des symptomes lu dans le fichier
+	 * @return result Un tableau contenant les symptomes lu dans le fichier
 	 * 
 	 * @throw IOException Exception levée si le fichier source n'a pu être lu
 	 */
