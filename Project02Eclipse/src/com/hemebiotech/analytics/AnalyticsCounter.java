@@ -28,7 +28,7 @@ public class AnalyticsCounter {
 	 * @param providedWriter  paramètre du constructeur de la Classe pour l'attribut
 	 *                        writer
 	 * @param providedCounter paramètre du constructeur de la Classe pour l'attribut
-	 *                        couter
+	 *                        counter
 	 * 
 	 * 
 	 */
