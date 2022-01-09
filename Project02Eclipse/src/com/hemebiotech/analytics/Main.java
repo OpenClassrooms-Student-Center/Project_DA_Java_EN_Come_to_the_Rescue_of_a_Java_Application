@@ -10,19 +10,7 @@ import java.util.Map;
  * 
  * @author Fouad
  * @param args
- * @param reader             de type ISymptomReader utilisé pour la lecture du
- *                           fichier de symptomes
- * @param counter            de type ISymtomCouner utilisé pour le comptage des
- *                           symptomes
- * @param writer             de type ISymptomWriter utilisé pour l'écriture de
- *                           la liste des symptomes triés avec leurs occurences
- *                           respectives
- * @param instance           variable utilisée pour création d'un objet
- *                           AnalyticsCounter
- * @param symptoms           variable permettant la récupération des symtomes
- *                           dans une liste de type String
- * @param occurencesSymptoms variable utilisée pour contenir la liste des
- *                           symptomes avec leurs occurences respectives
+ * 
  */
 
 public class Main {
@@ -30,7 +18,27 @@ public class Main {
 	/**
 	 * 
 	 * @param args
+	 * 
 	 * @throws Exception
+	 * 
+	 * @param reader             Variable de type ISymptomReader utilisé pour la
+	 *                           lecture du fichier de symptomes
+	 * 
+	 * @param counter            Variable de type ISymtomCouner utilisé pour le
+	 *                           comptage des symptomes
+	 * 
+	 * @param writer             Variable de type ISymptomWriter utilisé pour
+	 *                           l'écriture de la liste des symptomes triés avec
+	 *                           leurs occurences respectives
+	 * 
+	 * @param instance           Variable utilisée pour création d'un objet
+	 *                           AnalyticsCounter
+	 * 
+	 * @param symptoms           Variable permettant la récupération des symtomes
+	 *                           dans une liste de type String
+	 * 
+	 * @param occurencesSymptoms Variable utilisée pour contenir la liste des
+	 *                           symptomes avec leurs occurences respectives
 	 * 
 	 */
 

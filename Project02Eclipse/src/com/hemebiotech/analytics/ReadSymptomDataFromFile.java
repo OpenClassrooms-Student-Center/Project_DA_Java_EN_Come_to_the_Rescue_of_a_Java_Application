@@ -7,7 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * Classe permettant la lecture des symptomes dans un fichier à partir d'un
+ * chemin d'accès implémentant l'interface ISymptom reader
+ * 
+ * @author Fouad
+ * 
+ * @param filepath Attribut de la Classe ReadSymptomDataFromFile de type String
+ *
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
@@ -16,14 +22,34 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	/**
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it,
-	 *                 one per line
+	 * @param filepath Paramètre du constructeur de la Classe
+	 *                 ReadSymptomDataFromFile contenant le chemin d'accès partiel
+	 *                 ou complet vers le fichier contenant les symptomes pour
+	 *                 initialiser l'attribut de la Classe
+	 * 
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
 
 	@Override
+
+	/**
+	 * 
+	 * @param filepath Chemin d'accès partiel ou complet vers le fichier sur lequel
+	 *                 seront lus les symptomes
+	 * 
+	 * @param result   Taleau dans lequel seront stockés les symptomes lu dans le
+	 *                 fichier
+	 * 
+	 * @param line     Variable stockant la chaine de caractères lu pour chaque
+	 *                 ligne du fichier
+	 * 
+	 * @return result Un tableau contenant la istes des symptomes lu dans le fichier
+	 * 
+	 * @throw IOException Exception levée si le fichier source n'a pu être lu
+	 */
+
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 
@@ -38,7 +64,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				}
 				reader.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println("erreur lors de la lecture des symptomes dans le fichier en entrée");
+
 			}
 		}
 

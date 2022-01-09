@@ -4,8 +4,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Classe implémentant l'interface ISymptomCounter permettant de compter le
+ * nombre d'occurence d'un symptome à partir d'une liste
+ * 
+ * @author Fouad
+ * 
+ */
 public class SymptomsCounter implements ISymptomCounter {
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Map<String, Integer> getSymptomsOccurence(List<String> listSymptoms) {
 		Map<String, Integer> symptomsMap = new TreeMap<String, Integer>();
