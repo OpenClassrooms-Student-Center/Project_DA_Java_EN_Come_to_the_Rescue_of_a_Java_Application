@@ -1,43 +1,52 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
+	/**
+	 * @Function: main
+	 * @Description: count the number of symptoms
+	 * @param: $1: input symptoms file (format : symptom)
+	 *         $2: output result file (format: symptom : number)
+	 */
 	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
+		// validate input parameter
+		if (args.length == 2) {
+			System.out.println("Info: input symptoms file: " + args[0]);
+			System.out.println("Info: output result file: " + args[1]);
+		} else {
+			System.out.println("Error: Verify the input parameter.");
+			System.exit(1);
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
+		// Read File
+		List<String> listSymptoms = null;
+		try {
+			ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(args[0]);
+			listSymptoms = readSymptomDataFromFile.GetSymptoms();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(2);
+		}
+
+		// analyze symptoms: count
+		Map<String, Integer> countSymptoms = null;
+		AnalyzeSymptoms analyzeSymptoms = new AnalyzeSymptoms();
+		countSymptoms = analyzeSymptoms.countSymptoms(listSymptoms);
+
+		// generate result
+		try {
+			WriteSymptomDataToFile writeSymptomDataToFile = new WriteSymptomDataToFile(args[1]);
+			writeSymptomDataToFile.WriteCountSymptoms(countSymptoms);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(3);
+		}
+
+		// output status
+		System.out.println("Info: Job finish");
+
 	}
 }
