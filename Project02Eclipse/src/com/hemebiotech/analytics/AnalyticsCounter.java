@@ -1,47 +1,31 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	AnalyticsCounter()
-	{}
-	
-	public void doAll () throws Exception
-	{
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("C:\\SRC\\me\\git\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt"));
-		String line = reader.readLine();
+public class AnalyticsCounter implements IAnalyticsCounter {
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	private List<String> listOfSymptoms;
 
-			line = reader.readLine();	// get another symptom
+	public AnalyticsCounter(List<String> listOfSymptoms) {
+		this.listOfSymptoms = listOfSymptoms;
+	}
+
+	@Override
+	public Map<String, Integer> AnalyticsCount() {
+		Map<String, Integer> dictionaryOfSymptoms = new TreeMap<String, Integer>();
+
+		for (int i = 0; i < listOfSymptoms.size(); i++) {
+			String dictionnaryKey = listOfSymptoms.get(i);
+			if (dictionaryOfSymptoms.containsKey(dictionnaryKey)) {
+				dictionaryOfSymptoms.put(dictionnaryKey, dictionaryOfSymptoms.get(dictionnaryKey) + 1);
+			} else {
+				dictionaryOfSymptoms.put(dictionnaryKey, 1);
+			}
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+
+		return dictionaryOfSymptoms;
+
 	}
 }
