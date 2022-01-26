@@ -11,7 +11,11 @@ public class WriteSymptomData implements ISymptomWriter {
 		try {
 			FileWriter writer = new FileWriter("result.out");
 			for (int i = 0; i < listeSymptomes.size(); i++) {
-				writer.write(listeSymptomes.get(i) + "\n");
+				if (i == listeSymptomes.size() - 1) {
+					writer.write(listeSymptomes.get(i));
+				} else {
+					writer.write(listeSymptomes.get(i) + "\n");
+				}
 			}
 			writer.close();
 		} catch (IOException e) {
