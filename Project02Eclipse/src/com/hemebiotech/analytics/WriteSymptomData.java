@@ -2,9 +2,11 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Map;
 
 public class WriteSymptomData implements ISymptomWriter {
+
+	public static final String MESSAGE_IO_ERROR = "Problème de création ou d'écriture sur le fichier results.out - arrêt du traitement";
 
 	private String filepath;
 
@@ -18,20 +20,17 @@ public class WriteSymptomData implements ISymptomWriter {
 	}
 
 	@Override
-	public void WriteSymptoms(ArrayList<String> listeSymptomes) {
+	public void WriteSymptoms(Map<String, Integer> listSymptoms) {
 
 		try {
 			FileWriter writer = new FileWriter(filepath);
-			for (int i = 0; i < listeSymptomes.size(); i++) {
-				if (i == listeSymptomes.size() - 1) {
-					writer.write(listeSymptomes.get(i));
-				} else {
-					writer.write(listeSymptomes.get(i) + "\n");
+			for (Map.Entry<String, Integer> m : listSymptoms.entrySet()) {
+				writer.write(m.getKey() + " : " + m.getValue() + "\n");
 				}
-			}
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println(MESSAGE_IO_ERROR);
+			System.exit(-1);
 		}
 	}
 }

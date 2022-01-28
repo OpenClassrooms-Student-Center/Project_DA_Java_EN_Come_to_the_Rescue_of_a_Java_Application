@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,6 +11,9 @@ import java.util.ArrayList;
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
+
+	public static final String MESSAGE_FILE_NOT_FOUND = "Le fichier symptomes.txt n'est pas présent en entrée - arrêt du traitement";
+	public static final String MESSAGE_OTHER_IO_ERROR = "Problème de lecture du fichier symptomes.txt - arrêt du traitement";
 
 	private String filepath;
 	
@@ -35,8 +39,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 				reader.close();
+			} catch (FileNotFoundException e) {
+				System.out.println(MESSAGE_FILE_NOT_FOUND);
+				System.exit(-1);
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println(MESSAGE_OTHER_IO_ERROR);
+				System.exit(-1);
 			}
 		}
 		

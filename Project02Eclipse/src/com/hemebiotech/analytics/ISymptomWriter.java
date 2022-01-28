@@ -1,9 +1,9 @@
 package com.hemebiotech.analytics;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 public interface ISymptomWriter {
 
-	void WriteSymptoms(ArrayList<String> listeSymptomes);
+	void WriteSymptoms(Map<String, Integer> listSymptoms);
 
 }
