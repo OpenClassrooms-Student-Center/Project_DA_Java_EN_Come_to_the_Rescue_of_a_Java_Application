@@ -14,6 +14,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	public static final String MESSAGE_FILE_NOT_FOUND = "Le fichier symptomes.txt n'est pas présent en entrée - arrêt du traitement";
 	public static final String MESSAGE_OTHER_IO_ERROR = "Problème de lecture du fichier symptomes.txt - arrêt du traitement";
+	public static final String MESSAGE_FILE_CLOSE_ERROR = "Impossible de refermer le fichier ouvert en lecture";
 
 	private String filepath;
 	
@@ -28,23 +29,31 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	@Override
 	public ArrayList<String> GetSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
+		BufferedReader reader = null;
 		
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
 				
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
 			} catch (FileNotFoundException e) {
 				System.out.println(MESSAGE_FILE_NOT_FOUND);
 				System.exit(-1);
 			} catch (IOException e) {
 				System.out.println(MESSAGE_OTHER_IO_ERROR);
 				System.exit(-1);
+			} finally {
+				if (reader != null) {
+					try {
+						reader.close();
+					} catch (IOException f) {
+						System.out.println(MESSAGE_FILE_CLOSE_ERROR);
+					}
+				}
 			}
 		}
 		
