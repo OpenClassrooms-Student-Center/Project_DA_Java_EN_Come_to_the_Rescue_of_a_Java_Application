@@ -22,7 +22,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 *                 
 	 *  Voir si besoin d'une nouvelle méthode pour mettre dans l'ordre ?
 	 */
-	public ReadSymptomDataFromFile(String inputFile) {
+	public ReadSymptomDataFromFile(String inputFile) throws IOException {
 		this.inputFile = inputFile;
 	}
 
@@ -36,8 +36,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				String line = reader.readLine();
 
 				while (line != null) {
-				    System.out.println(line); //** affichage de la ligne */
-					line = reader.readLine(); //** lecture de la prochaine ligne */
+					result.add(line); /** affichage de la ligne */
+					line = reader.readLine(); /** lecture de la prochaine ligne */
 				}
 				reader.close();
 			} catch (IOException e) {

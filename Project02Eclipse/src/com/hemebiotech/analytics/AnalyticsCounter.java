@@ -1,27 +1,33 @@
 package com.hemebiotech.analytics;
 
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /** 
  * 	@author Vincent Viomesnil
- *  TO DO : Compter les occurrences
+ *  OK: Compter les occurrences
  * 	TO DO : automatiser l'écriture du fichier.
  * 	TO DO : Voir si besoin d'une nouvelle méthode/Class pour mettre dans l'ordre ?
- * 	TO DO : faciliter l'écriture des symptoms à venir.
  *
  */
 
 public class AnalyticsCounter {
 
 	static final String inputFile = ".\\Project02Eclipse\\symptoms.txt";
-	static final String outputFile = "result.out";
+	static final String outputFile = "result3.out"; 
 	
-	
-
 	public static void main(String[] args) throws Exception {
 		
-		ISymptomReader symptoms = new ReadSymptomDataFromFile(inputFile);
-		symptoms.getSymptoms();
+		ISymptomReader reader = new ReadSymptomDataFromFile(inputFile); /** Lecture du fichier contenant la liste des symptomes */
+		List<String> symptomsList = reader.getSymptoms(); /** affectation de la liste "symptomsList" au fichier de lecture */ 
+		Map<String, Integer> mapOccurrence = new HashMap<String, Integer>(); /** Création de la Map "mapOccurrence" */ 	
 		
-			}
+		CountSymptoms compteurs = new CountSymptoms(); /** Instanciation de l'objet "compteurs" de la classe "CountSymptoms" */ 
+		mapOccurrence = compteurs.nbOccurrence(symptomsList); /** Lecture du nb d'occurrences à partir de la map */
+		
+		System.out.println(mapOccurrence); /** Affichage du nombre d'occurrences par symptome depuis la liste des symptomes */
 	
-	}
-
+		}
+}

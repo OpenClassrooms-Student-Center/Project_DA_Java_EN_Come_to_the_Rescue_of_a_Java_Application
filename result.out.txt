@@ -1,0 +1,4 @@
+headache: 3
+number of rash: 4
+dialated pupils: 7
+dialated pupils: 7
