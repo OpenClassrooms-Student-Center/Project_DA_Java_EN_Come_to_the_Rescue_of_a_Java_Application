@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 /**
  * Anything that will read symptom data from a source The important part is, the
@@ -17,6 +18,6 @@ public interface ISymptomWriter {
  *  @return a raw listing of all Symptoms obtained from a data source, duplicates
  *    are possible/probable
  */		
-		public void writeSymptoms(Map<String, Integer> nbOccurence) throws IOException;
+		public Map<String, Integer> nbOccurrence(List<String> symptomsList);
 	}
 
