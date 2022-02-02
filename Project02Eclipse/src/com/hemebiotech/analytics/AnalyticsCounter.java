@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 /** 
  * 	@author Vincent Viomesnil
@@ -20,7 +20,7 @@ public class AnalyticsCounter {
 		
 		ISymptomReader reader = new ReadSymptomDataFromFile(inputFile); /** Lecture du fichier contenant la liste des symptomes */
 		List<String> symptomsList = reader.getSymptoms(); /** affectation de la liste "symptomsList" au fichier de lecture */ 
-		Map<String, Integer> mapOccurrence = new HashMap<String, Integer>(); /** Création de la Map "mapOccurrence" */ 	
+		TreeMap<String, Integer> mapOccurrence = new TreeMap<String, Integer>(); /** Création de la Map "mapOccurrence" */ 	
 		
 		ISymptomWriter writer = new WriteSymptomOnFile(outputFile);
 		

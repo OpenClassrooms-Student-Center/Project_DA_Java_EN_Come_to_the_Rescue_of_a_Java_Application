@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.TreeMap;
 /**
  * Anything that will read symptom data from a source The important part is, the
  * return value from the operation, which is a list of strings, that may contain
@@ -17,7 +17,6 @@ public interface ISymptomWriter {
  *  @return a raw listing of all Symptoms obtained from a data source, duplicates
  *    are possible/probable
  */		
-		public void writeSymptoms (Map<String, Integer> nbOccurrence) throws IOException;
+		public void writeSymptoms (TreeMap<String, Integer> nbOccurrence) throws IOException;
 
 	}
-

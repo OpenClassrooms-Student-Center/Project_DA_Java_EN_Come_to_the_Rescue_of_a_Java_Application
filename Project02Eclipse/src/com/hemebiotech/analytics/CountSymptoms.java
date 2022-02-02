@@ -1,8 +1,7 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.TreeMap;
 
 
 /** @return compteurs = retourne le nombre d'occurences contenues dans la map compteurs.
@@ -10,9 +9,9 @@ import java.util.Map;
 
 public class CountSymptoms {
 	
-	public Map<String, Integer> nbOccurrence(List<String> symptomsList) {
+	public TreeMap<String, Integer> nbOccurrence(List<String> symptomsList) {
 
-		Map<String, Integer> compteurs = new HashMap<String, Integer>();
+		TreeMap<String, Integer> compteurs = new TreeMap<String, Integer>();
 
 		for(String symptom : symptomsList) {	/** Boucle sur chaque élément "symptom" contenu dans ma liste de symptomes */
 			if (compteurs.containsKey(symptom)) {	/** on analyse si le symptome existant dans la Map*/
@@ -27,5 +26,3 @@ public class CountSymptoms {
 	
 	}
 }
-
-

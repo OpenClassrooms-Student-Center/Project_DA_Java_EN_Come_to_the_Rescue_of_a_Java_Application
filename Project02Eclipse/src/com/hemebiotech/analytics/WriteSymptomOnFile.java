@@ -4,8 +4,8 @@ package com.hemebiotech.analytics;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 /**
  * 
@@ -25,7 +25,7 @@ public class WriteSymptomOnFile implements ISymptomWriter {
 	}
 	
 	@Override
-	public void writeSymptoms (Map<String, Integer> nbOccurrence) throws IOException{
+	public void writeSymptoms (TreeMap<String, Integer> nbOccurrence) throws IOException{
 			
 		 try (FileWriter fileWriter = new FileWriter(outputFile, false);
 				BufferedWriter writer = new BufferedWriter (fileWriter)) {
