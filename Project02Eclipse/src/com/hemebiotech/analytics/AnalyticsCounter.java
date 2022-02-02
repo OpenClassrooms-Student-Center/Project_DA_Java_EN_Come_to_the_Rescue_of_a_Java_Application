@@ -1,6 +1,4 @@
 package com.hemebiotech.analytics;
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +14,7 @@ import java.util.Map;
 public class AnalyticsCounter {
 
 	static final String inputFile = ".\\Project02Eclipse\\symptoms.txt";
-	static final String outputFile = "result5.out"; 
+	static final String outputFile = "result.out"; 
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -30,9 +28,8 @@ public class AnalyticsCounter {
 		mapOccurrence = compteurs.nbOccurrence(symptomsList); /** Lecture du nb d'occurrences à partir de la map */
 		
 		System.out.println(mapOccurrence); /** Affichage du nombre d'occurrences par symptome depuis la liste des symptomes */
-	
-		mapOccurrence = writer.nbOccurrence(symptomsList);
-		System.out.println(mapOccurrence);
+		
+		writer.writeSymptoms(mapOccurrence); /** Ecriture dans le fichier externe "result.out" du nombre d'occurrence par symptome */
 		
 		}
 }
