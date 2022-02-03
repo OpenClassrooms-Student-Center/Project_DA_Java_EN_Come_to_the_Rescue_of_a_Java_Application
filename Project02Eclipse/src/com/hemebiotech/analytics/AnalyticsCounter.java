@@ -2,6 +2,12 @@ package com.hemebiotech.analytics;
 
 import java.util.Map;
 
+/**
+ * @author S076562
+ * @version 2.0
+ *
+ */
+
 public class AnalyticsCounter {
 	
 	public static final String INPUT_FILE = "./Project02Eclipse/symptoms.txt";
@@ -10,8 +16,8 @@ public class AnalyticsCounter {
 	public static void main(String args[]) {
 
 		Map<String, Integer> listSymptomsOut;
-		
-		// Get, sort and count Input
+
+		// Get, sort and count symptoms from Input files
 		SortSymptoms sortedSymptoms = new SortSymptoms();
 		listSymptomsOut = sortedSymptoms.sortAndCountSymptoms(INPUT_FILE);
 
