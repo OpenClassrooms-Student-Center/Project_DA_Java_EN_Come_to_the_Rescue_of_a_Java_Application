@@ -6,8 +6,8 @@ import java.util.Map;
 
 public class WriteSymptomData implements ISymptomWriter {
 
-	public static final String MESSAGE_IO_ERROR = "Problème de création ou d'écriture sur le fichier results.out - arrêt du traitement";
-	public static final String MESSAGE_FILE_CLOSE_ERROR = "Impossible de refermer le fichier ouvert en écriture";
+	public static final String MESSAGE_IO_ERROR = "Error on the output file results.out";
+	public static final String MESSAGE_FILE_CLOSE_ERROR = "Output file not closed";
 
 	private String filepath;
 

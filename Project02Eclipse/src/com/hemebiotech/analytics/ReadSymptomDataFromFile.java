@@ -12,9 +12,9 @@ import java.util.ArrayList;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	public static final String MESSAGE_FILE_NOT_FOUND = "Le fichier symptomes.txt n'est pas présent en entrée - arrêt du traitement";
-	public static final String MESSAGE_OTHER_IO_ERROR = "Problème de lecture du fichier symptomes.txt - arrêt du traitement";
-	public static final String MESSAGE_FILE_CLOSE_ERROR = "Impossible de refermer le fichier ouvert en lecture";
+	public static final String MESSAGE_FILE_NOT_FOUND = "No file in found symptoms.txt";
+	public static final String MESSAGE_OTHER_IO_ERROR = "Reading issue with the file in symptoms.txt";
+	public static final String MESSAGE_FILE_CLOSE_ERROR = "File in not closed";
 
 	private String filepath;
 	
@@ -28,6 +28,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	
 	@Override
 	public ArrayList<String> GetSymptoms() {
+
 		ArrayList<String> result = new ArrayList<String>();
 		BufferedReader reader = null;
 		
