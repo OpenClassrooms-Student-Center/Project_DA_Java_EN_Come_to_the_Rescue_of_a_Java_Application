@@ -4,20 +4,40 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
+/**
+ * to be filled later
+ * structure of javadoc
+ * 
+ * 
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+	/**
+	 * to be filled later
+	 * structure of javadoc
+	 * produce what we want
+	 * 
+	 * @args blabla
+	 */
+	private static int headacheCount = 0;	// to record the number of headache
+	private static int rashCount = 0;		// to record the number of rash
+	private static int pupilCount = 0;		// to record the number of pupil
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		/**
+		 * to be filled later
+		 * structure of javadoc
+		 * produce what we want
+		 * 
+		 * @args blabla
+		 */
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
+		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
+		String line = reader.readLine(); // first read line
+
+		int i = 0;	// counter for the lines of the file
+		int headCount = 0;
 		while (line != null) {
-			i++;	// increment i
+			i++;
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
 				headCount++;
@@ -33,8 +53,8 @@ public class AnalyticsCounter {
 			line = reader.readLine();	// get another symptom
 		}
 		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
+		// generate output
+		FileWriter writer = new FileWriter ("Project02Eclipse/result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
