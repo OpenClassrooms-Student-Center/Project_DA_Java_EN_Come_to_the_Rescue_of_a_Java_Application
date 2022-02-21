@@ -3,6 +3,8 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * to be filled later structure of javadoc
@@ -23,14 +25,31 @@ public class AnalyticsCounter {
 		/**
 		 * to be filled later structure of javadoc 
 		 * produce what we want
-		 * main steps: 1) read file (result: list of String) ; 2) 
+		 * main steps: 1) read file (result: list of String)
+		 * 2) counting:
+		 * 2a) build empty list of Symptom (class with name and count)
+		 * 2b) For each String from the list of String
+		 * 2b-1) look for it in the list of Symptom
+		 * 2b-1-a) if same symptom found : increase its count
+		 * 2b-1-b) if not : insere new Symptom
+		 * 3) write the result 
 		 * 
 		 * @args blabla
 		 */
 
+		// step 1: read file
+//		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt") ;
+//		List<String> allSymptoms = reader.GetSymptoms() ;
+		
 		BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine(); // first read line
 
+		//step 2: counting
+//		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
+//		for(String symptom : allSymptoms) {
+//			addSymptomToList(symptom, countedSymptoms)
+//		}
+		
 		int i = 0; // counter for the lines of the file
 		while (line != null) {
 			i++;
@@ -47,11 +66,38 @@ public class AnalyticsCounter {
 			line = reader.readLine(); // get another symptom
 		}
 
-		// generate output
+		// step 3: generate output
 		FileWriter writer = new FileWriter("Project02Eclipse/result.out");
+//		for(Symptom symptom : countedSymptoms) {
+//			writer.write(symptom.name + "=" + symptom.count + "\n");
+//		}
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
+	}
+	
+	public void addSymptomToList(String symptom, List<Symptom> countedSymptoms) {
+		int sizeOfList = countedSymptoms.size();
+		if(sizeOfList==0) {
+			countedSymptoms.add(new Symptom(symptom));
+		} else {
+			int i = 0;
+			do {
+				int diff = symptom.compareTo(countedSymptoms.get(i).name);
+				if(diff==0) {
+					countedSymptoms.get(i).count++;
+					break ;
+				} else if(diff<0) { //symptom is before countedSymptoms.get(i).name
+					countedSymptoms.add(i,new Symptom(symptom));
+					break ;
+				}
+				i++;
+			} while(i<sizeOfList);
+			if(i==sizeOfList) { // we exited without adding the new symptom
+				countedSymptoms.add(new Symptom(symptom));
+			}
+		}
+		// in the end, countedSymptoms is updated
 	}
 }
