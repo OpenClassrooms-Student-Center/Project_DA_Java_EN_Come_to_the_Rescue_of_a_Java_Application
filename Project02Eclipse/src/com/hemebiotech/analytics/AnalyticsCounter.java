@@ -32,14 +32,13 @@ public class AnalyticsCounter {
 		String line = reader.readLine(); // first read line
 
 		int i = 0; // counter for the lines of the file
-		int headCount = 0;
 		while (line != null) {
 			i++;
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			} else if (line.equals("rush")) {
+				headacheCount++;
+				System.out.println("number of headaches: " + headacheCount);
+			} else if (line.equals("rash")) {
 				rashCount++;
 			} else if (line.contains("pupils")) {
 				pupilCount++;
