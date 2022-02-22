@@ -47,7 +47,7 @@ public class AnalyticsCounter {
 		//step 2: counting
 //		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
 //		for(String symptom : allSymptoms) {
-//			addSymptomToList(symptom, countedSymptoms)
+//			addSymptomToList(symptom, countedSymptoms, 0)
 //		}
 		
 		int i = 0; // counter for the lines of the file
@@ -77,27 +77,19 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 	
-	public void addSymptomToList(String symptom, List<Symptom> countedSymptoms) {
+	public void addSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
 		int sizeOfList = countedSymptoms.size();
-		if(sizeOfList==0) {
+		if(sizeOfList >= index) {
 			countedSymptoms.add(new Symptom(symptom));
 		} else {
-			int i = 0;
-			do {
-				int diff = symptom.compareTo(countedSymptoms.get(i).name);
-				if(diff==0) {
-					countedSymptoms.get(i).count++;
-					break ;
-				} else if(diff<0) { //symptom is before countedSymptoms.get(i).name
-					countedSymptoms.add(i,new Symptom(symptom));
-					break ;
-				}
-				i++;
-			} while(i<sizeOfList);
-			if(i==sizeOfList) { // we exited without adding the new symptom
-				countedSymptoms.add(new Symptom(symptom));
+			int diff = symptom.compareTo(countedSymptoms.get(index).name);
+			if(diff==0) {
+				countedSymptoms.get(index).count++;
+			} else if(diff<0) { //symptom is before countedSymptoms.get(index).name
+				countedSymptoms.add(index,new Symptom(symptom));
+			} else { // symptom have to be inserted futher
+				addSymptomToList(symptom, countedSymptoms, index+1);
 			}
 		}
-		// in the end, countedSymptoms is updated
 	}
 }
