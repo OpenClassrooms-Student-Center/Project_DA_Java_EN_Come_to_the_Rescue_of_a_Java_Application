@@ -41,8 +41,8 @@ public class AnalyticsCounter {
 
 		// step 2: counting
 		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
-		for(String symptom : allSymptoms) {
-			addSymptomToList(symptom, countedSymptoms, 0);
+		for(String symptomName : allSymptoms) {
+			addSymptomToList(symptomName, countedSymptoms, 0);
 		}
 
 //		int i = 0; // counter for the lines of the file
