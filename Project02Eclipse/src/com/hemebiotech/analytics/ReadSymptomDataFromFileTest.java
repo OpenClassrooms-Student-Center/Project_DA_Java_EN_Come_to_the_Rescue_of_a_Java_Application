@@ -14,6 +14,7 @@ class ReadSymptomDataFromFileTest {
 		ReadSymptomDataFromFile testReader = new ReadSymptomDataFromFile(testingPath);
 		List<String> reading = testReader.GetSymptoms();
 		assertEquals(reading.get(0),"fever");
+		assertEquals(reading.size(),100);
 	}
 
 }
