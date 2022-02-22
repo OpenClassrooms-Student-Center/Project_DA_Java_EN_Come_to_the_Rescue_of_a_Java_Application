@@ -28,6 +28,7 @@ public class AnalyticsCounter {
 		 * 
 		 * @args blabla
 		 */
+		// TO DO : gestion des erreurs
 
 		// step 1: read file; put result in a list of string
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt") ;
