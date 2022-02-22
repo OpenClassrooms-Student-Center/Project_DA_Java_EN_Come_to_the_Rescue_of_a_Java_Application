@@ -10,11 +10,11 @@ class ReadSymptomDataFromFileTest {
 
 	@Test
 	void testGetSymptoms() {
-		String testingPath = "Project02Eclipse/symptoms.txt"; 
+		String testingPath = "Project02Eclipse/symptoms.txt";
 		ReadSymptomDataFromFile testReader = new ReadSymptomDataFromFile(testingPath);
 		List<String> reading = testReader.GetSymptoms();
-		assertEquals("fever",reading.get(0));
-		assertEquals(100,reading.size());
+		assertEquals("fever", reading.get(0));
+		assertEquals(100, reading.size());
 	}
 
 }

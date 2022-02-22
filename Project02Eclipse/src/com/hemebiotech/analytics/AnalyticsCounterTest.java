@@ -15,19 +15,19 @@ class AnalyticsCounterTest {
 		Symptom sympA = new Symptom("a");
 		Symptom sympB = new Symptom("b");
 		Symptom sympC = new Symptom("c");
-		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
+		List<Symptom> countedSymptoms = new ArrayList<Symptom>();
 		countedSymptoms.add(sympA);
 		countedSymptoms.add(sympB);
 		countedSymptoms.add(sympC);
-		
+
 		testAnalyticsCounter.addSymptomToList("b", countedSymptoms, 0);
-		assertEquals(2,countedSymptoms.get(1).count);
-		
+		assertEquals(2, countedSymptoms.get(1).count);
+
 		testAnalyticsCounter.addSymptomToList("ab", countedSymptoms, 0);
-		assertEquals("ab",countedSymptoms.get(1).name);
+		assertEquals("ab", countedSymptoms.get(1).name);
 
 		testAnalyticsCounter.addSymptomToList("d", countedSymptoms, 0);
-		assertEquals(5,countedSymptoms.size());
+		assertEquals(5, countedSymptoms.size());
 	}
 
 }
