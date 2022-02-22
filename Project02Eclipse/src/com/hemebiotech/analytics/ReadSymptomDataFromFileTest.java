@@ -13,8 +13,8 @@ class ReadSymptomDataFromFileTest {
 		String testingPath = "Project02Eclipse/symptoms.txt"; 
 		ReadSymptomDataFromFile testReader = new ReadSymptomDataFromFile(testingPath);
 		List<String> reading = testReader.GetSymptoms();
-		assertEquals(reading.get(0),"fever");
-		assertEquals(reading.size(),100);
+		assertEquals("fever",reading.get(0));
+		assertEquals(100,reading.size());
 	}
 
 }
