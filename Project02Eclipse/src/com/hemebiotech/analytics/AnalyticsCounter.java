@@ -79,7 +79,7 @@ public class AnalyticsCounter {
 	
 	public void addSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
 		int sizeOfList = countedSymptoms.size();
-		if(sizeOfList >= index) {
+		if(sizeOfList <= index) {
 			countedSymptoms.add(new Symptom(symptom));
 		} else {
 			int diff = symptom.compareTo(countedSymptoms.get(index).name);
@@ -87,7 +87,7 @@ public class AnalyticsCounter {
 				countedSymptoms.get(index).count++;
 			} else if(diff<0) { //symptom is before countedSymptoms.get(index).name
 				countedSymptoms.add(index,new Symptom(symptom));
-			} else { // symptom have to be inserted futher
+			} else { // symptom have to be inserted further
 				addSymptomToList(symptom, countedSymptoms, index+1);
 			}
 		}
