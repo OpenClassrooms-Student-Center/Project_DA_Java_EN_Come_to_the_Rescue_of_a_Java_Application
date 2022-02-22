@@ -13,13 +13,10 @@ import java.util.ArrayList;
  */
 public class AnalyticsCounter {
 	/**
-	 * to be filled later structure of javadoc produce what we want
+	 * to be filled later ; structure of javadoc ; produce what we want
 	 * 
 	 * @args blabla
 	 */
-//	private static int headacheCount = 0; // to record the number of headache
-//	private static int rashCount = 0; // to record the number of rash
-//	private static int pupilCount = 0; // to record the number of pupil
 
 	public static void main(String args[]) throws Exception {
 		/**
@@ -32,47 +29,26 @@ public class AnalyticsCounter {
 		 * @args blabla
 		 */
 
-		// step 1: read file
+		// step 1: read file; put result in a list of string
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt") ;
 		List<String> allSymptoms = reader.GetSymptoms() ;
 
-//		BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
-//		String line = reader.readLine(); // first read line
-
-		// step 2: counting
+		// step 2: counting ; each string increase a list of Symptom (class with name and count)
 		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
 		for(String symptomName : allSymptoms) {
 			addSymptomToList(symptomName, countedSymptoms, 0);
 		}
-
-//		int i = 0; // counter for the lines of the file
-//		while (line != null) {
-//			i++;
-//			System.out.println("symptom from file: " + line);
-//			if (line.equals("headache")) {
-//				headacheCount++;
-//				System.out.println("number of headaches: " + headacheCount);
-//			} else if (line.equals("rash")) {
-//				rashCount++;
-//			} else if (line.contains("pupils")) {
-//				pupilCount++;
-//			}
-//
-//			line = reader.readLine(); // get another symptom
-//		}
 
 		// step 3: generate output
 		FileWriter writer = new FileWriter("Project02Eclipse/result.out");
 		for(Symptom symptom : countedSymptoms) {
 			writer.write(symptom.name + "=" + symptom.count + "\n");
 		}
-//		writer.write("headache: " + headacheCount + "\n");
-//		writer.write("rash: " + rashCount + "\n");
-//		writer.write("dialated pupils: " + pupilCount + "\n");
 		writer.close();
 	}
 
 	public static void addSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
+		// TO DO : add javadoc
 		int sizeOfList = countedSymptoms.size();
 		if (sizeOfList <= index) {
 			countedSymptoms.add(new Symptom(symptom));
@@ -80,9 +56,11 @@ public class AnalyticsCounter {
 			int diff = symptom.compareTo(countedSymptoms.get(index).name);
 			if (diff == 0) {
 				countedSymptoms.get(index).count++;
-			} else if (diff < 0) { // symptom is before countedSymptoms.get(index).name
+			} else if (diff < 0) { 
+				// symptom is before countedSymptoms.get(index).name
 				countedSymptoms.add(index, new Symptom(symptom));
-			} else { // symptom have to be inserted further
+			} else { 
+				// symptom have to be inserted further
 				addSymptomToList(symptom, countedSymptoms, index + 1);
 			}
 		}

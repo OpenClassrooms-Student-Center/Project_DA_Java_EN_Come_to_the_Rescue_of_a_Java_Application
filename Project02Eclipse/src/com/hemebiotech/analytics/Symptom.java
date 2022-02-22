@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 public class Symptom {
+	// TO DO : add javadoc
 	public int count;
 	public String name;
 
