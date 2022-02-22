@@ -12,6 +12,10 @@ public class AnalyticsCounter {
 
 		SymptomCounter symptomCounter = new SymptomCounter();
 		Map<String, Integer> finalCount = symptomCounter.listToMap(listOfSymptom);
+		
+		WriteFinalDataFile writeFinalDataFile= new WriteFinalDataFile("Project02Eclipse/results.out");
+		writeFinalDataFile.writeData(finalCount);
+		
 
 	}
 }
