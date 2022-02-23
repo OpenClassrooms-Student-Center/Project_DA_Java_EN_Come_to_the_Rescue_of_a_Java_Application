@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @author Caroline HEDOT
+ * @author  HEDOT
  * @since 25/01/2022
  * Anything that will read symptom data from a source
  * The important part is, the return value from the operation, which is a list of strings,
