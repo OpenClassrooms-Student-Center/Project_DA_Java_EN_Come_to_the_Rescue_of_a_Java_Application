@@ -14,7 +14,7 @@ public class AnalyticsCounter {
 	final static String INPUT = "Project02Eclipse/symptoms.txt";
 	final static String OUTPUT = "Project02Eclipse/results.out";
 	/**
-	 * the main method initialized the classes in three steps and apply their methods 
+	 * the main class method initialized the classes in three steps and apply their methods 
 	 */
 
 	public static void main(String args[]) throws Exception {
