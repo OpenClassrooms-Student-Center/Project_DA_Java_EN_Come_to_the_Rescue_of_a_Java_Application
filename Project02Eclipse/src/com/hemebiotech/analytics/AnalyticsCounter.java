@@ -7,37 +7,31 @@ import java.util.List;
 import java.util.ArrayList;
 
 /**
- * to be filled later structure of javadoc
- * 
+ * main class
  * 
  */
 public class AnalyticsCounter {
 	/**
-	 * to be filled later ; structure of javadoc ; produce what we want
+	 * main function:
+	 * 1) read a file with symptoms names
+	 * 2) count occurrences of each symptoms
+	 * 3) write result in a file
 	 * 
-	 * @args blabla
+	 * @param args not used yet
+	 * return: void (write result in a file)
 	 */
-
 	public static void main(String args[]) throws Exception {
-		/**
-		 * to be filled later structure of javadoc produce what we want main steps: 1)
-		 * read file (result: list of String) 2) counting: 2a) build empty list of
-		 * Symptom (class with name and count) 2b) For each String from the list of
-		 * String 2b-1) look for it in the list of Symptom 2b-1-a) if same symptom found
-		 * : increase its count 2b-1-b) if not : insere new Symptom 3) write the result
-		 * 
-		 * @args blabla
-		 */
-		// TO DO : gestion des erreurs
+		// TO DO : gestion des erreurs (lecture/écriture fichiers)
+		// TO DO : utiliser args[] pour trouver le dossier pour source ou résultats
 
-		// step 1: read file; put result in a list of string
+		// step 1: reading file; put result in a list of string
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt") ;
 		List<String> allSymptoms = reader.GetSymptoms() ;
 
 		// step 2: counting ; each string increase a list of Symptom (class with name and count)
 		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
 		for(String symptomName : allSymptoms) {
-			addSymptomToList(symptomName, countedSymptoms, 0);
+			addSymptomToList(symptomName, countedSymptoms);
 		}
 
 		// step 3: generate output
@@ -48,21 +42,58 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 
-	public static void addSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
-		// TO DO : add javadoc
-		int sizeOfList = countedSymptoms.size();
-		if (sizeOfList <= index) {
+	/**
+	 * update the list of Symptoms with a symptom, either by incrementing one entry 
+	 * of the list, or by adding a new entry.
+	 * Call the recursive function recursiveAddSymptomToList with
+	 * initializing its index to 0.
+	 * 
+	 * @param symptom: String containing the name of the symptom to be added
+	 * @param countedSymptoms: list of Symptom to be updated
+	 * 
+	 * return: void (the given list of Symptoms is updated)
+	 */
+	public static void addSymptomToList(String symptom, List<Symptom> countedSymptoms) {
+		recursiveAddSymptomToList(symptom, countedSymptoms, 0);
+	}
+	
+	/**
+	 * recursive function, to update the list of Symptoms with a symptom, 
+	 * either by incrementing one entry of the list, or by adding a new entry.
+	 * The update is done at the index position or send to the next call (recursivity).
+	 * 
+	 * @param symptom: String containing the name of the symptom to be added
+	 * @param countedSymptoms: list of Symptom to be updated
+	 * @param index: position where the list is updated, increased by the recursion (must be set to 0 for the first call)
+	 * 
+	 * return: void (the given list of Symptoms is updated)
+	 */
+	private static void recursiveAddSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
+		
+		if (countedSymptoms.size() <= index) {
+			
+			// base condition: index further than the last entry 
 			countedSymptoms.add(new Symptom(symptom));
+			
 		} else {
-			int diff = symptom.compareTo(countedSymptoms.get(index).name);
-			if (diff == 0) {
+			
+			int diffNewIndexed = symptom.compareTo(countedSymptoms.get(index).name);
+			
+			if (diffNewIndexed == 0) {
+				
+				// name found: increment the counter
 				countedSymptoms.get(index).count++;
-			} else if (diff < 0) { 
-				// symptom is before countedSymptoms.get(index).name
+				
+			} else if (diffNewIndexed < 0) { 
+				
+				// symptom is before the current position: adding new symptom
 				countedSymptoms.add(index, new Symptom(symptom));
+				
 			} else { 
-				// symptom have to be inserted further
-				addSymptomToList(symptom, countedSymptoms, index + 1);
+				
+				// symptom have to be inserted further: recursion
+				recursiveAddSymptomToList(symptom, countedSymptoms, index+1);
+				
 			}
 		}
 	}
