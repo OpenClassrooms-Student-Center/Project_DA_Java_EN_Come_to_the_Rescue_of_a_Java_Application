@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 //import java.io.BufferedReader;
 //import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -21,25 +22,43 @@ public class AnalyticsCounter {
 	 * return: void (write result in a file)
 	 */
 	public static void main(String args[]) throws Exception {
-		// TO DO : gestion des erreurs (lecture/écriture fichiers)
-		// TO DO : utiliser args[] pour trouver le dossier pour source ou résultats
+		
+		List<String> allSymptoms;          		// data
+		List<Symptom> countedSymptoms;			// result
+		
+		// using args[] to define directory for reading symptoms and writing result
+		String repoReading = "Project02Eclipse" ;
+		String repoWriting = "Project02Eclipse" ;
+		if(args.length >= 1) {
+			// 1 arg = directory for both reading and writing
+			repoReading = args[0];
+			repoWriting = args[0];
+		} 
+		if(args.length >= 2){
+			// 2 args = directories for reading (1st) and writing (2nd)
+			repoWriting = args[1];
+		}
 
-		// step 1: reading file; put result in a list of string
-		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt") ;
-		List<String> allSymptoms = reader.GetSymptoms() ;
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(repoReading+"/symptoms.txt") ;
+		allSymptoms = reader.GetSymptoms() ;
 
 		// step 2: counting ; each string increase a list of Symptom (class with name and count)
-		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
+		countedSymptoms = new ArrayList<Symptom>() ;
 		for(String symptomName : allSymptoms) {
 			addSymptomToList(symptomName, countedSymptoms);
 		}
 
 		// step 3: generate output
-		FileWriter writer = new FileWriter("Project02Eclipse/result.out");
-		for(Symptom symptom : countedSymptoms) {
-			writer.write(symptom.name + "=" + symptom.count + "\n");
+		try {
+			FileWriter writer = new FileWriter(repoWriting+"/result.out");
+			for(Symptom symptom : countedSymptoms) {
+				writer.write(symptom.name + "=" + symptom.count + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			System.err.println("Problem in writing the result file.");
+			e.printStackTrace();
 		}
-		writer.close();
 	}
 
 	/**
