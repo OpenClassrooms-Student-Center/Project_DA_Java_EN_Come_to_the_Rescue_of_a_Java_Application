@@ -22,7 +22,6 @@ public class AnalyticsCounter {
 	 * 3) write result in a file
 	 * 
 	 * @param args not used yet
-	 * return: void (write result in a file)
 	 */
 	public static void main(String args[]) throws Exception {
 		// step 1 : read data from file
@@ -35,19 +34,36 @@ public class AnalyticsCounter {
 		writeCountedSymptoms(countedSymptoms, repoWriting+"/result.out");
 	}
 
+	/**
+	 * read of file where each line is a name of symptom
+	 * 
+	 * @param path file to read from
+	 * @return List of String, each one is a symptom's name (possible repetitions)
+	 */
 	private static List<String> readFile(String path){
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(path) ;
 		return reader.GetSymptoms() ;
 	}
 	
+	/**
+	 * 
+	 * @param allSymptoms list of symptom's names
+	 * @return List of Symptom (name and count), alphabetically ordered
+	 */
 	private static List<Symptom> readSymptoms(List<String> allSymptoms){
 		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
 		for(String symptomName : allSymptoms) {
-			addSymptomToList(symptomName, countedSymptoms);
+			recursiveAddSymptomToList(symptomName, countedSymptoms, 0);
 		}
 		return countedSymptoms;
 	}
 	
+	/**
+	 * Write in a file the count for each symptom's name. Each line is in the format [name]=[count]
+	 * 
+	 * @param countedSymptoms list of Symptoms (name and count)
+	 * @param path file to write
+	 */
 	private static void writeCountedSymptoms(List<Symptom> countedSymptoms, String path) {
 		try {
 			FileWriter writer = new FileWriter(path);
@@ -62,22 +78,7 @@ public class AnalyticsCounter {
 	}
 	
 	/**
-	 * update the list of Symptoms with a symptom, either by incrementing one entry 
-	 * of the list, or by adding a new entry.
-	 * Call the recursive function recursiveAddSymptomToList with
-	 * initializing its index to 0.
-	 * 
-	 * @param symptom: String containing the name of the symptom to be added
-	 * @param countedSymptoms: list of Symptom to be updated
-	 * 
-	 * return: void (the given list of Symptoms is updated)
-	 */
-	public static void addSymptomToList(String symptom, List<Symptom> countedSymptoms) {
-		recursiveAddSymptomToList(symptom, countedSymptoms, 0);
-	}
-	
-	/**
-	 * recursive function, to update the list of Symptoms with a symptom, 
+	 * recursive function, to update the list of Symptoms with a symptom name, 
 	 * either by incrementing one entry of the list, or by adding a new entry.
 	 * The update is done at the index position or send to the next call (recursivity).
 	 * 
@@ -85,9 +86,10 @@ public class AnalyticsCounter {
 	 * @param countedSymptoms: list of Symptom to be updated
 	 * @param index: position where the list is updated, increased by the recursion (must be set to 0 for the first call)
 	 * 
-	 * return: int, used to force the tail recursion (the given list of Symptoms is updated)
+	 * @return int, index of the added symptom's name, used to force the tail recursion 
+	 * 				(the given list of Symptoms is updated)
 	 */
-	private static int recursiveAddSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
+	public static int recursiveAddSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
 		
 		if (countedSymptoms.size() <= index) {
 			

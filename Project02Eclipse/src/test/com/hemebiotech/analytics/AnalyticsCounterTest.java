@@ -23,13 +23,13 @@ class AnalyticsCounterTest {
 		countedSymptoms.add(sympB);
 		countedSymptoms.add(sympC);
 
-		testAnalyticsCounter.addSymptomToList("b", countedSymptoms);
+		testAnalyticsCounter.recursiveAddSymptomToList("b", countedSymptoms, 0);
 		assertEquals(2, countedSymptoms.get(1).count);
 
-		testAnalyticsCounter.addSymptomToList("ab", countedSymptoms);
+		testAnalyticsCounter.recursiveAddSymptomToList("ab", countedSymptoms, 0);
 		assertEquals("ab", countedSymptoms.get(1).name);
 
-		testAnalyticsCounter.addSymptomToList("d", countedSymptoms);
+		testAnalyticsCounter.recursiveAddSymptomToList("d", countedSymptoms, 0);
 		assertEquals(5, countedSymptoms.size());
 	}
 
