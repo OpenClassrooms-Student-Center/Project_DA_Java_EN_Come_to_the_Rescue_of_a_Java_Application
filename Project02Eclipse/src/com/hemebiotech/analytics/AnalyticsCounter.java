@@ -39,18 +39,31 @@ public class AnalyticsCounter {
 			repoWriting = args[1];
 		}
 
-		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(repoReading+"/symptoms.txt") ;
-		allSymptoms = reader.GetSymptoms() ;
+		allSymptoms = readFile(repoReading+"/symptoms.txt") ;
 
 		// step 2: counting ; each string increase a list of Symptom (class with name and count)
-		countedSymptoms = new ArrayList<Symptom>() ;
+		countedSymptoms = readSymptoms(allSymptoms);
+
+		// step 3: generate output
+		writeCountedSymptoms(countedSymptoms, repoWriting+"/result.out");
+	}
+
+	private static List<String> readFile(String path){
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(path) ;
+		return reader.GetSymptoms() ;
+	}
+	
+	private static List<Symptom> readSymptoms(List<String> allSymptoms){
+		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
 		for(String symptomName : allSymptoms) {
 			addSymptomToList(symptomName, countedSymptoms);
 		}
-
-		// step 3: generate output
+		return countedSymptoms;
+	}
+	
+	private static void writeCountedSymptoms(List<Symptom> countedSymptoms, String path) {
 		try {
-			FileWriter writer = new FileWriter(repoWriting+"/result.out");
+			FileWriter writer = new FileWriter(path);
 			for(Symptom symptom : countedSymptoms) {
 				writer.write(symptom.name + "=" + symptom.count + "\n");
 			}
@@ -60,7 +73,7 @@ public class AnalyticsCounter {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * update the list of Symptoms with a symptom, either by incrementing one entry 
 	 * of the list, or by adding a new entry.
