@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package test.com.hemebiotech.analytics;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
+
+import com.hemebiotech.analytics.AnalyticsCounter;
+import com.hemebiotech.analytics.Symptom;
 
 class AnalyticsCounterTest {
 

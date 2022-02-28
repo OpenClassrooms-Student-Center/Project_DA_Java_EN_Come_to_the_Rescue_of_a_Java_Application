@@ -12,6 +12,9 @@ import java.util.ArrayList;
  * 
  */
 public class AnalyticsCounter {
+	static String repoReading = "Project02Eclipse" ;
+	static String repoWriting = "Project02Eclipse" ;
+
 	/**
 	 * main function:
 	 * 1) read a file with symptoms names
@@ -22,27 +25,11 @@ public class AnalyticsCounter {
 	 * return: void (write result in a file)
 	 */
 	public static void main(String args[]) throws Exception {
-		
-		List<String> allSymptoms;          		// data
-		List<Symptom> countedSymptoms;			// result
-		
-		// using args[] to define directory for reading symptoms and writing result
-		String repoReading = "Project02Eclipse" ;
-		String repoWriting = "Project02Eclipse" ;
-		if(args.length >= 1) {
-			// 1 arg = directory for both reading and writing
-			repoReading = args[0];
-			repoWriting = args[0];
-		} 
-		if(args.length >= 2){
-			// 2 args = directories for reading (1st) and writing (2nd)
-			repoWriting = args[1];
-		}
-
-		allSymptoms = readFile(repoReading+"/symptoms.txt") ;
+		// step 1 : read data from file
+		List<String> allSymptoms = readFile(repoReading+"/symptoms.txt") ;
 
 		// step 2: counting ; each string increase a list of Symptom (class with name and count)
-		countedSymptoms = readSymptoms(allSymptoms);
+		List<Symptom> countedSymptoms = readSymptoms(allSymptoms);
 
 		// step 3: generate output
 		writeCountedSymptoms(countedSymptoms, repoWriting+"/result.out");
