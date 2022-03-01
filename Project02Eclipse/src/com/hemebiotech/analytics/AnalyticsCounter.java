@@ -48,7 +48,7 @@ public class AnalyticsCounter {
 	/**
 	 * 
 	 * @param allSymptoms list of symptom's names
-	 * @return List of Symptom (name and count), alphabetically ordered
+	 * @return countedSymptoms List of Symptom (name and count), alphabetically ordered
 	 */
 	private static List<Symptom> readSymptoms(List<String> allSymptoms){
 		List<Symptom> countedSymptoms = new ArrayList<Symptom>() ;
@@ -84,7 +84,8 @@ public class AnalyticsCounter {
 	 * 
 	 * @param symptom: String containing the name of the symptom to be added
 	 * @param countedSymptoms: list of Symptom to be updated
-	 * @param index: position where the list is updated, increased by the recursion (must be set to 0 for the first call)
+	 * @param index: position where the list is updated, increased by the recursion 
+	 * 					(must be set to 0 for the first call)
 	 * 
 	 * @return int, index of the added symptom's name, used to force the tail recursion 
 	 * 				(the given list of Symptoms is updated)
