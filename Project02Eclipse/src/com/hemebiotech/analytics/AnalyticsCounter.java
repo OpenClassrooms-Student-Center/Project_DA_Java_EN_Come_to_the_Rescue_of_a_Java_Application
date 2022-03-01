@@ -89,17 +89,17 @@ public class AnalyticsCounter {
 	 * @return int, index of the added symptom's name, used to force the tail recursion 
 	 * 				(the given list of Symptoms is updated)
 	 */
-	public static int recursiveAddSymptomToList(String symptom, List<Symptom> countedSymptoms, int index) {
+	public static int recursiveAddSymptomToList(String symptomName, List<Symptom> countedSymptoms, int index) {
 		
 		if (countedSymptoms.size() <= index) {
 			
 			// base condition: index further than the last entry 
-			countedSymptoms.add(new Symptom(symptom));
+			countedSymptoms.add(new Symptom(symptomName));
 			return(countedSymptoms.size());
 			
 		} else {
 			
-			int diffNewIndexed = symptom.compareTo(countedSymptoms.get(index).name);
+			int diffNewIndexed = symptomName.compareTo(countedSymptoms.get(index).name);
 			
 			if (diffNewIndexed == 0) {
 				
@@ -110,13 +110,13 @@ public class AnalyticsCounter {
 			} else if (diffNewIndexed < 0) { 
 				
 				// symptom is before the current position: adding new symptom
-				countedSymptoms.add(index, new Symptom(symptom));
+				countedSymptoms.add(index, new Symptom(symptomName));
 				return(index);
 				
 			} else { 
 				
 				// symptom have to be inserted further: recursion
-				return recursiveAddSymptomToList(symptom, countedSymptoms, index+1);
+				return recursiveAddSymptomToList(symptomName, countedSymptoms, index+1);
 				
 			}
 		}
