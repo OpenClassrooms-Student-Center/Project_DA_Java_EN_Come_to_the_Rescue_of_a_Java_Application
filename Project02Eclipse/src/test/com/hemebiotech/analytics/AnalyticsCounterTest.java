@@ -13,7 +13,7 @@ import com.hemebiotech.analytics.Symptom;
 class AnalyticsCounterTest {
 
 	@Test
-	void testAddSymptomToList() {
+	void testRecursiveAddSymptomToList() {
 		AnalyticsCounter testAnalyticsCounter = new AnalyticsCounter();
 		Symptom sympA = new Symptom("a");
 		Symptom sympB = new Symptom("b");
