@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * @since 16/02/2022
- * @author  DOLLOU
+ * @author  DOLLOU Y.
  * this class allows you to write the results.out File 
  * 
  */
