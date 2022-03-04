@@ -17,7 +17,7 @@ public class FileWriterData {
 			FileWriter symptomswriter = new FileWriter("SymptomsList.txt");
 			symptomswriter.write("Symptoms List " + symptoms);
 
-			// Close the writer
+			// Close the Filewriter
 			symptomswriter.close();
 
 		} catch (IOException e) {

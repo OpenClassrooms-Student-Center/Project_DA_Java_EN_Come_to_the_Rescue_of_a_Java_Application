@@ -21,7 +21,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 */
 	// constructor
 	public ReadSymptomDataFromFile(String filepath) {
-		// Initialization of the attribute filepath
+		// Initialize attribute filepath
 		this.filepath = filepath;
 
 	}
@@ -33,7 +33,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		if (filepath != null) {
 			try {
 
-				// Creation of bufferedReader using fileReader using filepath as argument
+				// Create bufferedReader using fileReader using filepath as argument
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 
 				// Read next line

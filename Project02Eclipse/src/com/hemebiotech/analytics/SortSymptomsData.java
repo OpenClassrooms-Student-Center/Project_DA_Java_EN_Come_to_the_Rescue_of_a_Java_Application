@@ -20,10 +20,10 @@ public class SortSymptomsData {
 
 		List<String> symptomsFile = file.getSymptoms();
 
-		// Creation of a treemap from symptoms list
+		// Create a treemap from symptoms list
 		TreeMap<String, Integer> symptomsSorting = new TreeMap<>();
 
-		// Add symptom as key if not already in the treemap and add +1 to value or add 1
+		// Add symptom as key if not already in treemap and add +1 to value or add 1
 		// to value if it is
 		for (String listSymptoms : symptomsFile) {
 			if (symptomsSorting.containsKey(listSymptoms)) {
