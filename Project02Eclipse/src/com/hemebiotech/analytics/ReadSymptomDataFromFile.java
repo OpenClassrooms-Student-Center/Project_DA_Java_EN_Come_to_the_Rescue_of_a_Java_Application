@@ -32,12 +32,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 		if (filepath != null) {
 			try {
-				// Create Reader to read file
+				// Create Reader to read file from path
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 
 				String line = reader.readLine();
 
-				// Until line is null, add string to list of symptoms
+				// Until line is null add string to list of symptoms
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();

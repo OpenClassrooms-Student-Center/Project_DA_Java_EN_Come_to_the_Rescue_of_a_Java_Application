@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class FileWriterData {
 
 	/**
-	 * @return file with sorted and counted symp
+	 * @return file with sorted and counted symptoms
 	 * 
 	 */
 
@@ -18,7 +18,7 @@ public class FileWriterData {
 			SortSymptomsData symptomsSorting = new SortSymptomsData();
 			TreeMap<String, Integer> symptoms = symptomsSorting.sortingSymptomsData();
 
-			// Create FileWriter with file listing symptoms as output
+			// Create FileWriter to create a file with sorted and counted symptoms in it
 			FileWriter symptomswriter = new FileWriter("SymptomsList.txt");
 			symptomswriter.write("Symptoms List " + symptoms);
 
