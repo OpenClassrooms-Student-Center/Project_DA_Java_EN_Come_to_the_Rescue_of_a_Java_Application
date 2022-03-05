@@ -19,38 +19,36 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @param filepath a full or partial path to file with symptom strings in it,
 	 *                 one per line
 	 */
-	// constructor
-	public ReadSymptomDataFromFile(String filepath) {
-		// Initialize attribute filepath
+
+	public ReadSymptomDataFromFile(String filepath) { // constructor
+
 		this.filepath = filepath;
 
 	}
 
 	public List<String> getSymptoms() {
-
+		// Create empty list of undefined number of string to store symptoms
 		ArrayList<String> result = new ArrayList<String>();
 
 		if (filepath != null) {
 			try {
-
-				// Create bufferedReader using fileReader using filepath as argument
+				// Create Reader to read file
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 
-				// Read next line
 				String line = reader.readLine();
 
-				// Add line to array list and read next line until next line is not null
+				// Until line is null, add string to list of symptoms
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
+				reader.close(); // Close Reader
 			} catch (IOException e) {
 				e.printStackTrace();
-				// return
+
 			}
 		}
-		// Return consolidated list of symptoms
+		// Return list with consolidated list of symptoms
 		return result;
 	}
 

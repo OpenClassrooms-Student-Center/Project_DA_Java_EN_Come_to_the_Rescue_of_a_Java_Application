@@ -6,18 +6,23 @@ import java.util.TreeMap;
 
 public class FileWriterData {
 
+	/**
+	 * @return file with sorted and counted symp
+	 * 
+	 */
+
 	public void writeSymptomsData() throws IOException {
 		try {
 
-			// Call of sorting class
+			// Call Sorting class
 			SortSymptomsData symptomsSorting = new SortSymptomsData();
 			TreeMap<String, Integer> symptoms = symptomsSorting.sortingSymptomsData();
 
-			// Create a FileWriter
+			// Create FileWriter with file listing symptoms as output
 			FileWriter symptomswriter = new FileWriter("SymptomsList.txt");
 			symptomswriter.write("Symptoms List " + symptoms);
 
-			// Close the Filewriter
+			// Close Filewriter
 			symptomswriter.close();
 
 		} catch (IOException e) {
