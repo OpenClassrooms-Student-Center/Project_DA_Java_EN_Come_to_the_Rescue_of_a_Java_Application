@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  * main class
  * 
+ * should separate main function to other functions ?
  */
 public class AnalyticsCounter {
 	static String repoReading = "Project02Eclipse" ;
