@@ -14,14 +14,13 @@ public class AnalyticsCounter {
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
+		//int i = 0;	// set i to 0
 		int headCount = 0;	// counts headaches
 		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
+			//i++;	// increment i
+			//System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
 				headCount++;
-				System.out.println("number of headaches: " + headCount);
 			}
 			else if (line.equals("rush")) {
 				rashCount++;
@@ -31,13 +30,17 @@ public class AnalyticsCounter {
 			}
 
 			line = reader.readLine();	// get another symptom
+
 		}
-		
+		System.out.println("number of headaches: " + headCount);
+		System.out.println("number of rush: " + rashCount);
+		System.out.println("number of pupils: " + pupilCount);
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
+		reader.close();
 		writer.close();
 	}
 }
