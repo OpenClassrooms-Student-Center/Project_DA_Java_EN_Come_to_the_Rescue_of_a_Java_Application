@@ -43,7 +43,7 @@ public class WriteFileSymptomsData {
 			// Close BufferedWriter
 			bwriterfile.close();
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
