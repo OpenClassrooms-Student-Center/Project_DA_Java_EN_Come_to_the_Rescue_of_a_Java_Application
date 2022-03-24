@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /**
- * Main class designed for inputting file path and for successively launching
+ * Main class designed to input file path and for successively launching
  * reading, sorting and writing classes and checking result in console
  * 
  * @author CHRISTINE TETI
