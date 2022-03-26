@@ -82,7 +82,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				System.out.println("Read data from file: " + e.getMessage());
 			} catch (EmptyFileException e) {
 				System.out.println("Read data from file: " + e.getMessage());
-				return null;
+				result.clear();
+
 			}
 
 			catch (IOException e) {
