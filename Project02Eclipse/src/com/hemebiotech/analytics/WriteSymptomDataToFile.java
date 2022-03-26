@@ -58,7 +58,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	@Override
 	public void generateOutputFile() {
 
-		if (filepath != null && !symptomList.isEmpty()) {
+		if (filepath != null && symptomList != null && !symptomList.isEmpty()) {
 			try {
 				File myObj = new File(filepath);
 				if (myObj.createNewFile()) {
@@ -71,19 +71,21 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 				String result = "";
 
 				for (Entry<String, Long> entry : symptomList.entrySet()) {
-					result = result.concat("*" + entry.getKey() + ":" + entry.getValue() + "\n");
+					result = result.concat("- " + entry.getKey() + ":" + entry.getValue() + "\n");
 				}
 				myWriter.write(result);
 				myWriter.close();
-				System.out.println("Successfully wrote to the file.");
+				System.out.println("Write symptom data to file: Successfully wrote to the file.");
 			} catch (IOException e) {
-				System.out.println("An error occurred.");
+				System.out.println("Write symptom data to file: An error occurred.");
 				e.getMessage();
 				e.printStackTrace();
 			}
 		} else if (filepath == null)
-			System.out.println("File path = null!");
+			System.out.println("Write symptom data to file: File path is null!");
 		else if (symptomList.isEmpty())
-			System.out.println("List of symptoms is empty!");
+			System.out.println("Write symptom data to file: List of symptoms is empty!");
+		else if (symptomList == null)
+			System.out.println("Write symptom data to file: List of symptoms is null!");
 	}
 }

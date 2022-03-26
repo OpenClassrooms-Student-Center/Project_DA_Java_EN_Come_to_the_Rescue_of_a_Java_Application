@@ -49,13 +49,17 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	 *
 	 */
 	@Override
-	public TreeMap<String, Long> getSymptomsOccurences() {
+	public TreeMap<String, Long> getSymptomsOccurrences() {
 		TreeMap<String, Long> counter = new TreeMap<String, Long>();
-		for (String symptom : symptomList) {
-			counter.putIfAbsent(symptom, 0L);
-			counter.put(symptom, counter.get(symptom) + 1);
-		}
-
+		if (symptomList != null && !symptomList.isEmpty())
+			for (String symptom : symptomList) {
+				counter.putIfAbsent(symptom, 0L);
+				counter.put(symptom, counter.get(symptom) + 1);
+			}
+		else if (symptomList == null)
+			System.out.println("Get symptoms occurrences: List of symptoms is null");
+		else if (symptomList.isEmpty())
+			System.out.println("Get symptoms occurrences: List of symptoms is empty");
 		return counter;
 	}
 }

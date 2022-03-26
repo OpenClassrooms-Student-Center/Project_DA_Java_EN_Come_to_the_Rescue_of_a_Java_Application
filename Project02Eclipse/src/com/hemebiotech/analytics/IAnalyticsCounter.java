@@ -17,6 +17,6 @@ public interface IAnalyticsCounter {
 	 * 
 	 * @return sorted TreeMap <String, Long>
 	 */
-	TreeMap<String, Long> getSymptomsOccurences();
+	TreeMap<String, Long> getSymptomsOccurrences();
 
 }

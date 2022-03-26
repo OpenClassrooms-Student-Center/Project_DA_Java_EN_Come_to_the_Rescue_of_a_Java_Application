@@ -1,5 +1,9 @@
 package com.hemebiotech.analytics;
 
+/**
+ * @author Fatima
+ * 
+ */
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -52,34 +56,41 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			try {
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
-				int count = 0;
-
-				while (line != null) {
-					result.add(line);
-					if (count == 0 && line.trim().equals("")) {
-						reader.close();
-						throw new EmptyFileException();
-					} else {
-						line = reader.readLine();
-						count++;
-					}
+				if (line == null) {
+					reader.close();
+					throw new EmptyFileException();
 				}
 
+				int count = 0;
+				String text = "";
+				while (line != null) {
+					result.add(line);
+					text = text.concat(line);
+					count++;
+					line = reader.readLine();
+
+				}
 				reader.close();
 
+				if (count == 0 || text.trim().equals("")) {
+					reader.close();
+					throw new EmptyFileException();
+				}
+
 			} catch (FileNotFoundException e) {
-				System.out.println("File to read not found!");
-				System.out.println(e.getMessage());
+				System.out.println("Read data from file: file not found!");
+				System.out.println("Read data from file: " + e.getMessage());
 			} catch (EmptyFileException e) {
-				System.out.println(e.getMessage());
+				System.out.println("Read data from file: " + e.getMessage());
+				return null;
 			}
 
 			catch (IOException e) {
-				System.out.println("an Error occured!");
+				System.out.println("Read data from file: an Error occured!");
 				e.printStackTrace();
 			}
 		} else
-			System.out.println("File path = null!");
+			System.out.println("Read data from file: file path is null!");
 
 		return result;
 	}
