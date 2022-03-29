@@ -16,10 +16,10 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	private List<String> symptomList = new ArrayList<>();
 
 	/**
-	 * Constructor
 	 * 
-	 * @param List of String : symptoms not ordered
-	 * 
+	 * @param symptomList : a raw listing of all Symptoms obtained from a data
+	 *                    source, duplicates are possible/probable
+	 *
 	 */
 	public AnalyticsCounter(List<String> symptomList) {
 		this.symptomList = symptomList;
@@ -28,10 +28,25 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	public AnalyticsCounter() {
 	}
 
+	/**
+	 * 
+	 * Setter : Method that sets value of symptomList
+	 * 
+	 * @param symptomList : a raw listing of all Symptoms obtained from a data
+	 *                    source, duplicates are possible/probable
+	 *
+	 */
 	public void setSymptomList(List<String> symptomList) {
 		this.symptomList = symptomList;
 	}
 
+	/**
+	 * 
+	 * Getter: Method that returns value of symptomList
+	 *
+	 * @return List<String>, a raw listing of all Symptoms obtained from a data
+	 *         source, duplicates are possible/probable
+	 */
 	public List<String> getSymptomList() {
 		return symptomList;
 	}
@@ -42,9 +57,7 @@ public class AnalyticsCounter implements IAnalyticsCounter {
 	 * symptoms
 	 * 
 	 * @return TreeMap <String, Long> that contains (key value)(key = symptom,
-	 *         value= number of occurrence) sorted
-	 * @param not need a parameter
-	 *
+	 *         value= number of occurrences) sorted
 	 */
 	@Override
 	public TreeMap<String, Long> getSymptomsOccurrences() {

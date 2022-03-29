@@ -11,7 +11,8 @@ public class Application {
 	public static void main(String args[]) {
 
 		String currentDir = System.getProperty("user.dir");
-		ISymptomReader symptomList = new ReadSymptomDataFromFile(currentDir + "/Project02Eclipse/symptoms.txt");
+		String dir = currentDir + "/Project02Eclipse/symptoms.txt";
+		ISymptomReader symptomList = new ReadSymptomDataFromFile(dir);
 		IAnalyticsCounter symptomCounter = new AnalyticsCounter(symptomList.getSymptoms());
 		ISymptomWriter resultOutput = new WriteSymptomDataToFile(symptomCounter.getSymptomsOccurrences(),
 				currentDir + "/Project02Eclipse/results.out");

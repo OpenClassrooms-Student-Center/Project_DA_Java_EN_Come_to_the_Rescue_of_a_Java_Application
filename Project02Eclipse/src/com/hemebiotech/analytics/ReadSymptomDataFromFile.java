@@ -24,15 +24,31 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 * @param filepath a full or partial path to file with symptom strings in it,
 	 *                 one per line
+	 * 
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
 
+	/**
+	 * 
+	 * Getter: Method that returns value of filepath
+	 *
+	 * @return filepath: String that contains a full or partial path to file with
+	 *         symptom strings in it, one per line
+	 */
 	public String getFilepath() {
 		return filepath;
 	}
 
+	/**
+	 * 
+	 * Setter: Method that sets value of filepath
+	 * 
+	 * @param filepath: String that contains a full or partial path to file with
+	 *                  symptom strings in it, one per line
+	 *
+	 */
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
@@ -40,11 +56,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 * If no data is available, return an empty List
 	 * 
-	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
-	 *         are possible/probable
 	 * @exception generate FileNotFoundException when file not found
 	 * @exception generate EmptyFileException when file is empty
 	 * @exception generate IOException when error occurred
+	 * @return a raw listing of all Symptoms obtained from a data source, duplicates
+	 *         are possible/probable
 	 */
 	@Override
 	public List<String> getSymptoms() {

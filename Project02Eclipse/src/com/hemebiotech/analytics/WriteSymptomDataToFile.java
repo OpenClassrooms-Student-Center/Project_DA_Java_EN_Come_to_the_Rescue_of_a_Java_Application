@@ -20,27 +20,60 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	public WriteSymptomDataToFile() {
 	}
 
+	/**
+	 * 
+	 * Getter: Method that returns value of symptomList
+	 *
+	 * @return symptomList: TreeMap<String, Long> that contains list of symptoms and
+	 *         numbers of occurrences
+	 * 
+	 */
 	public TreeMap<String, Long> getSymptomList() {
 		return symptomList;
 	}
 
+	/**
+	 * 
+	 * Setter: Method that sets value of symptomList
+	 * 
+	 * @param symptomList: TreeMap<String, Long> that contains list of symptoms and
+	 *                     numbers of occurrences
+	 *
+	 */
 	public void setSymptomList(TreeMap<String, Long> symptomList) {
 		this.symptomList = symptomList;
 	}
 
+	/**
+	 * 
+	 * Getter: Method that returns value of filepath
+	 *
+	 * @return filepath: String that contain a file path where a result file will be
+	 *         created
+	 * 
+	 */
 	public String getFilepath() {
 		return filepath;
 	}
 
+	/**
+	 * 
+	 * Setter: Method that sets value of filepath
+	 * 
+	 * @param filepath: String that contain a file path where a result file will be
+	 *                  created
+	 *
+	 */
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
 
 	/**
-	 * Constructor
 	 * 
-	 * @param TreeMap that contains list of symptoms and their occurrences, String
-	 *                that contain a file path where a file will be created
+	 * @param treeMap:  TreeMap that contains list of symptoms and numbers of
+	 *                  occurrences
+	 * @param filepath: String that contain a file path where a result file will be
+	 *                  created
 	 * 
 	 */
 	public WriteSymptomDataToFile(TreeMap<String, Long> treeMap, String filepath) {
@@ -53,7 +86,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * the file with symptoms and their occurrences
 	 * 
 	 * @exception generate IOException when file path is empty
-	 * @return nothing
+	 *
 	 */
 	@Override
 	public void generateOutputFile() {
