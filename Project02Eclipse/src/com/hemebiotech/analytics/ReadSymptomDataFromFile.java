@@ -2,6 +2,7 @@ package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,6 +19,10 @@ import java.util.Map;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
+	private List<String> list = new ArrayList<>();
+	private Map<String,Integer> map = new HashMap<>();
+	
+	
 	
 	/**
 	 * 
@@ -31,14 +36,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms(List<String>list) {
+	public List<String> GetSymptoms() {
 		if (filepath != null) {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
 				while (line != null) {
-					list.add(line);
+					this.list.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -46,32 +51,36 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				e.printStackTrace();
 			}
 		}
-		Collections.sort(list);
+		Collections.sort(this.list);
 		
-		return list;
+		return this.list;
 	}
 	
-	public Map<String,Integer> getSymptomsOccurences(List<String> list){
-		Map <String, Integer> Symptoms = new HashMap<>();
+	public Map<String,Integer> getSymptomsOccurences(){
 		
-		for(String entry:list) {
-			Symptoms.putIfAbsent(entry, 0);
-			Symptoms.put(entry, Symptoms.get(entry)+1);	
+		for(String entry:this.list) {
+			this.map.putIfAbsent(entry, 0);
+			this.map.put(entry, this.map.get(entry)+1);	
 		}
 		
 		
-		return Symptoms;
+		return this.map;
 		
 	}
 	
-	public static void printSymptoms (Map<String,Integer>map) {
-		File file = new File("result.out");
-		FileReader filewriter = new FileWriter(file);
+	public void printSymptoms () {
+		File file = new File("result.txt");
+		try {
+		FileWriter filewriter = new FileWriter(file);
 		BufferedWriter writer = new BufferedWriter(filewriter);
-		for(Map.Entry<String,Integer> entry : map.entrySet()) {
+		for(Map.Entry<String,Integer> entry : this.map.entrySet()) {
 			writer.write(entry.getKey()+": " + entry.getValue());
-			writer.newLine();
+			writer.write("\n");	
 		}
+		writer.close();
+	} catch(Exception e) {
+		
 	}
 	
+	}
 }
