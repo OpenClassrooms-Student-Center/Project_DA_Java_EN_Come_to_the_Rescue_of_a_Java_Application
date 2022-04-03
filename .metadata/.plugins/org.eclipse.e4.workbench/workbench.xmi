@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_TutroLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_TutrobM2Eeyk6dwKOxVlrw" bindingContexts="_TutrqrM2Eeyk6dwKOxVlrw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSymptomDataFromFile.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ISymptomReader.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Application.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AnalyticsCounter.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditor&quot; name=&quot;ArrayList.class&quot; tooltip=&quot;java.util.ArrayList&quot;>&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=Project02Eclipse/\/Users\/quentincaracatzanis\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.2.v20220201-1208\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&amp;lt;java.util(ArrayList.class&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workbench>&#xA;&lt;mruList>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSymptomDataFromFile.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Application.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ISymptomReader.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AnalyticsCounter.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java&quot;>&#xA;&lt;persistable path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/AnalyticsCounter.java&quot;/>&#xA;&lt;/file>&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditor&quot; name=&quot;ArrayList.class&quot; tooltip=&quot;java.util.ArrayList&quot;>&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=Project02Eclipse/\/Users\/quentincaracatzanis\/.p2\/pool\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.2.v20220201-1208\/jre\/lib\/jrt-fs.jar`java.base=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/17\/docs\/api\/=/&amp;lt;java.util(ArrayList.class&quot;/>&#xA;&lt;/file>&#xA;&lt;/mruList>&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_TutrobM2Eeyk6dwKOxVlrw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_UUxmEbM2Eeyk6dwKOxVlrw" label="%trimmedwindow.label.eclipseSDK" x="58" y="110" width="1512" height="877">
     <persistedState key="coolBarVisible" value="true"/>
@@ -204,10 +204,9 @@
           <tags>persp.viewSC:org.eclipse.ant.ui.views.AntView</tags>
           <tags>persp.viewSC:org.eclipse.datatools.sqltools.result.resultView</tags>
           <tags>persp.perspSC:org.eclipse.datatools.sqltools.sqleditor.perspectives.EditorPerspective</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_no2RQbNWEeyD1qKlEJVBTA" selectedElement="_no2RQrNWEeyD1qKlEJVBTA" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_no2RQbNWEeyD1qKlEJVBTA" selectedElement="_no2RSbNWEeyD1qKlEJVBTA" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_no2RQrNWEeyD1qKlEJVBTA" elementId="org.eclipse.debug.internal.ui.NavigatorFolderView" containerData="2500" selectedElement="_no2RRLNWEeyD1qKlEJVBTA">
               <tags>org.eclipse.e4.primaryNavigationStack</tags>
-              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_no2RQ7NWEeyD1qKlEJVBTA" elementId="org.eclipse.debug.ui.DebugView" toBeRendered="false" ref="_noY-QLNWEeyD1qKlEJVBTA" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:Debug</tags>
@@ -356,26 +355,29 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_UcBdkLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.editorss" selectedElement="_UcBdkbM2Eeyk6dwKOxVlrw">
-      <children xsi:type="basic:PartStack" xmi:id="_UcBdkbM2Eeyk6dwKOxVlrw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_tfTrILNSEeyD1qKlEJVBTA">
+      <children xsi:type="basic:PartStack" xmi:id="_UcBdkbM2Eeyk6dwKOxVlrw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_t20zQLNSEeyD1qKlEJVBTA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
+        <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_kmVfULNSEeyD1qKlEJVBTA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Application.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Application.java&quot; partName=&quot;Application.java&quot; title=&quot;Application.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;417&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Application.java&quot; partName=&quot;Application.java&quot; title=&quot;Application.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/Application.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;279&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_tfTrILNSEeyD1qKlEJVBTA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ISymptomReader.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ISymptomReader.java&quot; partName=&quot;ISymptomReader.java&quot; title=&quot;ISymptomReader.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;60&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ISymptomReader.java&quot; partName=&quot;ISymptomReader.java&quot; title=&quot;ISymptomReader.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ISymptomReader.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;72&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_t20zQLNSEeyD1qKlEJVBTA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ReadSymptomDataFromFile.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSymptomDataFromFile.java&quot; partName=&quot;ReadSymptomDataFromFile.java&quot; title=&quot;ReadSymptomDataFromFile.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1498&quot; selectionTopPixel=&quot;512&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ReadSymptomDataFromFile.java&quot; partName=&quot;ReadSymptomDataFromFile.java&quot; title=&quot;ReadSymptomDataFromFile.java&quot; tooltip=&quot;Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/Project02Eclipse/src/com/hemebiotech/analytics/ReadSymptomDataFromFile.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1977&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>removeOnHide</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -385,8 +387,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1648980647707&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xA;&lt;lastRecentlyUsedFilters/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_UoqLYLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -628,7 +628,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_UXj0ULM2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_YIpPkLNSEeyD1qKlEJVBTA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_Tv4wUrM2Eeyk6dwKOxVlrw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_4cW4cLNbEeyGP7B0pqhbbQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_Tv4wUrM2Eeyk6dwKOxVlrw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_UXkbYLM2Eeyk6dwKOxVlrw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -665,7 +665,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_UXkbZ7M2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_YIthALNSEeyD1qKlEJVBTA" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Tv3iYbM2Eeyk6dwKOxVlrw"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_4ce0QLNbEeyGP7B0pqhbbQ" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Tv3iYbM2Eeyk6dwKOxVlrw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_UXkbaLM2Eeyk6dwKOxVlrw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1480,7 +1480,7 @@
     <bindings xmi:id="_TxVh2rM2Eeyk6dwKOxVlrw" keySequence="ALT+CR" command="_Tvz4QbM2Eeyk6dwKOxVlrw"/>
   </bindingTables>
   <bindingTables xmi:id="_T3DvUbM2Eeyk6dwKOxVlrw" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_TutrrbM2Eeyk6dwKOxVlrw">
-    <bindings xmi:id="_XvHVQLNSEeyD1qKlEJVBTA" keySequence="M1+W" command="_T3DIR7M2Eeyk6dwKOxVlrw"/>
+    <bindings xmi:id="_4CtCULNbEeyGP7B0pqhbbQ" keySequence="M1+W" command="_T3DIR7M2Eeyk6dwKOxVlrw"/>
   </bindingTables>
   <bindingTables xmi:id="_UcFH8LM2Eeyk6dwKOxVlrw" bindingContext="_UcEg4LM2Eeyk6dwKOxVlrw"/>
   <bindingTables xmi:id="_UcGWEbM2Eeyk6dwKOxVlrw" bindingContext="_UcGWELM2Eeyk6dwKOxVlrw"/>
@@ -1649,30 +1649,30 @@
   <rootContext xmi:id="_UcMcurM2Eeyk6dwKOxVlrw" elementId="org.eclipse.wst.web.ui.wizardsActionSet" name="Auto::org.eclipse.wst.web.ui.wizardsActionSet"/>
   <rootContext xmi:id="_UcMcvLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.wst.ws.explorer.explorer" name="Auto::org.eclipse.wst.ws.explorer.explorer"/>
   <rootContext xmi:id="_nwJMELNWEeyD1qKlEJVBTA" elementId="org.eclipse.jdt.launching.localJavaApplication.internal.org.eclipse.debug.ui.DebugPerspective" name="Auto::org.eclipse.jdt.launching.localJavaApplication.internal.org.eclipse.debug.ui.DebugPerspective"/>
-  <descriptors xmi:id="_XufDILNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" label="Preference Spy" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/$nl$/icons/preference_spy.png" category="Eclipse Runtime Spies" closeable="true" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" description="Spy to display preferences">
+  <descriptors xmi:id="_4CIakLNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" label="Preference Spy" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/$nl$/icons/preference_spy.png" category="Eclipse Runtime Spies" closeable="true" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.parts.PreferenceSpyPart" description="Spy to display preferences">
     <persistedState key="perstistState" value="false"/>
     <tags>View</tags>
     <tags>Spy</tags>
     <tags>categoryTag:Eclipse Runtime Spies</tags>
-    <toolbar xmi:id="_XufDJrNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolbar" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences">
-      <children xsi:type="menu:ToolControl" xmi:id="_XufDJ7NSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolcontrol.layout" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.handler.ToggleLayoutControl"/>
-      <children xsi:type="menu:ToolBarSeparator" xmi:id="_XufDKLNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.0" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_XufDKbNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.showall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/show_all_preferences.png">
+    <toolbar xmi:id="_4CIalrNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolbar" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences">
+      <children xsi:type="menu:ToolControl" xmi:id="_4CIal7NbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolcontrol.layout" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.handler.ToggleLayoutControl"/>
+      <children xsi:type="menu:ToolBarSeparator" xmi:id="_4CIamLNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.0" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
+      <children xsi:type="menu:HandledToolItem" xmi:id="_4CIambNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.showall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/show_all_preferences.png">
         <command href="platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi#_ufxRsHY2EeSuTdKDH5hMwg"/>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_XufDKrNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolcontrol.trace" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.handler.TogglePreferenceTraceControl"/>
-      <children xsi:type="menu:ToolBarSeparator" xmi:id="_XufDK7NSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.1" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_XufDLLNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.expandall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/expandall.png">
+      <children xsi:type="menu:ToolControl" xmi:id="_4CIamrNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolcontrol.trace" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" contributionURI="bundleclass://org.eclipse.pde.spy.preferences/org.eclipse.pde.spy.preferences.handler.TogglePreferenceTraceControl"/>
+      <children xsi:type="menu:ToolBarSeparator" xmi:id="_4CIam7NbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.1" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
+      <children xsi:type="menu:HandledToolItem" xmi:id="_4CIanLNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.expandall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/expandall.png">
         <command href="platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi#_4NM_IH_gEeSk-4v3KnNHPw"/>
       </children>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_XufDLbNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.collapseall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/collapseall.png">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_4CIanbNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.collapseall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/collapseall.png">
         <command href="platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi#_68UQwH_gEeSk-4v3KnNHPw"/>
       </children>
-      <children xsi:type="menu:ToolBarSeparator" xmi:id="_XufDLrNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.2" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_XufDL7NSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.removeentry" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/remove_co.png">
+      <children xsi:type="menu:ToolBarSeparator" xmi:id="_4CIanrNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.toolbarseparator.2" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences"/>
+      <children xsi:type="menu:HandledToolItem" xmi:id="_4CIan7NbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.removeentry" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/remove_co.png">
         <command href="platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi#_iGEkYGxiEeSQ7v0akw7aRA"/>
       </children>
-      <children xsi:type="menu:HandledToolItem" xmi:id="_XufDMLNSEeyD1qKlEJVBTA" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.removeall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/removeall_co.png">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_4CIaoLNbEeyGP7B0pqhbbQ" elementId="org.eclipse.pde.spy.preferences.handledtoolitem.removeall" contributorURI="platform:/plugin/org.eclipse.pde.spy.preferences" iconURI="platform:/plugin/org.eclipse.pde.spy.preferences/icons/removeall_co.png">
         <command href="platform:/plugin/org.eclipse.pde.spy.preferences/fragment.e4xmi#_eBGTEGxiEeSQ7v0akw7aRA"/>
       </children>
     </toolbar>
@@ -3470,7 +3470,7 @@
   <addons xmi:id="_TuuSs7M2Eeyk6dwKOxVlrw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_TuuStLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_TvCbwLM2Eeyk6dwKOxVlrw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_XuylILNSEeyD1qKlEJVBTA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <addons xmi:id="_T3DIQLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler"/>
   <categories xmi:id="_TvfHsLM2Eeyk6dwKOxVlrw" elementId="org.eclipse.ui.category.edit" name="Edit"/>

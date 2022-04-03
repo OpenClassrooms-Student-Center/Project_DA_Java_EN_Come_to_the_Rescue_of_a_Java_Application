@@ -34,7 +34,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public ReadSymptomDataFromFile (String filepath){
 		this.filepath = filepath;
 	}
-	
+	/**
+	 * Function permitting to get the symptoms from the file,
+	 * put them in an ArrayList in an alphabetical order and return it. 
+	 */
 	@Override
 	public List<String> GetSymptoms() {
 		if (filepath != null) {
@@ -55,6 +58,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 		return this.list;
 	}
+	/**
+	 * Function putting the symptoms form the ArrayList in an HashMap
+	 * and counting the number of occurrences of each symptoms in the ArrayList.
+	 * @return the map.
+	 */
 	
 	public Map<String,Integer> getSymptomsOccurences(){
 		
@@ -67,7 +75,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		return this.map;
 		
 	}
-	
+	/**
+	 * Function creating a result.out file and writing
+	 * the symptoms and their number of occurrences in the HashMap
+	 * 
+	 */
 	public void printSymptoms () {
 		File file = new File("result.txt");
 		try {

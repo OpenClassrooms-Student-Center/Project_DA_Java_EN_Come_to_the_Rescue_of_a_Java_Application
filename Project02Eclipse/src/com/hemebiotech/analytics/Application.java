@@ -1,6 +1,14 @@
 package com.hemebiotech.analytics;
 
 import java.util.Scanner;
+/**
+ * This is the Application class,
+ * this Application must read the symptoms.txt count the occurrences 
+ * and print in the alphabetical order the symptoms and their occurrences.
+ * 
+ * @author quentincaracatzanis
+ *
+ */
 
 public class Application {
  
