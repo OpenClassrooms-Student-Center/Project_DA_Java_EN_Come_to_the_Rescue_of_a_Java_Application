@@ -1,6 +1,8 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +18,6 @@ import java.util.Map;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-	private List<String> list;
 	
 	/**
 	 * 
@@ -25,20 +26,19 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public String getFilepath() {
 		return filepath;
 	}
-	public ReadSymptomDataFromFile (String filepath, List<String> list){
+	public ReadSymptomDataFromFile (String filepath){
 		this.filepath = filepath;
-		this.list = list;
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> GetSymptoms(List<String>list) {
 		if (filepath != null) {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
 				while (line != null) {
-					this.list.add(line);
+					list.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
@@ -46,22 +46,32 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				e.printStackTrace();
 			}
 		}
-		Collections.sort(this.list);
+		Collections.sort(list);
 		
-		return this.list;
+		return list;
 	}
 	
-	public Map<String,Integer> getSymptomsOccurences(){
-		Map<String,Integer> uniqueSymptoms = new HashMap<>();
+	public Map<String,Integer> getSymptomsOccurences(List<String> list){
+		Map <String, Integer> Symptoms = new HashMap<>();
+		
 		for(String entry:list) {
-			uniqueSymptoms.putIfAbsent(entry, 0);
-			uniqueSymptoms.put(entry, uniqueSymptoms.get(entry)+1);	
+			Symptoms.putIfAbsent(entry, 0);
+			Symptoms.put(entry, Symptoms.get(entry)+1);	
 		}
 		
-		return uniqueSymptoms;
+		
+		return Symptoms;
 		
 	}
 	
-
-
+	public static void printSymptoms (Map<String,Integer>map) {
+		File file = new File("result.out");
+		FileReader filewriter = new FileWriter(file);
+		BufferedWriter writer = new BufferedWriter(filewriter);
+		for(Map.Entry<String,Integer> entry : map.entrySet()) {
+			writer.write(entry.getKey()+": " + entry.getValue());
+			writer.newLine();
+		}
+	}
+	
 }
