@@ -1,16 +1,13 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Simple brute force implementation
@@ -20,9 +17,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
 	private List<String> list = new ArrayList<>();
-	private Map<String,Integer> map = new HashMap<>();
-	
-	
 	
 	/**
 	 * 
@@ -31,8 +25,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	public String getFilepath() {
 		return filepath;
 	}
-	public ReadSymptomDataFromFile (String filepath){
-		this.filepath = filepath;
+	public ReadSymptomDataFromFile (){
+		Scanner read = new Scanner(System.in);
+		System.out.println("Please enter the file name of the text file if in the directory"
+				+ " or enter the full path to the file: ");
+		this.filepath=read.nextLine();
+		read.close();
 	}
 	/**
 	 * Function permitting to get the symptoms from the file,
@@ -57,42 +55,5 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		Collections.sort(this.list);
 		
 		return this.list;
-	}
-	/**
-	 * Function putting the symptoms form the ArrayList in an HashMap
-	 * and counting the number of occurrences of each symptoms in the ArrayList.
-	 * @return the map.
-	 */
-	
-	public Map<String,Integer> getSymptomsOccurences(){
-		
-		for(String entry:this.list) {
-			this.map.putIfAbsent(entry, 0);
-			this.map.put(entry, this.map.get(entry)+1);	
-		}
-		
-		
-		return this.map;
-		
-	}
-	/**
-	 * Function creating a result.out file and writing
-	 * the symptoms and their number of occurrences in the HashMap
-	 * 
-	 */
-	public void printSymptoms () {
-		File file = new File("result.txt");
-		try {
-		FileWriter filewriter = new FileWriter(file);
-		BufferedWriter writer = new BufferedWriter(filewriter);
-		for(Map.Entry<String,Integer> entry : this.map.entrySet()) {
-			writer.write(entry.getKey()+": " + entry.getValue());
-			writer.write("\n");	
-		}
-		writer.close();
-	} catch(Exception e) {
-		
-	}
-	
 	}
 }
