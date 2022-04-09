@@ -378,3 +378,20 @@ Binding(ALT+COMMAND+R,
 
 !ENTRY org.eclipse.ui.navigator 2 0 2022-04-09 11:10:52.981
 !MESSAGE Can't find Navigator Content Descriptor with id: org.eclipse.jst.servlet.ui.EnhancedJavaRendering
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-04-09 12:20:22.778
+!MESSAGE Failed to save JDT index: Index for /Project02Eclipse/src
+!STACK 0
+java.io.FileNotFoundException: /Users/quentincaracatzanis/Documents/GitHub/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/.metadata/.plugins/org.eclipse.jdt.core/2960652151.index (No such file or directory)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:216)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:157)
+	at org.eclipse.jdt.internal.core.index.FileIndexLocation.getInputStream(FileIndexLocation.java:81)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.readAllDocumentNames(DiskIndex.java:630)
+	at org.eclipse.jdt.internal.core.index.DiskIndex.mergeWith(DiskIndex.java:532)
+	at org.eclipse.jdt.internal.core.index.Index.save(Index.java:230)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndex(IndexManager.java:1143)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.saveIndexes(IndexManager.java:1201)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.notifyIdle(IndexManager.java:819)
+	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:422)
+	at java.base/java.lang.Thread.run(Thread.java:833)
