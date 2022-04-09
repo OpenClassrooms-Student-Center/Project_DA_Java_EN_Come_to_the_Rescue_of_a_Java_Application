@@ -33,7 +33,7 @@ public class WriteSymptomDataOnFile {
 	 * 
 	 */
 	public void printSymptoms () {
-		File file = new File("result.txt");
+		File file = new File("result.out");
 		try {
 		FileWriter filewriter = new FileWriter(file);
 		BufferedWriter writer = new BufferedWriter(filewriter);
