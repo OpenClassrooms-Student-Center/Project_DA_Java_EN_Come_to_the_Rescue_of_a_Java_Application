@@ -1,6 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,32 +15,28 @@ import java.util.Scanner;
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
+	private File file;
 	private List<String> list = new ArrayList<>();
+	private Scanner read = new Scanner(System.in);
 	
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
-	public String getFilepath() {
-		return filepath;
-	}
+	
 	public ReadSymptomDataFromFile (){
-		Scanner read = new Scanner(System.in);
-		System.out.println("Please enter the file name of the text file if in the directory"
-				+ " or enter the full path to the file: ");
-		this.filepath=read.nextLine();
-		read.close();
+		getFile();
 	}
 	/**
 	 * Function permitting to get the symptoms from the file,
 	 * put them in an ArrayList in an alphabetical order and return it. 
 	 */
 	@Override
-	public List<String> GetSymptoms() {
-		if (filepath != null) {
+	public List<String> GetSymptoms(){
+		if (file != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				FileReader filereader = new FileReader(file);
+				BufferedReader reader = new BufferedReader (filereader);
 				String line = reader.readLine();
 				
 				while (line != null) {
@@ -52,7 +49,26 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			}
 		}
 		Collections.sort(this.list);
+		read.close();
 		
 		return this.list;
 	}
+	
+	public void getFile() {
+		boolean exists=false;
+		file = new File(getFilePath());
+		exists=file.exists();
+		while(exists != true) {
+			System.out.println("Attention!! File not found!");
+			file = new File(getFilePath());
+			exists=file.exists();
+		}
+	}
+	
+	public String getFilePath() {
+		System.out.println("Please enter the full path to the file :");
+		return read.nextLine();
+		
+	}
 }
+

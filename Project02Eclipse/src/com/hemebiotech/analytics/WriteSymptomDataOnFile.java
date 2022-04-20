@@ -16,9 +16,8 @@ public class WriteSymptomDataOnFile {
 	}
 	
 	/**
-	 * Function putting the symptoms form the ArrayList in an HashMap
+	 * Function putting the symptoms form the ArrayList in an LinkedHashMap
 	 * and counting the number of occurrences of each symptoms in the ArrayList.
-	 * @return the map.
 	 */
 
 	public void setMap(List<String> list) {
@@ -29,8 +28,7 @@ public class WriteSymptomDataOnFile {
 	}
 	/**
 	 * Function creating a result.out file and writing
-	 * the symptoms and their number of occurrences in the HashMap
-	 * 
+	 * the LinkedHashMap data
 	 */
 	public void printSymptoms () {
 		File file = new File("result.out");

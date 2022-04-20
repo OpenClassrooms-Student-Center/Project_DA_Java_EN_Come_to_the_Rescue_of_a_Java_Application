@@ -9,7 +9,7 @@ package com.hemebiotech.analytics;
  *
  */
 
-public class Application {
+public class AnalyticsCounter {
  
 	public static void main(String[] args) {
 		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile();
