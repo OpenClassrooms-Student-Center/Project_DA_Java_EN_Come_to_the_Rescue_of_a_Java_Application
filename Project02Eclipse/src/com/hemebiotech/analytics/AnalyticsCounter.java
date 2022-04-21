@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class AnalyticsCounter {
@@ -21,8 +22,12 @@ public class AnalyticsCounter {
 			line = reader.readLine();
 		}
 
+		Iterator<String> it = symptoms.keySet().iterator();
 		FileWriter writer = new FileWriter ("result.out");
-		writer.write(symptoms + "\n");
+		while (it.hasNext()) {
+			String symptom = it.next();
+			writer.write(symptom + " : " + symptoms.get(symptom) + "\n");
+		}
 		writer.close();
 	}
 }
