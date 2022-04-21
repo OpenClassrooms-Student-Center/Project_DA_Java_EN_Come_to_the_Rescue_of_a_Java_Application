@@ -1,14 +1,11 @@
 package com.hemebiotech.analytics;
 
-import javafx.scene.effect.SepiaTone;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
@@ -24,16 +21,13 @@ public class AnalyticsCounter {
 			}
 			line = reader.readLine();
 		}
-		String	str = "";
-		Set<String>	keyset = symptoms.keySet();
-		Iterator<String>	it = keyset.iterator();
-		FileWriter writer = new FileWriter ("result.out");
-		while (it.hasNext())
-		{
-			str = it.next();
-			writer.write(str + " : " + symptoms.get(str) + "\n");
-		}
 
+		Iterator<String> it = symptoms.keySet().iterator();
+		FileWriter writer = new FileWriter ("result.out");
+		while (it.hasNext()) {
+			String symptom = it.next();
+			writer.write(symptom + " : " + symptoms.get(symptom) + "\n");
+		}
 		writer.close();
 	}
 }
