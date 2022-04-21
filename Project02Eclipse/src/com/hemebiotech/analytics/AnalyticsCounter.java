@@ -6,12 +6,13 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 	public static void main(String[] args) throws Exception {
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
-		Map<String, Integer> symptoms = new HashMap<>();
+		Map<String, Integer> symptoms = new TreeMap<>();
 
 		while (line != null) {
 			if (!symptoms.containsKey(line)) {
