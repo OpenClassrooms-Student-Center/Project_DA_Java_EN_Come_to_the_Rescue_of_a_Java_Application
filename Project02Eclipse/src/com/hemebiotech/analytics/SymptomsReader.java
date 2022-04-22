@@ -6,11 +6,17 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Fillmap {
+public class SymptomsReader {
+    /**
+     *
+     * Creation et remplissage du fichier d'entree sur une Map.
+     * @param filename Le nom du fichier a lire.
+     * @return la Map remplie avec les symptoms triés sans occurrence par ordre alphabetique.
+     * @throws IOException Si le fichier est introuvable ou impossible a lire.
+     */
+    public Map<String, Integer> read(String filename) throws IOException {
 
-    public Map<String, Integer> fill() throws IOException {
-
-        BufferedReader reader = new BufferedReader(new FileReader("symptoms.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line = reader.readLine();
         Map<String, Integer> symptoms = new TreeMap<>();
 
