@@ -10,13 +10,11 @@ public class AnalyticsCounter {
 		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine();
 
-		int i = 0;
 		int headAcheCount = 0;
 		int rashCount = 0;
 		int dialatedPupilsCount = 0;
 		
-		while (line != null) {
-			i++;	
+		while (line != null) {	
 			System.out.println("symptom from file: " + line);
 			if (line.equals("headache")) {
 				headAcheCount++;
@@ -31,7 +29,7 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();
 		}
-		
+		reader.close();
 		
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headAcheCount + "\n");
