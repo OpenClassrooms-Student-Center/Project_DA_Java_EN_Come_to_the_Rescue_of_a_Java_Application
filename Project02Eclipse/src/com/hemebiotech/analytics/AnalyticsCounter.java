@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class AnalyticsCounter {
-	
+
 	public static void main(String args[]) throws Exception {
 		BufferedReader reader = new BufferedReader (new FileReader("Project02Eclipse/symptoms.txt"));
 		String line = reader.readLine();
@@ -14,7 +14,7 @@ public class AnalyticsCounter {
 		int headAcheCount = 0;
 		int rashCount = 0;
 		int dialatedPupilsCount = 0;
-		
+
 		while (line != null) {
 			i++;	
 			System.out.println("symptom from file: " + line);
@@ -28,11 +28,10 @@ public class AnalyticsCounter {
 			else if (line.contains("dialated pupils")) {
 				dialatedPupilsCount++;
 			}
-
 			line = reader.readLine();
 		}
-		
-		
+
+
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headAcheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
