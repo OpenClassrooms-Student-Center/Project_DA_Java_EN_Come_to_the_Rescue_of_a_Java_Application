@@ -13,7 +13,7 @@ public class Main {
         
         ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile("/Users/ray/Documents/DeveloppeurApplicationJAVA/P2_debuggez_une_application_Java/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/symptoms.txt");
 
-		List<String> listOfSymptoms = readSymptomDataFromFile.GetSymptoms();
+		List<String> listOfSymptoms = readSymptomDataFromFile.getSymptoms();
 
         // listOfSymptom.forEach((symptom) -> System.out.println(symptom));
 
