@@ -2,17 +2,18 @@ package com.hemebiotech.analytics;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class WriteSymptomDataOnFile implements ISymptomWriter{
 
-    private String filepath;
     private Map<String, Integer> symptomMap;
+    private String filepath;
 
-    public WriteSymptomDataOnFile(String filepath, Map<String, Integer> symptomMap) {
-        this.filepath = filepath;
+    public WriteSymptomDataOnFile(Map<String, Integer> symptomMap, String filepath) {
         this.symptomMap = symptomMap;
+        this.filepath = filepath;
     }
 
     @Override
@@ -21,9 +22,20 @@ public class WriteSymptomDataOnFile implements ISymptomWriter{
         if(filepath != null) {
             try {
                 BufferedWriter writer = new BufferedWriter (new FileWriter(filepath, false));
+
+                symptomMap.forEach((symptom, count) -> {
+                    try {
+                        writer.write(symptom +"="+count);
+                        writer.newLine();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+                writer.close();
 				
-            } catch (Exception e) {
-                //TODO: handle exception
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
