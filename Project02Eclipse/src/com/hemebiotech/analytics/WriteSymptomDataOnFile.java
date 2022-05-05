@@ -9,11 +9,20 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/** 
+ * Sort and write symptoms data on a source
+ * 
+ */
 public class WriteSymptomDataOnFile implements ISymptomWriter{
 
     private Map<String, Integer> symptomMap;
     private String filepath;
 
+    /**
+	 * 
+     * @param symptomMap a map of every symptom with their count from the source with no duplicate
+	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 */
     public WriteSymptomDataOnFile(Map<String, Integer> symptomMap, String filepath) {
         this.symptomMap = symptomMap;
         this.filepath = filepath;
@@ -43,6 +52,10 @@ public class WriteSymptomDataOnFile implements ISymptomWriter{
         }
     }
 
+    /**
+     * 
+     * @return an ordered alphbetic map of symtoms with their count, no duplicates are possible/probable
+     */
     private Map<String, Integer> orderSymptomsCount() {
 
         List<String> orderkeys = new ArrayList<String>();

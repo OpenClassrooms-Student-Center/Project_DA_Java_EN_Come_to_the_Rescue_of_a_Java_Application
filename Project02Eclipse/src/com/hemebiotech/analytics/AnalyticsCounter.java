@@ -4,10 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/** 
+ * Simply count symptoms
+ * 
+ */
 public class AnalyticsCounter implements ISymptomCounter{
 	
 	private List<String> listOfSymptoms;
 
+	/** 
+	 * 
+	 * @param listOfSymptoms a raw list of symptoms
+	 */
 	public AnalyticsCounter(List<String> listOfSymptoms) {
 		this.listOfSymptoms = listOfSymptoms;
 	}
