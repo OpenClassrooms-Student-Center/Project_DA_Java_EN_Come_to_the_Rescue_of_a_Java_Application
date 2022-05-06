@@ -53,7 +53,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 		return this.list;
 	}
-	
+	/*
+	 * function to get the file to analyse 
+	 * this function avoid the File Not Found Exceptions
+	 */
 	public void getFile() {
 		boolean exists=false;
 		file = new File(getFilePath());
@@ -64,7 +67,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			exists=file.exists();
 		}
 	}
-	
+	/*
+	 * Function to enter the full path to the file
+	 */
 	public String getFilePath() {
 		System.out.println("Please enter the full path to the file :");
 		return read.nextLine();
