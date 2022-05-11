@@ -4,31 +4,31 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
-public class WriteResultToFile {
+public class WriteResultToFile implements ISymptomWriter{
 	private String filepath;
-	private HashMap <String,Integer> result;
+	private Map<String,Integer> result;
 	
 	
-	public WriteResultToFile(String filepathOut, HashMap<String,Integer> res) {
+	public WriteResultToFile(String filepathOut, Map<String,Integer> sortedSymptoms) {
 		this.filepath=filepathOut;
-		this.result=res;
+		this.result=sortedSymptoms;
 	}
 	
 	public void write() {
-		Map<String,Integer> mapResult = this.result;
 
 		try {
 			
 			FileWriter writer = new FileWriter (this.filepath);
 			BufferedWriter bw = new BufferedWriter(writer);
 			
-			for(Map.Entry<String, Integer> entry : mapResult.entrySet()) {
-				bw.write(entry.getKey() + ": " + entry.getValue());
+			
+			for(Map.Entry<String, Integer> entry:this.result.entrySet()) {
+				bw.write(entry.getKey() + " :" + entry.getValue());
 				bw.newLine();
-				
 			}
 			bw.flush();
 			writer.close();

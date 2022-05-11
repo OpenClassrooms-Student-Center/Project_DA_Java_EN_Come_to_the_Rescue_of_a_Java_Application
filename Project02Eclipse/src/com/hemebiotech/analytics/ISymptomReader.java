@@ -19,6 +19,5 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
-	HashMap<String,Integer> GetSymptoms (); //was formerly List as return type though in override ArrayList is used 
-										//so converted everything to arrayList
+	Map<String,Integer> GetSymptoms (); 
 }

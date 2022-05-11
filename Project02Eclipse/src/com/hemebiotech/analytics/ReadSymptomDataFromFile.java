@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,37 +21,44 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;}
+		this.filepath = filepath;
+	}
 	
-	public HashMap<String,Integer> GetSymptoms() {
-		
-		HashMap<String,Integer> allSymptoms = new HashMap<String,Integer>();
-		
-		if (this.filepath != null) {
+	public Map<String,Integer> GetSymptoms() {
+		List<String> result = new ArrayList<String>();
+		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(this.filepath));
+				FileReader fileReader = new FileReader(filepath);
+				BufferedReader reader = new BufferedReader(fileReader);
 				String line = reader.readLine();
 				
-				while ((reader.readLine())!=null) {
-					try {	
-					allSymptoms.put(line, allSymptoms.getOrDefault(line,0)+1);
-					}catch(NullPointerException e) {
-						System.out.println("Null");
-					}
+				while (line != null) {
+					result.add(line);
 					line = reader.readLine();
-					
-					
 				}
+
 				reader.close();
-				System.out.println(allSymptoms);
-					
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
-		//Sorting alphabetically
-		return allSymptoms;
+		
+		HashMap<String,Integer> symptomsRes = new HashMap<String,Integer>();
+		return CountInstances(result,symptomsRes);
 	}
-
+	
+	public  Map<String,Integer> CountInstances(List<String> symptoms,Map<String,Integer> symptomsMap){
+		
+		for (String symp : symptoms) {
+			if(symptomsMap.containsKey(symp)) {
+				symptomsMap.put(symp, symptomsMap.get(symp)+1);
+			}
+			else {
+				symptomsMap.put(symp, 1);
+			}
+		}
+		Map<String,Integer> sortedMap = new TreeMap<>(symptomsMap);
+		
+		return sortedMap;
+	}
 }

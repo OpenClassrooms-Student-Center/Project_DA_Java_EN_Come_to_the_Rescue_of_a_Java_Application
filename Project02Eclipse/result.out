@@ -1,20 +1,23 @@
-tremor: 3
-dizziness: 1
-blindness: 1
-constricted pupils: 1
-fever: 3
-cough: 5
-low blood pressure: 3
-nausea: 3
-insomnia: 1
-dry mouth: 3
-anxiety: 2
-rash: 2
-arrhythmias: 2
-shortness of breath: 2
-high blood pressure: 6
-water retention: 1
-inflamation: 4
-dialated pupils: 2
-headache: 2
-blurred vision: 3
+anxiety :5
+arrhythmias :3
+blindness :1
+blurred vision :5
+constricted pupils :3
+cough :6
+dialated pupils :4
+dizziness :5
+dry mouth :8
+fever :7
+headache :3
+high blood pressure :10
+inflamation :7
+insomnia :4
+low blood pressure :4
+nausea :5
+rapid heart rate :1
+rash :4
+shortness of breath :3
+stiff neck :4
+stomach pain :3
+tremor :4
+water retention :1
