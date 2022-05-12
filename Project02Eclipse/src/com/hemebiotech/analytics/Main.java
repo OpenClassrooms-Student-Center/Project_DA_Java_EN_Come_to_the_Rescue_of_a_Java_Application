@@ -11,7 +11,7 @@ import java.util.Map;
  * Run the Application
  */
 public class Main {
-
+/** The app begin here */
     public static void main(String[] args) {
         // Reading symptoms from file
         ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile("symptoms.txt");
