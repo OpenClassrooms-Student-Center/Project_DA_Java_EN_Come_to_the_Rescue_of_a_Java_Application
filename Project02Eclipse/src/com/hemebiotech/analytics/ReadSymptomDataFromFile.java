@@ -24,8 +24,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 	
-	public Map<String,Integer> GetSymptoms() {
-		List<String> result = new ArrayList<String>();
+	public Map<String,Integer> getSymptoms() {
+		List<String> result = new ArrayList<String>(); 
 		if (filepath != null) {
 			try {
 				FileReader fileReader = new FileReader(filepath);
@@ -44,10 +44,10 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		}
 		
 		HashMap<String,Integer> symptomsRes = new HashMap<String,Integer>();
-		return CountInstances(result,symptomsRes);
+		return CountInstances(result,symptomsRes); // count instances is the method that count the number of instances of each symptom
 	}
 	
-	public  Map<String,Integer> CountInstances(List<String> symptoms,Map<String,Integer> symptomsMap){
+	public  Map<String,Integer> CountInstances(List<String> symptoms,Map<String,Integer> symptomsMap) {
 		
 		for (String symp : symptoms) {
 			if(symptomsMap.containsKey(symp)) {
@@ -57,8 +57,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				symptomsMap.put(symp, 1);
 			}
 		}
-		Map<String,Integer> sortedMap = new TreeMap<>(symptomsMap);
+		Map<String,Integer> sortedMap = new TreeMap<>(symptomsMap); // Use of TreeMap because HashMap are unordered 
 		
 		return sortedMap;
 	}
+
 }

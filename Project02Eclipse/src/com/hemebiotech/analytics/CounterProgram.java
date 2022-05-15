@@ -18,9 +18,8 @@ public class CounterProgram {
 		this.writer = writer;
 	}
 	
-	
 	public void start() {
-		Map<String,Integer> symptoms = new TreeMap<>(reader.GetSymptoms());
+		Map<String,Integer> symptoms = new TreeMap<>(reader.getSymptoms());
 		writer.write();
 	}
 

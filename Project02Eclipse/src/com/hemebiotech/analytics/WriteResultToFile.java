@@ -24,10 +24,8 @@ public class WriteResultToFile implements ISymptomWriter{
 			
 			FileWriter writer = new FileWriter (this.filepath);
 			BufferedWriter bw = new BufferedWriter(writer);
-			
-			
 			for(Map.Entry<String, Integer> entry:this.result.entrySet()) {
-				bw.write(entry.getKey() + " :" + entry.getValue());
+				bw.write(entry.getKey() + ":" + entry.getValue());
 				bw.newLine();
 			}
 			bw.flush();
@@ -37,7 +35,4 @@ public class WriteResultToFile implements ISymptomWriter{
 			e.printStackTrace();
 		}
 	}
-	
-	
-
 }

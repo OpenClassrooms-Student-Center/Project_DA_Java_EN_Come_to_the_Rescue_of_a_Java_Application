@@ -9,9 +9,9 @@ import java.util.*;
 
 public final class ASymptomCounter {
 		
-	public static void main(String args[]){
+	public static void main(String args[]) {
 		ISymptomReader reader = new ReadSymptomDataFromFile("symptoms.txt");
-		ISymptomWriter writer = new WriteResultToFile("result.out",reader.GetSymptoms());
+		ISymptomWriter writer = new WriteResultToFile("result.out",reader.getSymptoms());
 		CounterProgram program = new CounterProgram(reader,writer);
 		program.start();	
 	}
