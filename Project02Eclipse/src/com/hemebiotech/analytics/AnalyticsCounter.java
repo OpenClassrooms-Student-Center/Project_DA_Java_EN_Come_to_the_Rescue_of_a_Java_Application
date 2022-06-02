@@ -1,43 +1,71 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
+	static final String filePath = "C:\\Users\\10166140\\OpenclassroomsProjects\\Projet2\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt";
+
+	public static void main(String[] args) throws Exception {
 		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+		Map<String, Integer> mapFromFile
+				= hashMapSymptoms();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+		writeSymptoms(mapFromFile);
+	}
 
-			line = reader.readLine();	// get another symptom
+	public static Map<String, Integer> hashMapSymptoms() {
+
+		Map<String, Integer> mapSymptoms
+				= new HashMap<>();
+
+		try {
+			File file = new File(filePath);
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line = reader.readLine();
+
+			int count = 1;
+			// On lit les lignes 1 par 1
+			while ((line != null)) {
+				// incrémenter le compteur de ligne
+				// Récupérer le texte de la ligne
+				String symptoms = line;
+				// Mettre symptoms + compteur dans le map
+				if (!mapSymptoms.containsKey(symptoms)) {
+					mapSymptoms.put(symptoms, count);
+				} else {
+					Integer currentValue = mapSymptoms.get(symptoms);
+					mapSymptoms.replace(symptoms, ++currentValue);
+				}
+				line = reader.readLine();
+			}
+			reader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		return mapSymptoms;
+	}
+
+	public static void writeSymptoms(Map<String, Integer> mapFromFile) {
+
+		if (filePath != null) {
+			try {
+				BufferedWriter writer = new BufferedWriter(new FileWriter("result.out"));
+
+				mapFromFile.forEach((symptom, count) -> {
+					try {
+						writer.write(symptom + "=" + count);
+						writer.newLine();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				});
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }
+
