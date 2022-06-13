@@ -5,24 +5,24 @@ import java.util.Map;
 
 /**
  *
- * Cette class sert à compter le nombre de personnes qui ont eu le même symptome
+ * Cette classe sert à compter le nombre de personnes qui ont eu le même symptôme
  */
 public class SymptomCounter {
 	
 	/**
 	 * 
-	 * @param list : l'objet List contenant les symptomes.
-	 * @return Un tableau associant le nom des symptomes et le nombre de personne qui l'ont eu
+	 * @param list : l'Objet List contenant les symptômes.
+	 * @return Un tableau associant le nom des symptômes et le nombre de personne qui l'ont eu
 	 */
 	public static Map<String, Integer> countOccurences(ReadSymptomDataFromFile list){
 		
 	
 		Map<String, Integer> SymptomCount = new HashMap<String, Integer>();
 		
-		// Boucle améliorée pour traiter les lignes de la list ( fournie en parametre ) une à une.
+		// Boucle améliorée pour traiter les lignes de la list ( fournie en paramètre ) une à une.
 		for(String nameSymptom : list.GetSymptoms()) {
 			
-			// On stock dans i le nombre de personnes ayant dejà eu le symptome.
+			// On stock dans i le nombre de personnes ayant dejà eu le symptôme.
 			Integer i = SymptomCount.get(nameSymptom);
 			// Si la clé n'a pas encore de valeur, on l'initialise à 1
 			if ( i == null) {

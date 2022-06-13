@@ -10,14 +10,14 @@ import java.util.TreeMap;
 
 /**
  * 
- * Cette class permet de créer un fichier contenant la liste des symptômes 
- * avec le nombre de personnes qui les ont contractées,cette liste est triée par ordre alphabétique
+ * Cette classe permet de créer un fichier contenant la liste des symptômes 
+ * avec le nombre de personnes qui les ont contracté. Cette liste est triée par ordre alphabétique
  */
 public class SymptomOut {
 	
 	/**
 	 * 
-	 * @param map : Un tableau associant le nom d'un symptôme et le nombre de personne qui l'ont eu
+	 * @param map : Le tableau associant le nom d'un symptôme et le nombre de personne qui l'ont eu
 	 */
 	public static void editFinalFile(Map<String, Integer> map) {
 	
