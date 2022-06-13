@@ -18,8 +18,6 @@ public class AnalyticsCounter {
 		 */
 		SymptomOut.editFinalFile(SymptomCounter.countOccurences(listSymptom));
 		
-		
-		
 		}
 	
 }
