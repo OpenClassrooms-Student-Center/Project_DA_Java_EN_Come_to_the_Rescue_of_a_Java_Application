@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 
 public class AnalyticsCounter {
 	
-	public static void main(String args[]) throws Exception {
+	public static void main(String args[]) throws Exception { 
 		/**
 		 * listSymptom est un Objet List, rempli par le fichier symptoms.txt grace à la classe ReadSymptomDataFromFile
 		 */

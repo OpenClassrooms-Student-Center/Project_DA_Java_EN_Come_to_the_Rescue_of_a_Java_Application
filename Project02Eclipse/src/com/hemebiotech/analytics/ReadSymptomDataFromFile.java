@@ -19,7 +19,7 @@ public class ReadSymptomDataFromFile{
 	
 	/**
 	 * 
-	 * @return L'objet List rempli
+	 * @return L'objet List rempli 
 	 */
 	public List<String> GetSymptoms() {
 

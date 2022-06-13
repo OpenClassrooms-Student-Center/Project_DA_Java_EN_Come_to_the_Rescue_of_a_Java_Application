@@ -28,7 +28,7 @@ public class SymptomOut {
 	
 	try(BufferedWriter writter = new BufferedWriter(new FileWriter(resultOut))){
 		
-		for (Entry<String, Integer> entry : listmap.entrySet()) {
+		for (Entry<String, Integer> entry : listmap.entrySet()) { 
 			String symptomName = entry.getKey();
 			Integer numbers = entry.getValue(); 
 			writter.write(symptomName + " = " + numbers + "\n"); //  

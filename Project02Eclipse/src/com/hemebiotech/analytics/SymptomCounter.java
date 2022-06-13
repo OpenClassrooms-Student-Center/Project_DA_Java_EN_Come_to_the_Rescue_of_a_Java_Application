@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  *
- * Cette classe sert à compter le nombre de personnes qui ont eu le même symptôme
+ * Cette classe sert à compter le nombre de personnes qui ont eu le même symptôme 
  */
 public class SymptomCounter {
 	
