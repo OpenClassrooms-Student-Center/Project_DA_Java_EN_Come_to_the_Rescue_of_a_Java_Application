@@ -7,15 +7,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hemebiotech.interfaces.IGetSymptom;
+
 /**
  *  
  * Transformation de la liste des symptomes du fichier symptoms.txt en List 
  */
 
-public class ReadSymptomDataFromFile{
+public class ReadSymptomDataFromFile implements IGetSymptom{
 	
 	// Chemin du fichier à lister
-	File file = new File ("Project02Eclipse/symptoms.txt");
+	File file = new File ("Project02Eclipse/symptoms.txt"); 
 	
 	/**
 	 * 
