@@ -17,16 +17,16 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
         this.filepath = filepath;
     }
 
+    // On utilise le TreeMap pour avoir le tri par ordre alphabétique
     @Override
     public TreeMap<String, Integer> hashMapSymptoms() {
         TreeMap<String, Integer> mapSymptoms
                 = new TreeMap<>();
 
-        try {
-            File file = new File(filepath);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line = reader.readLine();
+        File file = new File(filepath);
 
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line = reader.readLine();
             int count = 1;
             while ((line != null)) {
                 String symptoms = line;
@@ -39,7 +39,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
                 }
                 line = reader.readLine();
             }
-            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
