@@ -7,9 +7,10 @@ public class AnalyticsCounter {
 
     public static void main(String[] args) throws Exception {
         CheckSymptomFile checkSymptomFile = new CheckSymptomFile();
-        String filePathFromClassPath = null;
+        String filePathFromClassPath;
         String fileName = "symptoms.txt";
         String outPutFile = "result.out";
+
         try {
             filePathFromClassPath = checkSymptomFile.getFilePathFromClassPath(fileName);
             ISymptomReader reader = new ReadSymptomDataFromFile(filePathFromClassPath);
