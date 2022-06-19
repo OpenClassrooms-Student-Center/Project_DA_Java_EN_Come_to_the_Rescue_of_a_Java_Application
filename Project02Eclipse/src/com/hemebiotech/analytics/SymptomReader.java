@@ -45,9 +45,6 @@ public class SymptomReader {
 		List<String> symptomesLst = new ArrayList<String>(); // création d'un ensemble où sera repertorier tous les
 																// symboles
 
-		// Iterator<String> it = symptomes.iterator(); // itérateur pour obtenir les
-		// éléments d'un ensemble
-
 		FileReader fileReader = new FileReader(path); // Création d’un fileReader pour lire le fichier
 		BufferedReader reader = new BufferedReader(fileReader);
 

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * 
@@ -23,7 +24,9 @@ public class SymptomCalcul {
 	/**
 	 * Le but de cette méthode est de produire un dictionnaire dont les clé sont les
 	 * chaines de caractères de l'ensemble instancié et les valeurs seront pour
-	 * chaque caractère de la liste associée au nombre de répétition correspondant.
+	 * chaque caractère de la liste associée au nombre de répétition correspondant
+	 * Ces clés constituées de chaînes de caractères seront classées dans l'ordre
+	 * alphabétique.
 	 * 
 	 * @param symptomesLst Il s'agit d'une liste de chaines caractéres
 	 * @param symptomes    Il s'agit d'un ensemble de chaines de caractères
@@ -35,18 +38,22 @@ public class SymptomCalcul {
 	public static Map<String, Integer> Calcul(List<String> symptomesLst, Set<String> symptomes) {
 
 		int cnt = 0; // compteur du nombre de symptomes
-		Map<String, Integer> symptomeNbre = new HashMap<String, Integer>();
+		Map<String, Integer> symptomeNbreD = new HashMap<String, Integer>();
 
 		for (String k : symptomes) { // on lit chaque symptome de l'ensemble symptomes
 			for (int i = 0; i < symptomesLst.size(); i++) { // on compare chaque symptome de cet ensemble
 															// chaque symptome de la liste symptomesLst
 				if (k.contains(symptomesLst.get(i))) { // et dès lors qu'il y a une égalité
 					cnt++; // cela signifie que l'on retrouve une nouvelle fois ce symptomes
-					symptomeNbre.put(symptomesLst.get(i), cnt); // on renseigne donc ce point à la HashMap
+					symptomeNbreD.put(symptomesLst.get(i), cnt); // on renseigne donc ce point à la HashMap
 				}
 			}
 			cnt = 0;
 		}
+
+		Map<String, Integer> symptomeNbre = new TreeMap<String, Integer>(symptomeNbreD); // Utilisation de la méthode
+																							// TreeMap avoir les clé
+																							// dans l'rodre alphabétique
 
 		return symptomeNbre;
 
