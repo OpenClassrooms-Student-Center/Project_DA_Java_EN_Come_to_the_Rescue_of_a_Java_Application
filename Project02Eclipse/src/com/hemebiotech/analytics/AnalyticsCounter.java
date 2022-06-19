@@ -1,43 +1,71 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ * 
+ * Dans cette classe principale on répond aux cahiers des charges en instanciant
+ * les methodes :
+ * 
+ * SymptomReader.ReadFiles("datas/symptoms.txt")
+ * SymptomReader.symptomes(symptomesLst) SymptomCalcul.Calcul(symptomesLst,
+ * symptomes) SymptomWriter.CreatFiles("datas/result.out", symptomeNbre)
+ * 
+ * Après avoir extrait une lite de symptomes à partir du fichier source et grâce
+ * à la methode SymptomReader.ReadFiles("datas/symptoms.txt") , on produira un
+ * ensemble de symptomes. Nous connaitrons ainsi le nombre de personnes
+ * affectées ainsi que le nombre de symptomes existant
+ * 
+ * A l'aide de la methode SymptomCalcul.Calcul(symptomesLst, symptomes) nous
+ * pourrons determiner toutes les occurrences de tout symptôme.
+ * 
+ * 
+ * @see SymptomWriter
+ * @see SymptomCalcul
+ * @see SymptomReader
+ * 
+ * @author El Ouaryaghli
+ * 
+ * @version 1.0
+ */
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	public static void main(String[] args) throws IOException {
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		// =================================================== DEFINTION DES ATTRIBUTS
+		// == DEBUT
+
+		Set<String> symptomes = new HashSet<String>(); // création d'un ensemble où
+		// sera repertorier tous les symboles
+
+		List<String> symptomesLst = new ArrayList<String>(); // créetion d'une liste
+
+		Map<String, Integer> symptomeNbre = new HashMap<String, Integer>();
+
+		String pathRead = "Project02Eclipse/symptoms.txt"; // chemin d'accès au fichier symptoms.txt pour lecture
+		String pathWrite = "Project02Eclipse/result.out"; // chemin où sera genérer le fichier result.out
+
+		// =================================================== DEFINTION DES ATTRIBUTS
+		// == FIN
+
+		symptomesLst = SymptomReader.ReadFiles(pathRead);
+		symptomes = SymptomReader.symptomes(symptomesLst);
+
+		// System.out.println(symptomes);
+		// System.out.println(symptomes.size());
+
+		symptomeNbre = SymptomCalcul.Calcul(symptomesLst, symptomes);
+
+		SymptomWriter.CreatFiles(pathWrite, symptomeNbre);
+
+		System.out.println("Le fichier est disponible sous: " + pathWrite);
+
 	}
 }
