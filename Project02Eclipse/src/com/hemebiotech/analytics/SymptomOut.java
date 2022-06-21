@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import com.hemebiotech.interfaces.IOutFile;
@@ -18,13 +17,12 @@ import java.util.TreeMap;
  */
 public class SymptomOut implements IOutFile {
 	
-
-	public void editFinalFile(Map<String, Integer> map) {
+	/**
+	 * @param Le tableau ordonné contenant le nom et les occurences trouvés
+	 */
+	public void editFinalFile(TreeMap<String, Integer> ordermap) {
 	
 	File resultOut = new File("Project02Eclipse/results.out.txt");
-	
-	// TreeMap permet de trier map par ordre alphabétique 
-	Map<String, Integer> ordermap = new TreeMap<String, Integer>(map);
 	
 	try(BufferedWriter writter = new BufferedWriter(new FileWriter(resultOut))){
 		
@@ -34,7 +32,6 @@ public class SymptomOut implements IOutFile {
 			writter.write(symptomName + " = " + numbers + "\n"); //  
 			
 		}
-		
 			writter.close();
 		
 		} catch (IOException e) {

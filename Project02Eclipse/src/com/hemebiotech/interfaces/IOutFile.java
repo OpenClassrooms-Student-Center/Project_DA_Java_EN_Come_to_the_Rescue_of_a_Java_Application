@@ -1,9 +1,18 @@
 package com.hemebiotech.interfaces;
 
-import java.util.Map;
+import java.util.TreeMap;
+
+/**
+ * Ecriture dans le fichier de sortie
+ *
+ */
 
 public interface IOutFile {
 	
-	public void editFinalFile(Map<String,Integer> map);
+	/**
+	 * 
+	 * @param Le tableau ordonné par ordre croissant contenant le nom et le nombre des symptômes
+	 */
+	public void editFinalFile(TreeMap<String,Integer> ordermap);
 
 }

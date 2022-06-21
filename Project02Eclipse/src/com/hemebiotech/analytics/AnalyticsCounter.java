@@ -20,15 +20,12 @@ public class AnalyticsCounter {
 		ICounter count = new SymptomCounter();
 		IOutFile symptomOut = new SymptomOut();
 		
-		
 		/**
 		 * Obtention d'un Objet List à partir de la liste en .TXT
 		 */
+		
 		List<String> getSymptom = listSymptom.GetSymptoms();
-		
-		
-		 
-
+				 
 		/**
 		 * La méthode editFinalFile créé le fichier : results.out.txt. 
 		 * Elle prend en argument l'objet SymptomCounter qui renvoie la liste des symptômes 
@@ -36,7 +33,7 @@ public class AnalyticsCounter {
 		 * grâce à la List getSymptom fournit à la méthode SearchSymptomsAndCount() 
 		 * 
 		 */
-	
+
 		
 		symptomOut.editFinalFile(count.SearchSymptomsAndCount(getSymptom));
 		
