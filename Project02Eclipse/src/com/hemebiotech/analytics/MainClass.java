@@ -5,7 +5,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 
-public class AnalyticsCounter {
+public class MainClass {
 
 	public static void main(String... args) {
 		ISymptomAnalyser analytics = new AnalyseSymptoms();
