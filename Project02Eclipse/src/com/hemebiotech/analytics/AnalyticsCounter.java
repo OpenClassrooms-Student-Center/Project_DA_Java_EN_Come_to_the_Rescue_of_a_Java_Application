@@ -8,20 +8,10 @@ import java.util.TreeSet;
 public class AnalyticsCounter {
 
 	public static void main(String... args) {
-		//step 1: read symptom data from file and get a raw listing of symptoms
-		ISymptomReader symptomReader = new ReadSymptomDataFromFile("symptoms.txt");
-		List<String> symptoms = symptomReader.getSymptoms();
-
-		//step 2: sort symptoms
-		ISymptomSorter symptomSorter = new SortSymptomsFromList();
-		TreeSet<String> sortedSymptoms = symptomSorter.sortSymptoms(symptoms);
-
-		//step 3: associate symptoms to their number of occurrences
-		ISymptomCounter symptomCounter = new CountSymptomsFromList();
-		TreeMap<String, Integer> mappedSymptoms = symptomCounter.countSymptoms(symptoms, sortedSymptoms);
-
-		//step 4: write the analyzed data in result.out
-		ISymptomWriter symptomWriter = new WriteSymptomAnalyticsInFile("result.out");
-		symptomWriter.writeSymptom(mappedSymptoms);
+		AnalyseSymptoms analytics = new AnalyseSymptoms();
+		List<String> symptoms = analytics.getSymptoms();
+		TreeSet<String> sortedSymptoms = analytics.sortSymptoms(symptoms);
+		TreeMap<String,Integer> mappedSymptoms = analytics.countSymptoms(symptoms, sortedSymptoms);
+		analytics.writeSymptom(mappedSymptoms);
 	}
 }
