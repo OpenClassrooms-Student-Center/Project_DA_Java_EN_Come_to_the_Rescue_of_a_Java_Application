@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class AnalyseSymptoms implements ISymptomReader, ISymptomSorter, ISymptomCounter, ISymptomWriter {
+public class AnalyseSymptoms implements ISymptomAnalyser {
 
     /**
      * STEP 1 : read symptom data from file and get a raw listing of symptoms
      *
      * If no data is available, return an empty List
      *
-     * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
+     * @return a raw listing of all Symptoms obtained from a data source, duplicates are
+     * possible/probable
      */
     @Override
     public List<String> getSymptoms() {
@@ -22,8 +23,8 @@ public class AnalyseSymptoms implements ISymptomReader, ISymptomSorter, ISymptom
     /**
      * STEP 2 : sort symptoms
      *
-     * @param symptoms
-     * @return ordered set of all Symptoms collected from a data source, hence without duplicates
+     * @return ordered set of all Symptoms collected from a data source,
+     * hence without duplicates
      */
     @Override
     public TreeSet<String> sortSymptoms(List<String> symptoms) {
@@ -39,7 +40,8 @@ public class AnalyseSymptoms implements ISymptomReader, ISymptomSorter, ISymptom
      * @return a map <symptom, number of symptom occurrences>
      */
     @Override
-    public TreeMap<String, Integer> countSymptoms(List<String> symptoms, TreeSet<String> sortedSymptoms) {
+    public TreeMap<String, Integer> countSymptoms(List<String> symptoms,
+                                                  TreeSet<String> sortedSymptoms) {
         ISymptomCounter symptomCounter = new CountSymptomsFromList();
         return symptomCounter.countSymptoms(symptoms, sortedSymptoms);
     }
