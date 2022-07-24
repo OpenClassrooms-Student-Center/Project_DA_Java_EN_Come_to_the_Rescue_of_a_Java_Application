@@ -18,7 +18,7 @@ public interface ISymptomAnalyser {
 
     /**
      * STEP 2 : sort symptoms
-     * @param symptoms
+     * @param symptoms c
      * @return ordered set of all Symptoms collected from a data source, hence without duplicates
      */
     TreeSet<String> sortSymptoms(List<String> symptoms);
