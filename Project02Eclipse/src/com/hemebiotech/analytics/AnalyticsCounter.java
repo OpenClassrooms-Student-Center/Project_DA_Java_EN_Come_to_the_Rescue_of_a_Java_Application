@@ -3,7 +3,6 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.Scanner;
 
 public class AnalyticsCounter {
 	/* private static int rashCount = 0;
@@ -53,12 +52,7 @@ public class AnalyticsCounter {
         BufferedReader bufferedReader = new BufferedReader(fileReader);
         String str;
 
-//        On demande le symptôme recherché à l'utilisateur'
-        System.out.println("Entrez un symptôme : (Appuyer sur entrer une fois fini)");
-        Scanner scanner = new Scanner(System.in);
-        String search = scanner.nextLine();
-
-
+        String search = "fever";
         int wordCount = 0;
 
         while ((str = bufferedReader.readLine()) != null) {
