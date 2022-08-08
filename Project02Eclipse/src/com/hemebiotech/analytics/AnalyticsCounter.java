@@ -1,26 +1,28 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.Scanner;
 
 public class AnalyticsCounter {
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String[] args) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
+	/* private static int rashCount = 0;
+	private static int pupilCount = 0;*/
+
+    public static void main(String[] args) throws Exception {
+		/* BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
+		int i = 0;
+		int headCount = 0;
+
 		while (line != null) {
-			i++;	// increment i
+			i++;
 			System.out.println("symptom from file: " + line);
+
 			if (line.equals("headache")) {
 				headCount++;
-				System.out.println("number of headaches: " + headCount);
+//				System.out.println("number of headaches: " + headCount);
 			}
 			else if (line.equals("rush")) {
 				rashCount++;
@@ -31,14 +33,50 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();	// get another symptom
 		}
-		
-		// next generate output
+
+
 		FileWriter writer = new FileWriter ("result.out");
-		// initialize to 0
-		int headacheCount = 0;
-		writer.write("headache: " + headacheCount + "\n");
+
+//		int headacheCount = 0;
+
+		writer.write("headache: " + headCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
 		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
-	}
+		writer.close();*/
+
+        File file = new File("symptoms.txt");
+
+        String[] words;
+
+        FileReader fileReader = new FileReader(file);
+
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String str;
+
+//        On demande le symptôme recherché à l'utilisateur'
+        System.out.println("Entrez un symptôme : (Appuyer sur entrer une fois fini)");
+        Scanner scanner = new Scanner(System.in);
+        String search = scanner.nextLine();
+
+
+        int wordCount = 0;
+
+        while ((str = bufferedReader.readLine()) != null) {
+            words = str.split(" ");
+
+            for (String word : words) {
+                if (word.equals(search)) {
+                    wordCount++;
+                }
+            }
+        }
+
+        if (wordCount != 0) {
+            System.out.println("Symptom " + search + ": " + wordCount);
+        } else {
+            System.out.println("Le mot ne se trouve pas dans le fichier!");
+        }
+        fileReader.close();
+
+    }
 }
