@@ -1,25 +1,24 @@
 package com.hemebiotech.analytics;
-import com.hemebiotech.analytics.reader.Reader;
-
-import java.io.BufferedReader;
+import com.hemebiotech.analytics.reader.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.writer.writerImpl.Writer;
 import java.util.*;
-import java.util.stream.Collectors;
-
-import static com.hemebiotech.analytics.reader.Reader.fetchSymptoms;
+import static com.hemebiotech.analytics.constant.Constant.FILENAME_IN;
+import static com.hemebiotech.analytics.constant.Constant.FILENAME_OUT;
 import static com.hemebiotech.analytics.utils.Utils.symptomsAndCount;
-import static com.hemebiotech.analytics.writer.Writer.writingData;
 
 public class AnalyticsCounter {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args){
 
 		// fetch all symptoms by reading in file
-		List<String> symptoms = fetchSymptoms();
+		ReadSymptomDataFromFile readSymptomDataFromFile = new ReadSymptomDataFromFile(FILENAME_IN);
+		List<String> symptoms = readSymptomDataFromFile.GetSymptoms();
 
 		// count symptoms and create map
 		Map<String, Long> symptomsAndCount = symptomsAndCount(symptoms);
 
 		// write in out file
-		writingData(symptomsAndCount);
+		Writer writer = new Writer(FILENAME_OUT);
+		writer.writeSymptomsCount(symptomsAndCount);
 	}
 }
