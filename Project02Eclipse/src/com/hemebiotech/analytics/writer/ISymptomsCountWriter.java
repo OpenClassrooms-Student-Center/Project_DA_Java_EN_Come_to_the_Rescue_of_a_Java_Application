@@ -4,6 +4,6 @@ import java.util.Map;
 
 public interface ISymptomsCountWriter {
 
-     void writeSymptomsCount(Map<String,Long> symptomsAndCount);
+     void writeSymptoms(Map<String,Long> symptomsAndCount);
 
 }

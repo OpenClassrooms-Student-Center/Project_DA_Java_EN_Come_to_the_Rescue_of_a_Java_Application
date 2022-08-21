@@ -1,6 +1,6 @@
 package com.hemebiotech.analytics;
 import com.hemebiotech.analytics.reader.ReadSymptomDataFromFile;
-import com.hemebiotech.analytics.writer.writerImpl.Writer;
+import com.hemebiotech.analytics.writer.Writer;
 import java.util.*;
 import static com.hemebiotech.analytics.constant.Constant.FILENAME_IN;
 import static com.hemebiotech.analytics.constant.Constant.FILENAME_OUT;
@@ -19,6 +19,6 @@ public class AnalyticsCounter {
 
 		// write in out file
 		Writer writer = new Writer(FILENAME_OUT);
-		writer.writeSymptomsCount(symptomsAndCount);
+		writer.writeSymptoms(symptomsAndCount);
 	}
 }

@@ -1,6 +1,4 @@
-package com.hemebiotech.analytics.writer.writerImpl;
-
-import com.hemebiotech.analytics.writer.ISymptomsCountWriter;
+package com.hemebiotech.analytics.writer;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,28 +13,26 @@ public class Writer implements ISymptomsCountWriter {
     }
 
     @Override
-    public void writeSymptomsCount(Map<String, Long> symptomsAndCount) {
-
+    public void writeSymptoms(Map<String, Long> symptomsAndCount) {
         if (filepath != null) {
             try {
                 // create output file
                 FileWriter writer = new FileWriter(filepath);
 
                 // write symptom and count them
-                symptomsAndCount.forEach((s, aLong) -> {
-                    try {
-                        writer.write(s + ": " + aLong + "\n");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+                symptomsAndCount.forEach((s, value) -> writeInFile(writer, s, value));
                 writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
-
+    public void writeInFile(FileWriter writer, String s, Long value) {
+        try {
+            writer.write(s + ": " + value + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
