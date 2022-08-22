@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Utils {
 
-    public static Map<String, Long> symptomsAndCount(List<String> symptoms) {
+    public static Map<String, Long> symptomsAndCount(List<String> symptoms){
         return symptoms.stream()
                 .collect(Collectors.groupingByConcurrent(s -> s, Collectors.counting()))
                 // sort map by key

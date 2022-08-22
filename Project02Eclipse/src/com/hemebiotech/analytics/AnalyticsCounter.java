@@ -1,5 +1,5 @@
 package com.hemebiotech.analytics;
-import com.hemebiotech.analytics.reader.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.readSymptoms.ReadSymptomDataFromFile;
 import com.hemebiotech.analytics.writer.Writer;
 import java.util.*;
 import static com.hemebiotech.analytics.constant.Constant.FILENAME_IN;

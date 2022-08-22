@@ -1,4 +1,6 @@
-package com.hemebiotech.analytics.reader;
+package com.hemebiotech.analytics.readSymptoms;
+
+import com.hemebiotech.analytics.exceptions.EmptyFileException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,7 +15,7 @@ import java.util.List;
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-	
+
 	/**
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
@@ -30,14 +32,18 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			try {
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
-				
+
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
 				reader.close();
+				throw new EmptyFileException("");
 			} catch (IOException e) {
-				e.printStackTrace();
+				System.out.println("reader exception ");
+			}
+			catch (EmptyFileException e){
+				System.out.println(e.getMessage());
 			}
 		}
 		
