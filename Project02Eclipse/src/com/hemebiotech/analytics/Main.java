@@ -41,9 +41,6 @@ public class Main extends AnalyticsCounter {
 		IPrintResult resultFile = new PrintResult();
 		resultFile.CreateFile(symptoms, fileOut);
 		
-
-		
-	
 }
 }
 	
