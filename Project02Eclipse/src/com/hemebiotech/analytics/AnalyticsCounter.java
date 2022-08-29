@@ -1,11 +1,8 @@
 package com.hemebiotech.analytics;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
-
 
 /*
 *ICountSymptoms interface implementation 
@@ -22,7 +19,6 @@ public class AnalyticsCounter implements ICountSymptoms  {
 		Map<String, Integer> symptoms = new TreeMap<>();
 		
 		for (String line : listsymptoms) {
-	
 		
 		/*
 		 * Counting the occurrences of symptoms with the key (String) and the value (Integer) of our Map function
@@ -37,13 +33,11 @@ public class AnalyticsCounter implements ICountSymptoms  {
 				symptoms.put(line, value+1);
 				
 			}
-			else symptoms.put(line, 1);
-			
+			else symptoms.put(line, 1);	
 		}
 		
 		return symptoms;
 	}
-
 }
 			
 	

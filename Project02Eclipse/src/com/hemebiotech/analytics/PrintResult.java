@@ -33,11 +33,8 @@ public class PrintResult implements IPrintResult{
 		try {
 		BufferedWriter results = new BufferedWriter(new FileWriter(fileOut)); 
 		
-		
-		
 				for (Map.Entry<String, Integer> mapentry : symptoms.entrySet() ) {
-					results.write(mapentry.getKey() + " : " + mapentry.getValue() + System.getProperty("line.separator"));
-					
+					results.write(mapentry.getKey() + " : " + mapentry.getValue() + System.getProperty("line.separator"));		
 					
 				}
 				results.close();
