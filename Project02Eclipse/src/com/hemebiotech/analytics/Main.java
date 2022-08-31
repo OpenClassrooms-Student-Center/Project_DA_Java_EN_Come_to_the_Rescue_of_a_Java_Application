@@ -9,7 +9,7 @@ import java.util.Map;
 /*
  * Main class : use to launch the program
  */
-public class Main extends AnalyticsCounter {
+public class Main {
 	
 	
 	public static void main(String[] args) throws IOException {
@@ -18,7 +18,7 @@ public class Main extends AnalyticsCounter {
 		 */
 		
 		ISymptomReader reader = new ReadSymptomDataFromFile ();
-		List<String> listsymptoms = reader.GetSymptoms("/Users/alexandrecabanis/git/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application/Project02Eclipse/src/com/hemebiotech/analytics/symptoms.txt");
+		List<String> listsymptoms = reader.GetSymptoms("symptoms.txt");
 		/*
 		 *  Count the occurrences of symptoms in the list
 		 *  Create a symptoms list in alphabetical order
@@ -32,7 +32,7 @@ public class Main extends AnalyticsCounter {
 		 */
 		File fileOut = new File("Results.out");
 		IPrintResult resultFile = new PrintResult();
-		resultFile.CreateFile(symptoms, fileOut);
+		resultFile.createFile(symptoms, fileOut);
 		
 }
 }

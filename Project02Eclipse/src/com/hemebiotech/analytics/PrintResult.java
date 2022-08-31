@@ -15,7 +15,7 @@ public class PrintResult implements IPrintResult{
 	 * Creation of the CreateFile method, to get a new file and print the results in.
 	 * @throws IOException if the file is not created correctly
 	 */
-	public void CreateFile(Map<String, Integer> symptoms, File fileOut) throws IOException {
+	public void createFile(Map<String, Integer> symptoms, File fileOut) throws IOException {
 		
 
 		/*

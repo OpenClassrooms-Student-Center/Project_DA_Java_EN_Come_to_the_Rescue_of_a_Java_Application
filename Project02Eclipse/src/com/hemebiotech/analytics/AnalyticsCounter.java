@@ -14,6 +14,8 @@ public class AnalyticsCounter implements ICountSymptoms  {
 	/*
 	 * Creating a symptoms list from symptom file, and get the result in alphabetical order by TreeMap function
 	 */
+	
+	
 	public Map<String, Integer> countSymptoms(List<String> listsymptoms) {
 		
 		Map<String, Integer> symptoms = new TreeMap<>();
