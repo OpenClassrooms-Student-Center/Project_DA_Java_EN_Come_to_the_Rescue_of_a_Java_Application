@@ -17,6 +17,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 		/* 
 		 * Get an access to the data file "Symptom.txt" and return result in a list of symptom
+		 * @throws IOException if the file is not created correctly
 		 */
 	
 		public List<String> GetSymptoms(String filename) throws IOException {

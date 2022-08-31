@@ -11,7 +11,9 @@ public interface IPrintResult {
 	
 
 	/*
-	 * Creation of the CreateFile method, to get a new file and print the results in.
+	 * Creation of the createFile method, to get a new file with symptoms list and their occurrences
+	 * and print the results in.
+	 * @throws IOException if the file is not created correctly
 	 */
 	public void createFile(Map<String, Integer> symptoms, File fileOut) throws IOException;
 

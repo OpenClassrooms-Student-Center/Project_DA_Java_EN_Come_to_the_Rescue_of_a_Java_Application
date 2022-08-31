@@ -24,16 +24,20 @@ public class AnalyticsCounter implements ICountSymptoms  {
 		
 		/*
 		 * Counting the occurrences of symptoms with the key (String) and the value (Integer) of our Map function
-		 * param key key whose presence in this map is to be tested
 		*/ 
 			
 			if(symptoms.containsKey(line)) {
-			//* * @param value value whose presence in this map is to be tested
-			//**@return {@code true} if this map maps one or more keys to the specified value
+		
+				/*
+				 * if symptom does exist in the file more than 1 time, increase the existing value +1
+				 */
 		
 				int value = symptoms.get(line);
 				symptoms.put(line, value+1);
 				
+				/*
+				 * else, the symptom does exist only one time in the list, so value is : 1
+				 */
 			}
 			else symptoms.put(line, 1);	
 		}
