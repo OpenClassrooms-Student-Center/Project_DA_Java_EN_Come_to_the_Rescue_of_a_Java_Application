@@ -1,12 +1,15 @@
-package com.hemebiotech.analytics.readSymptoms;
+package com.hemebiotech.analytics.service.impl;
 
-import com.hemebiotech.analytics.exceptions.EmptyFileException;
+import com.hemebiotech.analytics.constant.Constant;
+import com.hemebiotech.analytics.service.ISymptomReader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.hemebiotech.analytics.constant.Constant.*;
 
 /**
  * Simple brute force implementation
@@ -25,12 +28,12 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<>();
 		
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader (new FileReader(PATH+FILENAME_IN));
 				String line = reader.readLine();
 
 				while (line != null) {
@@ -38,15 +41,14 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					line = reader.readLine();
 				}
 				reader.close();
-				throw new EmptyFileException("");
+				throw new ArithmeticException("this");
 			} catch (IOException e) {
-				System.out.println("reader exception ");
+				System.out.println("c'est IOExcept");
 			}
-			catch (EmptyFileException e){
-				System.out.println(e.getMessage());
+			catch (ArithmeticException e) {
+				System.out.println("c'est Arith");
 			}
 		}
-		
 		return result;
 	}
 

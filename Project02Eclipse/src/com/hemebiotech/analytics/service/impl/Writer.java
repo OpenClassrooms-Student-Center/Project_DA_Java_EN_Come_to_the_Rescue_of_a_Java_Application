@@ -1,4 +1,6 @@
-package com.hemebiotech.analytics.writer;
+package com.hemebiotech.analytics.service.impl;
+
+import com.hemebiotech.analytics.service.ISymptomsCountWriter;
 
 import java.io.FileWriter;
 import java.io.IOException;

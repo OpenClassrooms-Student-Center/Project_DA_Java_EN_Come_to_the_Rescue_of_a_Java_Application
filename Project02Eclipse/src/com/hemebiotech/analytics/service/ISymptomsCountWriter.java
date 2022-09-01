@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics.writer;
+package com.hemebiotech.analytics.service;
 
 import java.util.Map;
 
