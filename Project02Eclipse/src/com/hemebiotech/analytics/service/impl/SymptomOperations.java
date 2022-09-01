@@ -1,13 +1,16 @@
-package com.hemebiotech.analytics.utils;
+package com.hemebiotech.analytics.service.impl;
+
+import com.hemebiotech.analytics.service.ISymptomsOperations;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Utils {
+public class SymptomOperations implements ISymptomsOperations {
 
-    public static Map<String, Long> symptomsAndCount(List<String> symptoms){
+    @Override
+    public Map<String, Long> symptomsAndCount(List<String> symptoms){
         return symptoms.stream()
                 .collect(Collectors.groupingByConcurrent(s -> s, Collectors.counting()))
                 // sort map by key

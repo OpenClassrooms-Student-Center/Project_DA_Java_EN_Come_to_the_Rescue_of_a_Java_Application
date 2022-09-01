@@ -33,7 +33,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		
 		if (filepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(PATH+FILENAME_IN));
+				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 
 				while (line != null) {
