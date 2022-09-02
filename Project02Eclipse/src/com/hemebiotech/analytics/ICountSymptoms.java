@@ -9,18 +9,13 @@ import java.util.Map;
 public interface ICountSymptoms {
 	
 	/*
-	 * Counting all symptoms from the file "symptoms.txt", and get them in alphabetical order
-	 * We're calling the countSymptoms method
+	 * Count Symptoms from the given list in order to provide a filled Map with symptoms
+	 * in alphabetical order
+	 * 
+	 * @param listsymptoms List of the symptoms to cound and order
+	 * @return Map of sorted and counted symptoms
 	 */
 	
-	
-
 	Map<String, Integer> countSymptoms(List<String> listsymptoms);
 
-
-
-	
-
-	
-	
 }
