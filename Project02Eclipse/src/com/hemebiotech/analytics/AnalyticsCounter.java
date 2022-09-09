@@ -13,7 +13,7 @@ public class AnalyticsCounter {
 		List<String> listeSymptomes = symptomes.getSymptoms();
 		if (listeSymptomes.size() != 0) {
 			// creer une map de symptome && calculer les occurances de chaque symptome
-			CalculOccuranceSymptomes mapSymptomesOccurance = new CalculOccuranceSymptomes(listeSymptomes);
+			ISymptomCalcul mapSymptomesOccurance = new CalculOccuranceSymptomes(listeSymptomes);
 			Map<String, Integer> mapSymptomes = mapSymptomesOccurance.getMapSymptomes();
 
 			// classifier les symptomes par ordre alphabétique
@@ -21,7 +21,7 @@ public class AnalyticsCounter {
 			mapSymptomesOrdonner.ordre();
 
 			// remplir le fichier de sortie
-			WriteSymptomes fileOut = new WriteSymptomes(mapSymptomesOrdonner.ordre(), "result.out");
+			ISymptomWriter fileOut = new WriteSymptomes(mapSymptomesOrdonner.ordre(), "result.out");
 			fileOut.write();
 
 			System.out.println("Traitement réussi, Vous trouverez le résultat dans le fichier result.out");
