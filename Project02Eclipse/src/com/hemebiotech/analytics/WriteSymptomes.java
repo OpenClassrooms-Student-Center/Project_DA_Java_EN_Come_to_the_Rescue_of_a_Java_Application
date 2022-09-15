@@ -12,27 +12,19 @@ import java.util.Map;
  */
 public class WriteSymptomes implements ISymptomWriter {
 
-	Map<String, Integer> newMapSymptome;
-	public String filePathOut;
-
 	/**
-	 * 
-	 * @param newMapSymptome => une map classifier par ordre alphabitique
-	 * @param filePathOut    => lien du fichier de sortie
+	 * @return cette fonction écrira dans un fichier de sortie
+	 * @param newMapSymptome : une map ordonner par sa clé
+	 * @param filePathOut    : fichier de sortie ou les résultats vont etre affichés
 	 */
-	WriteSymptomes(Map<String, Integer> varNewMapSymptome, String varFilePathOut) {
-		this.newMapSymptome = varNewMapSymptome;
-		this.filePathOut = varFilePathOut;
-	}
-
 	@Override
-	public void write() {
-		if (this.filePathOut != null) {
+	public void write(Map<String, Integer> newMapSymptome, String filePathOut) {
+		if (filePathOut != null) {
 
 			try {
-				FileWriter fileWriter = new FileWriter(this.filePathOut, false);
+				FileWriter fileWriter = new FileWriter(filePathOut, false);
 				BufferedWriter writer = new BufferedWriter(fileWriter);
-				for (Map.Entry<String, Integer> entry : this.newMapSymptome.entrySet()) {
+				for (Map.Entry<String, Integer> entry : newMapSymptome.entrySet()) {
 					writer.write(entry.getKey() + " = " + entry.getValue());
 					writer.newLine();
 				}

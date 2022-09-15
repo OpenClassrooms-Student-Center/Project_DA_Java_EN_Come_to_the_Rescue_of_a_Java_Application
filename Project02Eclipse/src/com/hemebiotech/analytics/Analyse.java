@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Analyse {
 
@@ -20,20 +19,20 @@ public class Analyse {
 
 	}
 
-	public List<String> getSymptoms() {
-		return this.symptomReader.getSymptoms();
+	public List<String> getSymptoms(String varFilepath) {
+		return this.symptomReader.getSymptoms(varFilepath);
 	}
 
-	public Map<String, Integer> getMapSymptomes() {
-		return this.symptomCalcul.getMapSymptomes();
+	public Map<String, Integer> getMapSymptomes(List<String> varListeSymptomes) {
+		return this.symptomCalcul.getMapSymptomes(varListeSymptomes);
 	}
 
-	public Map<String, Integer> order() {
-		return this.orderSymptomes.order();
+	public Map<String, Integer> order(Map<String, Integer> varMapSymptome) {
+		return this.orderSymptomes.order(varMapSymptome);
 	}
 
-	public void write() {
-		this.symptomWriter.write();
+	public void write(Map<String, Integer> varNewMapSymptome, String varFilePathOut) {
+		this.symptomWriter.write(varNewMapSymptome, varFilePathOut);
 	}
 
 }
