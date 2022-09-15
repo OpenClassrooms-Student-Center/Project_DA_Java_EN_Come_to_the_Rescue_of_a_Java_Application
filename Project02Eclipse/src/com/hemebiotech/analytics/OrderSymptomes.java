@@ -13,7 +13,7 @@ import java.util.TreeMap;
 /**
  * @author massine classifier les symptomes par ordre alphabétique
  */
-public class OrderSymptomes {
+public class OrderSymptomes implements IOrderSymptom{
 
 	public Map<String, Integer> mapSymptome;
 
@@ -21,22 +21,10 @@ public class OrderSymptomes {
 		this.mapSymptome = varMapSymptome;
 	}
 
-	public Map<String, Integer> ordre()// Map<String,Integer>
+	public Map<String, Integer> order()// Map<String,Integer>
 	{
-		Map<String, Integer> newMapOrdonner = new HashMap<>();
-		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(this.mapSymptome);// on peut pas parcourrir
-																							// une map
-
-		Set<Entry<String, Integer>> set = sortedMap.entrySet();// convertire la map en set grace a entrySet
-
-		Iterator<Entry<String, Integer>> iterator = set.iterator();
-
-		while (iterator.hasNext()) {
-			@SuppressWarnings("rawtypes")
-			Map.Entry me = (Map.Entry) iterator.next();
-			newMapOrdonner.put((String) me.getKey(), (Integer) me.getValue());
-		}
-		return newMapOrdonner;
+		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(this.mapSymptome);
+		return sortedMap;
 	}
 
 }
