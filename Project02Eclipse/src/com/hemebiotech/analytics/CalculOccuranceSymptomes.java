@@ -5,13 +5,17 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author massine
  * 
- *         cette class compte toutes les occurrences de tout symptôme liste dans
+ *cette class compte toutes les occurrences de tout symptôme liste dans
  *         le fichier
  */
 public class CalculOccuranceSymptomes implements ISymptomCalcul {
 
+	/**
+	 * @return renvoie une map non ordonner dont les clés sont les symptomes et les
+	 *         valeurs sont le nombre d'occurance de ces symptomes
+	 * @param une liste de symptome 
+	 */
 	@Override
 	public Map<String, Integer> getMapSymptomes(List<String> listeSymptomes) {
 		int nombreOccurance = 0;

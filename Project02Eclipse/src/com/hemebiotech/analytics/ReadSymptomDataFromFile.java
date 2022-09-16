@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
+ * cette classe lie les symptomes a partir d'un fichier text et return une liste de symptomes 
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
@@ -16,6 +16,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it,
 	 *                 one per line
+	 * @return une liste de symptome 
 	 */
 
 	@Override
