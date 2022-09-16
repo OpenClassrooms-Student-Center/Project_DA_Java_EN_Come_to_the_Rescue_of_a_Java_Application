@@ -11,19 +11,17 @@ import java.util.Set;
 import java.util.TreeMap;
 
 /**
- * @author massine classifier les symptomes par ordre alphabétique
+ * les symptomes par ordre alphabétique
  */
-public class OrderSymptomes implements IOrderSymptom{
+public class OrderSymptomes implements IOrderSymptom {
 
-	public Map<String, Integer> mapSymptome;
-
-	OrderSymptomes(Map<String, Integer> varMapSymptome) {
-		this.mapSymptome = varMapSymptome;
-	}
-
-	public Map<String, Integer> order()// Map<String,Integer>
-	{
-		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(this.mapSymptome);
+	/**
+	 * @return renvoie une map ordonner dont les clés sont les symptomes et les
+	 *         valeurs sont le nombre d'occurance de ces symptomes
+	 * @param une map de symptome non ordonner
+	 */
+	public Map<String, Integer> order(Map<String, Integer> mapSymptome) {
+		TreeMap<String, Integer> sortedMap = new TreeMap<String, Integer>(mapSymptome);
 		return sortedMap;
 	}
 
