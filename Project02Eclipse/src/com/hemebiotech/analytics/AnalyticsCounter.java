@@ -7,7 +7,6 @@ public class AnalyticsCounter {
 	public static final String  PATHTOFILESYMPTOMES  = "symptoms.txt"; 
 	public static final String PATHTOFILEOUT  = "result.out"; 
 
-
 	public static void main(String args[]) {
 		Analyse analyse = new Analyse(new ReadSymptomDataFromFile() , new CalculOccuranceSymptomes(), new OrderSymptomes(), new WriteSymptomes());
 		List<String> listeSymptomes = analyse.getSymptoms(PATHTOFILESYMPTOMES);

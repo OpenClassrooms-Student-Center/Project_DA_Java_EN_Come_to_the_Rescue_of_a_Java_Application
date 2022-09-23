@@ -3,6 +3,11 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Class permettant d'utiliser les interfaces
+ * @author banou
+ *
+ */
 public class Analyse {
 
 	private ISymptomReader symptomReader;
