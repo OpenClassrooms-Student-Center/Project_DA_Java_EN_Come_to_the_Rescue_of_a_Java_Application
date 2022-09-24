@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Project02Eclipse/src"/>
+	<classpathentry kind="output" path="out/production/Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application"/>
+</classpath>
