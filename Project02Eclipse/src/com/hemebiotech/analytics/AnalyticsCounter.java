@@ -19,7 +19,7 @@ public class AnalyticsCounter {
 		
 		try {
 			// Read from data source
-			List<String> listSymptoms = read("C:\\Users\\Mouta\\Desktop\\OC\\P4_Abdelhadey_Moutaz\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");			
+			List<String> listSymptoms = read("symptoms.txt");			
 			System.out.println(listSymptoms);
 			// Count occurrences with stream interface
 			Map<String,Long> count = count(listSymptoms);
