@@ -11,7 +11,7 @@ public class AnalyticsCounter {
 	public static void main(String args[]) {
 
 		//1 - lire le fichier des symptoms (symptoms.txt)
-		ReadSymptomDataFromFile readFile = new ReadSymptomDataFromFile(filePath);
+		FileManagement readFile = new FileManagement(filePath);
 		List<String> symptomsList = readFile.getSymptoms();
 
 		//2 - trier les symptomes par nb d'occurence / puis par ordre alphabetique
