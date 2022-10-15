@@ -3,8 +3,9 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Simple brute force implementation
@@ -23,7 +24,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {
@@ -42,6 +43,19 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public Map<String, Long> countAndSortSymptoms(List<String> symptomsList) {
+		//1 - If symptomsList is null or empty, return empty Map
+		if (symptomsList == null || symptomsList.isEmpty()){
+			return new HashMap<>();
+		}
+		//2 - group symptoms by occurences
+		Map<String, Long> occurenceBySymptoms = symptomsList.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		//3 - return map by alphabethic order
+		return new TreeMap<>(occurenceBySymptoms);
 	}
 
 }
