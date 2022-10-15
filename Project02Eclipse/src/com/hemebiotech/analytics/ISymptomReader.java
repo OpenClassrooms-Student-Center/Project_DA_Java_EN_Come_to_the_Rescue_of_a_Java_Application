@@ -20,4 +20,5 @@ public interface ISymptomReader {
 	public List<String> getSymptoms();
 	public Map<String, Long> countAndSortSymptoms(List<String> symptomsList);
 
+	public void generateSymptomsReport(Map<String, Long> occurenceBySymptoms);
 }

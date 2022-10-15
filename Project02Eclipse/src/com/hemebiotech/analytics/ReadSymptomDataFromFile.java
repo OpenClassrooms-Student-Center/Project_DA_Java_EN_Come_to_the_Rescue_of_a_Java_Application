@@ -1,8 +1,6 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -56,6 +54,27 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		//3 - return map by alphabethic order
 		return new TreeMap<>(occurenceBySymptoms);
+	}
+
+	@Override
+	public void generateSymptomsReport(Map<String, Long> occurenceBySymptoms) {
+		FileWriter writer = null;
+		try {
+			writer = new FileWriter("result.out");
+			/*writer.write("dialated pupils: " + pupilCount + "\n");*/
+			String symptomLine = null;
+			System.out.println("--- DEBUT RAPPORT ---");
+			for (String symptom : occurenceBySymptoms.keySet()) {
+				symptomLine = symptom + ": " + occurenceBySymptoms.get(symptom) + "\n" ;
+				System.out.println(symptomLine);
+				writer.write(symptomLine);
+			}
+			System.out.println("--- FIN RAPPORT ---");
+			writer.close();
+
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }
