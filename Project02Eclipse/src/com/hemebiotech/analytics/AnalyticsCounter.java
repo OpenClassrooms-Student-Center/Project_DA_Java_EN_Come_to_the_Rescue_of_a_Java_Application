@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
+import java.util.Map;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;	// initialize to 0
@@ -23,9 +24,10 @@ public class AnalyticsCounter {
 		List<String> symptomsList = readFile.getSymptoms();
 
 		//2 - trier les symptomes par nb d'occurence / puis par ordre alphabetique
-
+		Map<String, Long> occurenceBySymptoms = readFile.countAndSortSymptoms(symptomsList);
 
 		//3 - générer le fichier qui contient les symptomes
+
 		int i = 0;	// set i to 0
 		int headCount = 0;	// counts headaches
 		while (line != null) {
@@ -44,6 +46,8 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();	// get another symptom
 		}
+
+
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
