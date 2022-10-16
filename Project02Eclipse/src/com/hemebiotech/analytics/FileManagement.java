@@ -20,7 +20,11 @@ public class FileManagement implements IFileManagement {
 	public FileManagement(String filepath) {
 		this.filepath = filepath;
 	}
-	
+
+	/**
+	 * Method that return an empty list or a list with some values in it
+	 * @return an empty List
+	 */
 	@Override
 	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<>();
@@ -43,6 +47,11 @@ public class FileManagement implements IFileManagement {
 		return result;
 	}
 
+	/**
+	 * Method that count the number of times a symptoms is repeated and sort those symptoms by alphabetic order
+	 * @param symptomsList
+	 * @return a Map sorted by alphabetic order
+	 */
 	@Override
 	public Map<String, Long> countAndSortSymptoms(List<String> symptomsList) {
 		//1 - If symptomsList is null or empty, return empty Map
@@ -56,6 +65,10 @@ public class FileManagement implements IFileManagement {
 		return new TreeMap<>(occurenceBySymptoms);
 	}
 
+	/**
+	 * Generate a new file and write down each symptoms and its occurence
+	 * @param occurenceBySymptoms
+	 */
 	@Override
 	public void generateSymptomsReport(Map<String, Long> occurenceBySymptoms) {
 		FileWriter writer = null;
