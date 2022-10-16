@@ -3,6 +3,9 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Starting point of the application
+ */
 public class AnalyticsCounter {
 
 	// todo don't forget to ask  the mentor about the relatif path instead of the absolute one below
@@ -16,14 +19,14 @@ public class AnalyticsCounter {
 	 */
 	public static void main(String[] args) {
 
-		//1 - lire le fichier des symptoms (symptoms.txt)
+		//1 - Read the file of symptoms (symptoms.txt)
 		FileManagement fileManagement = new FileManagement(filePath);
 		List<String> symptomsList = fileManagement.getSymptoms();
 
-		//2 - trier les symptomes par nb d'occurence / puis par ordre alphabetique
+		//2 - Sort the symptoms by number of occurence / then by alphbetic number
 		Map<String, Long> occurenceBySymptoms = fileManagement.countAndSortSymptoms(symptomsList);
 
-		//3 - générer le fichier qui contient les symptomes
+		//3 - Generate the report with the symptoms and their occurence written
 		fileManagement.generateSymptomsReport(occurenceBySymptoms);
 
 	}
