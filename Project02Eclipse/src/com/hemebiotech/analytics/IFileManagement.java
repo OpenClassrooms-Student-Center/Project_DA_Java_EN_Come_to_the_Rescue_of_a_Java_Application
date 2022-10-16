@@ -18,7 +18,17 @@ public interface IFileManagement {
 	 * @return a raw listing of all Symptoms obtained from a data source, duplicates are possible/probable
 	 */
 	public List<String> getSymptoms();
+
+	/**
+	 * Method that count the number of time each symptoms is written then sort those symptoms by alphabetic order
+	 * @param symptomsList
+	 * @return a Map that contain a String as the key and a Long as the value
+	 */
 	public Map<String, Long> countAndSortSymptoms(List<String> symptomsList);
 
+	/**
+	 * Method that generate a file were all the symptoms are written
+	 * @param occurenceBySymptoms
+	 */
 	public void generateSymptomsReport(Map<String, Long> occurenceBySymptoms);
 }
