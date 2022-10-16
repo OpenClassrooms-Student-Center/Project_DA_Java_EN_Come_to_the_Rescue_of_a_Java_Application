@@ -17,14 +17,14 @@ public class AnalyticsCounter {
 	public static void main(String[] args) {
 
 		//1 - lire le fichier des symptoms (symptoms.txt)
-		FileManagement readFile = new FileManagement(filePath);
-		List<String> symptomsList = readFile.getSymptoms();
+		FileManagement fileManagement = new FileManagement(filePath);
+		List<String> symptomsList = fileManagement.getSymptoms();
 
 		//2 - trier les symptomes par nb d'occurence / puis par ordre alphabetique
-		Map<String, Long> occurenceBySymptoms = readFile.countAndSortSymptoms(symptomsList);
+		Map<String, Long> occurenceBySymptoms = fileManagement.countAndSortSymptoms(symptomsList);
 
 		//3 - générer le fichier qui contient les symptomes
-		readFile.generateSymptomsReport(occurenceBySymptoms);
+		fileManagement.generateSymptomsReport(occurenceBySymptoms);
 
 	}
 }
