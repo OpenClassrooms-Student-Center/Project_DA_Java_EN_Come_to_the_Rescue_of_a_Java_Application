@@ -20,7 +20,7 @@ public class AnalyticsCounter {
 	public static void main(String[] args) {
 
 		//1 - Read the file of symptoms (symptoms.txt)
-		FileManagement fileManagement = new FileManagement(filePath);
+		IFileManagement fileManagement = new FileManagement(filePath);
 		List<String> symptomsList = fileManagement.getSymptoms();
 
 		//2 - Sort the symptoms by number of occurence / then by alphbetic number
