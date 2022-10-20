@@ -22,15 +22,18 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 		this.filepath = filepath;
 	}
 	
+	// Get all symptoms from an array list
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {
 			try {
+				// Reads each symptoms by line
 				BufferedReader reader = new BufferedReader (new FileReader(filepath));
 				String line = reader.readLine();
 				
+				// Adds each line on the array list
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
