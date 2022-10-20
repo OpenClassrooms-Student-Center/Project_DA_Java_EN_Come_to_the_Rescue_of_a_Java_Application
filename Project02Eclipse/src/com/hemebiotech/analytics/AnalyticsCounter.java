@@ -1,44 +1,30 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
 	
 	public static void main(String args[]) throws Exception {
 		// first get input
 		try {
 		// Read from data source
-		List <String> listSymptoms = read("symptoms.txt");
+		List <String> listSymptoms = read("C:\\Users\\Mouta\\Desktop\\Projet 4\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
 		System.out.println(listSymptoms);
+		// Count occurrences with stream interface
+		Map<String,Long> count = count(listSymptoms);
+		System.out.println(count);
+		// Create and write on new file
+		write(count, "results.out");
+		System.out.println("File created");
 		} catch (Exception e) {
 			System.out.println("Error occured : " + e);
 		}
 
-		int i = 0;
-		int headCount = 0;
-		String line;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-		}
 	}
 		
 	// Return a list with data symptoms
@@ -48,11 +34,19 @@ public class AnalyticsCounter {
 		Collections.sort(listSymptoms);
 		return listSymptoms;
 	}
-		// next generate output
-		FileWriter writer = new FileWriter ("results.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	
+	// Return the occurrences of the symptoms in the list
+	static Map<String,Long> count(List<String> listSymptoms){
+		Map<String,Long> count = listSymptoms
+				.stream()
+				.collect(Collectors.groupingBy(Function.identity(),TreeMap::new,Collectors.counting()));
+		return count;
+	}
+	
+	// Create and write a map with symptoms and number of occurrences on new file
+	static void write(Map<String,Long> mapSymptoms, String nomFichier) {
+		WriteSymptomDataIntoFile writer = new WriteSymptomDataIntoFile();
+		writer.writeSymptom(mapSymptoms, nomFichier);
+	}
 }
 
