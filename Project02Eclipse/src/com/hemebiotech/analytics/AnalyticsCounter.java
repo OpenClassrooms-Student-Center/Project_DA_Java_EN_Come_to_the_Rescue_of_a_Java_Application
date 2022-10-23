@@ -13,7 +13,7 @@ public class AnalyticsCounter {
 		// first get input
 		try {
 		// Read from data source
-		List <String> listSymptoms = read("C:\\Users\\Mouta\\Desktop\\Projet 4\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\Project02Eclipse\\symptoms.txt");
+		List <String> listSymptoms = read("symptoms.txt");
 		System.out.println(listSymptoms);
 		// Count occurrences with stream interface
 		Map<String,Long> count = count(listSymptoms);
@@ -28,8 +28,8 @@ public class AnalyticsCounter {
 	}
 		
 	// Return a list with data symptoms
-	static List<String> read(String nomFichier){
-		ISymptomReader symptoms = new ReadSymptomDataFromFile(nomFichier);
+	static List<String> read(String fileName){
+		ISymptomReader symptoms = new ReadSymptomDataFromFile(fileName);
 		List<String> listSymptoms = symptoms.getSymptoms();
 		Collections.sort(listSymptoms);
 		return listSymptoms;
@@ -44,9 +44,9 @@ public class AnalyticsCounter {
 	}
 	
 	// Create and write a map with symptoms and number of occurrences on new file
-	static void write(Map<String,Long> mapSymptoms, String nomFichier) {
+	static void write(Map<String,Long> mapSymptoms, String fileName) {
 		WriteSymptomDataIntoFile writer = new WriteSymptomDataIntoFile();
-		writer.writeSymptom(mapSymptoms, nomFichier);
+		writer.writeSymptom(mapSymptoms, fileName);
 	}
 }
 
