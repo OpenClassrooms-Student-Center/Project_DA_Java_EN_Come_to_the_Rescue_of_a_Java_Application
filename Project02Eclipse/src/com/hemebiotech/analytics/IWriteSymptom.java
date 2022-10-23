@@ -1,9 +1,5 @@
 package com.hemebiotech.analytics;
 
-<<<<<<< HEAD
-public interface IWriteSymptom {
-
-=======
 import java.util.Map;
 
 /**
@@ -17,5 +13,5 @@ import java.util.Map;
 public interface IWriteSymptom {
 	
 	void writeSymptom(Map<String, Long> mapSymptoms, String nomFichier);
->>>>>>> writer
+
 }

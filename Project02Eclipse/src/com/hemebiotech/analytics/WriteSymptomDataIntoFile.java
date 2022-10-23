@@ -1,9 +1,4 @@
 package com.hemebiotech.analytics;
-
-<<<<<<< HEAD
-public class WriteSymptomDataIntoFile {
-
-=======
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
@@ -18,12 +13,12 @@ import java.util.Map.Entry;
 public class WriteSymptomDataIntoFile implements IWriteSymptom{
 
 	@Override
-	public void writeSymptom(Map<String, Long> mapSymptoms, String nomFichier) {
+	public void writeSymptom(Map<String, Long> mapSymptoms, String fileName) {
 		// TODO Auto-generated method stub
 		FileWriter newSymptomFile;
 		try {
 			// Create a new file
-			newSymptomFile = new FileWriter(nomFichier, false);
+			newSymptomFile = new FileWriter(fileName, false);
 			// Insert each symptom per line with its key + value
 			for(Entry<String, Long> symptom : mapSymptoms.entrySet()) {
 				newSymptomFile.write(symptom.getKey() + " : " + symptom.getValue() + "\n");
@@ -33,5 +28,4 @@ public class WriteSymptomDataIntoFile implements IWriteSymptom{
 			e.printStackTrace();
 		}		
 	}
->>>>>>> writer
 }
