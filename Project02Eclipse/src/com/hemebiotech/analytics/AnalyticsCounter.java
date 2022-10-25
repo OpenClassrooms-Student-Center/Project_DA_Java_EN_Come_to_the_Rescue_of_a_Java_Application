@@ -6,12 +6,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class AnalyticsCounter {
 	private static int headacheCount = 0;
 	private static int rashCount = 0;
 	private static int pupilCount = 0;
+	static File documentToParse = new File("symptoms.txt");
+	static List<String> listOfSymptoms = new ArrayList<String>();
+	static HashSet<String> uniqueOccurence = new HashSet<String>();
 	
 	public static void main(String args[]) throws Exception {
 
@@ -39,6 +43,8 @@ public class AnalyticsCounter {
 		reader.close(); 
 		*/ 
 		
+		parsingFile(documentToParse, listOfSymptoms, uniqueOccurence);
+		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
@@ -47,17 +53,19 @@ public class AnalyticsCounter {
 		writer.close();
 	}
 
-	// first get input
-	public static void parsingFile(File doc, List<String> listOfSymptoms, ArrayList<String> uniqueOccurence) {
-		if(doc != null) {
+	
+	// First parse the document and get a List of symptoms and a HashSet to count unique occurrences
+	public static void parsingFile(File documentToParse, List<String> listOfSymptoms, HashSet<String> uniqueOccurrence) {
+		if(documentToParse != null) {
 			try {
 				
-				BufferedReader parsedFile = new BufferedReader (new FileReader(doc));
+				BufferedReader parsedFile = new BufferedReader (new FileReader(documentToParse));
 				String symptom = parsedFile.readLine();
 				
 				while (symptom != null) {
 					listOfSymptoms.add(symptom);
-					uniqueOccurence.add(symptom);
+					uniqueOccurrence.add(symptom);
+					symptom = parsedFile.readLine();
 				}
 				parsedFile.close();
 			} catch (IOException e) {
@@ -66,10 +74,6 @@ public class AnalyticsCounter {
 			}
 		}
 	}
-	
-	// method that will only save one copy of each symptom
-	
-	// public static 
 	
 	// method that will count each occurrence of a symptom
 	public static void countingSymptoms() {
