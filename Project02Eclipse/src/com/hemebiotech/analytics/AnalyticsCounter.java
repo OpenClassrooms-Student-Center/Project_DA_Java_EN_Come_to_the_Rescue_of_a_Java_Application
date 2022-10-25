@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class AnalyticsCounter {
 	static File documentToParse = new File("symptoms.txt");
 	static List<String> listOfSymptoms = new ArrayList<String>();
 	static HashSet<String> uniqueOccurence = new HashSet<String>();
+	static HashMap<String, Integer> symptomeFrequencyMap = new HashMap<String, Integer>();
 	
 	public static void main(String args[]) throws Exception {
 
@@ -44,6 +46,7 @@ public class AnalyticsCounter {
 		*/ 
 		
 		parsingFile(documentToParse, listOfSymptoms, uniqueOccurence);
+		countingSymptoms(symptomeFrequencyMap, listOfSymptoms);
 		
 		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
@@ -76,8 +79,17 @@ public class AnalyticsCounter {
 	}
 	
 	// method that will count each occurrence of a symptom
-	public static void countingSymptoms() {
+	public static void countingSymptoms(HashMap<String, Integer> symptomeFrequencyMap, List<String> listOfSymptoms) {
 		
-		int counter = 0;
+		for(String symptom : listOfSymptoms) {
+			if(symptomeFrequencyMap.containsKey(symptom)) {
+				symptomeFrequencyMap.put(symptom, symptomeFrequencyMap.get(symptom) + 1);
+			}
+			else {
+				symptomeFrequencyMap.put(symptom, 1);
+			}
+		}
+		System.out.println("FrequencyMap " + symptomeFrequencyMap);
 	}
+	
 }
