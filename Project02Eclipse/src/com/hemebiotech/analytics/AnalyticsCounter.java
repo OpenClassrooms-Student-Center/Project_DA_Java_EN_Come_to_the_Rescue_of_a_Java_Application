@@ -78,9 +78,12 @@ public class AnalyticsCounter {
 		}
 	}
 	
-	// method that will count each occurrence of a symptom
+	// Method that will count each occurrence of a symptom
+	// It will check if a symptom is already in the HashMap as a key
+	// If true it will add 1 to the counter, else it will create the key and initialize it at 1
 	public static void countingSymptoms(HashMap<String, Integer> symptomeFrequencyMap, List<String> listOfSymptoms) {
 		
+		// Iterate over the list of symptoms
 		for(String symptom : listOfSymptoms) {
 			if(symptomeFrequencyMap.containsKey(symptom)) {
 				symptomeFrequencyMap.put(symptom, symptomeFrequencyMap.get(symptom) + 1);
