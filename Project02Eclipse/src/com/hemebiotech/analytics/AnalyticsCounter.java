@@ -26,7 +26,6 @@ public class AnalyticsCounter {
 		countingSymptoms(symptomeFrequencyMap, listOfSymptoms);
 		writingFile(resultsDocument, symptomeFrequencyMap);
 		
-		// next generate output
 	}
 
 	
@@ -44,7 +43,6 @@ public class AnalyticsCounter {
 				}
 				parsedFile.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -67,13 +65,12 @@ public class AnalyticsCounter {
 		System.out.println("FrequencyMap " + symptomeFrequencyMap);
 	}
 	
-	// This method will write the 
+	// This method will write the document 
 	public static void writingFile(FileWriter resultsDocument, HashMap<String, Integer> symptomeFrequencyMap) throws IOException{
 		for(String symptom : symptomeFrequencyMap.keySet()) {
 			try {
 				resultsDocument.write(symptom + ": "  + symptomeFrequencyMap.get(symptom) +  "\n");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
