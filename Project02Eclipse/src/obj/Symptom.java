@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package obj;
 
 public class Symptom implements Comparable<Symptom>{
 

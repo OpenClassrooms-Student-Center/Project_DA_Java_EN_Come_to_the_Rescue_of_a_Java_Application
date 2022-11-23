@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package obj;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,11 +6,19 @@ import java.util.List;
 
 public class ListSymptoms {
 
-	List<Symptom> listSymptoms;
+	private List<Symptom> listSymptoms;
 
 	public ListSymptoms() {
 		this.listSymptoms = new ArrayList<Symptom>();
 	}
+
+	/**
+	 * @return the listSymptoms
+	 */
+	public List<Symptom> getListSymptoms() {
+		return listSymptoms;
+	}
+
 
 	public Symptom searchInStringList(String symptomWording) {
 
@@ -26,7 +34,7 @@ public class ListSymptoms {
 		this.listSymptoms.add(symptomToAdd);		
 	}
 
-	public void IncreaseNumberOfSymptom(Symptom symptom) {
+	public void increaseNumberOfSymptom(Symptom symptom) {
 
 		for (Symptom s : this.listSymptoms) {
 			if (symptom.wording.equals(s.wording)) {

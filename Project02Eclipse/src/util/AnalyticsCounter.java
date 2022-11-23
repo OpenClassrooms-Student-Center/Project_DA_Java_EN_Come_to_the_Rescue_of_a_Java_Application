@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package util;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,13 +8,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnalyticsCounter {
+import obj.ListSymptoms;
 
+public class AnalyticsCounter {
+	
 	private String filePathIn;
 	private ISymptomReader symptomReader;
 	private List<String> listFromFile;
+	
 	private ISymptomsAnalyser analysis;
 	private ListSymptoms listSymptoms;
+	
 	private ISymptomWriter symptomWriter; 
 	private String filePathOut;
 

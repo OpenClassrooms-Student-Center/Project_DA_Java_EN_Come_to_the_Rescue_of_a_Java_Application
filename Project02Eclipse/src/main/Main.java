@@ -1,7 +1,9 @@
-package com.hemebiotech.analytics;
+package main;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import util.AnalyticsCounter;
 
 public class Main {
 

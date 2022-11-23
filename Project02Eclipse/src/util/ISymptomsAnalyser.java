@@ -1,6 +1,8 @@
-package com.hemebiotech.analytics;
+package util;
 
 import java.util.List;
+
+import obj.ListSymptoms;
 
 public interface ISymptomsAnalyser {
 	

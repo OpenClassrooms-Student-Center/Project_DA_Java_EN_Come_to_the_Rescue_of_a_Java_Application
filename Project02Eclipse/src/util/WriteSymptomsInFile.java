@@ -1,9 +1,11 @@
-package com.hemebiotech.analytics;
+package util;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import obj.ListSymptoms;
 
 public class WriteSymptomsInFile implements ISymptomWriter {
 	
@@ -21,9 +23,9 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 		FileWriter fwriter = new FileWriter(this.filePathOut);
 		BufferedWriter bwriter = new BufferedWriter(fwriter);
 
-		for (int i = 0; i < this.listSymptoms.listSymptoms.size(); i++) {
+		for (int i = 0; i < this.listSymptoms.getListSymptoms().size(); i++) {
 
-			String line = this.listSymptoms.listSymptoms.get(i).wording + " : " + this.listSymptoms.listSymptoms.get(i).occurences;
+			String line = this.listSymptoms.getListSymptoms().get(i).wording + " : " + this.listSymptoms.getListSymptoms().get(i).occurences;
 			bwriter.write(line);
 			bwriter.newLine();
 
