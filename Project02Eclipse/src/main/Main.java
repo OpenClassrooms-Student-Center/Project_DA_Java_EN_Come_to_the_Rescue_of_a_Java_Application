@@ -9,8 +9,8 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 
-		String filePathIn = "symptoms.txt";
-		String filePathOut = "result.out";
+		String filePathIn = "./fichiers/symptoms.txt";
+		String filePathOut = "./fichiers/result.out";
 				
 		AnalyticsCounter analysis = new AnalyticsCounter(filePathIn, filePathOut);
 		analysis.readFile();

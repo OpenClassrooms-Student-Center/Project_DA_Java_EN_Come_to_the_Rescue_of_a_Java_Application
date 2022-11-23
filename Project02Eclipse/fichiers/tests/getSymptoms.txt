@@ -1,0 +1,4 @@
+Symptom1 : 1
+Symptom2 : 2
+Symptom3 : 3
+Symptom4 : 4

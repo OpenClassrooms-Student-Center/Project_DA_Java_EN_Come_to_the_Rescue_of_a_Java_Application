@@ -23,7 +23,7 @@ public class ListSymptoms {
 	public Symptom searchInStringList(String symptomWording) {
 
 		for (Symptom s : this.listSymptoms) {
-			if (symptomWording.equals(s.wording)) {
+			if (symptomWording.equals(s.getWording())) {
 				return s;
 			}
 		}
@@ -37,8 +37,8 @@ public class ListSymptoms {
 	public void increaseNumberOfSymptom(Symptom symptom) {
 
 		for (Symptom s : this.listSymptoms) {
-			if (symptom.wording.equals(s.wording)) {
-				s.occurences++;
+			if (symptom.getWording().equals(s.getWording())) {
+				s.setOccurences(s.getOccurences() + 1);;
 				break;
 			}
 		}		

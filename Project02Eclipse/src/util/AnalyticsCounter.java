@@ -40,7 +40,7 @@ public class AnalyticsCounter {
 
 	public void writeFile() throws FileNotFoundException, IOException {
 		this.symptomWriter = new WriteSymptomsInFile(this.filePathOut, this.listSymptoms);
-		symptomWriter.WriteSymptoms();
+		symptomWriter.writeSymptoms();
 	}
 
 //	private static int headacheCount = 0;	

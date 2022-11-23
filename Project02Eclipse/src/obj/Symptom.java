@@ -2,8 +2,8 @@ package obj;
 
 public class Symptom implements Comparable<Symptom>{
 
-	public String wording;
-	public int occurences;
+	private String wording;
+	private int occurences;
 
 	public Symptom() {
 		this.occurences = 0;
@@ -11,6 +11,27 @@ public class Symptom implements Comparable<Symptom>{
 
 	public Symptom(String wording, int occurences) {
 		this.wording = wording;
+		this.occurences = occurences;
+	}
+	
+	/**
+	 * @return the wording
+	 */
+	public String getWording() {
+		return wording;
+	}
+
+	/**
+	 * @return the occurences
+	 */
+	public int getOccurences() {
+		return occurences;
+	}
+	
+	/**
+	 * @param occurences the occurences to set
+	 */
+	public void setOccurences(int occurences) {
 		this.occurences = occurences;
 	}
 
@@ -49,7 +70,4 @@ public class Symptom implements Comparable<Symptom>{
 			return -1;
 		}
 	}
-	
-	
-
 }

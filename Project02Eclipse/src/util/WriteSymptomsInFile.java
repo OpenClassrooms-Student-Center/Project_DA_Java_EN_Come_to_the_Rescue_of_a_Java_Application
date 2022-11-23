@@ -18,14 +18,14 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 	}
 	
 	@Override
-	public void WriteSymptoms() throws IOException, FileNotFoundException {
+	public void writeSymptoms() throws IOException, FileNotFoundException {
 
 		FileWriter fwriter = new FileWriter(this.filePathOut);
 		BufferedWriter bwriter = new BufferedWriter(fwriter);
 
 		for (int i = 0; i < this.listSymptoms.getListSymptoms().size(); i++) {
 
-			String line = this.listSymptoms.getListSymptoms().get(i).wording + " : " + this.listSymptoms.getListSymptoms().get(i).occurences;
+			String line = this.listSymptoms.getListSymptoms().get(i).getWording() + " : " + this.listSymptoms.getListSymptoms().get(i).getOccurences();
 			bwriter.write(line);
 			bwriter.newLine();
 
@@ -36,6 +36,4 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 		
 	}
 	
-	
-
 }
