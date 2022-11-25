@@ -11,6 +11,6 @@ public interface ISymptomsAnalyser {
 	 * 
 	 * @return a listing of all Symptom and their occurrences obtained from a data source, duplicates are possible/probable
 	 */
-	ListSymptoms AnalyseSymptoms();
+	ListSymptoms AnalyseSymptoms(List<String> list);
 
 }

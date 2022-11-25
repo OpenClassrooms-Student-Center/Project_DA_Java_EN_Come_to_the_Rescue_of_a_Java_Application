@@ -21,30 +21,53 @@ public class AnalyticsCounter {
 	private ISymptomReader symptomReader;
 	private List<String> listFromFile;
 	
-	private ISymptomsAnalyser analysis;
+	private ISymptomsAnalyser analyser;
 	private ListSymptoms listSymptoms;
 	
 	private ISymptomWriter symptomWriter; 
 	private String filePathOut;
 
-	public AnalyticsCounter(String filePathIn, String filePathOut) {
+	// Version initiale 
+//	public AnalyticsCounter(String filePathIn, String filePathOut) {
+//		this.filePathIn = filePathIn;
+//		this.filePathOut = filePathOut;
+//		this.symptomReader = new ReadSymptomDataFromFile(filePathIn);
+//	}
+
+	// Version modifiée
+	public AnalyticsCounter(String filePathIn, String filePathOut, ISymptomReader symptomReader, ISymptomsAnalyser analyser, ISymptomWriter symptomWriter) {
 		this.filePathIn = filePathIn;
 		this.filePathOut = filePathOut;
-		this.symptomReader = new ReadSymptomDataFromFile(filePathIn);
+		this.symptomReader = symptomReader;
+		this.analyser = analyser;
+		this.symptomWriter = symptomWriter;
 	}
-
+	
 	public void readFile() throws FileNotFoundException, IOException {
 		this.listFromFile = symptomReader.GetSymptoms();
 	}
 
+	// Version initiale
+//	public void analyseData() {		
+//		this.analyser = new AnalyseSymptomsFromList(this.listFromFile);
+//		this.listSymptoms = analyser.AnalyseSymptoms();
+//	}
+	
+	// Version modifiée
 	public void analyseData() {		
-		this.analysis = new AnalyseSymptomsFromList(this.listFromFile);
-		this.listSymptoms = analysis.AnalyseSymptoms();
+		this.listSymptoms = analyser.AnalyseSymptoms(this.listFromFile);
 	}
 
+	// Version initiale
+//	public void writeFile() throws FileNotFoundException, IOException {
+//		this.symptomWriter = new WriteSymptomsInFile(this.filePathOut, this.listSymptoms);
+//		symptomWriter.writeSymptoms();
+//	}
+	
+	// Version modifiée
 	public void writeFile() throws FileNotFoundException, IOException {
-		this.symptomWriter = new WriteSymptomsInFile(this.filePathOut, this.listSymptoms);
-		symptomWriter.writeSymptoms();
+//		this.symptomWriter = new WriteSymptomsInFile(this.filePathOut, this.listSymptoms);
+		symptomWriter.writeSymptoms(this.listSymptoms);
 	}
 
 //	private static int headacheCount = 0;	
