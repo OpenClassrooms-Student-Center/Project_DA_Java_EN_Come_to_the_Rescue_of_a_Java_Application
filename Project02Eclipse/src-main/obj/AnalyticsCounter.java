@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.SortedMap;
 
 import impl.AnalyseSymptomsFromList;
 import impl.ReadSymptomDataFromFile;
@@ -22,7 +24,8 @@ public class AnalyticsCounter {
 	private List<String> listFromFile;
 	
 	private ISymptomsAnalyser analyser;
-	private ListSymptoms listSymptoms;
+//	private ListSymptoms listSymptoms; plus nécessaire
+	private SortedMap<String, Integer> listOfSymptoms; // Rajouté
 	
 	private ISymptomWriter symptomWriter; 
 	private String filePathOut;
@@ -52,10 +55,15 @@ public class AnalyticsCounter {
 //		this.analyser = new AnalyseSymptomsFromList(this.listFromFile);
 //		this.listSymptoms = analyser.AnalyseSymptoms();
 //	}
+
+	// Version intermédiaire
+//	public void analyseData() {		
+//		this.listSymptoms = analyser.AnalyseSymptoms(this.listFromFile);
+//	}
 	
 	// Version modifiée
 	public void analyseData() {		
-		this.listSymptoms = analyser.AnalyseSymptoms(this.listFromFile);
+		listOfSymptoms = analyser.AnalyseSymptoms(this.listFromFile);
 	}
 
 	// Version initiale
@@ -67,7 +75,7 @@ public class AnalyticsCounter {
 	// Version modifiée
 	public void writeFile() throws FileNotFoundException, IOException {
 //		this.symptomWriter = new WriteSymptomsInFile(this.filePathOut, this.listSymptoms);
-		symptomWriter.writeSymptoms(this.listSymptoms);
+		symptomWriter.writeSymptoms(listOfSymptoms);
 	}
 
 //	private static int headacheCount = 0;	

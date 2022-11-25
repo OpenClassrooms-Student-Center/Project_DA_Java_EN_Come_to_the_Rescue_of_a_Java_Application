@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
+import java.util.SortedMap;
 
 import obj.ListSymptoms;
 import services.ISymptomWriter;
@@ -44,16 +46,36 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 //		bwriter.close();		
 //	}
 	
+	// Version intermédiaire
+//	@Override
+//	public void writeSymptoms(ListSymptoms listSymptomes) throws IOException, FileNotFoundException {
+//
+//		FileWriter fwriter = new FileWriter(this.filePathOut);
+//		BufferedWriter bwriter = new BufferedWriter(fwriter);
+//
+//		for (int i = 0; i < listSymptomes.getListSymptoms().size(); i++) {
+//
+//			String line = listSymptomes.getListSymptoms().get(i).getWording() + " : " + listSymptomes.getListSymptoms().get(i).getOccurences();
+//			bwriter.write(line);
+//			bwriter.newLine();
+//		}
+//		
+//		bwriter.flush();
+//		fwriter.close();
+//		bwriter.close();		
+//	}
+
 	// Version modifiée
 	@Override
-	public void writeSymptoms(ListSymptoms listSymptomes) throws IOException, FileNotFoundException {
+	public void writeSymptoms(SortedMap<String, Integer> listOfSymptoms) throws IOException, FileNotFoundException {
 
 		FileWriter fwriter = new FileWriter(this.filePathOut);
 		BufferedWriter bwriter = new BufferedWriter(fwriter);
+		
+		for (String s : listOfSymptoms.keySet()) {
+			
+			String line = s + " : " + listOfSymptoms.get(s);
 
-		for (int i = 0; i < listSymptomes.getListSymptoms().size(); i++) {
-
-			String line = listSymptomes.getListSymptoms().get(i).getWording() + " : " + listSymptomes.getListSymptoms().get(i).getOccurences();
 			bwriter.write(line);
 			bwriter.newLine();
 		}
@@ -61,7 +83,7 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 		bwriter.flush();
 		fwriter.close();
 		bwriter.close();		
-	}
 
+	}
 	
 }
