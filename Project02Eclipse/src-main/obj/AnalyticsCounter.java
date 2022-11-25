@@ -1,4 +1,4 @@
-package util;
+package obj;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,7 +8,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import obj.ListSymptoms;
+import impl.AnalyseSymptomsFromList;
+import impl.ReadSymptomDataFromFile;
+import impl.WriteSymptomsInFile;
+import services.ISymptomReader;
+import services.ISymptomWriter;
+import services.ISymptomsAnalyser;
 
 public class AnalyticsCounter {
 	
@@ -30,7 +35,6 @@ public class AnalyticsCounter {
 
 	public void readFile() throws FileNotFoundException, IOException {
 		this.listFromFile = symptomReader.GetSymptoms();
-
 	}
 
 	public void analyseData() {		

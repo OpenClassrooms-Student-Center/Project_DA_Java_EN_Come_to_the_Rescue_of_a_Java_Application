@@ -1,10 +1,13 @@
-package util;
+package impl;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import services.ISymptomReader;
 
 /**
  * 
@@ -23,7 +26,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	}
 	
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> GetSymptoms() throws FileNotFoundException {
 
 		List<String> result = new ArrayList<String>();
 		
@@ -44,6 +47,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				
 			} catch (IOException e) {
 				e.printStackTrace();
+				throw new FileNotFoundException();
 			}
 		}		
 		return result;

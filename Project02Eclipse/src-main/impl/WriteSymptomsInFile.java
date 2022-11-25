@@ -1,4 +1,4 @@
-package util;
+package impl;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import obj.ListSymptoms;
+import services.ISymptomWriter;
 
 public class WriteSymptomsInFile implements ISymptomWriter {
 	
@@ -28,12 +29,11 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 			String line = this.listSymptoms.getListSymptoms().get(i).getWording() + " : " + this.listSymptoms.getListSymptoms().get(i).getOccurences();
 			bwriter.write(line);
 			bwriter.newLine();
-
 		}
+		
 		bwriter.flush();
 		fwriter.close();
-		bwriter.close();
-		
+		bwriter.close();		
 	}
 	
 }

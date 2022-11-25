@@ -11,7 +11,8 @@ import obj.Symptom;
 
 class ListSymptomsTest {
 
-	public ListSymptoms makeList() {
+	@BeforeAll
+	public static ListSymptoms makeList() {
 
 		Symptom symptom1 = new Symptom("symptom1", 1);
 		Symptom symptom2 = new Symptom("symptom2", 2);

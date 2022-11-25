@@ -19,7 +19,6 @@ public class ListSymptoms {
 		return listSymptoms;
 	}
 
-
 	public Symptom searchInStringList(String symptomWording) {
 
 		for (Symptom s : this.listSymptoms) {

@@ -1,6 +1,6 @@
 package tests;
 
-import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.FileNotFoundException;
@@ -15,7 +15,7 @@ import util.ReadSymptomDataFromFile;
 class ReadSymptomDataFromFileTest {
 
 	@Test
-	void testGetSymptoms() {
+	void testGetSymptoms() throws FileNotFoundException {
 
 		List<String> listExpected = new ArrayList<String>();
 		listExpected.add("Symptom1 : 1");
@@ -33,18 +33,16 @@ class ReadSymptomDataFromFileTest {
 	@Test
 	void testGetSymptomsFileNotFound() {
 
-//		String fileNotFound = "./fichiers/tests/filexxxx.txt";
-//		
-//		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(fileNotFound);
-//
-//		assertThrows(FileNotFoundException.class, () -> {reader.GetSymptoms()});
+		String fileNotFound = "./fichiers/tests/filexxxx.txt";
 		
-		fail("Not yet implemented");
-
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(fileNotFound);
+		
+		assertThrows(FileNotFoundException.class, () -> reader.GetSymptoms());
+		
 	}
 	
 	@Test
-	void testGetSymptomsEmptyFile() {
+	void testGetSymptomsEmptyFile() throws FileNotFoundException {
 		
 		List<String> listExpected = new ArrayList<String>();
 		
