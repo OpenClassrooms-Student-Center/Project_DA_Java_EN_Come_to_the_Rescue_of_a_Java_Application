@@ -14,6 +14,7 @@ public class AnalyticsCounter {
      * @param alphabeticSymptomList
      * @return Map of symptom and number
      */
+	
     public Map<String, Integer> groupSymptoms(List<String> alphabeticSymptomList) {
     	Map<String, Integer> map = new HashMap<>();
         for (String symptom : alphabeticSymptomList) {
@@ -42,8 +43,5 @@ public class AnalyticsCounter {
         return result;
         
     }
-	
-	
-	
 } 
 	

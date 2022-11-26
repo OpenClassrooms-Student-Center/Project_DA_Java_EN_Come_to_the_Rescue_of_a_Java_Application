@@ -13,6 +13,7 @@ public class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
+		
 		/** Read the symptoms and give feedback
 		 */
 
@@ -20,7 +21,7 @@ public class Main {
 		List<String> symptoms = readData.GetSymptoms("C:\\Users\\natha\\git\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\bin\\com\\hemebiotech\\analytics\\symptoms.txt");
 		
 				
-		/** Sorting by alphabetical order and occurences
+		/** Sorting by alphabetical order and occurrences
 		 */
 		
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter();

@@ -60,7 +60,6 @@ public class ReadAndWriteSymptomDataFile implements ISymptomReader {
 	}
 		} catch (IOException e) {
 			e.printStackTrace();
-
 		}
 	}
 
