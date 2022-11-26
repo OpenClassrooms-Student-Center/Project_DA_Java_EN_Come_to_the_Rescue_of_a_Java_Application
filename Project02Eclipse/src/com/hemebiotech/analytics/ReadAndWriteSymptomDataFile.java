@@ -12,11 +12,10 @@ import java.util.Map.Entry;
 /**
  * Simple brute force implementation
  */
-public class ReadSymptomDataFromFile implements ISymptomReader {
+public class ReadAndWriteSymptomDataFile implements ISymptomReader {
 
 	
-	public ReadSymptomDataFromFile() {
-		// TODO Auto-generated constructor stub
+	public ReadAndWriteSymptomDataFile() {
 	}
 
 	/**
@@ -39,7 +38,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				}
 				reader.close();
 				
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -55,15 +53,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      * @see com.hemebiotech.analytics#ISymptomReader.writeFile(String fileOut, Map<String, Integer> groupedSymptoms)
      * @param groupedSymptoms 
      */
-	
-	@Override
-	public List<String> GetSymptoms() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public void writeFile(String fileOut, Map<String, Integer> groupedSymptoms) {
-		// TODO Auto-generated method stub
 		try(FileWriter writer = new FileWriter(fileOut)) {
 	for (Entry<String, Integer> key : groupedSymptoms.entrySet())	{
 		writer.write(key.getKey() + "=" + groupedSymptoms.get(key.getKey()) + "\n");
@@ -72,5 +62,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			e.printStackTrace();
 
 		}
+	}
+
+	@Override
+	public List<String> GetSymptoms() {
+
+		return null;
 	}
 }

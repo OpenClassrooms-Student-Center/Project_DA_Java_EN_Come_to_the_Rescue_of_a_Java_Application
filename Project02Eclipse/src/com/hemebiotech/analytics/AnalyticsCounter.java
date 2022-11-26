@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class AnalyticsCounter {
 	
-	
+
 	/**
      * Read alphabeticSymptomList and create a Map with name and number
      * @param alphabeticSymptomList
@@ -32,7 +32,7 @@ public class AnalyticsCounter {
      * @param groupedSymptoms
      * @return list of symptoms sorted in alphabetical order
      */
-    
+   
     public Map<String, Integer> sortOfSymptoms(Map<String, Integer> groupedSymptoms) {        
         
     	Map<String, Integer> result = new LinkedHashMap<>();
