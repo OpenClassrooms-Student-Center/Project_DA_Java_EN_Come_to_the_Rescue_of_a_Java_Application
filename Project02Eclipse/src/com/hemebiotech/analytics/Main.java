@@ -17,8 +17,8 @@ public class Main {
 		/** Read the symptoms and give feedback
 		 */
 
-		ReadAndWriteSymptomDataFile readData = new ReadAndWriteSymptomDataFile();
-		List<String> symptoms = readData.GetSymptoms("C:\\Users\\natha\\git\\Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application\\bin\\com\\hemebiotech\\analytics\\symptoms.txt");
+		ISymptomReader readData = new ReadAndWriteSymptomDataFile();
+		List<String> symptoms = readData.GetSymptoms("Project02Eclipse/symptoms.txt");
 		
 				
 		/** Sorting by alphabetical order and occurrences

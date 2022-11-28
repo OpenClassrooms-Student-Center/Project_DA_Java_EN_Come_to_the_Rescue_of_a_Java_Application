@@ -56,16 +56,16 @@ public class ReadAndWriteSymptomDataFile implements ISymptomReader {
 	public void writeFile(String fileOut, Map<String, Integer> groupedSymptoms) {
 		try(FileWriter writer = new FileWriter(fileOut)) {
 	for (Entry<String, Integer> key : groupedSymptoms.entrySet())	{
-		writer.write(key.getKey() + "=" + groupedSymptoms.get(key.getKey()) + "\n");
+		writer.write(key.getKey() + " = " + groupedSymptoms.get(key.getKey()) + "\n");
 	}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 	@Override
 	public List<String> GetSymptoms() {
 
 		return null;
 	}
+	
 }
