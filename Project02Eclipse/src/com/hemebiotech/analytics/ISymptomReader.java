@@ -21,7 +21,7 @@ public interface ISymptomReader {
 	
 	public void writeFile(String fileOut, Map<String, Integer> groupedSymptoms);
 
-	List<String> GetSymptoms();
 
 
+	
 }
