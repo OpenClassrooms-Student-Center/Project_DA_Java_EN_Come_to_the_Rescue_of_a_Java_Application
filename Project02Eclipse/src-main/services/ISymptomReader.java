@@ -1,6 +1,7 @@
 package services;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public interface ISymptomReader {
 	 * 
 	 * @return a raw listing of all Symptom obtained from a data source, duplicates are possible/probable
 	 * @throws FileNotFoundException 
+	 * @throws IOException 
 	 */
-	List<String> GetSymptoms () throws FileNotFoundException;
+	List<String> getSymptoms () throws FileNotFoundException, IOException;
 }

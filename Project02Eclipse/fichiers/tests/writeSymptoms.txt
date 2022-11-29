@@ -1,5 +1,0 @@
-symptom1 : 1
-symptom2 : 2
-symptom3 : 3
-symptom4 : 4
-symptom5 : 5

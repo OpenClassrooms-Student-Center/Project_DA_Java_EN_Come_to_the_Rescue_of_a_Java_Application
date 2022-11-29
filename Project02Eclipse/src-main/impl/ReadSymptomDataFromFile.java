@@ -11,65 +11,42 @@ import services.ISymptomReader;
 
 /**
  * 
+ * @author Sophie
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filePath;
+	private String filePathIn;
 	
 	/**
 	 * 
-	 * @param filePath a full or partial path to file with symptom strings in it, one per line
+	 * @param filePathIn a full or partial path to file with symptom strings in it, one per line
 	 */
-	public ReadSymptomDataFromFile (String filePath) {
-		this.filePath = filePath;
+	public ReadSymptomDataFromFile (String filePathIn) {
+		this.filePathIn = filePathIn;
 	}
 	
 	@Override
-	public List<String> GetSymptoms() throws FileNotFoundException {
+	public List<String> getSymptoms() throws IOException, FileNotFoundException {
 
-		List<String> result = new ArrayList<String>();
+		List<String> listSymptomsString = new ArrayList<String>();
 		
-		if (filePath != null) {
+		if (filePathIn != null) {
 			
-			try {
-				FileReader freader = new FileReader(this.filePath);
+				FileReader freader = new FileReader(this.filePathIn);
 				BufferedReader breader = new BufferedReader(freader);
 
 				String line = breader.readLine();
 				
 				while (line != null) {
-					result.add(line);
+					listSymptomsString.add(line);
 					line = breader.readLine();
 				}
 				freader.close();
 				breader.close();
 				
-			} catch (IOException e) {
-				e.printStackTrace();
-				throw new FileNotFoundException();
-			}
 		}		
-		return result;
+		return listSymptomsString;
 	}
-//		ArrayList<String> result = new ArrayList<String>();
-//		
-//		if (filePath != null) {
-//			try {
-//				BufferedReader reader = new BufferedReader (new FileReader(filePath));
-//				String line = reader.readLine();
-//				
-//				while (line != null) {
-//					result.add(line);
-//					line = reader.readLine();
-//				}
-//				reader.close();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		return result;
-//	}
 
 }
