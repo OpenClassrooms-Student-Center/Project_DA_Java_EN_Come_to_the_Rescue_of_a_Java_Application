@@ -16,6 +16,12 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 		this.filePathOut = filePath;
 	}
 
+	/**
+	 * Method that writes data recorded in a SortedMap<String, Integer>, in a file.
+	 * @param SortedMap<String, Integer> listOfSymptoms
+	 * @throws IOException
+	 * @throws FileNotFoundException
+	 */
 	@Override
 	public void writeSymptoms(SortedMap<String, Integer> listSymptomsAndOccurrence) throws IOException, FileNotFoundException {
 
@@ -33,7 +39,5 @@ public class WriteSymptomsInFile implements ISymptomWriter {
 		bwriter.flush();
 		fwriter.close();
 		bwriter.close();		
-
 	}
-	
 }

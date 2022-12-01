@@ -4,16 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.SortedMap;
 
-/**
- * 
- * @author Sophie
- *
- */
 public interface ISymptomWriter {
 
 	/**
-	 * 
-	 * @param listOfSymptoms
+	 * Method that writes data in support, data are recorded in a SortedMap<String, Integer>.
+	 * @param SortedMap<String, Integer> listOfSymptoms
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */

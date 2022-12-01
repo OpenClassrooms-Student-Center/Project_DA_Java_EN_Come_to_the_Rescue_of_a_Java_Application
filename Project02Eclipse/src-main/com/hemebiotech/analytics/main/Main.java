@@ -17,9 +17,9 @@ public class Main {
 		
 		AnalyticsCounter analysis = new AnalyticsCounter(new ReadSymptomDataFromFile(filePathIn), new AnalyseSymptomsFromList(),
 				new WriteSymptomsInFile(filePathOut));
-		analysis.readFile();
+		analysis.readData();
 		analysis.analyseData();
-		analysis.writeFile();
+		analysis.writeData();
 
 	}
 

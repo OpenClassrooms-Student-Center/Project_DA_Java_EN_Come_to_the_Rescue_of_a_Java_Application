@@ -12,17 +12,11 @@ import services.ISymptomsAnalyser;
 public class AnalyticsCounter {
 	
 	private ISymptomReader symptomReader;
-	private List<String> listFromFile;	
+	private List<String> listFromDataSource;	
 	private ISymptomsAnalyser analyser;
 	private SortedMap<String, Integer> listOfSymptoms;
 	private ISymptomWriter symptomWriter; 
 	
-	/**
-	 * 
-	 * @param symptomReader
-	 * @param analyser
-	 * @param symptomWriter
-	 */
 	public AnalyticsCounter(ISymptomReader symptomReader, ISymptomsAnalyser analyser, ISymptomWriter symptomWriter) {
 		this.symptomReader = symptomReader;
 		this.analyser = analyser;
@@ -30,27 +24,27 @@ public class AnalyticsCounter {
 	}
 	
 	/**
-	 * 
+	 * Method that extracts data from a data source and fill the attribute listFromDataSource of this class.
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public void readFile() throws FileNotFoundException, IOException {
-		this.listFromFile = symptomReader.getSymptoms();
+	public void readData() throws FileNotFoundException, IOException {
+		this.listFromDataSource = symptomReader.getSymptoms();
 	}
 
 	/**
-	 * 
+	 * Method that analyze data and fill the attribute listOfSymptoms of this class. 
 	 */
 	public void analyseData() {		
-		this.listOfSymptoms = analyser.analyseSymptoms(this.listFromFile);
+		this.listOfSymptoms = analyser.analyseSymptoms(this.listFromDataSource);
 	}
 
 	/**
-	 * 
+	 * Method that write extracted and analyzed data.
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public void writeFile() throws FileNotFoundException, IOException {
+	public void writeData() throws FileNotFoundException, IOException {
 		this.symptomWriter.writeSymptoms(listOfSymptoms);
 	}
 }

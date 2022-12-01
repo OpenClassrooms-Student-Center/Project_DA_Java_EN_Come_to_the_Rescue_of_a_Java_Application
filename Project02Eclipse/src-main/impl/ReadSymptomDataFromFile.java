@@ -9,23 +9,21 @@ import java.util.List;
 
 import services.ISymptomReader;
 
-/**
- * 
- * @author Sophie
- *
- */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filePathIn;
 	
-	/**
-	 * 
-	 * @param filePathIn a full or partial path to file with symptom strings in it, one per line
-	 */
 	public ReadSymptomDataFromFile (String filePathIn) {
 		this.filePathIn = filePathIn;
 	}
-	
+	/**
+	 * Method that extracts symptoms data from a file and returns all the symptoms in a List of String.
+	 * @return a List of String filled with all symptoms obtained from the data source (duplicates are possible/probable)
+	 * @return an empty List if no data is available
+	 * @throws FileNotFoundException 
+	 * @throws IOException 
+	 */
 	@Override
 	public List<String> getSymptoms() throws IOException, FileNotFoundException {
 
