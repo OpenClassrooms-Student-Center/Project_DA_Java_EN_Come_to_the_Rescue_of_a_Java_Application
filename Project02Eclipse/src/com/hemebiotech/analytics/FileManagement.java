@@ -61,12 +61,12 @@ public class FileManagement implements IFileManagement {
 	public void generateSymptomsReport(Map<String, Long> occurenceBySymptoms) {
 		FileWriter writer = null;
 		try {
-			writer = new FileWriter("result.out");
+			writer = new FileWriter("results.out");
 			String symptomLine = null;
 			System.out.println("--- DEBUT RAPPORT ---");
 			for (String symptom : occurenceBySymptoms.keySet()) {
 				symptomLine = symptom + ": " + occurenceBySymptoms.get(symptom) + "\n" ;
-				System.out.println(symptomLine);
+				System.out.print(symptomLine);
 				writer.write(symptomLine);
 			}
 			System.out.println("--- FIN RAPPORT ---");

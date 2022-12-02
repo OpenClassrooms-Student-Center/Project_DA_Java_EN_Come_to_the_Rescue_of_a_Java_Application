@@ -8,8 +8,7 @@ import java.util.Map;
  */
 public class AnalyticsCounter {
 
-	// todo don't forget to ask  the mentor about the relatif path instead of the absolute one below
-	private static final String path = "C:\\Users\\dimit\\OneDrive\\Bureau\\Developpeur_Java_Bac_LVL_4\\Projets\\Projet 2\\p2Clone\\Project02Eclipse";
+	private static final String path = "Project02Eclipse/resources";
 	private static final String fileName = "symptoms.txt";
 	private static final String filePath = path + "/" + fileName;
 
