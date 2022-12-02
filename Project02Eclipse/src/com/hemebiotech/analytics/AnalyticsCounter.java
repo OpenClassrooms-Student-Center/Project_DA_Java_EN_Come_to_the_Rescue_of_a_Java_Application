@@ -1,43 +1,32 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Map;
 
+/**
+ * Starting point of the application
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	private static final String path = "Project02Eclipse/resources";
+	private static final String fileName = "symptoms.txt";
+	private static final String filePath = path + "/" + fileName;
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	/**
+	 * Principal method, this method will call the others methods
+	 * @param args
+	 */
+	public static void main(String[] args) {
+
+		//1 - Read the file of symptoms (symptoms.txt)
+		IFileManagement fileManagement = new FileManagement(filePath);
+		List<String> symptomsList = fileManagement.getSymptoms();
+
+		//2 - Sort the symptoms by number of occurence / then by alphbetic number
+		Map<String, Long> occurenceBySymptoms = fileManagement.countAndSortSymptoms(symptomsList);
+
+		//3 - Generate the report with the symptoms and their occurence written
+		fileManagement.generateSymptomsReport(occurenceBySymptoms);
+
 	}
 }
