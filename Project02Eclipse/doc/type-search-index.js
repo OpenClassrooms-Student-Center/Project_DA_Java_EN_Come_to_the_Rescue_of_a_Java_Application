@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.hemebiotech.analytics","l":"AnalyticsCounterMain"},{"p":"com.hemebiotech.analytics","l":"AnalyticsCounternew"},{"p":"com.hemebiotech.analytics","l":"IAnalyticsCounternew"}];updateSearchResults();
