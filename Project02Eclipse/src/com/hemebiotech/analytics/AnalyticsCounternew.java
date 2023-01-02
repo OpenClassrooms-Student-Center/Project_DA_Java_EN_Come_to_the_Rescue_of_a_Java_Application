@@ -30,7 +30,6 @@ public class AnalyticsCounternew implements IAnalyticsCounternew {
 	 * <p>
 	 * 
 	 * @param fileName le nom de fichier symptoms.txt.
-	 * @param line     ligne.
 	 * @return la liste des symptoms stocker dans la liste result.
 	 */
 	@Override
@@ -73,11 +72,6 @@ public class AnalyticsCounternew implements IAnalyticsCounternew {
 	 * <p>
 	 * 
 	 * @param listSymptoms la liste des symptomes.
-	 * @param symptom      utilise dans la boucle forEach pour parcourir la liste
-	 *                     listSymptoms.
-	 * @param oldOcurence  c'est la valeur de mapResult quand il prend la valeur de
-	 *                     symptom.
-	 * @param newOcurence  c'est la valeur de oldOcurence incrémente.
 	 * @return mapResult qui prend en clé le nom de symptome et en valeur son
 	 *         occurence trier par ordre alphabétique.
 	 */
@@ -114,8 +108,7 @@ public class AnalyticsCounternew implements IAnalyticsCounternew {
 	 * <p>
 	 * 
 	 * @param fileNameOut le nom de fichier result.out
-	 * @param entry       utilise dans la boucle forEach pour parcourir
-	 *                    symptomsOcurenceMap.
+	 * @param symptomsOcurenceMap les noms des symptomes avec leurs occurences.  
 	 * @return fichier result.out.
 	 */
 	@Override
