@@ -19,7 +19,7 @@ public class AnalyticsCounterMain {
 		// appel la méthode qui regroupe le symptom par occurence
 		Map<String, Integer> symptomsOcurenceMap = analyticsCounter.getSymptomsMapOcurence(listSym);
 
-		// pour affichage
+		// pour l'affichage 
 		symptomsOcurenceMap.forEach((key, value) -> {
 			System.out.println("symptom : " + key + " | occurence : " + value);
 		});

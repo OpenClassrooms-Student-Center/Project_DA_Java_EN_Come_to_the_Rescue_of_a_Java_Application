@@ -22,7 +22,7 @@ public class AnalyticsCounternew implements IAnalyticsCounternew {
 	}
 
 	/**
-	 * Méthode pour récupèrer la liste des symptomes.
+	 * Méthode pour récupèrer la liste des symptomes à partire d'un fichier.
 	 * <p>
 	 * Cette méthode sert à lire le fichier symptoms.txt ligne par ligne et les
 	 * stocker dans la liste result . le Try catch utilise dans cette méthode permet
