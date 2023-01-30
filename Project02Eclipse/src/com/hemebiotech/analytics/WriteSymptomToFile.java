@@ -27,7 +27,7 @@ public class WriteSymptomToFile implements IWriteSymptomToFile {
 	}
 	
 	@Override
-	public void writeSymwptom(Map<String, Integer> hashSymptoms) {
+	public void writeSymptom(Map<String, Integer> hashSymptoms) {
 	if (filepath != null) {
 		FileWriter writer = null;
 		try {
@@ -37,7 +37,6 @@ public class WriteSymptomToFile implements IWriteSymptomToFile {
 			for(Map.Entry<String, Integer> m : hashSymptoms.entrySet()) { 
 				writer.write(m.getKey() + " : " + m.getValue() + "\n");
 			}
-			writer.close();
 		} catch (IOException e) {
 			System.out.println("Fichier de sortie non valide " + e.getLocalizedMessage());
 		} finally

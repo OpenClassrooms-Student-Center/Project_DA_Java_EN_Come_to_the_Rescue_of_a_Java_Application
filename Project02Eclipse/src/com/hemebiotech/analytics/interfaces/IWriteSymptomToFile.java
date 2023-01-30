@@ -16,5 +16,5 @@ public interface IWriteSymptomToFile {
 	 * @Version 1.0
 	 *
 	 */
-	public void writeSymwptom(Map<String, Integer> hashSymptoms);
+	public void writeSymptom(Map<String, Integer> hashSymptoms);
 }

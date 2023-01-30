@@ -36,6 +36,6 @@ public class Analytics {
 		hashSymptoms = myIcountSymptoms.countSymptomsLstToHash(lstSymptoms);
 		
 		IWriteSymptomToFile myWriteSymptomToFile = new WriteSymptomToFile("result.out");
-		myWriteSymptomToFile.writeSymwptom(hashSymptoms); 
+		myWriteSymptomToFile.writeSymptom(hashSymptoms); 
 	}
 }
