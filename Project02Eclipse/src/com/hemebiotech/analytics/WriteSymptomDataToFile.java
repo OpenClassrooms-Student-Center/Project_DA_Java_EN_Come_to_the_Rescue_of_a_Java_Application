@@ -22,5 +22,4 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 			e.printStackTrace();
 		}
 	}
-
 }
