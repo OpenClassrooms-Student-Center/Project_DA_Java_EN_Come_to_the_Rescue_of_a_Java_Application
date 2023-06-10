@@ -18,7 +18,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 *                        operations
 	 * @param symptoms raw with symptoms (key) and occurrence (value)
 	 */
-	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
 
 		try {
