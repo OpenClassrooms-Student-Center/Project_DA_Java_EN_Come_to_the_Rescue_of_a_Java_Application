@@ -19,6 +19,4 @@ public interface ISymptomReader {
 	 */
 	List<String> getSymptoms();
 
-	String getFilepath();
-
 }
