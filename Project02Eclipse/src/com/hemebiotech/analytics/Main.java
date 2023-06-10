@@ -6,11 +6,12 @@ import java.util.Map;
 public class Main {
 
 	public static String filepathIn = ".\\Project02Eclipse\\symptoms.txt";
+	public static String filepathOut = ".\\Project02Eclipse\\result.out";
 
 	public static void main(String args[]) {
 
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(filepathIn);
-		WriteSymptomDataToFile writer = new WriteSymptomDataToFile();
+		WriteSymptomDataToFile writer = new WriteSymptomDataToFile(filepathOut);
 		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
 
 		List<String> listSymptoms = reader.getSymptoms();
