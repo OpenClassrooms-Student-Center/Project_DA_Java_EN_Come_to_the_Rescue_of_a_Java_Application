@@ -1,43 +1,61 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
 
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	ISymptomReader reader;
+	ISymptomWriter writer;
 
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	// Constructor of AnalyticsCounter()
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
 	}
+
+	/**
+	 * This method returns a raw, a hashmap with the symptoms as key and its
+	 * occurrence as value
+	 * 
+	 * @param listSymptoms list of symptoms
+	 * @return Map<String, Integer> list of symptoms (key: symptom and value:
+	 *         occurrence of the symptom
+	 */
+	public Map<String, Integer> countSymptoms(List<String> listSymptoms) {
+		Map<String, Integer> symptoms = new HashMap<>();
+
+		Integer count = 0;
+
+		for (String str : listSymptoms) {
+			if (symptoms.containsKey(str)) { // is true if hashmap symptoms contains the symptom (key) from the list
+												// listSymptoms
+				count = symptoms.get(str) + 1; // increment count if the symptom is already in the hashmap symptoms
+				symptoms.put(str, count); // update the count of symptom (value) for the symptom (key)
+			} else {
+				count = 1; // if the symptom is unknown, the symptom is put in the hashmap as a key with
+							// the value 1 (first occurrence)
+				symptoms.put(str, count);
+			}
+		}
+		return symptoms;
+	}
+
+	/**
+	 * This method returns a raw sorted by alphabetic order from an another raw
+	 * unsorted
+	 * 
+	 * @param symptoms raw with symptoms (key) and occurrence (value)
+	 * @return Map<String, Integer> list of symptoms sorted by alphabetic order
+	 *         (key: symptom and value: occurrence of the symptom
+	 */
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+		Map<String, Integer> sortedList = new TreeMap<>(symptoms); // Treemap allows to sort the list of symptoms
+		sortedList.putAll(symptoms); // put the key-value in a raw sortedList from the raw TreeMap (use to sort the
+										// key symptom
+		return sortedList;
+	}
+
 }
