@@ -7,9 +7,6 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
-	ISymptomReader reader;
-	ISymptomWriter writer;
-
 	/**
 	 * This method returns a raw, a hashmap with the symptoms as key and its
 	 * occurrence as value
