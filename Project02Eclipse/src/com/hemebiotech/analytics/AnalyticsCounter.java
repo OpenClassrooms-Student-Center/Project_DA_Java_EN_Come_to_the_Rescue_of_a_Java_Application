@@ -7,20 +7,12 @@ import java.util.TreeMap;
 
 public class AnalyticsCounter {
 
-	ISymptomReader reader;
-	ISymptomWriter writer;
-
-	// Constructor of AnalyticsCounter()
-	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
-		this.reader = reader;
-		this.writer = writer;
-	}
-
 	/**
 	 * This method returns a raw, a hashmap with the symptoms as key and its
 	 * occurrence as value
 	 * 
 	 * @param listSymptoms list of symptoms
+	 * 
 	 * @return Map<String, Integer> list of symptoms (key: symptom and value:
 	 *         occurrence of the symptom
 	 */
