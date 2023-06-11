@@ -5,14 +5,14 @@ import java.util.Map;
 
 public class Main {
 
-	public static String filepathIn = ".\\Project02Eclipse\\symptoms.txt";
-	public static String filepathOut = ".\\Project02Eclipse\\result.out";
-
 	public static void main(String args[]) {
+
+		final String filepathIn = ".\\Project02Eclipse\\symptoms.txt";
+		final String filepathOut = ".\\Project02Eclipse\\result.out";
 
 		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile(filepathIn);
 		WriteSymptomDataToFile writer = new WriteSymptomDataToFile(filepathOut);
-		AnalyticsCounter analyticsCounter = new AnalyticsCounter(reader, writer);
+		AnalyticsCounter analyticsCounter = new AnalyticsCounter();
 
 		List<String> listSymptoms = reader.getSymptoms();
 
