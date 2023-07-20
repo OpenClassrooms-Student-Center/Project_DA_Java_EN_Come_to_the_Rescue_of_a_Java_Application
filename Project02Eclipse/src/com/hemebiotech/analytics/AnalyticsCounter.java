@@ -27,10 +27,5 @@ public class AnalyticsCounter {
       }
       line = reader.readLine();
     }
-    FileWriter writer = new FileWriter("result.out");
-    writer.write("headache: " + headacheCount + "\n");
-    writer.write("rash: " + rashCount + "\n");
-    writer.write("dialated pupils: " + pupilCount + "\n");
-    writer.close();
   }
 }
