@@ -1,8 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,14 +14,14 @@ public class AnalyticsCounter {
     this.writer = writer;
   }
 
-  public List<String> getSymptoms() {
-    return reader.retrieveSymptoms();
-  }
-
   public Map<String, Integer> countSymptoms(final List<String> symptoms) {
     final Map<String, Integer> map = new HashMap<>();
     symptoms.forEach(s -> map.put(s, symptoms.stream().filter(word -> word.equals(s)).toList().size()));
     return map;
+  }
+
+  public List<String> getSymptoms() {
+    return reader.retrieveSymptoms();
   }
 
   public Map<String, Integer> sortSymptoms(final Map<String, Integer> symptoms) {
