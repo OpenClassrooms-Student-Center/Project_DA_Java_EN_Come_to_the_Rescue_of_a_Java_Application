@@ -31,8 +31,7 @@ public class AnalyticsCounter {
 
 			line = reader.readLine();
 		}
-		
-		// next generate output
+//	 next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
