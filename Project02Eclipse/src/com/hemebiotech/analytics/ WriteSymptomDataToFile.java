@@ -11,11 +11,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 //    private String symptom;
 //    private Integer countOfSymptoms;
 //    public WriteSymptomDataToFile(String symptom, Integer countOfSymptoms);{this.symptom=symptom;this.countOfSymptoms}
-//    FileWriter writer = new FileWriter ("result.out");
-//    writer.write("headache: " + headacheCount + "\n");
-//    writer.write("rash: " + rashCount + "\n");
-//    writer.write("dialated pupils: " + pupilCount + "\n");
-//    writer.close();
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms){
         try {
