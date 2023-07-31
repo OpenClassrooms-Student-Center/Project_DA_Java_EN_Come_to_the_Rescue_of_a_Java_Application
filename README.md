@@ -5,5 +5,7 @@
 Set in ../Project02Eclipse/ and :
 ```
 javac src/com/hemebiotech/analytics/AnalyticsCounter.java
+javac src/com/hemebiotech/analytics/*.java
+
 java -cp ./src com.hemebiotech.analytics.AnalyticsCounter
 ```
