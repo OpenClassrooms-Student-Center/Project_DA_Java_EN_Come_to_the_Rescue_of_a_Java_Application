@@ -2,12 +2,17 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 import java.util.Map;
+
 public class Main{
+    /**
+     * Main function of the app
+     * @param args
+     * @throws Exception
+     */
     public static void main(String args[]) throws Exception {
+        final String FILEPATH = "symptoms.txt";
 
-        final String filepath = "symptoms.txt";
-
-        ISymptomReader symptomReader = new ReadSymptomDataFromFile(filepath);
+        ISymptomReader symptomReader = new ReadSymptomDataFromFile(FILEPATH);
         ISymptomWriter symptomWriter = new WriteSymptomDataToFile();
         AnalyticsCounter analyticsCounter = new AnalyticsCounter(symptomReader, symptomWriter);
 

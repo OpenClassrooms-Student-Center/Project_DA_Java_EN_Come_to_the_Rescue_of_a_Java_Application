@@ -8,30 +8,32 @@ import java.util.TreeMap;
 public class AnalyticsCounter {
 	private ISymptomReader reader;
 	private ISymptomWriter writer;
-/**
- * Créez le constructeur avec pour paramètres un objet de type
- * ISymptomReader et un objet de type ISymptomWriter. Ce
- * constructeur doit assigner les valeurs de ces deux paramètres à
- * deux attributs de classe.
- */
+
+	/**
+	 * Constructor of the class AnalyticsCounter
+	 *
+	 * @param The Object of type ISymptomReader is used to read symptoms for a file
+	 * @param The Object of type ISymptomWriter is used to write symptoms and occurence in a output file
+	 */
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
 
 	}
-/**
- * Créez une méthode getSymptoms qui récupère la liste des entrées
- * dans le fichier en utilisant l’instance de ISymptomReader déjà
- * créée ;
- */
+	/**
+	 * Read sympstoms.txt file and return the List of symptoms
+	 *
+	 * @return symptoms List
+	 */
 	public List<String> getSymptoms() {
-//		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("symptoms.txt");
 		List<String> symptoms = reader.getSymptoms();
 		return symptoms;
 		}
 	/**
-	 * Créez une méthode countSymptoms qui compte les occurrences
-	 * de chaque symptôme existant ;
+	 * Count occurence of a symptom
+	 *
+	 * @param symptoms List
+	 * @return symptoms K: symptom V: Occurence
 	 */
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		Map<String, Integer> symptomCountMap = new HashMap<String, Integer>();
@@ -41,33 +43,31 @@ public class AnalyticsCounter {
 		for (String symptom : symptoms) {
 			System.out.println(symptom);
 			boolean isSymptomAlreadyExists = symptomCountMap.containsKey(symptom);
+			Integer count = 1;
 			if (isSymptomAlreadyExists){
-				Integer count = symptomCountMap.get(symptom);
-				symptomCountMap.put(symptom,count++);
-
-//				count++;
+				count = symptomCountMap.get(symptom) + 1;
 			}
 			else{
-				Integer count = 1;
-				symptomCountMap.put(symptom,count);
 			}
+			symptomCountMap.put(symptom,count);
 		}
 		return symptomCountMap;
 	}
-/**
- * Créez une méthode sortSymptoms qui trie la liste de symptômes
- * et d’occurrences par ordre alphabétique ;
- */
+	/**
+	 * Sort symptoms Map with a TreeMap who's an Implementation of Map
+	 *
+	 * @param symptoms K: symptom V: Occurence
+	 * @return TreeMap of symptoms
+	 */
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 		return new TreeMap<>(symptoms);
 	}
-/**
- * Créez une méthode writeSymptoms qui écrit le résultat dans le
- * fichier de sortie en utilisant l’instance de ISymptomWriter déjà
- * créée.
- */
+	/**
+	 * Call the method writeSymptoms from Interface ISymptomWriter
+	 *
+	 * @param symptoms K: symptom V: Occurence
+	 */
 	public void writeSymptoms(Map<String, Integer> symptoms) {
-//		WriteSymptomDataToFile writer = new WriteSymptomDataToFile();
 		writer.writeSymptoms(symptoms);
 	}
 
