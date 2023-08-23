@@ -6,20 +6,21 @@ package com.hemebiotech.analytics;
  * and the frequency of how many times they show up in the file.
  *
  * @author Alberto Ruiz
- *
  */
 public class AnalyticsCounter {
 
-	/**
-	 * @param args[]
-	 */
-	public static void main(String[] args) throws Exception {
 
-		String inputFile = ".\\Project02Eclipse\\symptoms.txt";
-		ReadSymptomDataFromFile readFile = new ReadSymptomDataFromFile(inputFile);
-		readFile.readSymptoms();
-		readFile.countSymptoms();
-		readFile.printToScreenSymptoms();
-		readFile.saveToFileSymptoms();
-	}
+    /**
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+
+        String inputFile = ".\\Project02Eclipse\\symptoms.txt";
+        ReadSymptomDataFromFile readFile = new ReadSymptomDataFromFile(inputFile);
+        readFile.readSymptoms();
+        readFile.countSymptoms();
+        readFile.printToScreenSymptoms();
+        readFile.saveToFileSymptoms();
+    }
 }

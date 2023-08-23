@@ -9,23 +9,23 @@ package com.hemebiotech.analytics;
  */
 public interface ISymptomReader {
 
-	/**
-	 * Read the contents from a text file
-	 */
-	void readSymptoms();
+    /**
+     * Read the contents from a text file
+     */
+    void readSymptoms();
 
-	/**
-	 * Counts the number of occurrences each symptom shows up in a file
-	 */
-	void countSymptoms();
+    /**
+     * Counts the number of occurrences each symptom shows up in a file
+     */
+    void countSymptoms();
 
-	/**
-	 * print list of Symptoms and number of occurrences to Console
-	 */
-	void printToScreenSymptoms();
+    /**
+     * print list of Symptoms and number of occurrences to Console
+     */
+    void printToScreenSymptoms();
 
-	/**
-	 * save list of Symptoms and number of occurrences to a file
-	 */
-	void saveToFileSymptoms();
+    /**
+     * save list of Symptoms and number of occurrences to a file
+     */
+    void saveToFileSymptoms();
 }
