@@ -32,6 +32,7 @@ public class ReadSymptomDataFromFile {
      * Read the contents from a text file and filter out any blank lines within the
      * file
      */
+    @SuppressWarnings("CallToPrintStackTrace")
     public void readSymptoms() {
 
         // Read the contents of a file
@@ -99,6 +100,7 @@ public class ReadSymptomDataFromFile {
     /**
      * Creates and saves a file with contents of "frequencyMap" object
      */
+    @SuppressWarnings("CallToPrintStackTrace")
     public void saveToFileSymptoms() {
 
         File file = new File(exportFile); // location of file to open
