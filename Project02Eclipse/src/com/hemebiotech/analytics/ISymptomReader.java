@@ -8,24 +8,10 @@ package com.hemebiotech.analytics;
  * @author Alberto Ruiz
  */
 public interface ISymptomReader {
-
     /**
      * Read the contents from a text file
      */
-    void readSymptoms();
+    void ReadSymptomDataFromFile(String filePath);
 
-    /**
-     * Counts the number of occurrences each symptom shows up in a file
-     */
-    void countSymptoms();
 
-    /**
-     * print list of Symptoms and number of occurrences to Console
-     */
-    void printToScreenSymptoms();
-
-    /**
-     * save list of Symptoms and number of occurrences to a file
-     */
-    void saveToFileSymptoms();
 }
