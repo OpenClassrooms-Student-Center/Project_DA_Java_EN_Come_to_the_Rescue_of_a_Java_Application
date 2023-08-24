@@ -1,7 +1,7 @@
 fever
-dialated pupils
+dilated pupils
 dry mouth
-inflamation
+inflammation
 tremor
 stomach pain
 high blood pressure
@@ -27,16 +27,16 @@ dizziness
 water retention
 fever
 low blood pressure
-inflamation
-inflamation
+inflammation
+inflammation
 anxiety
 cough
-inflamation
+inflammation
 nausea
 stiff neck
 nausea
 high blood pressure
-inflamation
+inflammation
 dry mouth
 shortness of breath
 headache
@@ -60,7 +60,7 @@ insomnia
 dizziness
 dizziness
 high blood pressure
-dialated pupils
+dilated pupils
 rash
 rash
 insomnia
@@ -69,7 +69,7 @@ constricted pupils
 blurred vision
 high blood pressure
 low blood pressure
-dialated pupils
+dilated pupils
 high blood pressure
 tremor
 high blood pressure
@@ -78,7 +78,7 @@ fever
 constricted pupils
 cough
 stiff neck
-inflamation
+inflammation
 blurred vision
 fever
 dizziness
@@ -90,9 +90,9 @@ dry mouth
 fever
 high blood pressure
 stiff neck
-dialated pupils
+dilated pupils
 cough
-inflamation
+inflammation
 low blood pressure
 anxiety
 anxiety
