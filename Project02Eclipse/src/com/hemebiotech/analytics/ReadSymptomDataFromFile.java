@@ -12,14 +12,22 @@ public class ReadSymptomDataFromFile {
 
     ArrayList<String> result = new ArrayList<>();
 
+
     /**
      * File path is passed to constructor
+     *
+     * @param filePath returns the value of the location where the input file is
      */
     public ReadSymptomDataFromFile(String filePath) {
         this.inputFile = filePath;
     }
 
 
+    /**
+     * Read the contents from a text file and filter out any blank lines within the file
+     *
+     * @return result
+     */
     public List<String> readSymptoms() {
 
         // Read the contents of a file
