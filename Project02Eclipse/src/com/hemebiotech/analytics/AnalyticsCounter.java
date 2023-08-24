@@ -25,9 +25,16 @@ public class AnalyticsCounter implements SymptomReaderInterface {
         countSymptoms(symptomList);
     }
 
+
+    /**
+     * Read the contents of a file and stores the name of symptom as the Key and the number of times it shows up in the file as an INT mapped value
+     *
+     * @param symptomList an arrayList containing contents of the file read
+     * @return frequencyMap
+     */
     public Map<String, Integer> countSymptoms(List<String> symptomList) {
 
-        // for-each loop is used to traverse through arrayList named "result"
+        // for-each loop is used to traverse through arrayList named "symptomList"
         for (String s : symptomList) {
             Integer count = frequencyMap.get(s); // assigns the integer value associated to the symptom found in
             // SortedMap to the "count" variable
@@ -45,6 +52,11 @@ public class AnalyticsCounter implements SymptomReaderInterface {
     }
 
 
+    /**
+     * Use a for-loop to traverse through "mapCounter" variable and prints the content to console
+     *
+     * @param mapCounter a mapList containing contents of the file read
+     */
     public void printToScreenSymptoms(Map<String, Integer> mapCounter) {
 
         for (Map.Entry<String, Integer> entry : mapCounter.entrySet()) {
@@ -52,6 +64,11 @@ public class AnalyticsCounter implements SymptomReaderInterface {
         }
     }
 
+    /**
+     * Creates and saves a file with contents of "mapCounter" variable
+     *
+     * @param mapCounter a mapList containing contents of the file read
+     */
     public void saveToFileSymptoms(Map<String, Integer> mapCounter) {
 
         File file = new File(exportFile); // location of file to open
