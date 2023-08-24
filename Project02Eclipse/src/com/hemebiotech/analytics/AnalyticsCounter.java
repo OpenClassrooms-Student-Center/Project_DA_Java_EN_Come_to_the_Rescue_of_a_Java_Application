@@ -16,7 +16,8 @@ import java.util.TreeMap;
  *
  * @author Alberto Ruiz
  */
-public class AnalyticsCounter {
+public class AnalyticsCounter implements SymptomReaderInterface {
+
     String exportFile = ".\\Project02Eclipse\\results.out"; // file path of file created during SaveToFileSymptoms() method
     SortedMap<String, Integer> frequencyMap = new TreeMap<>();
 
@@ -51,8 +52,6 @@ public class AnalyticsCounter {
         }
     }
 
-
-    @SuppressWarnings("CallToPrintStackTrace")
     public void saveToFileSymptoms(Map<String, Integer> mapCounter) {
 
         File file = new File(exportFile); // location of file to open
