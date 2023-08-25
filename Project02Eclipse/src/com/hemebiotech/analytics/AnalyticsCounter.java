@@ -41,7 +41,6 @@ public class AnalyticsCounter {
 //		for(int symptom=0;symptom<symptoms.length;symptom++){}
 //		for-each loop
 		for (String symptom : symptoms) {
-			System.out.println(symptom);
 			boolean isSymptomAlreadyExists = symptomCountMap.containsKey(symptom);
 			Integer count = 1;
 			if (isSymptomAlreadyExists){
@@ -71,6 +70,4 @@ public class AnalyticsCounter {
 		writer.writeSymptoms(symptoms);
 	}
 
-	public static void main(String args[]) throws Exception {
-	}
 }
