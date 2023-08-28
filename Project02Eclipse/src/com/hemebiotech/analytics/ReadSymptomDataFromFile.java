@@ -6,42 +6,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Simple brute force implementation
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
+	private Path filePath;
 
-	private String filepath;
-	
 	/**
-	 * 
+	 *
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
+	public ReadSymptomDataFromFile(String filepath) {
+		this.filePath = Paths.get(filepath);
 	}
-	
-	@Override
-	public List<String> GetSymptoms() {
+
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
+
+		if (filePath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
+				result = new ArrayList<String>(Files.readAllLines(filePath));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return result;
 	}
-
 }
