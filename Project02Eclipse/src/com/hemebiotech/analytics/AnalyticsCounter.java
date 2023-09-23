@@ -22,7 +22,7 @@ public class AnalyticsCounter {
 		Map<String, Integer> countMap = new HashMap<>();
 
 		for (String symptom : symptoms) {
-			countMap.computeIfAbsent(symptom, s -> 1);
+			countMap.computeIfAbsent(symptom, s -> 0);
 			countMap.put(symptom, countMap.get(symptom) + 1);
 		}
 
