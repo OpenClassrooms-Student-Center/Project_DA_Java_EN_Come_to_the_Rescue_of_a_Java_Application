@@ -2,7 +2,9 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
@@ -12,16 +14,18 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 		try {
 			// code
 			writer = new FileWriter("result.out");
-			writer.write("headache: " + symptoms.get("headache") + "\n");
-			writer.write("rash: " + symptoms.get("rash") + "\n");
-			writer.write("dialated pupils: " + symptoms.get("pupils") + "\n");
+
+			for (Entry<String, Integer> entry : symptoms.entrySet()) {
+				writer.write(entry.getKey() + ": " + entry.getValue() + "\n");
+			}
+
 			writer.close();
 
 		} catch (Exception e) {
 			// gestion de l'exception
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
