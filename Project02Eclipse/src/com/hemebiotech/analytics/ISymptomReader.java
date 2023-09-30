@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -19,5 +20,5 @@ public interface ISymptomReader {
 	 * @throws Exception If an error occurs while reading the data source.
 	 * 
 	 */
-	List<String> getSymptoms() throws Exception;
+	List<String> getSymptoms() throws IOException;
 }

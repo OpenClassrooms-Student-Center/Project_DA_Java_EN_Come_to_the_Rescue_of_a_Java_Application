@@ -1,5 +1,6 @@
 package com.hemebiotech.analytics;
 
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -14,5 +15,5 @@ public interface ISymptomWriter {
 	 * @throws Exception An exception may be thrown if an error occurs during the
 	 *                   writing of symptoms to the data source.
 	 */
-	public void writeSymptoms(Map<String, Integer> symptoms) throws Exception;
+	public void writeSymptoms(Map<String, Integer> symptoms) throws IOException;
 }
