@@ -1,42 +1,49 @@
 package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Map;
+import java.util.HashMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
+
+	private static Map<String, Integer> symptoms = new HashMap<String, Integer>();
+
+	public static void lookForKeyInMap(Map<String, Integer> map, String symptom) {
+		boolean isInMap=false; //to track if we found the symptom in the map
+		for (String key : map.keySet()) {
+			if(symptom.equals(key)){
+				map.put(key, map.get(key)+1);
+				isInMap=true;
+			}
+		}
+		if(!isInMap){
+			map.put(symptom, 1);
+		}
+	}
+
+
 	public static void main(String args[]) throws Exception {
 		// first get input
 		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
 		String line = reader.readLine();
 
-		int i = 0;
-		int headCount = 0;
 		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
+			lookForKeyInMap(symptoms, line);
 			line = reader.readLine();	// get another symptom
 		}
-		
+		for(Map.Entry<String, Integer> entry : symptoms.entrySet()){
+			System.out.println(entry.getKey() + "->" + entry.getValue());
+		}
 		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
+		FileWriter fileWriter = new FileWriter ("result.out");
+		BufferedWriter writer = new BufferedWriter(fileWriter);
+		for(Map.Entry<String, Integer> entry : symptoms.entrySet()){
+			writer.write(entry.getKey() + ": " + entry.getValue());
+			writer.newLine();
+		}
 		writer.close();
 	}
 }
