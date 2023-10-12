@@ -6,6 +6,10 @@ import java.util.Map;
 
 public class WriteSymptomDataToFile implements ISymptomWriter{
 
+    private String filepath;
+    public WriteSymptomDataToFile(String filepath) {
+        this.filepath = filepath;
+    }
     @Override
     public void writeSymptoms(Map<String, Integer> symptoms){
         try {
@@ -21,5 +25,4 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
             e.printStackTrace();
         }
     }
-
 }
