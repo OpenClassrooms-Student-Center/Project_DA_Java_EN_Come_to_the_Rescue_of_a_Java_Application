@@ -7,7 +7,7 @@ import java.util.List;
 
 public class AnalyticsCounter {
 	ISymptomReader reader;
-	ISymptomWriter writer;
+	static ISymptomWriter writer;
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
@@ -17,7 +17,7 @@ public class AnalyticsCounter {
 		return reader.GetSymptoms();
 	}
 
-	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+	public static Map<String, Integer> countSymptoms(List<String> symptoms) {
 		Map<String, Integer> result = new HashMap<>();
 		for(int i=0; i<symptoms.size(); i++){
 			boolean isInMap=false; //to track if we found the symptom in the map
@@ -34,16 +34,12 @@ public class AnalyticsCounter {
 		return result;
 	}
 
-	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+	public static Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 		TreeMap<String, Integer> sorted = new TreeMap<>(symptoms);
 		return sorted;
 	}
 
-	public void writeSymptoms(Map<String, Integer> symptoms) {
+	public static void writeSymptoms(Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);
 	}
-
-	public static void main(String args[]) throws Exception {
-
- 	}
 }
