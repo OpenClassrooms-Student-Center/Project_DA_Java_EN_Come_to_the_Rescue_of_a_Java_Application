@@ -1,6 +1,4 @@
-package com.hemebiotech;
-
-//package com.hemebiotech.analytics;
+package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,7 +19,7 @@ public class AnalyticsCounter {
 
 			symptomsCount++;
 			System.out.println("symptom from file: " + line + "\n");
-			
+
 			if (line.equals("headache")) {
 				headacheCount++;
 
@@ -33,7 +31,7 @@ public class AnalyticsCounter {
 
 			}
 
-			line = reader.readLine(); // get another symptom
+			line = reader.readLine();
 		}
 
 		System.out.println("number of headaches: " + headacheCount + "\n");
