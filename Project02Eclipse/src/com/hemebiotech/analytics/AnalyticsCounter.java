@@ -7,13 +7,13 @@ import java.util.List;
  * Implements methods to treat the data (get, count, sort, and write)
  */
 public class AnalyticsCounter {
-	ISymptomReader reader;
-	static ISymptomWriter writer;
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
 	/**
 	 * @param reader is the object that gets the data file, and gets method to read it
 	 * @param writer is the object that create the result file, and gets method to write
 	 */
-	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+	public AnalyticsCounter(final ISymptomReader reader,final ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
 	}
@@ -28,18 +28,14 @@ public class AnalyticsCounter {
 	 * @param symptoms is the list of all the symptoms
 	 * @return a map, with as keys the symptoms, and as values the number of times the symptom appears in the given list
 	 */
-	public static Map<String, Integer> countSymptoms(List<String> symptoms) {
+	public Map<String, Integer> countSymptoms(final List<String> symptoms) {
 		Map<String, Integer> result = new HashMap<>();
 		for(int i=0; i<symptoms.size(); i++){
-			boolean isInMap=false; //to track if we found the symptom in the map
-			for (String key : result.keySet()) {
-				if(symptoms.get(i).equals(key)){
-					result.put(key, result.get(key)+1);
-					isInMap=true;
-				}
-			}
-			if(!isInMap){
-				result.put(symptoms.get(i), 1);
+			String symptom = symptoms.get(i).toLowerCase();
+			if (result.containsKey(symptom)){
+				result.put(symptom, result.get(symptom)+1);
+			} else {
+				result.put(symptom, 1);
 			}
 		}
 		return result;
@@ -49,7 +45,7 @@ public class AnalyticsCounter {
 	 * @param symptoms is a map. The keys are the symptoms, and the value the number of times the symptom appeared in data
 	 * @return the map, lexicographically sorted
 	 */
-	public static Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+	public Map<String, Integer> sortSymptoms(final Map<String, Integer> symptoms) {
 		TreeMap<String, Integer> sorted = new TreeMap<>(symptoms);
 		return sorted;
 	}
@@ -57,7 +53,7 @@ public class AnalyticsCounter {
 	 * Writes the symptoms and their count in the result file.
 	 * @param symptoms is a map. The keys are the symptoms, and the value the number of times the symptom appeared in data
 	 */
-	public static void writeSymptoms(Map<String, Integer> symptoms) {
+	public void writeSymptoms(final Map<String, Integer> symptoms) {
 		writer.writeSymptoms(symptoms);
 	}
 }

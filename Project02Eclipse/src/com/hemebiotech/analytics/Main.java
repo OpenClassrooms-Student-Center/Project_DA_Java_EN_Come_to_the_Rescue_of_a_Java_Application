@@ -13,8 +13,8 @@ public class Main {
         ISymptomWriter writer = new WriteSymptomDataToFile("result.out");
         AnalyticsCounter counter = new AnalyticsCounter(reader, writer);
         List<String> symptomList = counter.getSymptoms();
-        Map<String, Integer> symptomMap = AnalyticsCounter.countSymptoms(symptomList);
-        Map<String, Integer> sortedMap = AnalyticsCounter.sortSymptoms(symptomMap);
-        AnalyticsCounter.writeSymptoms(sortedMap);
+        Map<String, Integer> symptomMap = counter.countSymptoms(symptomList);
+        Map<String, Integer> sortedMap = counter.sortSymptoms(symptomMap);
+        counter.writeSymptoms(sortedMap);
     }
 }

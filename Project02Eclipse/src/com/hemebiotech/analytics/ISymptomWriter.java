@@ -11,6 +11,6 @@ public interface ISymptomWriter {
      * @param symptoms is a map, with a Sting as a key (representing the symptoms)
      * and the Integer value is the number of times the symptom has been reported
      */
-    void writeSymptoms(Map<String, Integer> symptoms);
+    void writeSymptoms(final Map<String, Integer> symptoms);
 
 }
