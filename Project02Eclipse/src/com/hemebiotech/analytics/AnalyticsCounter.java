@@ -1,43 +1,59 @@
 package com.hemebiotech.analytics;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
+import java.util.List;
+/**
+ * Implements methods to treat the data (get, count, sort, and write)
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
+	/**
+	 * @param reader is the object that gets the data file, and gets method to read it
+	 * @param writer is the object that create the result file, and gets method to write
+	 */
+	public AnalyticsCounter(final ISymptomReader reader,final ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
+	}
+	/**
+	 * @return the list of all the symptoms (with duplicate)
+	 */
+	public List<String> getSymptoms() {
+		return reader.getSymptoms();
+	}
+	/**
+	 * This method turns a list of String into a map, to count occurrences of a symptom in the list
+	 * @param symptoms is the list of all the symptoms
+	 * @return a map, with as keys the symptoms, and as values the number of times the symptom appears in the given list
+	 */
+	public Map<String, Integer> countSymptoms(final List<String> symptoms) {
+		Map<String, Integer> result = new HashMap<>();
+		for(int i=0; i<symptoms.size(); i++){
+			String symptom = symptoms.get(i).toLowerCase();
+			if (result.containsKey(symptom)){
+				result.put(symptom, result.get(symptom)+1);
+			} else {
+				result.put(symptom, 1);
 			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		return result;
+	}
+	/**
+	 * Sort the map, using a TreeMap
+	 * @param symptoms is a map. The keys are the symptoms, and the value the number of times the symptom appeared in data
+	 * @return the map, lexicographically sorted
+	 */
+	public Map<String, Integer> sortSymptoms(final Map<String, Integer> symptoms) {
+		TreeMap<String, Integer> sorted = new TreeMap<>(symptoms);
+		return sorted;
+	}
+	/**
+	 * Writes the symptoms and their count in the result file.
+	 * @param symptoms is a map. The keys are the symptoms, and the value the number of times the symptom appeared in data
+	 */
+	public void writeSymptoms(final Map<String, Integer> symptoms) {
+		writer.writeSymptoms(symptoms);
 	}
 }
