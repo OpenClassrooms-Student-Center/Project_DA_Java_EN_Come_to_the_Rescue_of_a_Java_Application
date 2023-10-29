@@ -15,8 +15,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	private String filePath;
 
 	/**
-	 * @param filepath a full or partial path to file
-	 *  with symptom strings in it, one per line.
+	 * @param filepath a full or partial path to file with symptom strings in it,
+	 *                 one per line.
 	 */
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filePath = filepath;
@@ -24,11 +24,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	@Override
 	public List<String> getSymptoms() {
-		
+
 		ArrayList<String> listeSymptoms = new ArrayList<>();
 
 		if (filePath != null) {
-		
+
 			try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
 				String line = reader.readLine();
 
@@ -36,11 +36,11 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 					listeSymptoms.add(line);
 					line = reader.readLine();
 				}
-				
+
 			} catch (IOException e) {
 				System.err.println("Error while reading file " + e.getMessage() + " caused by " + e.getCause());
-			}		
-						
+			}
+
 		}
 
 		return listeSymptoms;

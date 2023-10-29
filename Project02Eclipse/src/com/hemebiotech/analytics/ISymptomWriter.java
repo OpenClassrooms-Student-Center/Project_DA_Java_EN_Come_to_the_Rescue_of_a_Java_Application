@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface ISymptomWriter {
 	/**
-	 * @param a map containing the symptoms and their quantities.	 
+	 * @param a map containing the symptoms and their quantities.
 	 */
 	public void writeSymptoms(Map<String, Integer> symptoms);
 }
