@@ -25,10 +25,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 */
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) {
-
-		// false passed as the 2nd argument of the FileWriter constructor
-		// implies deletion of the contents of the resultat.out file if not empty.
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath, false))) {
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath))) {
 
 			for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
 				String line = entry.getKey() + " : " + entry.getValue();

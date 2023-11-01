@@ -21,8 +21,6 @@ public class AnalyticsCounter {
 	/**
 	 * Get symptoms from a file.
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it,
-	 *                 one per line.
 	 * @return a list of symptom strings, that may contain many duplications.
 	 */
 	public static List<String> getSymptoms() {
