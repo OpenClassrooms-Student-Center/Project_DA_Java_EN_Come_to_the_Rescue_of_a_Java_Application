@@ -1,40 +1,49 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
 
-	public static void main(String args[]) throws Exception {
-		// Reading line by line from the file symptoms.txt.
-		BufferedReader reader = new BufferedReader(new FileReader("Project02Eclipse/symptoms.txt"));
-		String line = reader.readLine();
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
 
-		// For each line encountered, increment the corresponding symptom by 1.
-		while (line != null) {
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headacheCount++;
-			} else if (line.equals("rash")) {
-				rashCount++;
-			} else if (line.contains("pupils")) {
-				pupilCount++;
-			}
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
+	}
 
-			line = reader.readLine(); // get another symptom
+	public List<String> getSymptoms() {
+		return reader.GetSymptoms();
+	}
+
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+		Map<String, Integer> symptomCounts = new HashMap<>(); // creation de la Map
+
+		// parcourt la list "symptoms" et incrémente la map de +1 pour chaque symptome
+		// qui se repete
+		for (String symptom : symptoms) {
+			symptomCounts.put(symptom, symptomCounts.getOrDefault(symptom, 0) + 1);
 		}
-		reader.close(); // close the reader
 
-		// next generate output with the list of symptoms and the number of times they
-		// have been encountered.
-		FileWriter writer = new FileWriter("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		return symptomCounts;
+	}
+
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+		// Convertir la Map en une TreeMap pour obtenir un tri automatique par clé
+		// (symptôme)
+		TreeMap<String, Integer> sortedSymptoms = new TreeMap<>(symptoms);
+
+		// Convertir la TreeMap triée en une nouvelle HashMap pour la sortie
+		Map<String, Integer> sortedMap = new LinkedHashMap<>(sortedSymptoms);
+
+		return sortedMap;
+	}
+
+	public void writeSymptoms(Map<String, Integer> symptoms) {
+		writer.writeSymptoms(symptoms);
 	}
 }
