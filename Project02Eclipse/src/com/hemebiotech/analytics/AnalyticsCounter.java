@@ -1,7 +1,6 @@
 package com.hemebiotech.analytics;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -17,11 +16,11 @@ public class AnalyticsCounter {
 	}
 
 	public List<String> getSymptoms() {
-		return reader.GetSymptoms();
+		return reader.getSymptoms();
 	}
 
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		Map<String, Integer> symptomCounts = new HashMap<>(); // creation de la Map
+		Map<String, Integer> symptomCounts = new HashMap<>();
 
 		// parcourt la list "symptoms" et incrémente la map de +1 pour chaque symptome
 		// qui se repete
@@ -33,14 +32,11 @@ public class AnalyticsCounter {
 	}
 
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
-		// Convertir la Map en une TreeMap pour obtenir un tri automatique par clé
-		// (symptôme)
-		TreeMap<String, Integer> sortedSymptoms = new TreeMap<>(symptoms);
+		// Convertir la Map en une TreeMap pour obtenir un tri automatique par ordre
+		// alphabétique
+		Map<String, Integer> sortedSymptoms = new TreeMap<>(symptoms);
 
-		// Convertir la TreeMap triée en une nouvelle HashMap pour la sortie
-		Map<String, Integer> sortedMap = new LinkedHashMap<>(sortedSymptoms);
-
-		return sortedMap;
+		return sortedSymptoms;
 	}
 
 	public void writeSymptoms(Map<String, Integer> symptoms) {
