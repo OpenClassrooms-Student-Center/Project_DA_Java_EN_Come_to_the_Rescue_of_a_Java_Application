@@ -34,7 +34,6 @@ public class AnalyticsCounter {
 	 */
 	public List<String> getSymptoms() {
 		return reader.getSymptoms();
-		return reader.getSymptoms();
 	}
 
 	/**
@@ -45,7 +44,6 @@ public class AnalyticsCounter {
 	 * @return Une Map associant chaque symptôme à son nombre d'occurrences.
 	 */
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
-		Map<String, Integer> symptomCounts = new HashMap<>();
 		Map<String, Integer> symptomCounts = new HashMap<>();
 
 		// Parcourt la liste "symptoms" et incrémente la Map pour chaque symptôme
