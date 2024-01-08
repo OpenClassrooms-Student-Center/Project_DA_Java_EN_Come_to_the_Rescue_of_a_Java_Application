@@ -16,7 +16,7 @@ public class SymptomsReader implements ISymptomReader {
 
     @Override
     public List<String> getSymptoms() {
-        List<String> result = new ArrayList<String>();
+        List<String> symptoms = new ArrayList<>();
 
         if (filePath != null) {
             try {
@@ -24,7 +24,7 @@ public class SymptomsReader implements ISymptomReader {
                 String line = reader.readLine();
 
                 while (line != null) {
-                    result.add(line);
+                    symptoms.add(line);
                     line = reader.readLine();
                 }
                 reader.close();
@@ -33,6 +33,6 @@ public class SymptomsReader implements ISymptomReader {
             }
         }
 
-        return result;
+        return symptoms;
     }
 }
