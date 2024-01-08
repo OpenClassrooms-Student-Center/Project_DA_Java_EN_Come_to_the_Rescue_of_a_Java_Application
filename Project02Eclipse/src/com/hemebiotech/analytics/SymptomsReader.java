@@ -1,9 +1,8 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SymptomsReader implements ISymptomReader {
@@ -16,23 +15,20 @@ public class SymptomsReader implements ISymptomReader {
 
     @Override
     public List<String> getSymptoms() {
-        List<String> symptoms = new ArrayList<>();
+        List<String> result = null;
 
         if (filePath != null) {
             try {
-                BufferedReader reader = new BufferedReader (new FileReader(filePath));
-                String line = reader.readLine();
-
-                while (line != null) {
-                    symptoms.add(line);
-                    line = reader.readLine();
-                }
-                reader.close();
+                result = Files.readAllLines(Path.of(filePath));
+                System.out.println(filePath + " correctly read and closed");
             } catch (IOException e) {
-                e.printStackTrace();
+                System.err.println("Exception Error reading the lines:" + e.getMessage());
             }
+        } else {
+            System.err.println("The given file path is null");
         }
 
-        return symptoms;
+        // Better to return an empty list, more robust and ensures the calling code can always expect a non-null result
+        return result != null ? result : List.of();
     }
 }
