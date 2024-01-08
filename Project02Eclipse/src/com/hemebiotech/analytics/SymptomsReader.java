@@ -9,10 +9,20 @@ public class SymptomsReader implements ISymptomReader {
 
     private final String filePath;
 
+    /**
+     * Constructor of SymptomsReader.
+     *
+     * @param file pass the file to read the symptoms from.
+     */
     public SymptomsReader(String file) {
         this.filePath = file;
     }
 
+    /**
+     * Get all the symptoms from a given file.
+     *
+     * @return a list of String, representing all the symptoms.
+     */
     @Override
     public List<String> getSymptoms() {
         List<String> result = null;
@@ -28,7 +38,6 @@ public class SymptomsReader implements ISymptomReader {
             System.err.println("The given file path is null");
         }
 
-        // Better to return an empty list, more robust and ensures the calling code can always expect a non-null result
         return result != null ? result : List.of();
     }
 }

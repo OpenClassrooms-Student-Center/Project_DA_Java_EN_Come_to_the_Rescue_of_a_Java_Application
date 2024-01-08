@@ -3,8 +3,16 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author mushow
+ */
 public class AnalyticsCounter {
 
+    /**
+     * The application's entry point.
+     *
+     * @param args an array of command-line arguments for the application.
+     */
     public static void main(String[] args) {
 		//Read all symptoms and store them in a list
         String fileToRead = "Project02Eclipse/symptoms.txt";

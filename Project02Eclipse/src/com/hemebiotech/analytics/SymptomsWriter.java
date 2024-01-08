@@ -9,14 +9,19 @@ public class SymptomsWriter implements ISymptomWriter {
 
     private final String filePath;
 
+    /**
+     * Constructor of SymptomsWriter.
+     *
+     * @param file pass the file to write the symptoms to.
+     */
     public SymptomsWriter(String file) {
         this.filePath = file;
     }
 
     /**
-     * writeSymptoms writes symptoms and associated counts to a document based on the key/values in the map
+     * writeSymptoms writes symptoms and associated counts to a document based on the key/values in the map.
      *
-     * @param symptomsCount the HashMap with key/value, a pair of symptoms name/counter
+     * @param symptomsCount the HashMap with key/value, a pair of symptoms name/counter.
      */
     @Override
     public void writeSymptoms(Map<String, Long> symptomsCount) {
