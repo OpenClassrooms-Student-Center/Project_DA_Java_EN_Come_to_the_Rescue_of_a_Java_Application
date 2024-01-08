@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class SymptomsCounter implements ISymptomCounter {
 
-    private List<String> symptomsList;
+    private final List<String> symptomsList;
 
     public SymptomsCounter(List<String> symptomsList) {
         this.symptomsList = symptomsList;
