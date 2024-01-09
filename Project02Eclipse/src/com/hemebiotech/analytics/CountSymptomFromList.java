@@ -1,0 +1,28 @@
+package com.hemebiotech.analytics;
+
+import java.util.List;
+import java.util.Map;
+
+public class CountSymptomFromList {
+    private List<String> listSort;
+    public CountSymptomFromList(List<String> listSort){
+        this.listSort = listSort;
+}
+
+public Map<String,Integer> CountSymptom(){
+String actualSymptoms = listSort.get(0); //initializes the first symptom
+        int count = 0;
+        Map<String,Integer> mapSortAndCount;
+        for(int i=0; i<listSort.size(); i++){ // browse the list sort
+            if (listSort.get(i).equals(actualSymptoms)){
+                count++;
+            }
+            else{ // all same symptoms follow because the list is sort alphabetically
+                mapSortAndCount.put(actualSymptoms,count); // insert the actual symptom and this occurrence in the list
+                count =1; // first first appearance of the new symptom
+                actualSymptoms = listSort.get(i); // take the next symptom
+            }
+        }
+        mapSortAndCount.put(actualSymptoms,count); // insert the last symptom in the list
+        return mapSortAndCount;
+    }
