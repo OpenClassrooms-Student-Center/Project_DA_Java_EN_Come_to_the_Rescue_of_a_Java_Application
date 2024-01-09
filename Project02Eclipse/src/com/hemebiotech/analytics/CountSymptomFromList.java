@@ -10,7 +10,7 @@ public class CountSymptomFromList {
         this.listSort = listSort;
 }
 
-public HashMap<String,Integer> CountSymptom(){
+public HashMap<String,Integer> CountSymptoms(){
 String actualSymptoms = listSort.get(0); //initializes the first symptom
         int count = 0;
         HashMap<String,Integer> mapSortAndCount = new HashMap<String,Integer>;
