@@ -8,6 +8,6 @@ public class AnalyticsCounter {
 		ReadSymptomDataFromFile symptomsListNotSort = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		SortSymptomFromList symptomsListSort = new SortSymptomFromList(symptomsListNotSort.GetSymptoms());
 		CountSymptomFromList symptomsMap = new CountSymptomFromList(symptomsListSort.SortSymptoms());
-		new WriteSymptomFromMap(symptomsMap.CountSymptoms()).WriteSymptoms();
+		new WriteSymptomFromMap(symptomsMap.CountSymptoms(), symptomsListSort.SortSymptoms()).WriteSymptoms();
 	}
 }
