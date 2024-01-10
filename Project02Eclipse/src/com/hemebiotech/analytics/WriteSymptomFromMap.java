@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.Map.Entry;
 
 public class WriteSymptomFromMap implements ISymptomWriter {
 
@@ -13,22 +14,16 @@ public class WriteSymptomFromMap implements ISymptomWriter {
         this.mapToWrite = mapToWrite;
     }
     
-    public void WriteSymptoms(){
-        try (FileWriter writer = new FileWriter ("Project02Eclipse/result.out")) {
-            Set<String> symptoms = mapToWrite.keySet();
-            for(int i=0; i<symptoms.size(); i++){
-                try {
-                    writer.write(symptoms.iterator() + " : " + mapToWrite.get(symptoms.iterator()) + "\n");
-                } catch (IOException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                } // write the actual symptom and this occurrence in the list
-                symptoms.iterator().next();
-   }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void WriteSymptoms() throws IOException{
+        FileWriter writer = new FileWriter ("Project02Eclipse/result.out");
+        for(Entry<String, Integer> toWrite : mapToWrite.entrySet() ){
+            try {
+                writer.write(toWrite.getKey() + " : " + toWrite.getValue() + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            } // write the actual symptom and this occurrence in the list
+    }
+    writer.close();
 }
 
 }

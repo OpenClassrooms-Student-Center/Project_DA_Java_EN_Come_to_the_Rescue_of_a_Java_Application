@@ -14,7 +14,7 @@ public class SortSymptomFromList{
     /**
  * Order the list alphabetically
  */
-    public List<String> sortSymptoms(){
+    public List<String> SortSymptoms(){
         try {
             Collections.sort(listToSort);
             return (listToSort);

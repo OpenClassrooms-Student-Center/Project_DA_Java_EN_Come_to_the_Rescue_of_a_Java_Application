@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CountSymptomFromList {
     private List<String> listSort;
@@ -13,7 +12,7 @@ public class CountSymptomFromList {
 public HashMap<String,Integer> CountSymptoms(){
 String actualSymptoms = listSort.get(0); //initializes the first symptom
         int count = 0;
-        HashMap<String,Integer> mapSortAndCount = new HashMap<String,Integer>;
+        HashMap<String,Integer> mapSortAndCount = new HashMap<String,Integer>();
         for(int i=0; i<listSort.size(); i++){ // browse the list sort
             if (listSort.get(i).equals(actualSymptoms)){
                 count++;
