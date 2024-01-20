@@ -7,23 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filePath;
-	
-	public ReadSymptomDataFromFile (String filePath) {
-		this.filePath = filePath;
-	}
-	
-	//Decorador que indica que se sobrescribe un método 
-	@Override
 	//void = vacio
 	//metodo publico, devuelve una lista de cadenas
-	public List<String> getSymptoms() {
+	public List<String> getSymptoms(String inputFile) {
 		//Crear instancia de arraylist para almacenar los sintomas
 		List<String> symptoms = new ArrayList<>();
 		
 		
-		try (BufferedReader reader = new BufferedReader (new FileReader(filePath))){
+		try (BufferedReader reader = new BufferedReader (new FileReader(inputFile))){
 			String line = reader.readLine();
 			
 			while (line != null) {

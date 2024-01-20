@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.util.Map;
 
-public class WriteSymptomDataFromFile implements ISymptomWriter {
+public class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	//Decorador que indica que se sobrescribe un método 
 	@Override
