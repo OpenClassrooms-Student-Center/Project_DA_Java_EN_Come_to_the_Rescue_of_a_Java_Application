@@ -1,10 +1,5 @@
 package com.hemebiotech.analytics;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -18,8 +13,11 @@ public class Main {
 			SymptomCounter sCounter = new SymptomCounter();
 			Map<String, Integer> stockSymptoms = sCounter.countSymptoms(symptoms);//Array qui stock the rsult of counSymptms
 
+			SortSymptoms alphaSortSymptoms = new SortSymptoms();
+			Map<String, Integer> sortAlphaSymptoms = alphaSortSymptoms.sortSymptoms(stockSymptoms);
+
 			ISymptomWriter writer = new WriteSymptomDataToFile();
-			writer.writeSymptoms (stockSymptoms,"resultsSypmtoms.txt");
+			writer.writeSymptoms (sortAlphaSymptoms,"resultsSypmtoms.txt");
 		} catch (Exception e) { 
 			System.err.println("Error : " + e.getMessage());
 		}
