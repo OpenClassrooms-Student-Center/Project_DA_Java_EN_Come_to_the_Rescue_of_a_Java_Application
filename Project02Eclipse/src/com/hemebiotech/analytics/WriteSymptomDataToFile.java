@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class WriteSymptomDataToFile implements ISymptomWriter {
 	
-	//Decorador que indica que se sobrescribe un método 
+	//Decorator that indicate that override a method
 	@Override
 	public void writeSymptoms(Map<String,Integer>symptomCount,String outputFilePath) {
         

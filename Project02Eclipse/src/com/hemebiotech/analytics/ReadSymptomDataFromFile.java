@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
-	//void = vacio
-	//metodo publico, devuelve una lista de cadenas
+	//void = empty, vacuum
+	//public method, thet retrieve a list of strigns
 	public List<String> getSymptoms(String inputFile) {
-		//Crear instancia de arraylist para almacenar los sintomas
+		// create a instance of arraylist for stock the sypmtoms
 		List<String> symptoms = new ArrayList<>();
 		
 		
