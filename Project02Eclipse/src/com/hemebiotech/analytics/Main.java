@@ -17,9 +17,9 @@ public class Main {
 			Map<String, Integer> sortAlphaSymptoms = alphaSortSymptoms.sortSymptoms(stockSymptoms);
 
 			ISymptomWriter writer = new WriteSymptomDataToFile();
-			writer.writeSymptoms (sortAlphaSymptoms,"resultsSypmtoms.txt");
+			writer.writeSymptoms (sortAlphaSymptoms,"result.out.txt");
 		} catch (Exception e) { 
 			System.err.println("Error : " + e.getMessage());
 		}
 	}
-}
+} 
