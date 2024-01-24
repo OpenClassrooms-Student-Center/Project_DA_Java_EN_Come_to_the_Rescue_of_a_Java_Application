@@ -1,9 +1,29 @@
 package com.hemebiotech.analytics;
 
+// The line `import java.io.BufferedReader;` is importing the `BufferedReader` class from the `java.io`
+// package. This class is used to read text from a character-input stream, such as a file. It allows
+// you to read data line by line from a file.
 import java.io.BufferedReader;
+// The line `import java.io.FileReader;` is importing the `FileReader` class from the `java.io`
+// package. This class is used to read characters from a file. It allows you to read data from a file
+// character by character or in larger chunks. In this specific code, it is used to read the symptom
+// data from a file in the `getSymptoms` method of the `ReadSymptomDataFromFile` class.
 import java.io.FileReader;
+// The line `import java.io.IOException;` is importing the `IOException` class from the `java.io`
+// package. This class is used to handle input/output exceptions that may occur during file operations,
+// such as reading or writing data to a file. By importing this class, we can catch and handle any
+// `IOException` that may occur in the code.
 import java.io.IOException;
+// The line `import java.util.ArrayList;` is importing the `ArrayList` class from the `java.util`
+// package. This class is a part of the Java Collections Framework and is used to create dynamic
+// arrays, which can grow or shrink in size as needed. In this specific code, the `ArrayList` class is
+// used to store the symptoms read from the file in a list.
 import java.util.ArrayList;
+// The line `import java.util.List;` is importing the `List` interface from the `java.util` package.
+// The `List` interface is a part of the Java Collections Framework and is used to create ordered
+// collections of elements. In this specific code, the `List` interface is used to define the type of
+// the `symptoms` variable in the `getSymptoms` method of the `ReadSymptomDataFromFile` class. It
+// ensures that the `symptoms` variable can hold a collection of elements in a specific order.
 import java.util.List;
 /**
  * The ReadSymptomDataFromFile class implements the ISymptomReader interface
