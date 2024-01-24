@@ -5,12 +5,30 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * The ReadSymptomDataFromFile class implements the ISymptomReader interface
+ * to read symptom data from a file.
+ *
+ * Usage:
+ * - Create an instance of ReadSymptomDataFromFile.
+ * - Call the getSymptoms method, providing the file path as a parameter.
+ * - The method returns a list of symptoms read from the specified file.
+ *
+ * @author Mauricio Lopez
+ * @version 1.0
+ * @see ISymptomReader
+ */
 public class ReadSymptomDataFromFile implements ISymptomReader {
-	//void = empty, vacuum
-	//public method, thet retrieve a list of strigns
+	/**
+     * Reads symptoms from a specified file and returns a list of symptoms.
+     *
+     * @param inputFile The path to the file containing symptom data.
+     * @return A list of symptoms read from the file.
+     * @see ISymptomReader#getSymptoms(String)
+     */
+	
 	public List<String> getSymptoms(String inputFile) {
-		// create a instance of arraylist for stock the sypmtoms
+		
 		List<String> symptoms = new ArrayList<>();
 		
 		
@@ -22,6 +40,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				line=reader.readLine();
 			}
 		}catch(IOException e){
+			// Handle exceptions and print error message
             System.err.println("error"+e.getMessage());
         } 
 		
