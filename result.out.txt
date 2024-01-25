@@ -13,6 +13,8 @@ high blood pressure:10
 inflamation:7
 insomnia:4
 low blood pressure:4
+mal de george:1
+mal de tete:2
 nausea:5
 rapid heart rate:1
 rash:4

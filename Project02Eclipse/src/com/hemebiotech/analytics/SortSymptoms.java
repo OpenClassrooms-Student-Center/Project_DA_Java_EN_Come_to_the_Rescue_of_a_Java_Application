@@ -22,6 +22,8 @@ public class SortSymptoms {
      * @return A TreeMap containing the sorted symptoms.
      */
     public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+        // Create a new TreeMap with the contents of the input map.
+        // TreeMap automatically sorts the entries based on their natural order (lexicographical order for strings).
         return new TreeMap<>(symptoms);
 
 }

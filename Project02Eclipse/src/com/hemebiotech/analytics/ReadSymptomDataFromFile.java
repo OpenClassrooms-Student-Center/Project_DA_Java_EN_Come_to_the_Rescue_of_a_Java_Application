@@ -48,22 +48,29 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
      */
 	
 	public List<String> getSymptoms(String inputFile) {
-		
+		// Create a list to store the symptoms.
 		List<String> symptoms = new ArrayList<>();
 		
 		
+		// The code `try (BufferedReader reader = new BufferedReader (new FileReader(inputFile))){` is
+		// creating a new instance of the `BufferedReader` class and initializing it with a new instance of
+		// the `FileReader` class.
 		try (BufferedReader reader = new BufferedReader (new FileReader(inputFile))){
+			// Read the first line of the file.
 			String line = reader.readLine();
 			
+			// Iterate through the file line by line.
 			while (line != null) {
+				// Add the symptom to the list after trimming spaces and converting to lowercase.
 				symptoms.add(line.trim().toLowerCase());
+				// Read the next line.
 				line=reader.readLine();
 			}
 		}catch(IOException e){
 			// Handle exceptions and print error message
             System.err.println("error"+e.getMessage());
         } 
-		
+		// Return the list of symptoms.
 		return symptoms;
 	}
 

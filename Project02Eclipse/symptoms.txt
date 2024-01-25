@@ -98,3 +98,6 @@ anxiety
 anxiety
 cough
 blurred vision
+Mal de george
+Mal de tete
+mal de tete

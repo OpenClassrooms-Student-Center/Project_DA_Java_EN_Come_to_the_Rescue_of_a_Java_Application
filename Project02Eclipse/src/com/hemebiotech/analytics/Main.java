@@ -29,7 +29,9 @@ public class Main {
 			List <String>symptoms = reader.getSymptoms("/Users/mauriciolopez/Documents/Formation_Dev_salesforce/projets/p4 biomedics/lopez_mauricio_d_java/Project02Eclipse/symptoms.txt");
 			
 			// Count occurrences of each symptom
+			// Create an instance of the SymptomCounter class
 			SymptomCounter sCounter = new SymptomCounter();
+			// Call the countSymptoms method to count occurrences of symptoms in the 'symptoms' list
 			Map<String, Integer> stockSymptoms = sCounter.countSymptoms(symptoms);//Array which stck the result of stock symptoms
 
 			// Sort symptoms alphabetically

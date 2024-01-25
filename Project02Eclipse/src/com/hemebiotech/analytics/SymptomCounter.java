@@ -24,10 +24,15 @@ public class SymptomCounter {
      * @return A map containing each symptom and its corresponding count.
      */
     public Map<String, Integer> countSymptoms(List<String> symptoms) {
-        Map<String, Integer> symptomsCount = new HashMap <>(); 
-        for (String symptom : symptoms){ 
+        // Create a new HashMap to store symptom counts.
+        Map<String, Integer> symptomsCount = new HashMap <>();
+        // Iterate through the list of symptoms. 
+        for (String symptom : symptoms){
+        // Update the count for the current symptom in the map.
+        // If the symptom is not present, use getOrDefault to set its count to 0 and then increment. 
             symptomsCount.put(symptom, symptomsCount.getOrDefault(symptom,0)+1);
         }
+        // Return the map containing symptom counts.
         return symptomsCount;
     }
 }
