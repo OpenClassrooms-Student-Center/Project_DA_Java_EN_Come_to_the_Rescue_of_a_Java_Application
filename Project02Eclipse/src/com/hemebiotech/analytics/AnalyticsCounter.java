@@ -3,53 +3,92 @@
  * Project Analytics
  * Frequency count of undesirable effects (symptoms) of patients testing drugs of Heme Biotech registered in a text file,
  * where one line represents one occurrence
- * @version: 0.2 2024-01-25
+ * Report is deployed in results.out
+ * @version: 0.5 2024-01-29
  * @authors: Pablo Miranda, Alex OpenClassRooms, Caroline OpenClassRooms
  */
 
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
 
-//TO FIX - Globally change the program structure to make it OOP
+//Code refactor and main functions added
 public class AnalyticsCounter {
-	// TO FIX - All variables to be reorganised in a more scalable solution applying OOP
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
-	
-	public static void main(String args[]) throws Exception {
-		//TO FIX - First get txt file input, a class needed here
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+	private ISymptomReader reader;
+	private ISymptomWriter writer;
+	/**
+	 * Constructor method initialises the Interfaces writer and reader.
+	 * It concentrates the calls to the rest of methods (get, count, sort & write).
+	 */
+    public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
+    }
 
-		//TO FIX - Reader Symptom Class to be developed
-		int i = 0;
-		int headCount = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount); //TO FIX, no need to console output, only a file is required
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom from the text file, a class to do so
-		}
-		
-		// TO FIX - To build an interface for this subroutine (WRITER)
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+	/**
+	 * Gets the symptoms in a List of Strings as it is (no order) from the patients
+	 * from the text file passed to reader
+	 */
+	public List<String> getSymptoms() {
+		return reader.getSymptoms();
 	}
+
+	/**
+	 * Determines the frequency of the diseases reported by the patients and returns a Map as a result.
+	 */
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+		Map<String, Integer> frequencies = new HashMap<String, Integer>();
+		for (String symptom : symptoms) {
+			if (frequencies.get(symptom) != null) {
+			frequencies.put(symptom, (frequencies.get(symptom)+1)); // counts symptom if already exists, adds the symptom,frequency if not
+			}
+			else {
+				frequencies.put(symptom, 1);
+			}
+			}
+		return frequencies;
+	}
+
+	/**
+	 * Sorts the Map alphabetic order through a simple transformation to a TreeMap and returns it back.
+	 *
+	 */
+
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+        return new TreeMap<String, Integer>(symptoms);
+	}
+
+	/**
+	 * Once all processed, writes the Map to the filepath indicated to the writer's interface.
+	 * It cleanses and formats the output so to get in each line the requirement: disease : frequency.
+	 *
+	 */
+	public void writeSymptoms(Map<String, Integer> symptoms) {
+		writer.writeSymptoms(symptoms);
+	}
+
+	/**
+	 * Program body, sets the specific instances of filepaths and instantiates the interfaces and launches the data processing tasks.
+	 * Symptoms.txt (input) and result.out (output) are the main IO files of the project.
+	 */
+	public static void main(String[] args) {
+		//We set the IO files for read and write as part of the initialization, class instantiation
+		ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("symptoms.txt");
+		WriteSymptomDataToFile writer = new WriteSymptomDataToFile("results.out");
+
+		//We prepare the interface for the processing of the methods
+		AnalyticsCounter analytics = new AnalyticsCounter(reader,writer);
+
+		//Sents the symptoms of the text file in a list and runs the data processing and cleansing and generates the reporting
+		List<String> symptoms = new ArrayList<String>(analytics.getSymptoms());
+		analytics.writeSymptoms(analytics.sortSymptoms(analytics.countSymptoms(symptoms)));
+
+
+	}
+
 }
+
