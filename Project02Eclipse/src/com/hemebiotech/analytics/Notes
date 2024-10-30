@@ -25,3 +25,5 @@ public class Main {
 > Méthode : void afficherDescription() affiche la description de l'objet.
 > Instance : Bloc unBloc = new Bloc("Ceci est le premier bloc") et Bloc unDeuxiemeBloc = new Bloc("Ceci est le deuxième bloc") créent des objets de la classe Bloc.
 > Objet : unBloc et unDeuxiemeBloc sont des objets concrets de la classe Bloc utilisés pour appeler la méthode afficherDescription().
+> Un accesseur, en programmation orientée objet, est une méthode utilisée pour lire la valeur d'une variable d'instance (champ) d'une classe. Les accesseurs sont aussi appelés getters. 
+Ils permettent de suivre le principe de l'encapsulation, en fournissant un accès contrôlé aux champs privés d'une classe. Voici un exemple pour te montrer comment ça fonctionne 
