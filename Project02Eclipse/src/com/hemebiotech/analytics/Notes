@@ -1,0 +1,27 @@
+> package ej;
+
+public class Bloc {
+    String description;
+
+    Bloc(final String description) {
+        this.description = description;
+    }
+
+    void afficherDescription() {
+        System.out.println(this.description);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Bloc unBloc = new Bloc("Ceci est le premier bloc");
+        unBloc.afficherDescription();
+        Bloc unDeuxiemeBloc = new Bloc("Ceci est le deuxième bloc");
+        unDeuxiemeBloc.afficherDescription();
+    }
+}
+
+> Constructeur : Bloc(final String description) initialise un objet Bloc avec une description.
+> Méthode : void afficherDescription() affiche la description de l'objet.
+> Instance : Bloc unBloc = new Bloc("Ceci est le premier bloc") et Bloc unDeuxiemeBloc = new Bloc("Ceci est le deuxième bloc") créent des objets de la classe Bloc.
+> Objet : unBloc et unDeuxiemeBloc sont des objets concrets de la classe Bloc utilisés pour appeler la méthode afficherDescription().
