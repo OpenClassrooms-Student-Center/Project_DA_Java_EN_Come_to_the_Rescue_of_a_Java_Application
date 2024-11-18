@@ -7,23 +7,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
- *
+ * La classe ReadSymptomDataFromFile implémente l'interface ISymptomReader pour lire les symptômes à partir d'un fichier.
  */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private String filepath;
-	
 	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * Constructeur de la classe ReadSymptomDataFromFile.
+	 * filepath est le chemin du fichier contenant les symptômes.
 	 */
-	public ReadSymptomDataFromFile (String filepath) {
+		public ReadSymptomDataFromFile (String filepath) {
 		this.filepath = filepath;
 	}
-	
+	/**
+	 * On lit les symptômes à partir du fichier et les retourne dans une liste.
+	 * On retourne sur la liste des symptômes tant qu'il y a des lignes à lire.
+	 */
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		ArrayList<String> result = new ArrayList<String>();
 		
 		if (filepath != null) {

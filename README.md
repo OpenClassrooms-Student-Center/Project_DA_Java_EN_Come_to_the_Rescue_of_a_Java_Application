@@ -1,1 +1,7 @@
-# Project_DA_Java_EN_Come_to_the_Rescue_of_a_Java_Application
+Ma mission Si vous l'accepetez...
+
+Aider Heme Biotech à analyser les données contenant les Symptômes des Patients.
+
+Pour cela, j'ai collaboré avec Alex et Caroline sur ce projet.
+
+Le resultat semble tenir ses promesses, et j'ai pu upgrade mes skills en java avec ce premier Projet ^^
