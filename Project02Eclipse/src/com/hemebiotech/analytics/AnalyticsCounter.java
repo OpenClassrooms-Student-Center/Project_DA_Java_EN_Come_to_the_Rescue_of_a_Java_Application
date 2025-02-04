@@ -1,43 +1,56 @@
 package com.hemebiotech.analytics;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
-public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+public class AnalyticsCounter {	
+	ISymptomReader reader;
+	ISymptomWriter writer;
+	/**
+	 * constructeur avec pour paramètres un objet de type ISymptomReader et un objet de type ISymptomWriter.
+	 * @param reader Objet qui implémente l'interface ISymptomReader
+	 * @param writer Objet qui implémente l'interface ISymptomWriter
+	 */
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
 	}
-}
+	/**
+	 * récupère la liste des entrées dans le fichier en utilisant l’instance de ISymptomReader
+	 * @return Liste des symptomes
+	 */
+	public List<String> getSymptoms() {
+		return reader.GetSymptoms();
+	}
+	/**
+	 * Compte les occurrences de chaque symptôme dans la liste.
+	 * @param symptoms Liste des symptomes.
+	 * @return Map avec comme clés les symptomes et comme valeurs le nombre de fois ou les symptomes apparaissent dans la liste.
+	 */
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+        Map<String, Integer> symptomCounts = new HashMap<>();
+
+        for (String symptom : symptoms) {
+            symptomCounts.put(symptom, symptomCounts.getOrDefault(symptom, 0) + 1);
+        }
+
+        return symptomCounts;
+    }
+	/**
+	 * trie la liste de symptômes et d’occurrences par ordre alphabétique.
+	 * @param symptoms Une map de symptomes avec leur nombre.
+	 * @return Map avec comme clés les symptomes et comme valeurs le nombre de fois ou les symptomes apparaissent dans la liste.
+	 */
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+        Map<String, Integer> sortedSymptoms = new TreeMap<>(symptoms);
+        return sortedSymptoms;
+    }
+	/**
+	 * écrit le résultat dans le fichier de sortie en utilisant l’instance de ISymptomWriter
+	 * @param symptoms une map de symptomes triée avec le nombre d'occurences.
+	 */
+	public void writeSymptoms(Map<String, Integer> symptoms) {
+		writer.writeSymptoms(symptoms);
+	}			
+	}
