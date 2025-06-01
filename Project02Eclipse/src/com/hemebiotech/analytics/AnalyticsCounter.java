@@ -1,34 +1,27 @@
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 /**
  * Performs analytics on symptom data.
- //* Reads symptoms, counts occurrences, and writes sorted results to a file.
+ //* Reads symptoms, counts occurrences, and delegates writing to an ISymptomWriter.
  */
 public class AnalyticsCounter {
 
     /**
      * Processes symptom data by reading it from a file, counting occurrences,
-     * and writing the results to another file.
-     //* Uses ISymptomReader to load data, TreeMap to sort, and FileWriter to save.
+     * and writing the results using a writer implementation.
      * 
-     * @param inputFile  the path to the input file containing symptom data
-     * @param outputFile the path where the result should be written
+     * @param inputFile  the path to the file containing symptom data
+     * @param outputFile the path where results should be written
      */
     public static void processSymptoms(String inputFile, String outputFile) {
-        // Create a reader object to fetch symptoms from the file
         ISymptomReader reader = new ReadSymptomDataFromFile(inputFile);
+        ISymptomWriter writer = new WriteSymptomDataToFile(outputFile);
 
-        // Read symptoms from the source
         List<String> symptoms = reader.getSymptoms();
-
-        // Map to store symptom names and their occurrence counts
         Map<String, Integer> symptomCounts = new TreeMap<>();
 
-        // Count each symptom
         for (String symptom : symptoms) {
             if (symptomCounts.containsKey(symptom)) {
                 symptomCounts.put(symptom, symptomCounts.get(symptom) + 1);
@@ -37,14 +30,8 @@ public class AnalyticsCounter {
             }
         }
 
-        // Write the sorted results to the output file
-        try (FileWriter writer = new FileWriter(outputFile)) {
-            for (Map.Entry<String, Integer> entry : symptomCounts.entrySet()) {
-                writer.write(entry.getKey() + " = " + entry.getValue() + "\n");
-            }
-        } catch (IOException e) {
-            System.err.println("Error writing to output file: " + e.getMessage());
-        }
+        // Delegate the writing to the writer implementation
+        writer.writeSymptoms(symptomCounts);
     }
 }
 
