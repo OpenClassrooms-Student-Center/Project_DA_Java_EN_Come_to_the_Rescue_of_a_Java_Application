@@ -1,0 +1,6 @@
+headache
+fever
+headache
+rash
+cough
+fever
