@@ -1,0 +1,19 @@
+package com.hemebiotech.analytics;
+
+import java.util.List;
+import java.util.Map; // on donne un generique pour pouvoir dans la classe utiliser HasMap ou treeMap 
+
+/**
+ * Interface pour analiser une liste de symptomes 
+ */
+
+public interface ISymptomAnalyzer {
+
+	
+	/** 
+	 * @param liste contenant des noms de  symptomes
+	 * @return un Map associant des symptomes et leur occurence
+	 */
+	
+	Map<String, Integer> countSymptoms(List<String> symptoms);
+}
