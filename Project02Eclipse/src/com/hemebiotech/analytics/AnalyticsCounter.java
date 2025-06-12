@@ -3,6 +3,13 @@ package com.hemebiotech.analytics;
 import java.util.List;
 import java.util.Map;
 
+import Iclass.ISymptomAnalyzer;
+import Iclass.ISymptomReader;
+import Iclass.ISymptomWriter;
+import SERVICES.ReadSymptomDataFromFile;
+import SERVICES.SymptomAnalyzer;
+import SERVICES.WriteSymptomDataToFile;
+
 /**
  * Orchestre la lecture, l'analyse et l'écriture des symptômes.
  */
@@ -16,7 +23,7 @@ public class AnalyticsCounter {
         // Lecture des symptômes (List<String>)
         ISymptomReader reader = new ReadSymptomDataFromFile(inputFile);
         List<String> symptoms = reader.getSymptoms();
-
+       
         // Analyse des symptômes (Map<String, Integer>)
         ISymptomAnalyzer analyzer = new SymptomAnalyzer();
         Map<String, Integer> symptomCounts = analyzer.countSymptoms(symptoms);
