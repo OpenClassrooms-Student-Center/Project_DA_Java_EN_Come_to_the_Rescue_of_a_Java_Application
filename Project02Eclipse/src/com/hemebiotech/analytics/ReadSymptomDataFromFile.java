@@ -6,36 +6,30 @@ import java.io.IOException;
 import java.util.ArrayList; // class reelle qui implemente List
 import java.util.List;  // interface generique
 
-/**
- * Simple brute force implementation
- *
- */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
-	private String filepath; // private car juste dans cette class et filephath et le chemin a prendre. Ecrire symptom ici et trop figé dans l'ecrire dans main qui est le chef d'orchestre
+	private String inputFilepath; 
 	
-	/**
-	 * @param filepath : un chemin complet ou partiel vers un fichier contenant des symptômes, un par ligne
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath; // this parce que le nom du paramètre est le même que l’attribut.
+	
+	public ReadSymptomDataFromFile (String inputFilepath) {
+		this.inputFilepath = inputFilepath; 
 	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
+		@Override
+	public List<String> getSymptoms() {
+		ArrayList<String> result = new ArrayList<>();
 		
-		if (filepath != null) {
+		if (inputFilepath != null) {
 			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
+				BufferedReader reader = new BufferedReader (new FileReader(inputFilepath));
 				String line = reader.readLine();
 				
 				while (line != null) {
 					result.add(line);
 					line = reader.readLine();
 				}
-				reader.close();
+				reader.close(); // on ferme pour liberer les ressources
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace(); // Affiche l’historique complet des méthodes appelées jusqu’au moment où l’erreur s’est produite, pour aider à comprendre où et pourquoi le problème est survenu.
 			}
 		}
 		

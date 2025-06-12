@@ -1,7 +1,7 @@
 package com.hemebiotech.analytics;
 
 import java.util.List;
-import java.util.Map; // on donne un generique pour pouvoir dans la classe utiliser HasMap ou treeMap 
+import java.util.Map; 
 
 /**
  * Interface pour analiser une liste de symptomes 

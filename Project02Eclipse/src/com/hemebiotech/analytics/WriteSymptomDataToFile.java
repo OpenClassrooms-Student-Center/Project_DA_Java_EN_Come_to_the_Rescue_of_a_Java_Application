@@ -5,23 +5,17 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
-
 public  class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	private String outputFilePath;
 	
-	
-	public WriteSymptomDataToFile(String outputFilePath) {
+		public WriteSymptomDataToFile(String outputFilePath) {
 		this.outputFilePath = outputFilePath;
-		
-	}
-	  
-	// Méthode pour écrire dans le fichier
-	
+			}
+	  	
 	    public void writeSymptoms(Map<String, Integer> symptoms) // parametre de la methode
 	    {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) // try veut dire que ce bloc peut provoquer des erreurs
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath))) 
         {
             for (Map.Entry<String, Integer> entry : symptoms.entrySet()) { // on cree une boucle avec for pour parcourir le Map
                 String line = entry.getKey() + " = " + entry.getValue(); // + on va concaterner une clé a une valeur

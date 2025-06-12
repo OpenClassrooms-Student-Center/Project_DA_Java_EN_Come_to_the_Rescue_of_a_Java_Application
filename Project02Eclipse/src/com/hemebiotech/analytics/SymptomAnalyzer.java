@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class SymptomAnalyzer implements ISymptomAnalyzer {
 
   
-    @Override // renvois a l'interfase 
+    @Override 
     public Map<String, Integer> countSymptoms(List<String> symptoms) {
         Map<String, Integer> result = new HashMap<>();
 
@@ -20,7 +20,7 @@ public class SymptomAnalyzer implements ISymptomAnalyzer {
             		symptom = symptom.trim().toLowerCase();
             	       if (!symptom.isEmpty()) { // isEmpty retourne un boolean (vrai ou faux) donc c'est pour ca qu'on le separe de trim qui retourne un string.
             			
-            		result.put(symptom, result.getOrDefault(symptom, 0) + 1);
+            		result.put(symptom, result.getOrDefault(symptom, 0) + 1); // mise à jour du MAP
             		}
             	}
         	}

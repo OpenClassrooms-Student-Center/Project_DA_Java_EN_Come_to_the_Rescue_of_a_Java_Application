@@ -1,6 +1,5 @@
 package com.hemebiotech.analytics;
- // Interface donnée 
-
+ 
 import java.util.List;
 
 /**
@@ -12,9 +11,10 @@ import java.util.List;
  */
 public interface ISymptomReader {
 	/**
-	 * Si aucune donnée n'est disponible, retourne une liste vide.
-	 * 
 	 * @return une liste brute de tous les symptômes obtenus à partir d'une source de données. Des doublons sont possibles, voire probables.
 	 */
-	List<String> GetSymptoms ();
+	List<String> getSymptoms (); // "Cette interface définit une méthode GetSymptoms qui, 
+								//	lorsqu’elle sera implémentée par une classe, devra renvoyer une liste brute 
+								// de tous les symptômes obtenus
+								// à partir d’une source de données. La liste peut contenir des doublons."
 }
