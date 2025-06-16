@@ -2,7 +2,6 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 import java.util.Map;
-
 import Iclass.ISymptomAnalyzer;
 import Iclass.ISymptomReader;
 import Iclass.ISymptomWriter;

@@ -1,4 +1,4 @@
-package com.hemebiotech.analytics;
+package Iclass;
 
 import java.util.Map;
 
