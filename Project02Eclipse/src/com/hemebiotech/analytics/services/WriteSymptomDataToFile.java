@@ -1,8 +1,8 @@
-package SERVICES;
+package com.hemebiotech.analytics.services;
 
 import java.util.Map;
 
-import Iclass.ISymptomWriter;
+import com.hemebiotech.analytics.interfaces.ISymptomWriter;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

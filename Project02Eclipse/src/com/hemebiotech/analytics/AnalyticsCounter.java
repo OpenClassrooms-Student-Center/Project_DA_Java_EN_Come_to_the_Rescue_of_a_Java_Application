@@ -2,12 +2,13 @@ package com.hemebiotech.analytics;
 
 import java.util.List;
 import java.util.Map;
-import Iclass.ISymptomAnalyzer;
-import Iclass.ISymptomReader;
-import Iclass.ISymptomWriter;
-import SERVICES.ReadSymptomDataFromFile;
-import SERVICES.SymptomAnalyzer;
-import SERVICES.WriteSymptomDataToFile;
+
+import com.hemebiotech.analytics.interfaces.ISymptomAnalyzer;
+import com.hemebiotech.analytics.interfaces.ISymptomReader;
+import com.hemebiotech.analytics.interfaces.ISymptomWriter;
+import com.hemebiotech.analytics.services.ReadSymptomDataFromFile;
+import com.hemebiotech.analytics.services.SymptomAnalyzer;
+import com.hemebiotech.analytics.services.WriteSymptomDataToFile;
 
 /**
  * Orchestre la lecture, l'analyse et l'écriture des symptômes.

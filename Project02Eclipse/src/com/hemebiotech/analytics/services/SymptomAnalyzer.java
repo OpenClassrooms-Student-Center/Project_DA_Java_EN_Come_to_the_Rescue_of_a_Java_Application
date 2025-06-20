@@ -1,10 +1,10 @@
-package SERVICES;
+package com.hemebiotech.analytics.services;
 
 import java.util.List;
 import java.util.Map; // pas d'heritage de l'interface 
 import java.util.TreeMap;
 
-import Iclass.ISymptomAnalyzer;
+import com.hemebiotech.analytics.interfaces.ISymptomAnalyzer;
 
 import java.util.HashMap;
 

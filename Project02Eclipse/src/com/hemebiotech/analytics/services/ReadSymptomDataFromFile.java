@@ -1,11 +1,12 @@
-package SERVICES;
+package com.hemebiotech.analytics.services;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList; // class reelle qui implemente List
 import java.util.List;  // interface generique
-import Iclass.ISymptomReader;
+
+import com.hemebiotech.analytics.interfaces.ISymptomReader;
 
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
