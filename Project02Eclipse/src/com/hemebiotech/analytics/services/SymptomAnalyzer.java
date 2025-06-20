@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 import com.hemebiotech.analytics.interfaces.ISymptomAnalyzer;
 
-import java.util.HashMap;
+
 
 /**
  * Implémentation de l'interface.
