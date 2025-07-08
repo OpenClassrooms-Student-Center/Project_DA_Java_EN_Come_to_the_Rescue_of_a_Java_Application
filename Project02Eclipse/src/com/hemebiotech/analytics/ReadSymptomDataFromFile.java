@@ -6,11 +6,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Simple brute force implementation
  *
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
+	
+	private static Logger logger = LogManager.getLogger(ReadSymptomDataFromFile.class);
 
 	private String filepath;
 
@@ -38,11 +43,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 				}
 				reader.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("Unable to read the file.");
 			}
 		}
-
 		return result;
 	}
-
 }

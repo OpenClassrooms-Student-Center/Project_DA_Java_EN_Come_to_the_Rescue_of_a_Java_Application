@@ -3,7 +3,9 @@ package com.hemebiotech.analytics;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AnalyticsCounter {
@@ -11,7 +13,38 @@ public class AnalyticsCounter {
 	private static int rashCount = 0;
 	private static int dilatedCount = 0;
 
+	ISymptomReader reader;
+	ISymptomWriter writer;
+
 	// private static Logger logger = LogManager.getLogger(AnalyticsCounter.class);
+
+	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
+		this.reader = reader;
+		this.writer = writer;
+	}
+
+	public List<String> getSymptoms() {
+		return reader.getSymptoms();
+	}
+
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+		Map<String, Integer> count = new LinkedHashMap<String, Integer>();
+		for (String symptom : symptoms) {
+			count.put(symptom, count.getOrDefault(symptom, 0) + 1);
+		}
+		for (Map.Entry<String, Integer> entry : count.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue() + " times.");
+		}
+		return count;
+	}
+
+	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
+		return symptoms;
+	}
+
+	public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
+		writer.writeSymptoms(symptoms);
+	}
 
 	public static void main(String args[]) throws Exception {
 
@@ -39,12 +72,13 @@ public class AnalyticsCounter {
 			// logger.error("Impossible de lire le fichier.");
 		}
 
-		Map<String, Integer> symptoms = new LinkedHashMap<String, Integer>();
-		symptoms.put("headache", headacheCount);
-		symptoms.put("rash", rashCount);
-		symptoms.put("dilated", dilatedCount);
-		WriteSymptomDataToFile writer = new WriteSymptomDataToFile("result.out");
-		writer.writeSymptoms(symptoms);
+		 Map<String, Integer> symptoms = new LinkedHashMap<String, Integer>();
+		 symptoms.put("headache", headacheCount);
+		 symptoms.put("rash", rashCount);
+		 symptoms.put("dilated", dilatedCount);
+		 WriteSymptomDataToFile writer = new WriteSymptomDataToFile("result.out");
+		 writer.writeSymptoms(symptoms);
+
 		// FileWriter writer = new FileWriter ("result.out");
 		// writer.write("headache: " + headacheCount + "\n");
 		// writer.write("rash: " + rashCount + "\n");

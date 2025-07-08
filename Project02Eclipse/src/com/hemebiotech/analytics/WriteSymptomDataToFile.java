@@ -29,7 +29,6 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	@Override
 	public void writeSymptoms(Map<String, Integer> symptoms) throws IOException {
-
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filepath))) {
 			for (Map.Entry<String, Integer> entry : symptoms.entrySet()) {
 				writer.write(entry.getKey() + ": " + entry.getValue());
@@ -37,8 +36,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 			}
 
 		} catch (IOException e) {
-			logger.error("Impossible d'écrire dans le fichier.");
+			logger.error("Unable to write in the file.");
 		}
-
 	}
 }
