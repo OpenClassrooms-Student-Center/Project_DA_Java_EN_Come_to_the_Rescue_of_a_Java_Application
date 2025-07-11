@@ -10,7 +10,6 @@ public class AnalyticsCounter {
 	ISymptomReader reader;
 	ISymptomWriter writer;
 
-
 	public AnalyticsCounter(ISymptomReader reader, ISymptomWriter writer) {
 		this.reader = reader;
 		this.writer = writer;
@@ -20,6 +19,13 @@ public class AnalyticsCounter {
 		return reader.getSymptoms();
 	}
 
+	/**
+	 *Count symptoms from the file.
+	 *
+	 *@return map of counted symptom/value.
+	 *@param list of symptoms.
+	 */
+	
 	public Map<String, Integer> countSymptoms(List<String> symptoms) {
 		Map<String, Integer> counter = new LinkedHashMap<String, Integer>();
 		for (String symptom : symptoms) {
@@ -31,6 +37,13 @@ public class AnalyticsCounter {
 		return counter;
 	}
 
+	/**
+	 *Sort symptoms in alphabetical order.
+	 *
+	 *@return map of symptom/value in alphabetical order.
+	 *@param map of counted symptoms.
+	 */
+	
 	public Map<String, Integer> sortSymptoms(Map<String, Integer> symptoms) {
 		Map<String, Integer> sorter = new TreeMap<String, Integer>(symptoms);
 		System.out.println("Sorting : " + sorter);

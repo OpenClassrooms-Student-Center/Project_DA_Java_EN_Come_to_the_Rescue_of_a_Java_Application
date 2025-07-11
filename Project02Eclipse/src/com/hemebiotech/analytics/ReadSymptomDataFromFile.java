@@ -10,20 +10,22 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Simple brute force implementation
- *
+ * Interface implementation to get symptoms in the file.
  */
+
 public class ReadSymptomDataFromFile implements ISymptomReader {
-	
+
 	private static Logger logger = LogManager.getLogger(ReadSymptomDataFromFile.class);
 
 	private String filepath;
 
 	/**
+	 * Constructor for the file.
 	 * 
 	 * @param filepath a full or partial path to file with symptom strings in it,
-	 *                 one per line
+	 *                 one per line.
 	 */
+
 	public ReadSymptomDataFromFile(String filepath) {
 		this.filepath = filepath;
 	}
@@ -36,7 +38,6 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 			try {
 				BufferedReader reader = new BufferedReader(new FileReader(filepath));
 				String line = reader.readLine();
-
 
 				while (line != null) {
 					result.add(line);

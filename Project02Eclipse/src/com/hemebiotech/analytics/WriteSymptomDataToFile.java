@@ -9,9 +9,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Simple brute force implementation
- *
+ * Interface implementation to write to the file after sorting the list of
+ * symptoms retrieved from the file.
  */
+
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
 	private String filepath;
@@ -19,10 +20,13 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	private static Logger logger = LogManager.getLogger(WriteSymptomDataToFile.class);
 
 	/**
+	 * Constructor for the file.
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it,
-	 *                 one per line
+	 * @param filepath a full or partial path to output file including symptom
+	 *                 strings in alphabetical order and their values.
+	 * 
 	 */
+
 	public WriteSymptomDataToFile(String filepath) {
 		this.filepath = filepath;
 	}
