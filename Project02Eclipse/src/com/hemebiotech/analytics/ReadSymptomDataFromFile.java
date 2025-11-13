@@ -7,41 +7,49 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Simple brute force implementation
- *
+ * Implementation of the ISymptomReader interface.
+ * This class reads symptoms from a text file where each line represents one symptom.
+ * It returns a list of raw symptom strings, possibly with duplicates.
+ * 
+ * Example line in file: "headache"
+ * 
+ * @author Rebecca
  */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
-	private String filepath;
-	
-	/**
-	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
-	 */
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
-	}
-	
-	@Override
-	public List<String> GetSymptoms() {
-		ArrayList<String> result = new ArrayList<String>();
-		
-		if (filepath != null) {
-			try {
-				BufferedReader reader = new BufferedReader (new FileReader(filepath));
-				String line = reader.readLine();
-				
-				while (line != null) {
-					result.add(line);
-					line = reader.readLine();
-				}
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return result;
-	}
+    private final String filepath;
 
+    /**
+     * Constructor that sets the path of the file to be read.
+     *
+     * @param filepath The path to the symptom text file.
+     */
+    public ReadSymptomDataFromFile(String filepath) {
+        this.filepath = filepath;
+    }
+
+    /**
+     * Reads symptoms line by line from the text file and returns them in a list.
+     *
+     * @return A list of symptom strings. Empty if file is not found or unreadable.
+     */
+    @Override
+    public List<String> getSymptoms() {
+        List<String> result = new ArrayList<>();
+
+        if (filepath != null) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filepath))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    if (!line.trim().isEmpty()) {
+                        result.add(line.trim());
+                    }
+                }
+            } catch (IOException e) {
+                System.err.println(" Failed to read file: " + e.getMessage());
+            }
+        }
+
+        return result;
+    }
 }
